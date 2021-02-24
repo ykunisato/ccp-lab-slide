@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>メタ分析</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="国里愛彦（専修大学）" />
+    <script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# メタ分析
+### 国里愛彦（専修大学）
+### 2021年3月1日
+
+---
+
+
+
+&lt;!--
+45分の持ち時間は、解説40分＋質疑応答5分
+--&gt;
+# メタ分析（系統的展望）とは？
+
+- 明確な研究疑問に従って，過去の研究を系統的・包括的に収集し，批判的吟味をした上で.med[（系統的展望）]，量的に統合する.med[（メタ分析）]研究方法
+
+--
+
+- メタ分析はピアソンから始まり，アイゼンクの心理療法の効果の議論の後に，スミスとグラスによってまとめられた研究法方法になる（山田・井上,2012）。
+
+--
+
+- 心理学の中で発展していったものだが，90年代以降のEBMの発展に伴って，疫学領域で実施方法の洗練化が進む。
+- 本発表は，疫学領域のメタ分析をベースにしている。
+
+---
+&lt;!--研究デザイン--&gt;
+&lt;img src="pic/02.png" width="800"&gt;
+---
+# エビデンスの階層表(Greenhalgh, 1997)
+
+- エビデンスの階層表において，系統的展望とメタ分析は，最も強いエビデンスになる。
+
+&lt;img style="float: right;" src="pic/01.png" width="400"&gt;
+.med[
+1. 系統的展望とメタ分析
+2. RCT（決定的な差のある）
+3. RCT（決定的な差はない）
+4. コホート研究
+5. ケースコントロール研究
+6. クロスセクショナル研究
+7. ケース報告
+8. 偉い雰囲気の人の意見，動物実験など（国里加筆）
+]
+--
+
+- しかし！適切に実施された系統的展望に限る！
+---
+# 研究報告ガイドライン
+
+臨床研究では，研究報告ガイドラインが整備されている。
+
+.med[
+1. 系統的展望とメタ分析:[PRISMA声明](http://www.prisma-statement.org/)（日本語解説は，卓他(2011)や国里(2015))
+1. RCT:[CONSORT声明](http://www.consort-statement.org/)([拡張版](http://www.consort-statement.org/extensions)もあり心理療法など非薬物療法的介入版もある。日本語解説は，奥村(2014))
+1. 観察研究：[STROBE声明](https://strobe-statement.org/index.php?id=strobe-home)(日本語解説は，竹林(2014))
+1. 健康関連質問紙の評価と作成：[COSMINチェックリスト](https://www.cosmin.nl/)(日本語解説は，土屋(2014))
+1. ケース報告:[CAREガイドライン](https://www.care-statement.org/)(日本語解説は，谷(2015))
+]
+
+- 以降は，PRISMA声明とコクランの資料.red[.med[(作業標準書(Higgins &amp; Thomas, 2019)とCochrane Handbook for Systematic Reviews of Interventions(Higgins et al., 2019))]]を中心に説明する。
+---
+# PRISMA声明(Moher et al., 2009)
+.med[
+[PRISMA](http://www.prisma-statement.org/ )には，以下の拡張版がある。
+
+- PRISMA for Protocols（プロトコル作成）
+- PRISMA for Scoping Reviews（スコーピングレビュー, 日本語解説は友利他,2020）
+- PRISMA for Abstracts(学会や雑誌の抄録)
+- PRISMA Equity（健康格差）
+- PRISMA Harms (有害事象をアウトカムに含むレビュー)
+- PRISMA Individual Patient Data（個人レベルの患者データのメタ分析）
+- PRISMA for Network Meta-Analyses（ネットワークメタ分析）
+- PRISMA for Diagnostic Test Accuracy（診断精度研究）
+- PRISMA for Acupuncture（鍼治療）
+- PRISMA for Searching（検索）
+]
+---
+# APAのMeta‐Analysis Reporting Standards (MARS)
+
+- PRISMAなどの医学系の報告ガイドラインだけでなく，APAもメタ分析の報告ガイドラインを作成している(Cooper, H., 2020)。
+- 先行する医学系の報告ガイドラインを参考に作成しているので，大枠ではPRISMAと変わらないが，心理学に合わせて調整している.med[(疫学系で重視されるバイアスリスクについては心理学全般で使える評価法がないので，内的妥当性のリスクのアセスメント法を記載するようにとだけ書いてある)]
+
+- .med[非臨床系でAPA系雑誌に投稿する場合は良いのかなあ・・・]
+
+---
+# レビュー論文もいろいろ
+
+レビューは，大まかに以下の３つに分けられる(卓他,2020)。
+
+1. システマティックレビュー（系統的展望）.med[：プロトコルの事前登録，透明性の高い検索方略とデータ抽出，個々の研究の質の評価，メタ分析と総合的な提案を含めた考察を満たすレビュー]
+1. スコーピングレビュー：.med[プロトコルの作成，透明性の高い検索方略とデータ抽出を満たすレビュー（システマティックレビューの前段階に位置づけられる。発見的なレビュー）]
+1. ナラティブレビュー：.med[上記を満たしていないレビュー]
+
+-  システマティックレビュー &gt; スコーピングレビュー &gt; ナラティブレビューの順番で求められるものが高くなる。
+---
+# 系統的展望の手順
+
+1. 研究疑問を作成し，スコープを決める
+1. 研究の検索
+1. 研究の選択とデータ収集
+1. バイアスのリスクの評価
+1. メタ分析
+1. 結果の評価と解釈
+
+---
+# 系統的展望の手順
+
+1. .red[研究疑問を作成し，スコープを決める]
+1. 研究の検索
+1. 研究の選択とデータ収集
+1. バイアスのリスクの評価
+1. メタ分析
+1. 結果の評価と解釈
+
+---
+# 研究疑問を作成し，スコープを決める
+- 臨床研究の場合，**PICO**（患者，介入，比較対象，アウトカム）や**PECO**（患者，曝露，比較対象，アウトカム）を使って疑問を定式化する。
+
+→心理学においても，どのような対象に対して，どのような独立変数が，どのような従属変数に影響を与えるか明確にする。
+
+- アウトカム（心理学だと従属変数）を事前に定める.med[（臨床研究だと有益なアウトカムと有害なアウトカムを１つずつ選ぶ，最大７つ）]
+- アウトカムの測定方法は複数あるので.med[（例.うつ症状を測定する多数の尺度）]，レビューに含めるものを事前に定める。
+
+---
+# 適格基準を事前に定める
+
+- 適格基準を事前に決めておかないと，研究者の求める結果に合わせて研究の組入・除外ができてしまう。
+- 対象者，介入・曝露（独立変数），対象条件，アウトカム（従属変数），研究デザイン，言語・地域，出版状況（未発表データをいれるか）を明確に決めておく。
+- 研究の多様性を包含できるように十分に広く設定するとよいが，意味のある結論が導ける程度に狭くしておく必要がある（.med[精神障害への心理療法の効果は広すぎる，神奈川県の私大生への国里メソッドによる抑うつ予防効果は狭すぎる]）。
+
+---
+# 事前登録
+- 系統的展望は，**事前に系統的展望のプロトコルを決めてから実施する**必要がある。
+- 研究疑問・適格基準を決め，その後のレビューの方法（検索，バイアスのリスク評価，結果の統合方法，サブグループ解析の計画，結果の評価方法）をプロトコルに記載し，以下のサイトに登録する。
+- [PROSPERO](https://www.crd.york.ac.uk/PROSPERO/)は系統的展望の事前登録サイト（登録までに時間がかかる，レビューの種類によっては却下される）
+- [osf.io](https://osf.io/)は，事前登録はすぐに可能であり，心理学ではおすすめである（日本語解説資料も増えてきた）。
+---
+# 系統的展望の手順
+
+1. 研究疑問を作成し，スコープを決める
+1. .red[研究の検索]
+1. 研究の選択とデータ収集
+1. バイアスのリスクの評価
+1. メタ分析
+1. 結果の評価と解釈
+
+---
+# 研究の検索
+
+出版バイアスを小さくするために，複数の方法を用いて，包括的・系統的に文献を探す。
+.med[
+1. 一般的な書誌データベースの検索（CENTRAL,MEDLINE,Embaseなど）
+1. 専門書誌データベースの検索(テーマに合わせて，国別，地域別，テーマ別の書誌データベースを検索する。心理系だとPyscINFOなど)
+1. 臨床試験登録サイトを検索(Clinical Trials,OSFでのRegistrationsなど)
+1. 灰色文献の検索(報告書，学位論文，卒業論文，学会抄録などの未公表データ)
+1. 過去の同じトピックのレビュー内検索
+1. 入手した文献や関連するレビューの引用文献リストの検索
+1. 未公表研究の関係者や団体へ問い合わせをする
+]
+---
+# 検索方略を構築する
+
+- 検索式を作る.med[（基本はPとIと研究デザインを指定する。心理学の場合は，IやEとOかもしれない。感度を最大にして，妥当な精度が担保される検索式を検討する。ANDやOR演算子を適切に利用する）]
+- 統制用語の使用.med[(例えば，MEDLINEのMeSHは医学関係の用語集で論文と関連づけられており，検索で使える)]，フリーテキスト用語の工夫.med[(異なったつづり，同義語，標準頭字語，前方一致，近接演算子など)]，検索フィルターの使用.med[（検索データベースごとに設定されている）]
+- 検索が再現できるように，検索過程（情報源，時期，担当者，検索用語）について文章化しておく。
+
+---
+# 系統的展望の手順
+
+1. 研究疑問を作成し，スコープを決める
+1. 研究の検索
+1. .red[研究の選択とデータ収集]
+1. バイアスのリスクの評価
+1. メタ分析
+1. 結果の評価と解釈
+
+---
+**PRISMA Flow diagram** .med[検索して特定した論文数，スクリーニングで残った論文数，適格基準を満たした論文数，メタ分析に含んだ論文数を記録する]
+&lt;img style="float: right;" src="pic/06.png" width="550"&gt;
+
+---
+# 研究のスクリーニングと適格基準の検討
+
+- (少なくとも)**２人の人間が独立に**作業し，意見の相違があった場合に解決する方法を決める。
+- 最初にタイトルと要約に基づいたスクリーニングを実施し，そこで残った研究について，全文に基づいた適格性の判断を行う。
+- 適格基準を満たした研究は，使用可能なデータがないとしても，レビューに含める.med[（メタ分析には含められないが，利用可能なデータが報告されてないこともわかるようにしておく）]
+- スクリーニングは除外した研究の数の報告だけでよいが，適格基準から除外した研究は，理由が必要になる.med[（除外理由は，おおまかに分類する）]
+
+---
+# 具体的な研究選択手順
+
+1. DBで文献検索して，文献情報をエクスポート
+1. 文献管理ソフト（Zoteroなど）にインポートして統合
+1. 文献管理ソフトで重複を削除する
+1. 文献管理ソフトからRIS形式でエクスポートし，Rayyanなどのレビュー支援ソフトにインポートする
+1. Rayyan上で，**2名が独立して**タイトルとアブストでスクリーニング.med[(不一致は話し合ったり，第３者を含めて解決する)]
+1. 研究の全文を入手し，同じ研究の複数の報告はまとめる
+1. Rayyan上で，**2名が独立して**全文で適格基準を満たすか検討.med[(不一致は話し合ったり，第３者を含めて解決する。不明点は原著者に問い合わせをする)]
+
+---
+# Rayyan QCRI
+
+- [Rayyan QCRI](https://rayyan.qcri.org/welcome)は，スクリーニングや適格性の検討において「**２人の人間が独立に**作業し，意見の相違があった場合に解決する」のを支援してくれるウェブアプリケーション。
+&lt;img style="float: right;" src="pic/04.png" width="400"&gt;
+
+- 文献管理ソフトからタイトル・アブストをインポートして，見やすいUIで組入・除外の評価がサクサクできる。
+- 独立にブラインドで評価ができる仕組みが用意されている（意見が一致してない論文もまとめてくれるので楽です）。
+
+---
+# 研究からデータを収集する
+
+- 各研究の文献から**研究の特性**.med[(例えば，参加者，介入，比較条件，アウトカム，研究デザイン)]と**アウトカムデータ**を抽出するために，(少なくとも)**２人の人間が独立に**作業し，意見の相違があった場合に解決する方法を決めておく。
+- [Cochrane共同計画のデータ抽出フォーム](https://training.cochrane.org/data-collection-form-rcts)がある.med[(RCT用なので，心理学や研究テーマに合わせて調整する必要がある)]。
+- データ抽出方法は，(1)紙，(2)Googleフォームなどのオンラインフォームを自作，(3)RevManなどのソフトの使用.med[[各種データ抽出ツールをまとめたサイトが参考になる](https://hslib.jabsom.hawaii.edu/systematicreview/dataextraction)]がある。
+- RevManなどは便利だが，心理学用にカスタマイズする場合は，Google Formの方がやりやすいかもしれない。
+
+---
+# RevMan
+
+- Cochrane共同計画が作成するメタ分析用のソフトウェア
+&lt;img style="float: right;" src="pic/05.png" width="400"&gt;
+- プロトコルの作成，研究選択，データ抽出，分析，報告書の作成までできる。
+- すごく高機能なソフトウェアだが.med[(報告されている数値から逆算してほしい数値を計算する機能がある)]，コクランレビュー向けの機能も多いので（臨床研究向け），心理学だとデータ抽出やメタ分析で使うくらいかも？.med[（心理学特有のデータを抽出したい場合は，エクセル？）]
+- ちょっと癖があるので，[rws第六回その3revmanでのメタ・アナリシス・ハンズオン](https://www.slideshare.net/srws/201707srws3revman)を参照されると良いと思います。
+---
+# データ抽出時の注意
+
+- 研究の正誤表や撤回文がないか確認する.med[（研究発表後に見つかった問題点によっては，評価やデータ抽出に影響がある可能性がある）]
+- 未出版データを入手する.med[（論文に記載されてない情報やまだ論文にはなってない情報がある場合は，できるだけ著者に問い合わせをして入手することが望ましい）]
+- データ抽出者間で結果が一致するように，事前にデータ抽出フォームの使い勝手なども検討する.med[論文では直接報告されてないので計算して求める場合の方法なども事前に決めておく]
+- データ抽出は手動で行われるのでミスが混入することを前提にして，入力ミスのチェックをする.med[（例えば，フォレストプロットが元論文と同じ方向に同じくらいの効果を示している確認する）]
+
+---
+# 系統的展望の手順
+
+1. 研究疑問を作成し，スコープを決める
+1. 研究の検索
+1. 研究の選択とデータ収集
+1. .red[バイアスのリスクの評価]
+1. メタ分析
+1. 結果の評価と解釈
+
+---
+
+# 研究の質の評価
+
+- スミスとグラスのメタ分析に対して，アイゼンクが「garbage in, garbage out」と批判（山田・井上，2012）。
+
+→グラスとスミスは，質の評価をメタ分析に組み込んで批判に反論した
+
+- 心理学でのメタ分析において，個々の研究の質の評価は難しいとされるが（山田・井上，2012），疫学領域では研究デザインに従った個々の研究の評価ツールが開発されている。
+
+---
+# Risk of Biasの評価
+
+- (少なくとも)**２人の人間が独立に**個々の研究のバイアスのリスクを評価し，意見の相違があった場合に解決する方法を決める。その根拠も記載する。
+- コクランではRCTの評価にRoB2, 非ランダム化介入研究の評価にROBINS-Iを使用するとされるが.med[([コクランのResources](https://methods.cochrane.org/bias/resources))]，介入研究以外のツールも整備が進んでいる。
+.med[
+- [RoB2](https://sites.google.com/site/riskofbiastool/welcome/rob-2-0-tool?authuser=0):ランダム化比較試験の質の評価
+- [ROBINS-I](https://sites.google.com/site/riskofbiastool/welcome/home?authuser=0):ランダム化していない介入研究の質の評価
+- [QUADAS2](http://www.bristol.ac.uk/population-health-sciences/projects/quadas/quadas-2/):診断精度研究の質の評価
+- [COSMIN Risk of Bias tool](https://www.cosmin.nl/tools/guideline-conducting-systematic-review-outcome-measures/):健康関連尺度の質の評価
+- [ROBINS-E](http://www.bristol.ac.uk/population-health-sciences/centres/cresyda/barr/riskofbias/robins-e/)：観察研究の質の評価(開発中)
+]
+- 今後は心理学でも必要？
+---
+# RoB2
+
+個々の研究について，５つのドメインから評価する
+
+1. **ランダム化過程におけるバイアス**.med[(割付の順序がランダム，割付の隠蔽化，ベースラインに差がない等)]
+1. **意図した介入からの逸脱によるバイアス**.med[(参加者の盲検化，スタッフの盲検化，盲検化してない場合に意図した介入からの逸脱はない，ITTなどの適切な解析が行われている等)]
+1. **アウトカムの欠測によるバイアス**.med[(アウトカムの欠測はない，欠測があってもバイアスはないか欠測は介入効果に依存しないといえる等)]
+1. **アウトカムの測定によるバイアス**.med[(アウトカムの測定法が適切，測定に群間差がなく，評価者が介入情報を知らない等)]
+1. **選択的報告バイアス**.med[(アウトカムが複数の方法で測定・分析されているが，それは事前登録した計画である)]
+
+---
+# RoB2
+
+- **ドメイン評価**：個々の研究について，各ドメイン内の質問に回答した上で，バイアスリスクについて，Low，Some concerns, Highの３段階で評価する（判断はアルゴリズム化されている）。介入条件に有利などのバイアスの方向性も評価する
+- **総体評価**：個々の研究をLow(全ドメインがLow)，Some concerns(Highはないけど，１つ以上のドメインでconcernはある), High（１つ以上のドメインでHighがあるor複数のドメインでconcernsがあり）で評価
+
+※[RoB2のサイト](https://sites.google.com/site/riskofbiastool/welcome/rob-2-0-tool?authuser=0)に詳細マニュアルとエクセルマクロなどが用意
+---
+# RoB2の例
+
+![](meta_analysis_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+
+---
+# バイアス評価の利用
+
+- 評価したバイアスのリスクはメタ分析に組み込む
+1. 感度分析に使う.med[（バイアスの高い研究を入れる場合といれない場合で比較）]
+1. バイアスリスクに応じて層別解析
+1. バイアスリスクが高い研究を除外して解析する
+
+- エビデンスの確実性（言い換えると独立変数と従属変数の因果関係についての確信度）の評価に，バイアスリスクの総体評価を組み込む(GRADEアプローチの推奨の作成)。
+
+---
+# 系統的展望の手順
+
+1. 研究疑問を作成し，スコープを決める
+1. 研究の検索
+1. 研究の選択とデータ収集
+1. バイアスのリスクの評価
+1. .red[メタ分析]
+1. 結果の評価と解釈
+
+---
+# メタ分析の一般的手順
+
+1. 個々の研究の効果量を計算する
+1. 個々の研究の効果量を統合(事前に決めた固定効果モデルかランダム効果モデルを使用)
+1. 統計学的異質性を評価
+1. 事前に計画したサブグループ解析の実施
+1. 感度分析の実施
+1. 非報告バイアス（出版バイアス）を検討
+---
+# メタ分析の一般的手順
+
+1. **個々の研究の効果量を計算する**
+1. 個々の研究の効果量を統合(事前に決めた固定効果モデルかランダム効果モデルを使用)
+1. 統計学的異質性を評価
+1. 事前に計画したサブグループ解析の実施
+1. 感度分析の実施
+1. 非報告バイアス（出版バイアス）を検討
+---
+# 連続変数における２群の差の効果量
+
+**２群の差は，標準化平均値差(Hedgesのg)を用いる**
+
+- `\(Hedgesのg = \frac{介入群の平均-統制群の平均}{２群をプールした標準偏差}\)`
+- `\(2群をプールした標準偏差=\sqrt{\frac{(n_{介入}-1)\hat{\sigma}^{2}_{介入}+(n_{統制}-1)\hat{\sigma}^{2}_{統制}}{(n_{介入}+n_{統制}-2)}}\)`
+
+.med[
+＊ `\(\hat{\sigma}^{2}\)`は不偏分散。他にCohenのdやGlassの⊿もあるが，バイアスを修正した効果量のHedgesのgがよく使用される
+]
+
+- `\(標準化平均値差の分散=\frac{n_{介入}+n_{統制}}{n_{介入}n_{統制}}+\frac{g^2}{2(n_{介入}+n_{統制})}\)`
+- `\(標準化平均値差の標準誤差=\sqrt{標準化平均値差の分散}\)`
+
+.med[分散と標準偏差は効果量とサンプルサイズで決まる]
+
+---
+# ２つの連続変数の関連の効果量
+
+** ２変数間の関連の強さは，ピアソンの積率相関係数を用いる**
+
+- `\(r = \frac{共分散_{x,y}}{標準偏差_{x}標準偏差_{y}}\)`
+- `\(相関係数の分散 = \frac{(1-r^2)^2}{n-1}\)`
+
+- 統計学的特性の望ましさから，フィッシャーのZ変換を用いることが多い。
+
+- `\(z = 0.5ln(\frac{1+r}{1-r})\)`
+- `\(zの分散 = \frac{1}{n-3}\)`
+
+---
+**２値変数（あり・なし）の効果量**
+
+1. リスク差=介入群のありの比率-統制群のありの比率
+1. `\(治療必要数=\frac{1}{リスク差}\)`
+1. `\(リスク比=\frac{介入群のありの比率}{統制群のありの比率}\)`
+1. `\(オッズ比=\frac{\frac{介入群のありの比率}{1-介入群のありの比率}}{\frac{統制群のありの比率}{1-統制群のありの比率}}\)`
+
+
+.med[
+＊　例えば `\(介入群の寛解比率=\frac{介入群で寛解した人数}{介入群の人数}\)` 。リスク差や治療必要数(Number needed to treat)は解釈しやすいが，計算上オッズ比が便利なので，オッズが使用される。さらに対数オッズ比(ln(オッズ比))を使う（1を起点に解釈→0を起点に解釈，分散も計算がしやすい）。
+]
+
+.small[
+`\(オッズ比の分散=介入群ありの比率+介入群なしの比率+統制群ありの比率+統制群なしの比率\)`
+]
+
+---
+# メタ分析の一般的手順
+
+1. 個々の研究の効果量を計算する
+1. **個々の研究の効果量を統合(事前に決めた固定効果モデルかランダム効果モデルを使用)**
+1. 統計学的異質性を評価
+1. 事前に計画したサブグループ解析の実施
+1. 感度分析の実施
+1. 非報告バイアス（出版バイアス）を検討
+---
+# メタ分析は難しくない。
+
+# それぞれの研究の効果量を重みをつけて平均するだけ！
+
+
+---
+# え，それだけ？
+
+&lt;img src="pic/10.png" width="400"&gt;
+
+---
+# それだけ。.small[モデルや推定法でチョット変わるけどね...]
+
+&lt;img src="pic/11.png" width="280"&gt;
+
+- メタ分析前に，そもそも実施が適切か（意味ある？）考えよう!メタ分析の詳細は，井上・山田(2012)の説明が分かりやすい。
+
+---
+# 固定効果モデル
+&lt;img style="float: right;" src="pic/07.png" width="400"&gt;
+- １つの真の効果を仮定し，個々の研究の効果は真の効果と研究内分散(標本誤差)によるとするモデル
+- General variance based法による平均値差の統合の場合，重みは付けは，各研究の効果量の分散の逆数を使う。
+
+`\(統合された効果量=\frac{\Sigma W_{i}Y_{i}}{\Sigma W_{i}}=\frac{(各研究の重みW_{i}*各研究の効果量Y_{i})の合計}{各研究の重みW_{i}の合計}\)`
+`\(W_{i} = \frac{1}{V_{i}} = \frac{1}{効果量の分散V_{i}}\)`
+
+---
+# 固定効果モデル
+
+- 統合された効果量の標準誤差は，各研究の重みの合計から計算される（分散の逆数の合計の逆数）
+
+`\(統合された効果量の標準誤差=\sqrt{\frac{1}{各研究の重みW_{i}の合計}}\)`
+
+- 95%信頼区間(CI)は，以下のように計算する。
+
+.med[
+`\(95\%CIの下限=統合された効果量-1.96*統合された効果量の標準誤差\)`
+
+`\(95\%CIの上限=統合された効果量+1.96*統合された効果量の標準誤差\)`
+]
+---
+# ランダム効果モデル
+- 真の効果を分布として考えて，研究ごとに真の効果が異なると仮定する。
+
+&lt;img style="float: right;" src="pic/08.png" width="550"&gt;
+
+- 個々の研究の効果は，真の効果の分布の平均値(μ)と研究間分散( `\(\tau^2\)` )と研究内分散(標本誤差）によるとするモデル
+
+---
+# ランダム効果モデル
+.med[
+- 平均値差の統合(DerSimonian-Laird法)では，以下のように，重み付けに研究間分散( `\(\tau^2\)` )と研究内分散( `\(V_{i}\)` ）を用いる。
+
+1.固定効果モデルを用いて統合された効果量を算出し，Qを計算する(Tは個々の研究の効果量 `\(\bar{T}\)` は統合された効果量)。Qは研究間のばらつきの程度。
+
+`\(Q = \Sigma W_{i}(T_{i}-\bar{T})^2\)`
+
+2.Qを用いて，研究間分散( `\(\tau^2\)` )を計算する。
+
+`\(\tau^2 = \frac{Q-(k-1)}{\Sigma W_{i} - \frac{\Sigma W^2_{i}}{\Sigma W_{i}}}\)` 
+
+3.重み付けの計算に `\(\tau^2\)`  `\(V_{i}\)` を用いる以外は，以降は固定効果モデルと同じ。
+
+`\(W_{i} = \frac{1}{V_{i}+\tau^2}\)` 
+
+]
+
+---
+# ランダム効果モデル
+- DerSimonian-Lairdの他に，.med[Paule-Mandel, Restricted Maximum-Likelihood, Maximum-likelihood, Hunter-Schmidt, Sidik-Jonkman, Hedges, Empirical Bayes]がある(Rのmeta パッケージで利用可能)。
+- DerSimonian-Lairdがよく使われるが，それはRevManで使われているなどの理由であって，Maximum-Likelihood, Sidik-Jonkman, Empirical Bayesの方が研究間変動の推定には良い性質がある(Harrer rt al., 2019)
+- **なお，ランダム効果か固定効果かは事前登録の段階で決める。**
+---
+# メタ分析の一般的手順
+
+1. 個々の研究の効果量を計算する
+1. 個々の研究の効果量を統合(事前に決めた固定効果モデルかランダム効果モデルを使用)
+1. **統計学的異質性を評価**
+1. 事前に計画したサブグループ解析の実施
+1. 感度分析の実施
+1. 非報告バイアス（出版バイアス）を検討
+---
+### 概念的異質性
+
+- 論文を精査することで明らかとなる質的な研究間の違い
+- （臨床研究の場合）臨床的異質性：年齢，性別，人種，重症度，合併症など患者集団の違い
+- 方法論的異質性：治療法，治療期間，治療者の経験など方法の違い
+
+### 統計学的異質性
+
+- 統計学的に明らかとなる研究ごとの効果のばらつき
+
+→統計学的異質性も概念的異質性もある場合：(1)メタ分析しない,(2)サブグループ解析・メタ回帰分析の実施
+---
+# 統計学的異質性
+
+- ランダム効果モデルのQを使った検定もあるが，研究数が多いと有意になりやすい.med[（有意じゃなくても検定力低いだけ？）]
+
+→ 検定ではなく，Higgins et al.(2003)の `\(I^2=\frac{Q-(k-1)}{Q}100\)` のような記述的指標を用いて判断をする。 `\(I^2\)` は，効果量のバラツキの内，効果量の異質性が占める割合を％で表している。
+
+- `\(I^2\)` のおおまかな目安
+.med[
+- 40%以下 : 異質性は問題ではないかも
+- 30~60% : 中程度の異質性があるかも
+- 50~90% : 実際に異質性があるかも
+- 75~100% : 無視できない異質性がある
+]
+---
+# メタ分析の一般的手順
+
+1. 個々の研究の効果量を計算する
+1. 個々の研究の効果量を統合(事前に決めた固定効果モデルかランダム効果モデルを使用)
+1. 統計学的異質性を評価
+1. **事前に計画したサブグループ解析の実施**
+1. **感度分析の実施**
+1. 非報告バイアス（出版バイアス）を検討
+---
+**サブグループ解析**
+
+- 異質性を生むと考えられるサブグループを特定して（患者の特性，方法など），分けて効果量の統合をする。
+
+→.red[プロトコルの段階で計画を立てる]
+
+**感度分析**
+
+- 適格基準や統合方法を変えても今回の結果が頑健に得られるか確認する。
+
+→(1)適格基準の変更.med[（患者の特徴を変えても変わらない？）],(2)分析データの変更.med[（調整済み効果量では？）]，(3)分析法の変更.med[(固定効果とランダム効果モデルで大きな差はないか？)]
+---
+# メタ分析の一般的手順
+
+1. 個々の研究の効果量を計算する
+1. 個々の研究の効果量を統合(事前に決めた固定効果モデルかランダム効果モデルを使用)
+1. 統計学的異質性を評価
+1. 事前に計画したサブグループ解析の実施
+1. 感度分析の実施
+1. **非報告バイアス（出版バイアス）を検討**
+---
+&lt;img style="float: right;" src="pic/09.png" width="550"&gt;
+**出版バイアス**
+
+.med[
+ネガティブな結果が出版されにくいと，効果を過剰評価するかもしれない（Funnel plotやEggerの検定などで出版バイアスを確認）。
+
+出版バイアスがある場合は，Trim-fill法などで効果の過大視を調整する。
+
+.med[Trim-fill法:偏った側からデータを除外して，左右が対称になるように調整する。その後，除外したデータ戻した上で，反対側にデータを追加する]
+]
+
+---
+class: center, middle
+
+# メタ分析してみよう！
+
+---
+**JASP(無料)**
+&lt;img src="pic/03.png" width="690"&gt;
+
+**STATA(有料)**.med[岡田・小野寺(2018)『実践的メタ分析入門』に詳しい]
+
+---
+# Rでメタ分析
+
+- 個人的にRが好きなので.med[(本スライドもRで作っています)]，以降ではRでメタ分析を実施する方法を説明します。
+- Rは，GUIじゃないので敬遠される部分もありますが，逆に言うと，以降のコードをコピペすれば解析できます。
+
+- Rのメタ分析の資料としては，[『Doing Meta-Analysis in R : A Hands-on Guide』(Harrer, M., Cuijpers, P., Furukawa,T.A., Ebert, D.D.)](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/import-excel.html)を超える資料はないのではないかと思います（Cuijpers先生と古川先生も共著！）。ネットで見れます。
+
+---
+### Rを使う準備
+
+1.RとRStudioをインストールする
+
+- [R](https://cran.r-project.org/)
+- [RStudio](https://rstudio.com/products/rstudio/download/)
+
+2.Rパッケージをインストールする(使用するのはmetaとdmetarになる。devtoolsはGitHub経由でdmetarをインストールするために必要)。
+
+```r
+install.packages("meta")
+install.packages("devtools")
+devtools::install_github("MathiasHarrer/dmetar")
+```
+
+---
+### 2群の平均値差:データ準備
+
+
+```r
+# パッケージの読みこみ
+library(dmetar)
+library(meta)
+# データを作る（Mは平均，Sは標準偏差，Nは人数，eが介入・実験群，cが統制群）
+Me &lt;- c(35, 40, 35, 22, 38, 31, 29, 28)
+Se &lt;- c(7.5, 8.2, 5.9, 10.4, 8.8, 9.1, 6.4, 4.6)
+Ne &lt;- c(15, 32, 18, 22, 27, 42, 29, 17)
+Mc &lt;- c(20, 23, 30, 10, 22, 25, 19, 20)
+Sc &lt;- c(6.5, 4.3, 5.7, 7.8, 6.9, 10.4, 7.1, 6.5)
+Nc &lt;- c(16, 30, 19, 21, 29, 40, 32, 18)
+Author&lt;- c("Senshu (1923)","Waseda (1920)","Doshisha (1920)","Kangaku (1932)","Keio (1920)","Ritsumei (1922)","Kinki (1943)","Toyo (1928)")
+Subgroup &lt;- c("East","East","West","West","East","West","West","East")
+# データフレームを作る
+data_meta &lt;- data.frame(Author, Me, Se, Ne, Mc, Sc, Nc, Subgroup)
+```
+
+---
+### 2群の平均値差：メタ分析の実施
+.med[
+- metaパッケージの連続変数用メタ分析関数のmetacontを使う。
+- comb.fixedが固定効果，comb.randomがランダム効果になる。
+- method.smdは，デフォルトが"Hedges"だが，"Cohen"や"Glass"も選べる。
+- method.tauは，デフォルトがDL(DerSimonian-Laird)だが他にも選択できる。今回は，最尤法(ML)を選択した。
+]
+
+```r
+# メタ分析
+result_meta &lt;- metacont(Ne,Me,Se,Nc,Mc,Sc,
+                  data = data_meta,
+                  studlab = paste(Author),
+                  comb.fixed = TRUE,
+                  comb.random = TRUE,
+                  prediction = FALSE,
+                  sm = "SMD",
+                  method.smd = "Hedges",
+                  method.tau = "ML")
+```
+---
+### 2群の平均値差：メタ分析結果
+
+&lt;img src="pic/14.png" width="500"&gt;
+
+---
+### 2群の平均値差：フォレストプロット
+
+
+```r
+forest(result_meta)
+```
+
+&lt;img src="pic/15.png" width="850"&gt;
+---
+### 2群の平均値差：異質性の確認
+
+
+```r
+summary(result_meta)
+```
+
+```
+## Number of studies combined: k = 8
+## 
+##                         SMD           95%-CI     z  p-value
+## Fixed effect model   1.3690 [1.1466; 1.5914] 12.06 &lt; 0.0001
+## Random effects model 1.4895 [1.0552; 1.9239]  6.72 &lt; 0.0001
+## 
+## Quantifying heterogeneity:
+##  tau^2 = 0.2782 [0.0838; 1.6462]; tau = 0.5275 [0.2895; 1.2830]
+##  I^2 = 77.6% [55.8%; 88.7%]; H = 2.11 [1.50; 2.97]
+## 
+## Test of heterogeneity:
+##      Q d.f.  p-value
+##  31.30    7 &lt; 0.0001
+## 
+## Details on meta-analytical method:
+## - Inverse variance method
+## - Maximum-likelihood estimator for tau^2
+## - Q-profile method for confidence interval of tau^2 and tau
+## - Hedges' g (bias corrected standardised mean difference)
+```
+
+&lt;img src="pic/16.png" width="550"&gt;
+
+---
+
+class: middle
+
+異質性に関連した外れ値の検討，Influence Analyses，GOSH Plot Analysisは省略しました。詳細は，[Doing Meta-Analysis in R : A Hands-on Guide](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/import-excel.html)を確認ください
+
+---
+### 2群の平均値差：出版バイアス
+
+
+```r
+funnel(result_meta,　xlab = "g",studlab = TRUE)
+```
+
+&lt;img src="pic/17.png" width="750"&gt;
+
+---
+### 2群の平均値差：出版バイアス(dmetarパッケージのeggers.test)
+
+
+```r
+# Egger’s test
+eggers.test(x = result_meta)
+```
+
+```
+## Warning in eggers.test(x = result_meta): Your meta-analysis contains k = 8
+## studies. Egger's test may lack the statistical power to detect bias when the
+## number of studies is small (i.e., k&lt;10).
+```
+
+```
+## Eggers' test of the intercept 
+## ============================= 
+## 
+##  intercept       95% CI     t          p
+##      6.559 0.49 - 12.63 2.118 0.07849926
+## 
+## Eggers' test does not indicate the presence of funnel plot asymmetry.
+```
+
+---
+### 2群の平均値差：出版バイアスの調整(trim and fill法)
+
+
+```r
+trimfill(result_meta)
+```
+
+&lt;img src="pic/19.png" width="650"&gt;
+
+---
+### 2群の平均値差：出版バイアスの調整結果
+
+
+```r
+funnel(trimfill(result_meta),xlab = "g",studlab = TRUE)
+```
+
+&lt;img src="pic/20.png" width="750"&gt;
+
+---
+### 2群の平均値差：P-Curve
+.med[
+- サンプルサイズが小さい研究は正確さに欠けるので，それを元にしたTrim and fill法は不正確な効果量を推定するかも。
+- P-curve分析(Simonsohn et al., 2014)は，p値の報告数から出版バイアスを検討し，真の推定値を推定する方法
+]
+&lt;img src="pic/13.png" width="500"&gt;
+
+---
+### 2群の平均値差：P-Curve(dmetarパッケージのpcurve)
+
+
+```r
+pcurve(result_meta)
+```
+
+&lt;img src="pic/21.png" width="700"&gt;
+
+---
+### 2群の平均値差：P-Curve(真の効果の推定)
+
+
+```r
+total_sample_size &lt;- Ne + Nc
+pcurve(result_meta, effect.estimation = TRUE, N = total_sample_size, dmin = 0, dmax = 2)
+```
+
+&lt;img src="pic/12.png" width="550"&gt;
+
+---
+### 2群の平均値差：RoBプロット(robvisパッケージ)
+
+
+```r
+library(robvis)
+# RoBの評価をデータフレーム化
+# （実際は，エクセルか他のソフトで整理してcsvが良いです）
+D1 &lt;- c("Low","High","Low", "Low", "Some concerns", "High", "Some concerns", "Low")
+D2 &lt;- c("Low","High","Low", "Low", "Low", "High", "Low","Low")
+D3 &lt;- c("Low","High", "Low", "Low", "Some concerns","Some concerns", "Low","Low")
+D4 &lt;- c("Low","High","Low" , "Some concerns", "Some concerns","High", "Low","Low")
+D5 &lt;- c("Some concerns","Low","Low", "Some concerns", "Some concerns","Hihg", "Low","Low")
+Overall &lt;- c("Some concerns", "High","Low", "Some concerns", "High","High","Some concerns","Low")
+data_rob &lt;- data.frame(Study = Author, D1, D2, D3, D4, D5, Overall, Weight = total_sample_size)
+head(data_rob)
+```
+
+```
+##             Study            D1   D2            D3            D4            D5
+## 1   Senshu (1923)           Low  Low           Low           Low Some concerns
+## 2   Waseda (1920)          High High          High          High           Low
+## 3 Doshisha (1920)           Low  Low           Low           Low           Low
+## 4  Kangaku (1932)           Low  Low           Low Some concerns Some concerns
+## 5     Keio (1920) Some concerns  Low Some concerns Some concerns Some concerns
+## 6 Ritsumei (1922)          High High Some concerns          High          Hihg
+##         Overall Weight
+## 1 Some concerns     31
+## 2          High     62
+## 3           Low     37
+## 4 Some concerns     43
+## 5          High     56
+## 6          High     82
+```
+---
+### 2群の平均値差：RoBプロット(ウェイトあり)
+
+
+```r
+rob_summary(data = data_rob, tool = "ROB2")
+```
+
+&lt;img src="pic/22.png" width="700"&gt;
+
+---
+### 2群の平均値差：RoBプロット(ウェイトなし)
+
+
+```r
+rob_summary(data = data_rob, tool = "ROB2", weighted = FALSE)
+```
+
+&lt;img src="pic/23.png" width="700"&gt;
+
+---
+### 2群の平均値差：個々の研究のRoBプロット
+
+
+```r
+rob_traffic_light(data = data_rob, tool = "ROB2")
+```
+
+&lt;img src="pic/24.png" width="700"&gt;
+
+---
+### 2群の平均値差：サブグループ解析
+.med[
+- サブグループ解析は，dmetarパッケージのsubgroup.analysis.mixed.effects関数が便利。
+]
+
+```r
+result_subgroup &lt;- subgroup.analysis.mixed.effects(result_meta, subgroups = Subgroup)
+result_subgroup
+```
+
+```
+## Subgroup Results:
+## --------------
+##      k      SMD        SE  LLCI  ULCI            p        Q   I2 I2.lower
+## East 4 2.017940 0.2127506 1.601 2.435 2.423801e-21 5.085464 0.41        0
+## West 4 1.011662 0.1872919 0.645 1.379 6.607663e-08 6.310931 0.52        0
+##      I2.upper
+## East     0.80
+## West     0.84
+## 
+## Test for subgroup differences (mixed/fixed-effects (plural) model):
+## --------------
+##                       Q df            p
+## Between groups 12.60372  1 0.0003849798
+## 
+## - Total number of studies included in subgroup analysis:  8
+## - Tau estimator used for within-group pooling:  ML
+```
+
+---
+### 2群の平均値差：フォレストプロット
+
+
+```r
+forest(result_subgroup)
+```
+&lt;img src="pic/25.png" width="650"&gt;
+---
+### ささやかなTips
+
+- Rでフォレストプロットを作成すると図が途中で切れちゃうことがあります。以下のようにpngで保存する時にwidthとheightを指定するといいです(これは他の図でも同様に使えるTipsです)。
+
+
+```r
+png("ファイル名.png", width = 600, height = 600)
+forest(メタ分析の結果)
+dev.off()
+```
+
+---
+# その他のRの補足について
+
+以下の内容は，付録に回しました。
+
+- 2値データと相関係数のメタ分析
+- マルチレベル分析
+- ネットワークメタ分析
+- ベイジアンメタ分析
+- SEM
+---
+
+# 系統的展望の手順
+
+1. 研究疑問を作成し，スコープを決める
+1. 研究の検索
+1. 研究の選択とデータ収集
+1. バイアスのリスクの評価
+1. メタ分析
+1. .red[結果の評価と解釈]
+
+---
+# 結果の評価と解釈
+
+- 結果の解釈は，p値から有意かどうかに焦点をあてない。信頼区間を報告し，エビデンスの確実性について議論をする。
+- 統合に用いた効果量だけでなく，解釈しやすい効果量も提示する.med[（２値変数の場合はNNT,連続変数かつ同一尺度の研究の場合はよく使われる単位や最小限の重要な差などを使う）]
+- GRADEの５つの検討事項（バイアスのリスク，効果の一貫性，不精確性，非直接性，出版バイアス）を使用して，各アウトカムのエビデンス総体の確実性を評価する。エビデンスの確実性について結論をだす。評価には理由を付与する。
+
+---
+
+# まとめ
+
+- **メタ分析はデータ収集を必要とはしないが，適切に系統的展望を行うには容易ではない**
+- **系統的展望を行う上で，PRISMAなどの報告ガイドラインやコクランなどの指針が有用である**
+- **メタ分析も事前登録が重要であり，事前に研究検索・選択・データ抽出から解析までプロトコルを作ることが推奨される**
+- **研究検索・選択・データ抽出の信頼性を高める取り組みもあり，便利なツールを活用する**
+- **メタ分析を行う便利なRパッケージが用意されているので，是非とも活用しよう！**
+---
+# 引用文献
+.small[
+- Cheung, M. W. L.(2015). Meta-Analysis: A Structural Equation Modeling Approach. Wiley.
+- Cooper, H. M.(2020). *Reporting Quantitative Research in Psychology (How to Meet APA Style Journal Article Reporting Standards, Second Edition, Revised)* . American Psychological Association.
+- Moher, D., Liberati, A., Tetzlaff, J., Altman, D. G., &amp; PRISMA Group. (2009). Preferred reporting items for systematic reviews and meta-analyses: the PRISMA statement. *PLoS Medicine*, 6(7), e1000097.
+- Greenhalgh, T. (1997). How to read a paper. Getting your bearings (deciding what the paper is about). *BMJ* , 315(7102), 243–246.
+- Higgins, J., Lasserson, T., Chandler, J., Tovey, D., Thomas, J., Flemyng, E., Churchill, R. (2020) *Methodological Expectations of Cochrane Intervention Reviews(MECIR):Standards for the conduct and reporting of new Cochrane Intervention Reviews, reporting of protocols and the planning, conduct and reporting of updates*. [サイトへのリンク](https://community.cochrane.org/mecir-manual) [日本語翻訳版へのリンク](https://community.cochrane.org/sites/default/files/uploads/inline-files/MECIR%20Version%20March%202020_Japanese_2.pdf)
+- Harrer, M., Cuijpers, P., Furukawa, T.A, &amp; Ebert, D. D. (2019). Doing Meta-Analysis in R: A Hands-on Guide. https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/.
+- Higgins, J. P. T., Thompson, S. G., Deeks, J. J., &amp; Altman, D. G. (2003). Measuring inconsistency in meta-analyses. BMJ , 327(7414), 557–560.
+- Higgins, J. P. T., &amp; Thomas, J. (Eds.). (2019). *Cochrane Handbook for Systematic Reviews of Interventions*. Wiley-Blackwell.
+- Jak, S. (2015). Meta-Analytic Structural Equation Modelling. Springer.
+- 国里愛彦 (2015). 系統的展望とメタアナリシスの必須事項　行動療法研究, 41(1), 3-12.
+- 宇佐美 慧(2018). 構造方程式モデリングを用いたメタ分析　岡田涼・小野寺孝義（編）『実践的メタ分析入門』pp.55-66.
+- 奥村泰之(2014). 非薬物療法の介入研究の必須事項. 行動療法研究, 40(3), 155–165.
+- Simonsohn, U., Nelson, L.D., &amp; Simmons, J.P. (2014). P-Curve and Effect Size: Correcting for Publication Bias Using Only Significant Results. Perspectives on Psychological Science, 9, 666 – 681.
+- 竹林由武(2014). 観察研究の必須事項. 行動療法研究, 40(3), 167–175.
+- 卓興鋼・吉田佳督・大森豊緑　(2011). エビデンスに基づく医療（EBM）の実践ガイドライン システマティックレビューおよびメタアナリシスのための優先的報告項目（PRISMA声明）. 情報管理, 54(5), 254–266.
+- 谷晋二(2015). 症例研究の必須事項. 行動療法研究, 41(1), 13–18.
+- 友利幸之介・澤田辰徳・大野勘太・高橋香代子・沖田勇帆　(2020). スコーピングレビューのための報告ガイドライン 日本語版：PRISMA-ScR. 日本臨床作業療法, 7, 70–76.
+- 土屋政雄(2015). 尺度研究の必須事項. 行動療法研究, 41(2), 107–116.
+- 山田・井上(2012). 『メタ分析入門』　東京大学出版会
+]
+---
+
+
+### 付録：２値変数のメタ分析(データ準備)
+.med[
+2値変数のメタ分析では，介入・実験群のイベント数，介入・実験群のサンプルサイズ，統制群のイベント数，統制群のサンプルサイズ，研究名，（必要なら）研究の特徴の情報（以下では，西か東か）を用意する。以下は適当に作ったデータです。
+]
+
+```r
+# 使うパッケージ
+library(dmetar)
+library(meta)
+# データを作る（順番に，相関，参加者数，研究，グループ）
+Ee &lt;- c(16, 16, 50, 5, 80,9, 17,30)
+Ne &lt;- c(30,28,101,23,302,20,31,101)
+Ec &lt;- c(15,14, 45,10,120,11,15,40)
+Nc &lt;- c(31,27,102,21,305,23,29,98)
+study &lt;- c("Senshu (1923)","Waseda (1920)","Doshisha (1920)","Kangaku (1932)","Keio (1920)","Ritsumei (1922)","Kinki (1943)","Toyo (1928)")
+group &lt;- c("East","East","West","West","East","West","West","East")
+data_bin &lt;- data.frame(Ee, Ne, Ec, Nc, study, group)
+```
+---
+### 付録：２値変数のメタ分析
+
+.med[metaパッケージのmetabin関数を使う。smは"OR"("RR", "RD", "ASD", "DOR"もある)。method.tauも選べるので，今回もML。]
+
+
+```r
+# メタ分析の実施
+result_bin &lt;- metabin(Ee,
+                      Ne,
+                      Ec,
+                      Nc,
+                      study,
+                      data = data_bin,
+                      sm = "OR",
+                      comb.fixed = TRUE,	
+                      comb.random = TRUE,
+                      method.tau = "ML")
+```
+---
+### 付録：２値変数のメタ分析結果
+&lt;img src="pic/26.png" width="550"&gt;
+
+---
+### 付録：２値変数のメタ分析（フォレストプロット）
+
+
+```r
+forest(result_bin)
+```
+
+&lt;img src="pic/27.png" width="800"&gt;
+
+---
+.med[
+- L’Abbé Plots:介入・実験群のイベント率と統制群のイベント率をプロットして，サンプルサイズもわかりやすく示したプロット]
+
+
+```r
+labbe.metabin(result_bin, bg = "blue", studlab = TRUE, col.random = "red")
+```
+
+&lt;img src="pic/29.png" width="430"&gt;
+
+---
+### 付録：２値変数のメタ分析(サブグループ解析：東西)
+
+
+```r
+result_subgroup_bin &lt;- subgroup.analysis.mixed.effects(result_bin,subgroups =group)
+forest(result_subgroup_bin)
+```
+
+&lt;img src="pic/28.png" width="550"&gt;
+
+---
+### 付録:相関係数のメタ分析(データ準備)
+.med[
+相関係数のメタ分析では，各研究の相関係数，サンプルサイズ，研究名，（必要なら）研究の特徴の情報（以下では，西か東か）を用意する。以下は適当に作ったデータです。
+]
+
+```r
+# 使うパッケージ
+library(dmetar)
+library(meta)
+# データを作る（順番に，相関，参加者数，研究，グループ）
+r &lt;- c(.2,.3,.4,.35,.1,.7,.6,.3)
+n &lt;- c(30,28,100,20,300,20,30,100)
+study &lt;- c("Senshu (1923)","Waseda (1920)","Doshisha (1920)","Kangaku (1932)","Keio (1920)","Ritsumei (1922)","Kinki (1943)","Toyo (1928)")
+group &lt;- c("East","East","West","West","East","West","West","East")
+```
+
+---
+### 付録:相関係数のメタ分析
+
+.med[metaパッケージのmetacor関数を使う。smは"COR"("ZCOR"もある)。method.tauも選べるので，今回もML。]
+
+
+```r
+# メタ分析の実施
+result_cor &lt;- metacor(r,
+                      n,
+                      study,
+                      sm = "COR",
+                      comb.fixed = TRUE,	
+                      comb.random = TRUE,
+                      method.tau = "ML")
+```
+
+---
+### 付録:相関係数のメタ分析結果
+&lt;img src="pic/30.png" width="550"&gt;
+---
+### 付録:相関係数のメタ分析（フォレストプロット）
+
+
+```r
+forest(result_cor)
+```
+
+&lt;img src="pic/31.png" width="550"&gt;
+
+---
+### 付録:相関係数のメタ分析(サブグループ解析：東西)
+
+
+```r
+# サブグループ解析
+result_subgroup &lt;- subgroup.analysis.mixed.effects(result_cor,subgroups =group)
+forest(result_subgroup)
+```
+
+&lt;img src="pic/32.png" width="550"&gt;
+
+---
+### 付録：ベイジアンメタ分析とネットワークメタ分析
+
+- ネットワークメタ分析は，２つ以上の介入の効果をネットワークとして検討し，直接的な比較だけなく，間接的比較も検討できる（治療法のランキングを出せる）。
+- ネットワークメタ分析はnetmetaパッケージで実行できるが，柔軟なモデルを使う場合は，ベイジアンネットワークメタ分析が使える（gemtcパッケージやRStanなどを使う）。
+- 以下過去にまとめた資料
+.med[
+- [ベイジアンメタ分析のためのDockerファイル作成法](https://cpp-laboratory.hatenablog.com/entry/2018/12/08/080000)
+- [Stanでベイジアンメタ分析（一対比較の固定効果モデル）](https://cpp-laboratory.hatenablog.com/entry/2018/12/11/043554)
+-  [入門資料のリンク](https://cpp-laboratory.hatenablog.com/entry/2018/12/16/001230)
+- [Stanでネットワークメタ分析（固定効果モデル）](https://cpp-laboratory.hatenablog.com/entry/2018/12/15/073055)
+]
+---
+### 付録：マルチレベルメタ分析
+.med[
+- そもそもメタ分析はマルチレベル分析。ランダム効果モデルには，参加者（レベル１）と研究（レベル２）の２つの階層が含まれている。
+- マルチレベルメタ分析という時は，3レベル以上のマルチレベルになる。例えば，参加者が各研究にネスト（レベル１），いくつかの研究が特定の文化的背景・言語にネスト（レベル２），それぞれの文化背景が全体の効果の分布にネストする。
+- サブグループ分析をマルチレベルで実施でき，研究のばらつきがどのレベルの変動によって説明できるのかを検討できる。
+- 分析にはmetaforパッケージが使える。詳しくは，[Doing Meta-Analysis in R](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/)参照
+]
+
+---
+### 付録：MASEM(Meta-analytic structural equation modeling)
+
+.med[
+- メタ分析をSEMの枠組みで実行することができる。
+- SEMを活用することで，多変量メタ分析ができる。例えば，臨床試験には複数のアウトカムが設定されているが，アウトカム間に関連があることもあり，それを考慮した上で効果を検討することができる。
+- メタ分析によって複数の研究で報告されている相関行列を統合し，SEMで確証的因子分析を実施したり，媒介分析を実施したりもでる。
+- 詳しくは，Jak(2015)，Cheung(2015)，宇佐美(2018)を参照
+- metaSEMパッケージを使う
+]
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
