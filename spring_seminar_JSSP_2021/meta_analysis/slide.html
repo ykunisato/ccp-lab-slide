@@ -3,7 +3,7 @@
   <head>
     <title>メタ分析</title>
     <meta charset="utf-8" />
-    <meta name="author" content="国里愛彦（専修大学）" />
+    <meta name="author" content="専修大学 国里愛彦" />
     <script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -12,16 +12,26 @@
 class: center, middle, inverse, title-slide
 
 # メタ分析
-### 国里愛彦（専修大学）
+### 専修大学 国里愛彦
 ### 2021年3月1日
 
 ---
 
 
 
-&lt;!--
-45分の持ち時間は、解説40分＋質疑応答5分
---&gt;
+
+# 自己紹介
+
+- [国里愛彦（くにさとよしひこ）](https://kunisatolab.github.io/main/yoshihiko-kunisato.html)
+
+&lt;img style="float: right;" src="pic/yk.JPG" width="200"&gt;
+
+- 所属：専修大学人間科学部心理学科 准教授
+- 専門：計算論的アプローチを用いた不安やうつの維持と認知行動療法の作用メカニズム研究（計算論的臨床心理学）
+- 研究の方法論や枠組みを調べるのが好き（心理統計学や統計学の非専門家），オープンサイエンスも好き
+- 研究に関することなら気軽にお声掛けください。連絡は，[メールフォーム](https://docs.google.com/forms/d/e/1FAIpQLSeVb0_ti9flHyGcRQcLESQO7Tzl3eH5hbCqXyzcGh7RWLQexA/viewform)からどうぞ！
+
+---
 # メタ分析（系統的展望）とは？
 
 - **明確な研究疑問に従って，過去の研究を系統的・包括的に収集し，批判的吟味をした上で**.med[（系統的展望）]**，量的に統合する**.med[（メタ分析）]**研究方法**
@@ -63,40 +73,35 @@ class: center, middle, inverse, title-slide
 臨床研究では，研究報告ガイドラインが整備されている。
 
 .med[
-1. 系統的展望とメタ分析:[PRISMA声明](http://www.prisma-statement.org/)（日本語解説は，卓他(2011)や国里(2015))
-1. RCT:[CONSORT声明](http://www.consort-statement.org/)([拡張版](http://www.consort-statement.org/extensions)もあり心理療法など非薬物療法的介入版もある。日本語解説は，奥村(2014))
-1. 観察研究：[STROBE声明](https://strobe-statement.org/index.php?id=strobe-home)(日本語解説は，竹林(2014))
-1. 健康関連質問紙の評価と作成：[COSMINチェックリスト](https://www.cosmin.nl/)(日本語解説は，土屋(2014))
-1. ケース報告:[CAREガイドライン](https://www.care-statement.org/)(日本語解説は，谷(2015))
+1. 系統的展望とメタ分析:[PRISMA声明](http://www.prisma-statement.org/).med[（日本語解説は，卓他(2011)や国里(2015))]
+1. RCT:[CONSORT声明](http://www.consort-statement.org/).med[([拡張版](http://www.consort-statement.org/extensions)もあり心理療法など非薬物療法的介入版もある。日本語解説は，奥村(2014))]
+1. 観察研究：[STROBE声明](https://strobe-statement.org/index.php?id=strobe-home).med[(日本語解説は，竹林(2014))]
+1. 健康関連質問紙の評価と作成：[COSMINチェックリスト](https://www.cosmin.nl/).med[(日本語解説は，土屋(2014))]
+1. ケース報告:[CAREガイドライン](https://www.care-statement.org/).med[(日本語解説は，谷(2015))]
 ]
 
-- 以降は，PRISMA声明とコクランの資料.red[.med[(作業標準書(Higgins &amp; Thomas, 2019)とCochrane Handbook for Systematic Reviews of Interventions(Higgins et al., 2019))]]を中心に説明する。
+- 以降は，PRISMA声明とコクランの資料.green[.med[(作業標準書(Higgins &amp; Thomas, 2019)とCochrane Handbook for Systematic Reviews of Interventions(Higgins et al., 2019))]]を中心に説明する。
 ---
-# PRISMA声明(Moher et al., 2009)
+**PRISMA声明の拡張版**
 .med[
-[PRISMA](http://www.prisma-statement.org/ )には，以下の拡張版がある。
+- PRISMA for Protocols .med[（プロトコル作成）]
+- PRISMA for Scoping Reviews .med[（スコーピングレビュー, 日本語解説は友利他,2020）]
+- PRISMA for Abstracts .med[(学会や雑誌の抄録)]
+- PRISMA Equity .med[(健康格差)]
+- PRISMA Harms .med[(有害事象をアウトカムに含むレビュー)]
+- PRISMA Individual Patient Data .med[(個人レベルの患者データのメタ分析)]
+- PRISMA for Network Meta-Analyses .med[(ネットワークメタ分析)]
+- PRISMA for Diagnostic Test Accuracy .med[(診断精度研究)]
+- PRISMA for Acupuncture .med[(鍼治療)]
+- PRISMA for Searching .med[(検索)]
+]
 
-- PRISMA for Protocols（プロトコル作成）
-- PRISMA for Scoping Reviews（スコーピングレビュー, 日本語解説は友利他,2020）
-- PRISMA for Abstracts(学会や雑誌の抄録)
-- PRISMA Equity（健康格差）
-- PRISMA Harms (有害事象をアウトカムに含むレビュー)
-- PRISMA Individual Patient Data（個人レベルの患者データのメタ分析）
-- PRISMA for Network Meta-Analyses（ネットワークメタ分析）
-- PRISMA for Diagnostic Test Accuracy（診断精度研究）
-- PRISMA for Acupuncture（鍼治療）
-- PRISMA for Searching（検索）
+**APAのMeta‐Analysis Reporting Standards (MARS)**
+.med[
+- PRISMAなどを参考にAPAもメタ分析の報告ガイドラインを作成している(Cooper, H., 2020)。しかし，PRISMAと大枠では変わらないし，期待した心理学特有の質の評価などの情報は少ないので，PRISMAでいいかも？
 ]
 ---
-# APAのMeta‐Analysis Reporting Standards (MARS)
-
-- PRISMAなどの医学系の報告ガイドラインだけでなく，APAもメタ分析の報告ガイドラインを作成している(Cooper, H., 2020)。
-- 先行する医学系の報告ガイドラインを参考に作成しているので，大枠ではPRISMAと変わらないが，心理学に合わせて調整している.med[(疫学系で重視されるバイアスリスクについては心理学全般で使える評価法がないので，内的妥当性のリスクのアセスメント法を記載するようにとだけ書いてある)]
-
-- .med[他領域でも採用されているPRISMA声明で良いかな...]
-
----
-# レビュー論文もいろいろ
+# レビュー論文の種類
 
 レビューは，大まかに以下の３つに分けられる(卓他,2020)。
 
@@ -144,7 +149,7 @@ class: center, middle, inverse, title-slide
 ---
 # 事前登録
 - 系統的展望は，**事前にプロトコルを作ってから実施する**必要がある。
-- 研究疑問・適格基準を決め，その後のレビューの方法（検索，バイアスのリスク評価，結果の統合方法，サブグループ解析の計画，結果の評価方法）をプロトコルに記載し，以下のサイトに登録する。
+- 研究疑問・適格基準を決め，その後のレビューの方法（検索，バイアスのリスク評価，結果の統合方法，サブグループ解析の計画，結果の評価方法）をプロトコルに記載し，事前登録サイトに登録する。
 - [PROSPERO](https://www.crd.york.ac.uk/PROSPERO/):系統的展望の事前登録サイト（登録までに時間がかかる，レビューの種類によっては却下される）
 - [osf.io](https://osf.io/): オープンサイエンスフレームワークのリポジトリ(事前登録はすぐに可能であり，心理学ではおすすめ)
 
@@ -163,20 +168,20 @@ class: center, middle, inverse, title-slide
 
 出版バイアスを小さくするために，**複数の方法を用いて，包括的・系統的に文献を探す**
 .med[
-1. 一般的な書誌データベースの検索（CENTRAL,MEDLINE,Embaseなど）
-1. 専門書誌データベースの検索(テーマに合わせて，国別，地域別，テーマ別の書誌データベースを検索する。心理系だとPyscINFOなど)
-1. 臨床試験登録サイトを検索(Clinical Trials,OSFでのRegistrationsなど)
-1. 灰色文献の検索(報告書，学位論文，卒業論文，学会抄録などの未公表データ)
-1. 過去の同じトピックのレビュー内検索
-1. 入手した文献や関連するレビューの引用文献リストの検索
-1. 未公表研究の関係者や団体へ問い合わせをする
+1. **一般的な書誌データベース**の検索（CENTRAL,MEDLINE,Embaseなど）
+1. **専門書誌データベース**の検索(テーマに合わせて，国別，地域別，テーマ別の書誌データベースを検索する。心理系だとPyscINFOなど)
+1. **臨床試験登録サイト**を検索(Clinical Trials,OSFでのRegistrationsなど)
+1. **灰色文献**の検索(報告書，学位論文，卒業論文，学会抄録などの未公表データ)
+1. **過去の同じトピックのレビュー**内検索
+1. **入手した文献や関連するレビュー**の引用文献リストの検索
+1. **未公表研究の関係者や団体へ問い合わせ**をする
 ]
 ---
 # 検索方略を構築する
 
-- 検索式を作る.med[（基本はPとIと研究デザインを指定する。心理学の場合は，IやEとOかもしれない。感度を最大にして，妥当な精度が担保される検索式を検討する。ANDやOR演算子を適切に利用する）]
-- 統制用語の使用.med[(例えば，MEDLINEのMeSHは医学関係の用語集で論文と関連づけられており，検索で使える)]，フリーテキスト用語の工夫.med[(異なったつづり，同義語，標準頭字語，前方一致，近接演算子など)]，検索フィルターの使用.med[（検索データベースごとに設定されている）]
-- 検索が再現できるように，検索過程（情報源，時期，担当者，検索用語）について文章化しておく(完全な検索式も記録しておく)。
+- **検索式**を作る.med[（基本はPとIと研究デザインを指定する。心理学の場合は，IやEとOかもしれない。感度を最大にして，妥当な精度が担保される検索式を検討する。ANDやOR演算子を適切に利用する）]
+- **統制用語**の使用.med[(例えば，MEDLINEのMeSHは医学関係の用語集で論文と関連づけられており，検索で使える)]，**フリーテキスト用語の工夫**.med[(異なったつづり，同義語，標準頭字語，前方一致，近接演算子など)]，**検索フィルター**の使用.med[（検索データベースごとに設定されている）]
+- 検索が再現できるように，**検索過程（情報源，時期，担当者，検索用語や検索式）について文章化**しておく。
 
 ---
 # 系統的展望の手順
@@ -278,7 +283,8 @@ class: center, middle, inverse, title-slide
 ]
 - 今後は心理学でも必要？
 ---
-**RoB2**: 個々の研究について，以下の５つのドメインから評価
+.med[
+**RoB2**: 個々の研究について，５ドメイン内の質問に回答した上で，バイアスリスクについて，アルゴリズムに従ってLow, Some concerns, Highの３段階評価
 
 1. **ランダム化過程におけるバイアス**.med[(割付の順序がランダムではない，割付の隠蔽化ができてない，ベースラインに差がある等)]
 1. **意図した介入からの逸脱によるバイアス**.med[(参加者やスタッフの盲検化ができてない，盲検化しておらず意図した介入からの逸脱がある，ITTなどの適切な解析が行われていない等)]
@@ -286,14 +292,10 @@ class: center, middle, inverse, title-slide
 1. **アウトカムの測定によるバイアス**.med[(アウトカムの測定法が不適切，測定に群間差がある，評価者が介入情報を知っている等)]
 1. **選択的報告バイアス**.med[(アウトカムが複数の方法で測定・分析されており，それが事前登録で計画されていない)]
 
----
-# RoB2
-
-- **ドメイン評価**：個々の研究について，各ドメイン内の質問に回答した上で，バイアスリスクについて，Low，Some concerns, Highの３段階で評価する.med[（判断はアルゴリズム化されている）]。介入条件に有利などのバイアスの方向性も評価する
-
 - **総体評価**：個々の研究をLow.med[(全ドメインがLow)]，Some concerns.med[(Highはないけど，１つ以上のドメインでconcernはある)], High.med[(１つ以上のドメインでHighがあるor複数のドメインでconcernsがあり)]で評価
 
 ※[RoB2のサイト](https://sites.google.com/site/riskofbiastool/welcome/rob-2-0-tool?authuser=0)に詳細マニュアルとエクセルマクロなどが用意
+]
 ---
 # RoB2の例
 
@@ -411,7 +413,6 @@ class: center, middle, inverse, title-slide
 
 &lt;img src="pic/11.png" width="280"&gt;
 
-- メタ分析前に，実施が適切か（意味ある？）考えよう!
 ---
 # 固定効果モデル
 &lt;img style="float: right;" src="pic/07.png" width="400"&gt;
@@ -896,14 +897,15 @@ dev.off()
 # 結果の評価と解釈
 
 - 結果の解釈は，p値から有意かどうかに焦点をあてない。信頼区間を報告し，エビデンスの確実性について議論をする。
+
 - 統合に用いた効果量だけでなく，解釈しやすい効果量も提示する.med[（２値変数の場合はNNT,連続変数かつ同一尺度の研究の場合はよく使われる単位や最小限の重要な差などを使う）]
+
 - GRADEの５つの検討事項（バイアスのリスク，効果の一貫性，不精確性，非直接性，出版バイアス）を使用して，各アウトカムのエビデンス総体の確実性を評価する。エビデンスの確実性について結論をだす。評価には理由を付与する。
 
 ---
-
 # まとめ
 
-- **メタ分析はエビデンスの確実性の評価において有用だが，適切な系統的展望を行うには容易ではない**
+- **メタ分析はエビデンスの確実性の評価において有用だが，適切な系統的展望を行うのは容易ではない**
 - **系統的展望を行う上で，PRISMAなどの報告ガイドラインやコクランなどの指針が有用である**
 - **メタ分析も事前登録が重要であり，事前に研究検索・選択・データ抽出から解析までプロトコルを作ることが推奨される**
 - **研究検索・選択・データ抽出の信頼性を高める取り組みもあり，便利なツールを活用する**
