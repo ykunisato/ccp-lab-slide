@@ -4,7 +4,7 @@
     <title>２次分析研究</title>
     <meta charset="utf-8" />
     <meta name="author" content="国里愛彦（専修大学）" />
-    <script src="slide_files/header-attrs-2.6.6/header-attrs.js"></script>
+    <script src="slide_full_files/header-attrs-2.6.6/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -77,7 +77,7 @@ class: center, middle, inverse, title-slide
 - 既存データの中にはオープンデータも増えている。
 - オープンデータとは，**「自由に使えるデータ」**.med[（庄司, 2014)]
 
-→どのようなライセンスの下でデータが公開されているのかが重要になる.small[(ライセンスは，長谷川他(印刷中)の「実証的研究の事前登録の現状と実践(https://psyarxiv.com/kvgyc/ )」の表１が分かりやすい)]
+→どのようなライセンスの下でデータが公開されているのかが重要になる.small[(ライセンスは「実証的研究の事前登録の現状と実践(https://psyarxiv.com/kvgyc/ )」の表１が分かりやすい)]
 
 - 科学技術政策として，2013年のG8サミットから論文とデータのオープン化が推進されている(日本学術会議,2020)。
 
@@ -134,7 +134,7 @@ class: center, middle, inverse, title-slide
 
 &lt;img style="float: right;" src="pic/10.png" width="200"&gt;
 
-- 有名なデータは，解析前にデータの中身が既知なことも。データを見た後での統計的検定は，α水準のインフレを制御できない。研究者が実行した分析の数ではなく，分析する可能性があった数が重要。
+- 有名なデータは，解析前にデータの中身が既知なことも。研究者が実行した分析の数ではなく，分析する可能性があった数が重要。データを見た後での統計的検定は，α水準のインフレを制御できない。
 
 ---
 # ２次分析の透明性を高める
@@ -150,7 +150,7 @@ class: center, middle, inverse, title-slide
 - 事前登録を学ぶと2次分析研究の手続きについても学ぶことができる!
 - Mertens &amp; Krypotos(2019)が，10項目のテンプレートを作成.med[（Psychologica Belgica誌，AsPredictedを意識しているため簡潔，Rのpssrパッケージ）] 
 - Van den Akker et al.(2019)が，25項目のテンプレートを作成.med[(https://osf.io/zmua4/ )]
-- 以降は，Mertens &amp; Krypotos(2019)のテンプレートと例を中心に説明する.med[（van den Akker et al.(2019)は補足的に説明しリストは付録につけた）]
+- 以降は，Mertens &amp; Krypotos(2019)のテンプレートと例を中心に説明する.med[（van den Akker et al.(2019)は補足的に説明し，リストは最後につけた）]
 
 ---
 # Q1 調べる仮説は何か？
@@ -238,8 +238,8 @@ pssr::shiny_app()
 ---
 # 二次分析研究での統計解析
 
-- 二次分析研究は，既に入手可能なデータを扱うこともあり，一次研究よりもハッキングできることはできる
 - 二次分析研究でも**事前登録**することで，推論の頑健性が高まる
+- 二次分析研究は，既に入手可能なデータを扱うこともあり，一次研究よりもハッキングできることはできる.med[（ただ，宣言してまで不正行為をする研究者は多くないと信じたい）]
 - 二次分析研究では，**統計解析の頑健性を高める**方法も用いる.small[(Weston et al.,2019)]
 
 ---
