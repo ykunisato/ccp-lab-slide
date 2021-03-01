@@ -8,5 +8,5 @@
 
 ### 春の方法論セミナー(日本社会心理学会学会,2021)
 
-- [二次分析研究(発表スライド)](spring_seminar_JSSP_2021/secondary_analysis/slide.html)
-- [メタ分析(発表スライド)](spring_seminar_JSSP_2021/meta_analysis/slide.html)
+- [二次分析研究](spring_seminar_JSSP_2021/secondary_analysis/slide.html)
+- [メタ分析](spring_seminar_JSSP_2021/meta_analysis/slide.html)
