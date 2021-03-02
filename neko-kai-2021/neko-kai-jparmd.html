@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>jpaRmd: 再現可能な論文執筆のためのRMarkdownテンプレート</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="国里愛彦（専修大学）" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# jpaRmd: 再現可能な論文執筆のためのRMarkdownテンプレート
+### 国里愛彦（専修大学）
+### 2021年1月9日 in ねこかい
+
+---
+
+
+
+
+# jpaRmd
+
+- 心理学は，方法の再現可能性（同じデータ＋同じ解析方法＝同じ結果）でさえ高くない。
+
+---
+
+# jpaRmd
+
+- 心理学は，方法の再現可能性（同じデータ＋同じ解析方法＝同じ結果）でさえ高くない。
+
+
+- 解析と執筆の境界をなくす（コピペしない）ことが重要なので，R Markdownは１つの選択肢
+
+---
+
+# jpaRmd
+
+- 心理学は，方法の再現可能性（同じデータ＋同じ解析方法＝同じ結果）でさえ高くない。
+
+
+- 解析と執筆の境界をなくす（コピペしない）ことが重要なので，R Markdownは１つの選択肢
+
+
+- 国際誌の場合，R Markdownのテンプレートがあるが，和文誌にはない。ないなら作るの精神で『心理学研究』のテンプレート用パッケージjpaRmd( https://github.com/ykunisato/jpaRmd )を作りました！
+
+---
+
+# インストール(RStudioのコンソール)
+
+
+```r
+# install.packages("remotes")
+remotes::install_github("ykunisato/jpaRmd")
+```
+
+&lt;img style="float: center;" src="fig/neko1.png" width="450"&gt;
+
+---
+# 使い方
+
+- "File" → "New File" → "R Markdown..." 
+
+&lt;img style="float: center;" src="fig/neko2.png" width="800"&gt;
+
+---
+
+# 使い方
+
+- "From Template" → "Japanese Psychological Association format{jpaRmd}" 
+- Name:は好きな名前に変更（フォルダが作られます）
+
+&lt;img style="float: center;" src="fig/neko3.png" width="350"&gt;
+
+---
+
+# 使い方
+
+- output:のjpaRmd::render_jjp()内のRmd_fileが“Untitled.Rmd”になっていますので，以下のように，Rmdのファイル名に変更しましょう。"Knit"をクリックします。
+
+&lt;img style="float: center;" src="fig/neko4.png" width="800"&gt;
+
+---
+# 使い方
+
+- しばらく処理が行われると，"Files"内にPDFが作られます。それが最終的なPDFです。
+
+&lt;img style="float: center;" src="fig/neko5.png" width="400"&gt;
+
+---
+# 出力されるPDF
+
+&lt;img style="float: center;" src="fig/neko6.png" width="700"&gt;
+
+---
+- Rmdへの入力例(Bibファイルを使えます)
+
+&lt;img style="float: center;" src="fig/neko7.png" width="500"&gt;
+
+- 出力されたPDFファイルの例
+
+&lt;img style="float: center;" src="fig/neko8.png" width="500"&gt;
+
+---
+きれいに引用文献が出力
+&lt;img style="float: right;" src="fig/neko9.png" width="500"&gt;
+
+---
+図表の挿入位置も簡単に指定できます
+
+&lt;img style="float: center;" src="fig/neko10.png" width="700"&gt;
+
+---
+
+『心理学研究』の謎仕様にも対応（表は，Table1のあとに改行をしてからタイトルをいれる）
+
+&lt;img style="float: center;" src="fig/neko11.png" width="800"&gt;
+
+---
+# その他の機能
+
+- 査読へのリプライと修正対照表を作るテンプレート
+- 『認知行動療法研究』のテンプレート（副編集委員長なので・・・）
+- 『心理学評論』のテンプレート（Rmdファイルを１つ作れば，著者情報アリ・ナシの原稿，著者情報アリ・ナシの要約の４種のPDFが自動的に出力される変態的改造をしました。添付票もRmdですっと書けるようにしました）
+
+---
+# 『心理学評論』２種の要約
+
+&lt;img style="float: right;" src="fig/neko13.png" width="750"&gt;
+
+---
+# 『心理学評論』２種の原稿
+
+&lt;img style="float: right;" src="fig/neko14.png" width="800"&gt;
+
+---
+# 開発上のあれこれ
+
+- R Markdownテンプレート作成は，ドキュメントが豊富にあるので，適切に調べることができれば，なんとかなる。
+
+---
+
+# 開発上のあれこれ
+
+- R Markdownテンプレート作成は，ドキュメントが豊富にあるので，適切に調べることができれば，なんとかなる。
+- ただ面倒くさい・・・すごく・・・心理学の和雑誌はすべて形式統一でいいんじゃないかな・・・
+
+---
+
+# 開発上のあれこれ
+
+- R Markdownテンプレート作成は，ドキュメントが豊富にあるので，適切に調べることができれば，なんとかなる。
+- ただ面倒くさい・・・すごく・・・心理学の和雑誌はすべて形式統一でいいんじゃないかな・・・&lt;img style="float: right;" src="fig/neko12.png" width="200"&gt;
+- LaTeXのスタイルファイルで引用文献の処理をしようとしたが挫折・・・諦めそうになっていたろこ，同僚の小杉先生がRで処理して引用文献リストを作るという変態的革新R関数を開発(詳しくは[こちら](https://qiita.com/kosugitti/items/63140ead7942d4e9b1d7))。一気に完成度が上がる。
+
+---
+
+# 開発上のあれこれ
+
+- R Markdownテンプレート作成は，ドキュメントが豊富にあるので，適切に調べることができれば，なんとかなる。
+- ただ面倒くさい・・・すごく・・・心理学の和雑誌はすべて形式統一でいいんじゃないかな・・・&lt;img style="float: right;" src="fig/neko12.png" width="200"&gt;
+- LaTeXのスタイルファイルで引用文献の処理をしようとしたが挫折・・・諦めそうになっていたろこ，同僚の小杉先生がRで処理して引用文献リストを作るという変態的革新R関数を開発(詳しくは[こちら](https://qiita.com/kosugitti/items/63140ead7942d4e9b1d7))。一気に完成度が上がる。
+- 小杉先生のR関数はRmdファイルをテキストデータとして処理できるので，すごく便利！
+
+---
+
+# まとめ
+
+- jpaRmdは，簡単に『心理学研究』形式のPDFを出力可能！
+
+---
+
+# まとめ
+
+- jpaRmdは，簡単に『心理学研究』形式のPDFを出力可能！
+
+
+- テンプレートを活用して，内容の部分に注力できたほうが生産的（特に，データ収集前の研究計画や事前登録，方法や結果の再現性）
+
+
+---
+# まとめ
+
+- jpaRmdは，簡単に『心理学研究』形式のPDFを出力可能！
+
+
+- テンプレートを活用して，内容の部分に注力できたほうが生産的（特に，データ収集前の研究計画や事前登録，方法や結果の再現性）
+
+
+- 「書類や論文の書式をまとめる能力の涵養も重要なのである!!!」って意見もあるけど，すげえ昭和くさくない？
+
+
+
+---
+# まとめ
+
+- jpaRmdは，簡単に『心理学研究』形式のPDFを出力可能！
+
+
+- テンプレートを活用して，内容の部分に注力できたほうが生産的（特に，データ収集前の研究計画や事前登録，方法や結果の再現性）
+
+
+- 「書類や論文の書式をまとめる能力の涵養も重要なのである!!!」って意見もあるけど，すげえ昭和くさくない？
+
+
+- 最新のAPAにも対応する合理的な引用文献スタイル，和雑誌統一フォーマットの整備は大学の体力があるうちに・・・
+
+---
+# まだ，「あつまれ 和雑誌Rmdテンプレの林」程度ですが...
+
+---
+# まだ，「あつまれ 和雑誌Rmdテンプレの林」程度ですが...
+
+# 「和雑誌Rmdテンプレの森」を目指しております。皆様からの熱いご要望をお待ちしております〜
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
