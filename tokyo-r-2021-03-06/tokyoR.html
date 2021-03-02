@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>RStudioで日本語論文を書く(1)</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="専修大学 国里愛彦" />
+    <script src="libs/header-attrs-2.6.6/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# RStudioで日本語論文を書く(1)
+## jpaRmdテンプレート
+### 専修大学 国里愛彦
+### 2021年3月6日 in Tokyo.R
+
+---
+
+
+
+
+class: center, middle
+
+# .big2[論文もRで書きたい！！！！！]
+
+---
+class: center, middle
+
+# .big2[rticles最高！]
+
+&lt;img src="pic/15.png" width="350"&gt;
+
+投稿予定ないけどPNAS形式にしちゃったり...
+
+---
+class: center, middle
+
+# .big2[日本語論文だってRで書いてやろう！]
+
+きっとRおじさんがテンプレ作っているはず・・・
+
+---
+class: center, middle
+
+# .big3[ない！]
+
+&lt;img src="pic/16.png" width="220"&gt;
+
+---
+class: center, middle
+# .big2[ないなら作る！]
+
+&lt;img src="pic/17.png" width="350"&gt;
+
+---
+# みんなが従う『心理学研究』スタイル
+
+&lt;img style="float: right;" src="pic/01.png" width="350"&gt;
+
+- 日本には数多くの心理学関連雑誌が存在するが，多くが日本心理学会の執筆・投稿の手びきに準拠している。
+
+- 『心理学研究』を攻略すれば，心理学関連和文誌の攻略は簡単！
+
+---
+# jpaRmdパッケージ
+
+- ということで，心理学研究用テンプレートパッケージ[jpaRmd](https://github.com/ykunisato/jpaRmd)を作ってみました。
+
+
+**インストール方法(CRAN未登録)**
+
+
+```r
+# install.packages("remotes")
+remotes::install_github("ykunisato/jpaRmd")
+```
+
+---
+# 使い方
+
+- "File" → "New File" → "R Markdown..." 
+
+&lt;img style="float: center;" src="pic/02.png" width="800"&gt;
+
+---
+
+# 使い方
+
+- "From Template" → "Japanese Psychological Association format{jpaRmd}" 
+- Name:は好きな名前に変更（フォルダが作られます）
+
+&lt;img style="float: center;" src="pic/03.png" width="350"&gt;
+
+---
+
+# 使い方
+
+- output:のjpaRmd::render_jjp()内のRmd_fileが“Untitled.Rmd”になっていますので，以下のように，Rmdのファイル名に変更します。"Knit"をクリックします。
+
+&lt;img style="float: center;" src="pic/04.png" width="800"&gt;
+
+---
+# 使い方
+
+- しばらく処理が行われると，"Files"内にPDFが作られます。それが最終的なPDFです。
+
+&lt;img style="float: center;" src="pic/05.png" width="400"&gt;
+
+---
+# できた！
+
+&lt;img style="float: center;" src="pic/06.png" width="700"&gt;
+
+---
+# 開発
+- ぐぐったら，RMarkdownからPDFで出力する時にLaTeXを経由するが，日本語だとxelatexが良さげ。
+- とりあえず，RMarkdownのYAMLに色々と追加する方式で頑張る。
+---
+# 開発
+- ぐぐったら，RMarkdownからPDFで出力する時にLaTeXを経由するが，日本語だとxelatexが良さげ。
+- とりあえず，RMarkdownのYAMLに色々と追加する方式で頑張る。
+- すぐに限界を迎える・・・
+---
+# 開発
+- ぐぐったら，RMarkdownからPDFで出力する時にLaTeXを経由するが，日本語だとxelatexが良さげ。
+- とりあえず，RMarkdownのYAMLに色々と追加する方式で頑張る。
+- すぐに限界を迎える・・・
+- TeX用のテンプレートファイルを用意して，レンダー用関数をつくってみて，Rmarkdownに入れる方式にしたら，いい感じになった（LaTeXの処理をちゃんと指定すれば動く）。
+
+```
+output: jpaRmd::render_jpr()
+```
+---
+# 華麗な開発過程
+
+- 手引を読むと「図表の挿入位置は，余白に四角で囲って指示してね♡」みたいなルールがある。
+
+&lt;img style="float: center;" src="pic/18.png" width="600"&gt;
+
+- LaTeXに関するポーネグリフを読み解き，Pandoc用TeXテンプレートを野生的勘を頼り変更・確認を繰り返す。
+
+---
+**たまに，うまくいく**
+
+&lt;img style="float: center;" src="pic/10.png" width="700"&gt;
+
+---
+# 謎な仕様にも華麗に対応をする
+
+- 「Table1のあとに改行をしてから表タイトル♡」
+
+&lt;img style="float: center;" src="pic/11.png" width="800"&gt;
+
+---
+# RMarkdown日本語テンプレ作成法
+
+- **とりあえずxelatexでいく →　凝ったカスタマイズをするならYAMLに書くのはやめてテンプレートの作成とレンダー用関数も書く　→　試行錯誤してそれっぽい形になるように頑張る**
+
+--
+
+- **試行錯誤過程：あーうまくいかない。試行錯誤では限界か　→　Pandocをちゃんと学ぶ？　→　あ，めんどくさいなこれ　→　ちょいちょいといじってみたら動いた　→　あー・・・**
+
+---
+# このような過程を経て，できました
+
+&lt;img style="float: center;" src="pic/06.png" width="700"&gt;
+
+---
+# 追加機能
+
+- 査読へのリプライと修正対照表を作るテンプレート
+- 『認知行動療法研究』のテンプレート（副編集委員長なので・・・）
+- 『心理学評論』のテンプレート（Rmdファイルを１つ作れば，著者情報アリ・ナシの原稿，著者情報アリ・ナシの要約の４種のPDFが自動的に出力される変態的改造をしました）
+
+---
+
+# 立ちふさがる日本語引用文献の罠
+
+- 当初は，CLSを使って引用文献処理をしていたが，日本語論文の場合日本語文献だけ異なる処理をすることがあるが，言語によって処理を変えるのがCLSではできない（多分）
+- LaTeXのスタイルファイルを使う方法も試してみたが，うまく行かない。試行錯誤の限界を感じ，「引用文献の自動処理なんて楽をせずに，手で打ちなさいよ」とか考え始める。
+---
+# 立ちふさがる日本語引用文献の罠
+
+- 当初は，CLSを使って引用文献処理をしていたが，日本語論文の場合日本語文献だけ異なる処理をすることがあるが，言語によって処理を変えるのがCLSではできない（多分）
+- LaTeXのスタイルファイルを使う方法も試してみたが，うまく行かない。試行錯誤の限界を感じ，「引用文献の自動処理なんて楽をせずに，手で打ちなさいよ」とか考え始める。
+- 同僚の小杉先生にボヤいたところ・・・山が動く・・・
+---
+
+background-color: #000000
+class:center, middle
+
+.big3[.red[T].yel[O] .red[BE]]
+
+.big3[.red[CONTINUED]]
+
+---
+background-color: #000000
+class:center, middle
+&lt;img src="pic/12.png" width="450"&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
