@@ -59,7 +59,7 @@ class: center, middle
 
 &lt;img style="float: right;" src="pic/01.png" width="350"&gt;
 
-- 日本には数多くの心理学関連雑誌が存在するが，多くが日本心理学会の執筆・投稿の手びきに準拠している。
+- 日本には数多くの心理学関連雑誌が存在するが，多くが日本心理学会の「心理学研究」執筆・投稿の手びきに準拠している。
 
 - 『心理学研究』を攻略すれば，心理学関連和文誌の攻略は簡単！
 
@@ -114,42 +114,60 @@ remotes::install_github("ykunisato/jpaRmd")
 &lt;img style="float: center;" src="pic/06.png" width="700"&gt;
 
 ---
-# 開発
-- ぐぐったら，RMarkdownからPDFで出力する時にLaTeXを経由するが，日本語だとxelatexが良さげ。
-- とりあえず，RMarkdownのYAMLに色々と追加する方式で頑張る。
+# 開発過程
+- RMarkdownから日本語PDFを出力するなら，xelatexが良さげ(Atusyさんのブログを舐めるように読んだ)
+。
+- RMarkdownのYAMLに色々と追加する方式でスタート（ちょいちょいとおまじないかければできるんじゃない？）
+
 ---
-# 開発
-- ぐぐったら，RMarkdownからPDFで出力する時にLaTeXを経由するが，日本語だとxelatexが良さげ。
-- とりあえず，RMarkdownのYAMLに色々と追加する方式で頑張る。
-- すぐに限界を迎える・・・
+class: center, middle
+# **華麗に頓挫!**
+
+全然変更がPDFに反映されとらん・・・
+
 ---
-# 開発
-- ぐぐったら，RMarkdownからPDFで出力する時にLaTeXを経由するが，日本語だとxelatexが良さげ。
-- とりあえず，RMarkdownのYAMLに色々と追加する方式で頑張る。
-- すぐに限界を迎える・・・
-- TeX用のテンプレートファイルを用意して，レンダー用関数をつくってみて，Rmarkdownに入れる方式にしたら，いい感じになった（LaTeXの処理をちゃんと指定すれば動く）。
+- RMarkdownから日本語PDFを出力するなら，xelatexが良さげ(Atusyさんのブログを舐めるように読んだ)
+。
+- RMarkdownのYAMLに色々と追加する方式でスタート（ちょいちょいとおまじないかければできるんじゃない？）
+- TeX用のテンプレートファイルを用意して，レンダー用関数をつくってみて，Rmarkdownに入れる方式にしたら，いい感じになった（紆余曲折は省略した）。
 
 ```
 output: jpaRmd::render_jpr()
 ```
 ---
-# 華麗な開発過程
+# 華麗な開発過程の一部始終
 
 - 手引を読むと「図表の挿入位置は，余白に四角で囲って指示してね♡」みたいなルールがある。
 
 &lt;img style="float: center;" src="pic/18.png" width="600"&gt;
 
-- LaTeXに関するポーネグリフを読み解き，Pandoc用TeXテンプレートを野生的勘を頼り変更・確認を繰り返す。
+---
+# 華麗な開発過程の一部始終
+
+- 手引を読むと「図表の挿入位置は，余白に四角で囲って指示してね♡」みたいなルールがある。
+
+&lt;img style="float: center;" src="pic/18.png" width="600"&gt;
+
+- オッケー！大体どこかにLaTeXに関するポーネグリフがあるから，読み解けばいいよね！
 
 ---
-**たまに，うまくいく**
+# 華麗に頓挫！
+
+- テンプレートのどこをいじればいいかよく分からないので，純粋なる博打である。
+- ただ，博打は打ち続けるとたまにうまくいく。
+
+&lt;img style="float: center;" src="pic/19.png" width="400"&gt;
+
+---
+
+**理論はわからんけど，たまに，うまくいく**
 
 &lt;img style="float: center;" src="pic/10.png" width="700"&gt;
 
 ---
 # 謎な仕様にも華麗に対応をする
 
-- 「Table1のあとに改行をしてから表タイトル♡」
+「Table1のあとに改行をしてから表タイトルね♡」
 
 &lt;img style="float: center;" src="pic/11.png" width="800"&gt;
 
@@ -160,7 +178,7 @@ output: jpaRmd::render_jpr()
 
 --
 
-- **試行錯誤過程：あーうまくいかない。試行錯誤では限界か　→　Pandocをちゃんと学ぶ？　→　あ，めんどくさいなこれ　→　ちょいちょいといじってみたら動いた　→　あー・・・**
+- **省略した試行錯誤過程：あーうまくいかない。試行錯誤では限界か　→　Pandocをちゃんと学ぶ？　→　あ，めんどくさいなこれ　→　ちょいちょいといじってみたら動いた　→　あーうまくいかない・・・**
 
 ---
 # このような過程を経て，できました
@@ -173,21 +191,28 @@ output: jpaRmd::render_jpr()
 - 査読へのリプライと修正対照表を作るテンプレート
 - 『認知行動療法研究』のテンプレート（副編集委員長なので・・・）
 - 『心理学評論』のテンプレート（Rmdファイルを１つ作れば，著者情報アリ・ナシの原稿，著者情報アリ・ナシの要約の４種のPDFが自動的に出力される変態的改造をしました）
+- しかし，ある雑誌で掲載確定後に，Wordでの提出を求められたり・・・
 
----
-
-# 立ちふさがる日本語引用文献の罠
-
-- 当初は，CLSを使って引用文献処理をしていたが，日本語論文の場合日本語文献だけ異なる処理をすることがあるが，言語によって処理を変えるのがCLSではできない（多分）
-- LaTeXのスタイルファイルを使う方法も試してみたが，うまく行かない。試行錯誤の限界を感じ，「引用文献の自動処理なんて楽をせずに，手で打ちなさいよ」とか考え始める。
 ---
 # 立ちふさがる日本語引用文献の罠
 
-- 当初は，CLSを使って引用文献処理をしていたが，日本語論文の場合日本語文献だけ異なる処理をすることがあるが，言語によって処理を変えるのがCLSではできない（多分）
-- LaTeXのスタイルファイルを使う方法も試してみたが，うまく行かない。試行錯誤の限界を感じ，「引用文献の自動処理なんて楽をせずに，手で打ちなさいよ」とか考え始める。
-- 同僚の小杉先生にボヤいたところ・・・山が動く・・・
----
+- CLSで文献処理をしていたが，日本語文献だけ異なる処理をすることはCLSではできない（多分）。LaTeXのスタイルファイルを使うのも難しい（多分，XeLaTeXでは）。
 
+---
+# 立ちふさがる日本語引用文献の罠
+
+- CLSで文献処理をしていたが，日本語文献だけ異なる処理をすることはCLSではできない（多分）。LaTeXのスタイルファイルを使うのも難しい（多分，XeLaTeXでは）。
+
+- 華麗に試行錯誤で乗り切ってきた私にも理解できる，敗色の気配。
+---
+# 立ちふさがる日本語引用文献の罠
+
+- CLSで文献処理をしていたが，日本語文献だけ異なる処理をすることはCLSではできない（多分）。LaTeXのスタイルファイルを使うのも難しい（多分，XeLaTeXでは）。
+
+- 華麗に試行錯誤で乗り切ってきた私にも理解できる，敗色の気配。
+
+- [@kosuggiti](https://twitter.com/kosugitti)にボヤいたところ・・・事態は急展開しはじめた・・・
+---
 background-color: #000000
 class:center, middle
 
@@ -198,7 +223,21 @@ class:center, middle
 ---
 background-color: #000000
 class:center, middle
-&lt;img src="pic/12.png" width="450"&gt;
+&lt;img src="pic/12.png" width="50"&gt;
+---
+background-color: #000000
+class:center, middle
+&lt;img src="pic/12.png" width="100"&gt;
+---
+background-color: #000000
+class:center, middle
+&lt;img src="pic/12.png" width="350"&gt;
+---
+background-color: #000000
+class:center, middle
+&lt;img src="pic/12.png" width="550"&gt;
+---
+続きは[こちら]()
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
