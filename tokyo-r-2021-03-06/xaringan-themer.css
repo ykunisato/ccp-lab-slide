@@ -264,6 +264,12 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
 .small {
   font-size: 60%;
 }
+.med {
+  font-size: 80%;
+}
+.big1 {
+  font-size: 150%;
+}
 .big2 {
   font-size: 200%;
 }
