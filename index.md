@@ -13,6 +13,10 @@
 - [二次分析研究](spring_seminar_JSSP_2021/secondary_analysis/slide.html)
 - [メタ分析](spring_seminar_JSSP_2021/meta_analysis/slide.html)
 
+### CBTセンター(4/8)
+
+- [オープンデータの作り方](open_data/open_data.html)
+
 ## 2020
 
 ### パンデミック下の心理学研究法(日本認知心理学会研究法研究部会, 2020)
