@@ -37,7 +37,7 @@ class: center, middle, inverse, title-slide
 ---
 # 本日扱うオープンデータとは？
 
-- オープンデータについて論じる際に，政府・自治体もしくは企業が公開したデータを差していることも多い.med[（大規模なデータが多いが，データの質の問題や関心にあったデータではないことも多い）]
+- オープンデータについて論じる際に，政府・自治体もしくは企業が公開したデータを指していることも多い.med[（大規模なデータが多いが，データの質の問題や関心にあったデータではないことも多い）]
 
 - 本発表は，研究者が自身の研究で収集したデータを公開するという場合のオープンデータを扱う
 
@@ -177,7 +177,7 @@ class: center, middle, inverse, title-slide
 # データ共有リポジトリ.small2[(Gilmore et al., 2018を基に一部改変)]
 - Protocols.io(https://www.protocols.io) .med[研究プロトコルを共有（プライベート共有可）]
 - Inter-university Consortium for Political and Social Research(https://www.icpsr.umich.edu/web/pages) .med[社会科学に関する調査の個票データを共有（制限可能）]
-- National Institute of Mental Health Data Archive (https://nda.nih.gov) .med[精神医学経データの共有（制限可能）]
+- National Institute of Mental Health Data Archive (https://nda.nih.gov) .med[精神医学系データの共有（制限可能）]
 
 ---
 # データ共有リポジトリ.small2[(Gilmore et al., 2018を基に一部改変)]
@@ -298,13 +298,6 @@ class: center, middle, inverse, title-slide
 - **ステップ３**：メタデータ付きデータセットと解析スクリプトをリポジトリで公開し，コードブックはnetlifyなどで公開.med[(JSON形式メタデータが読み込めるリポジトリならデータと一緒でも良い)]
 
 → コードブックによってデータが研究目的に合ったものかの判断がしやすい。構造化できているならば，自動的にメタ分析を行うことも将来的は可能に・・・
-
----
-# Data Enclave
-
-- Data Enclaveという方法の場合，研究者はデータのダウンロードはできないが，そのバーチャルネットワーク上でデータを用いた解析ができる。持ち出せるのは，その解析結果だけであり，個別のデータについては，持ち出せないように工夫されている(Levenstein, 2018)。
-
-[リンク](https://www.icpsr.umich.edu/web/pages/ICPSR/access/restricted/enclave.html)
 
 ---
 # データ共有の１０のルール.small[(Goodman, 2014)]
@@ -442,6 +435,13 @@ CC0 1.0ならクレジットなしで，CC BY 4.0ならクレジットをつけ�
 
 - **AIベース**：機械学習の方法（決定木，文法パーサー，深層学習）を駆使して，識別子の学習をする。1000件の精神科インテークのコーパスを用いたコンペでは，複数の機械学習手法を組み合わせたアンサンブルアプローチが最も 性能が良かった(Stubbs et al., 2017)。
 
+---
+
+# Data Enclaveによるプライバシー保護
+
+- Data Enclaveという方法の場合，研究者はデータのダウンロードはできないが，そのバーチャルネットワーク上でデータを用いた解析ができる。持ち出せるのは，その解析結果だけであり，個別のデータについては，持ち出せないように工夫されている(Levenstein, 2018)。
+
+[リンク](https://www.icpsr.umich.edu/web/pages/ICPSR/access/restricted/enclave.html)
 ---
 # プライバシー保護
 
