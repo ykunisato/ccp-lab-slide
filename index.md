@@ -4,6 +4,10 @@
 
 ## 2021
 
+### 第43回日本生物学的精神医学会・第51回日本神経精神薬理学会(7/14)
+
+- [オープンデータの作り方](https://ykunisato.github.io/ccp-lab-slide/NPPR/slide.html)
+
 ### Tokyo.R(3/6)
 
 - [RStudioで日本語論文を書く(1):jpaRmdテンプレート](tokyo-r-2021-03-06/tokyoR.html)
