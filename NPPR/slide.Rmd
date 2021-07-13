@@ -153,7 +153,7 @@ style_mono_accent(base_color = "#006400",
 ---
 # 汎用リポジトリ.small2[(Gilmore et al., 2018を基に一部改変)]
 
-- Open Science Framework(https://osf.io/dashboard) .med[多種のデータとマテリアルを共有。プレレジやプレプリント機能もある。]
+- Open Science Framework(https://osf.io) .med[多種のデータとマテリアルを共有。プレレジやプレプリント機能もある。]
 - figshare(https://figshare.com) .med[グラフ，図，スライドの共有]
 - Zenodo(https://about.zenodo.org) .med[研究アウトプットを共有]
 - GitHub(https://github.com) .med[研究マテリアル，データ，コードの共有。ZenodoかOSFと連携させてDOIもとれる]
@@ -171,6 +171,7 @@ style_mono_accent(base_color = "#006400",
 - Protocols.io(https://www.protocols.io) .med[研究プロトコルを共有（プライベート共有可）]
 - Databrary(https://nyu.databrary.org) .med[認証された研究者がビデオや音声などを共有（制限可能）]
 - OpenNeuro(https://openneuro.org) .med[MRI, MEG, EEG, iEEG, ECoG, ASLデータを共有]
+- NCBI GEO(https://www.ncbi.nlm.nih.gov/geo/).med[ゲノムデータを共有]
 - TalkBank(https://talkbank.org) .med[音声とビデオとトランスクリプトの共有]
 - WordBank(http://wordbank.stanford.edu) .med[子どもの言語発達に関するデータを共有]
 
@@ -179,7 +180,7 @@ style_mono_accent(base_color = "#006400",
 
 - 3.再利用を念頭において科学を行う.med[(1.データ，2.データを説明するメタデータ情報，3.コードなどのデータ生成過程に関する情報が提供されていればデータが再利用可能)]
 - 4.ワークフローを共有する .med[(処理ステップを共有することで，データの解釈や再利用に必要な文脈を提供できる。データから論文までつながった状態にできると良い(Rの場合，Rmarkdownなど)]
-- 6.コードを公開する.med[(コードが共有されるとデータから最終的な論文の結果の再現が可能になる。そして，使用するソフトはオープンソースを用いて，読者が追跡がしやすいようにする]。
+- 6.コードを公開する.med[(コードが共有されるとデータから最終的な論文の結果の再現が可能になる。そして，使用するソフトはオープンソースを用いて，読者が追跡がしやすいようにする)]。
 
 →.red[FAIR].med[(Findability, Accessibility, Interoperability, Reusability; Wilkinson et al.,2016)]を満たす見つけやすく，アクセス可能で，相互運用可能で，再利用可能なデータと解析コードの共有が必要
 
