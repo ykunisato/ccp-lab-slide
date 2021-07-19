@@ -8,9 +8,6 @@
 
 - [データ・解析コード・マテリアルをどのようにオープンにすればよいのか？](https://ykunisato.github.io/ccp-lab-slide/edupsych2021/slide.html)　
 
-
-
-
 ### 第43回日本生物学的精神医学会・第51回日本神経精神薬理学会(7/14)
 
 - [オープンデータの作り方](https://ykunisato.github.io/ccp-lab-slide/NPPR/slide.html)
