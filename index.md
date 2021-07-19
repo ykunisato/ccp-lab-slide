@@ -4,6 +4,13 @@
 
 ## 2021
 
+### 日本教育心理学会第63回総会 学会企画チュートリアル・セミナー「『心理学の７つの大罪』から考える心理学研究法」(WEB開催　8/21日-8/30)
+
+- [データ・解析コード・マテリアルをどのようにオープンにすればよいのか？](https://ykunisato.github.io/ccp-lab-slide/edupsych2021/slide.html)　
+
+
+
+
 ### 第43回日本生物学的精神医学会・第51回日本神経精神薬理学会(7/14)
 
 - [オープンデータの作り方](https://ykunisato.github.io/ccp-lab-slide/NPPR/slide.html)
