@@ -15,7 +15,7 @@
  *    - xaringan wiki: https://github.com/yihui/xaringan/wiki
  *    - remarkjs wiki: https://github.com/gnab/remark/wiki
  *
- *  Version: 0.3.3
+ *  Version: 0.3.4
  *
  * ------------------------------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Song+Myung:400,400i&display=swap);
@@ -267,7 +267,7 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   font-size: 50%;
 }
 .small {
-  font-size: 60%;
+  font-size: 65%;
 }
 .med {
   font-size: 80%;
