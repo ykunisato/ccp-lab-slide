@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>再現可能な日本語論文執筆入門</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="国里愛彦 (専修大学)" />
+    <meta name="author" content="小杉 考司(専修大学)" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# 再現可能な日本語論文執筆入門
+## –再現可能な論文執筆と環境構築–
+### 国里愛彦 (専修大学)
+### 小杉 考司(専修大学)
+### 2020年9月6日
+
+---
+
+
+
+
+
+
+class: center, middle
+# 1.再現可能な論文執筆とは？
+
+---
+# 心理学の再現性の危機
+&lt;img style="float:right" src="fig/01.png" width="250"&gt;
+- 1576名の研究者への調査.med[(Baker, 2016, Nature)]で，90%が再現性の危機があると回答.med[(52%が重大な危機，38%が軽い危機)]
+
+- 100本の心理学研究を追試したところ，元の研究は97%が有意な効果なのに，追試は有意な効果が36%だけ.med[(Open Science Collaboration, 2015)]
+
+→ 心理学の再現可能性を高めないと！
+---
+
+# ３つの再現性(Goodman et al., 2016)
+&lt;img style="float:right" src="fig/02.png" width="300"&gt;
+- **.large[方法]の再現可能性**: 同じデータ＋同じ方法 → 同じ結果
+- **.large[結果]の再現可能性**: 新規データ＋同じ方法 → 同じ結果
+- **.large[推論]の再現可能性**: 同じ結果 → 同じ結論
+
+→ 本TWSの目的は，**方法**の再現可能性を高めること！
+
+---
+#  方法の再現可能性の問題
+
+- Cognition誌(2009-2016年)でデータ共有している35本の内，同じ解析で同じ結果を再現できたのは，**62%**(著者の助けなく再現できたのは**31%**, Hardwicke et al., 2018)。
+- 同じ仮説.small[「移民が市民の社会政策への支持を低下させるか」]＆同じデータを，73の研究チーム（162名の研究者）が解析すると，推定値もその結論(**60.7%が仮説棄却，28.5%が仮説支持**)も大きく異なった(Breznau et al.,2021)
+
+→　同じデータであっても結果を再現するのは難しい！
+
+---
+# 方法の再現可能性を高める方法
+&lt;img style="float:right" src="fig/03.png" width="200"&gt;
+1. 共有を前提にデータとコードを用意する
+1. ファイルを組織化する(Research Compendium)
+1. データから論文出版までを一気につなぐ
+1. 解析環境をまるごと共有する
+
+---
+# 共有を前提にデータとコードを用意する
+- 第３者が利用できるように，機械が読みやすく人も理解しやすい形式でデータを配布する(整然データ)
+- ヒトから収集したデータを共有・公開する場合は，データ共有に対する同意も必要になる(倫理審査から準備が必要)。
+- データから個人が特定できないように工夫する(個人識別情報を含んでなくても特定できることがある)
+- 第３者が利用できるように，解析コードは，その分野で馴染みのある書き方にする(Rの場合は，The tidyverse style guide https://style.tidyverse.org/)
+
+---
+# ファイルを組織化する
+
+- 実行するコードの順番や説明を入れたり，データの場所が分かりやすいようにフォルダを作成(ソフトのパッケージ化を意識した**Research Compendium**.med[(Marwick et al., 2018)]の利用)
+
+&lt;img src="fig/04.png" width="800"&gt;
+
+---
+# データから論文出版までを一気につなぐ
+- データと論文執筆をつなぐには，R Markdownが便利！
+
+&lt;img src="fig/05.png" width="800"&gt;
+---
+
+# 解析環境をまるごと共有する
+- パッケージのバージョンが違ったりすると，結果が再現できないことがある。
+- 解析環境(OSやソフト)が違うとそもそも実行ができないor結果が再現できないことがある。
+
+→ コードだけでなく，解析環境やバージョン情報も公開する。
+
+→ Dockerを使ってOSやソフトを含んだコンテナを共有する。
+---
+# 方法の再現可能性を高めるツール
+
+1. 共有を前提にデータとコードを用意する = The tidyverse style guide
+2. ファイルを組織化する(Research Compendium) = jpaRmd
+3. データから論文出版までを一気につなぐ = Rstudio, R Markdown, github, osfr
+4. 解析環境をまるごと共有する = Docker, renv
+
+→　今回は主にRStudio, RMarkdown, jpaRmdを中心に解説を行う。
+
+---
+
+class: center, middle
+# 2.環境構築（RStudioとRmarkdown環境を整える）
+
+---
+# 解析環境を整える
+
+- 統計解析環境の構築では，RとRStudioがおすすめ（フリー，高機能，便利なパッケージがある）。
+- Rは[The R Project for Statistical Computing](https://www.r-project.org/)，Rstudioは[RStudio社のHP](https://rstudio.com/products/rstudio/)からデスクトップ版をダウンロード＆インストールできる。
+
+デメリット：(1)Rstanなどインストールでトラブりがちなパッケージの用意が面倒，(2)複数のパソコンで完全に同じ環境を整えるのは大変，(3)純粋にめんどくさい
+
+---
+# Dockerを使って簡単に環境構築する
+- Dockerは，Linuxベースのアプリケーションをコンテナ化する技術。Dockerではコンテナのイメージをつくるが，これを共有すれば，再現可能な環境を共有できる。
+
+&lt;img src="fig/06.png" width="550"&gt;
+
+---
+# Rockerを使う.small[(https://hub.docker.com/u/rocker)]
+
+- RockerはRやRStudio用のDockerイメージ。パソコン内にコンテナを用意して，RStudioサーバーを動かす。ユーザーは，ブラウザからRSutidoサーバーにアクセスする。
+
+&lt;img src="fig/07.png" width="700"&gt;
+
+---
+
+# paper-r：心理学の論文執筆用Docker
+
+- ykunisato/paper-rは，RstudioでR Markdownを用いて論文執筆を行う際に便利なパッケージやアドインを含めたDockerファイルのリポジトリ (https://hub.docker.com/r/ykunisato/paper-r )
+- ykunisato/paper-rは，rocker/verseをベースにしており，心理学で使いそうなRパッケージは大体入っている（stanも最初から入っている）。
+- 注意点：Paper-rは10GBくらい容量を使う。Win,Mac.Linuxに関係なく導入ができるが，長く使っており様々な設定を施したパソコンは導入が難しいことがある（タブレットは導入が難しい印象）。
+
+---
+
+# paper-rの使い方（事前準備動画参照）
+
+- ターミナル(Mac)・コマンドプロンプト(Win)で以下を実行
+
+### Windows
+
+```
+docker run -e PASSWORD=paper -p 8787:8787 -v "%cd%":/home/rstudio -d --name paper ykunisato/paper-r
+```
+
+### Mac
+
+```
+docker run -e PASSWORD=paper -e DISABLE_AUTH=true -p 8787:8787 -v $(pwd):/home/rstudio -d --name paper ykunisato/paper-r
+
+```
+---
+# jpaRmdパッケージ
+
+&lt;img style="float:right" src="fig/08.png" width="250"&gt;
+- rstudioのrticlesは便利だが，日本の心理学系の雑誌には対応していない。
+
+→　[jpaRmd](https://github.com/ykunisato/jpaRmd)を開発！
+- jpaRmdは，「心理学研究」の投稿時に求められる書式をPDFで出力するRMarkdownのテンプレートを提供するRパッケージ
+---
+
+# jpaRmdのインストール
+
+- jpaRmdは，githubからremotesのinstall_github()関数を用いてインストールする(cranには登録されていない)。
+- remotesがインストールされてない方は，CRANからインストールください。
+
+
+```r
+# install.packages("remotes")
+remotes::install_github("ykunisato/jpaRmd")
+```
+
+---
+class: center, middle
+# 再現可能な論文執筆と環境構築のQ&amp;A
+
+---
+# 引用文献
+.small[
+- Baker, M. (2016). 1,500 scientists lift the lid on reproducibility. Nature, 533(7604), 452–454.
+- Breznau et al.(2021). Observing many researchers using the same data and hypothesis reveals a hidden universe of uncertainty. In BITSS. https://doi.org/10.31222/osf.io/cd5j9
+- Goodman, S. N., Fanelli, D., &amp; Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341), 341ps12.
+- Hardwicke, T. E., Mathur, M. B., MacDonald, K., Nilsonne, G., Banks, G. C., Kidwell, M. C., Hofelich Mohr, A., Clayton, E., Yoon, E. J., Henry Tessler, M., Lenne, R. L., Altman, S., Long, B., &amp; Frank, M. C. (2018). Data availability, reusability, and analytic reproducibility: evaluating the impact of a mandatory open data policy at the journal Cognition. Royal Society Open Science, 5(8), 180448.
+- Marwick, B., Boettiger, C., &amp; Mullen, L. (2018). Packaging Data Analytical Work Reproducibly Using R (and Friends). The American Statistician, 72(1), 80–88.
+- Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. Science, 349(6251), aac4716.
+
+]
+ 
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

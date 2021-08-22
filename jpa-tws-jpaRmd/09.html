@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>再現可能な日本語論文執筆入門</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="国里愛彦 (専修大学)" />
+    <meta name="author" content="小杉 考司(専修大学)" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# 再現可能な日本語論文執筆入門
+## –jpaRmdの利用に関する発展的な話題–
+### 国里愛彦 (専修大学)
+### 小杉 考司(専修大学)
+### 2020年9月6日
+
+---
+
+
+
+
+
+
+class: center, middle
+# jpaRmdの利用に関する発展的な話題
+
+&lt;img  src="fig/08.png" width="250"&gt;
+---
+# 査読へのリプライと修正対照表の作成(1)
+
+&lt;img  src="fig/36.png" width="400"  align="right"&gt;
+- 投稿したら，査読者からのコメント対応も必要となる。
+- リプライと修正対照表の作成もR Markdownで可能です。
+- jpaRmdのテンプレートから，「Reply to Reviewer」を選択して，「OK」をクリック
+---
+# 査読へのリプライと修正対照表の作成(2)
+
+- 査読者へのリプライを以下に書いていく。
+
+&lt;img  src="fig/37.png" width="650"&gt;
+
+---
+# 査読へのリプライと修正対照表の作成(3)
+
+
+- 修正対照表は，以下のように，old_m()に旧原稿の内容，new_m()に修正原稿の内容を書いていく。
+
+&lt;img  src="fig/38.png" width="800"&gt;
+
+- 書けたらknitをクリックするとPDFが出力される。
+---
+- リプライは以下のようになる
+&lt;img  src="fig/39.png" width="650"&gt;
+- 修正対照表は以下のようになる
+&lt;img  src="fig/40.png" width="650"&gt;
+
+---
+# 無慈悲なWordでの原稿提出要求
+
+&lt;img  src="fig/41.png" width="300"  align="right"&gt;
+- R Markdownで出力される原稿が美しいので，自己満足に浸っていたら，採択後の原稿提出でWordが指定されることが・・・（他にもPDFはNGな共著者もいるかもしれない・・・）
+
+→ じわじわとR Markdownで使ったことを後悔してしまうかも・・・
+
+---
+# 心配ご無用！Pandocがある！
+
+knitrのpandoc()で，PDF作成時に出力されるtexファイルをWordに変換できる　```pandoc("paper.tex","docx")```
+&lt;img  src="fig/34.png" width="800"&gt;
+
+---
+- フォーマットは美しくないが，wordで出力される。Word入稿，Wordの校閲機能好きな共著者への送付もできる。
+&lt;img  src="fig/35.png" width="650"&gt;
+---
+# 専修大学心理学科卒論用Rmd
+- R Markdownテンプレートの活用は，「心理学研究」に限定されない。卒業論文や修士論文で活用しては？
+- senshuRmd(https://github.com/ykunisato/senshuRmd )は，専修大学の心理学科の卒論で求められる形式のPDF出力するRMarkdownテンプレート用Rパッケージ
+- 国里ゼミでは，Rstudioサーバーにゼミ生のアカウントをつくって，ゼミ生はこのRmdを更新＆Githubでバージョン管理しつつ卒論を執筆する（指導教員としては，卒業研究のみに指導を集中できるので，楽になりました）。
+---
+# 方法の再現可能性の問題：データ共有の低さ
+
+- 生物医学論文の無作為抽出調査(2015-2017年):データの入手可能性を記載していたのは**18.3%**(Wallach et al., 2018)
+- 心理学論文の無作為抽出調査(2014-2017年):生データを共有していた論文が**2%**，解析コードを共有していた論文が**1%**であった(Hardwicke et al.,2021)
+
+→　データやコードの共有はまだ十分ではない。
+
+詳しくは[データ・解析コード・マテリアルをどのようにオープンにすればよいのか？(国里, 2021)](https://ykunisato.github.io/ccp-lab-slide/edupsych2021/slide.html)を参照
+
+---
+# jpaRmdのResearch Compendium
+
+データやマテリアル共有を意識して，Research Compendiumを導入するのが良い。set_rc_jpa("プロジェクト名")を実行すると，プロジェクト名のディレクトリー下に以下のディレクトリーが作られる。
+
+- analysis: 分析用ファイルを置く場所
+- data：データを置く場所
+- function：　分析で使う汎用関数のファイルを置く場所
+- materials：　研究で使ったマテリアルを置く場所
+- paper：　論文原稿を置く場所
+- README.md : 説明を書くファイル
+
+---
+class: center, middle
+# jpaRmdについての総合質疑・要望
+
+---
+# 引用文献
+.small[
+- Hardwicke, T. E., Mathur, M. B., MacDonald, K., Nilsonne, G., Banks, G. C., Kidwell, M. C., Hofelich Mohr, A., Clayton, E., Yoon, E. J., Henry Tessler, M., Lenne, R. L., Altman, S., Long, B., &amp; Frank, M. C. (2018). Data availability, reusability, and analytic reproducibility: evaluating the impact of a mandatory open data policy at the journal Cognition. Royal Society Open Science, 5(8), 180448.
+- Wallach, J. D., Boyack, K. W., &amp; Ioannidis, J. P. A. (2018). Reproducible research practices, transparency, and open access data in the biomedical literature, 2015-2017. PLoS Biology, 16(11), e2006930.
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

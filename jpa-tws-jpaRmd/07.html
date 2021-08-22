@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>再現可能な日本語論文執筆入門</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="国里愛彦 (専修大学)" />
+    <meta name="author" content="小杉 考司(専修大学)" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# 再現可能な日本語論文執筆入門
+## –jpaRmdで日本語論文を書いてみよう！–
+### 国里愛彦 (専修大学)
+### 小杉 考司(専修大学)
+### 2020年9月6日
+
+---
+
+
+
+
+
+
+class: center, middle
+# jpaRmdパッケージの始め方
+
+&lt;img  src="fig/08.png" width="250"&gt;
+
+---
+# jpaRmdの始め方(1)
+
+- RStudio:「File」 →　「New File」 →　「RMarkdown…」をクリックする。
+
+&lt;img src="fig/09.png" width="800"&gt;
+---
+# jpaRmdの始め方(2)
+
+&lt;img src="fig/10.png" width="500"  align="right"&gt;
+
+右のような画面が出てくる。
+
+「From Template」をクリックする。
+
+---
+# jpaRmdの始め方(3)
+
+&lt;img src="fig/11.png" width="450"  align="right"&gt;
+
+「Japanese Psychological Association format {jpaRmd}」を選択する。
+
+Nameを好きな名前にする。
+
+「OK」をクリックする。
+
+---
+# jpaRmdの始め方(4)
+
+- フォルダとファイルが作られて，以下のように，Rmdファイルが自動的に開きます。
+- 上から７行目のRmd_file:が“Untitled.Rmd”のままになっている(Rmdファイル名と同じにしないといけない)
+
+&lt;img src="fig/12.png" width="800"&gt;
+
+---
+# jpaRmdの始め方(5)
+
+- 上から７行目のRmd_file:を“Untitled.Rmd”からRmdのファイル名に変更する（以下の例だと，Untitled.Rmdからmy_paper.Rmdに変更する）。
+
+&lt;img src="fig/13.png" width="800"&gt;
+
+---
+# jpaRmdの始め方(6)
+
+- Rmd_fileの名前変更ができたら，「Knit」ボタンをクリックする（RmdファイルからPDFファイルを生成する）
+- 最初のKnitは各種パッケージのインストールのため時間がかかります。
+
+&lt;img src="fig/14.png" width="700"&gt;
+
+---
+# jpaRmdの始め方(7)
+
+下のようなメッセージがでてきたら，PDFが出力できている。
+
+&lt;img src="fig/16.png" width="600"&gt;
+
+---
+# jpaRmdの始め方(8)
+
+フォルダ内にファイルがいくつか作られ，PDFファイルも作られる。PDFファイル(以下の場合は，my_paper.pdf)をクリックして確認する。
+
+&lt;img src="fig/15.png" width="700"&gt;
+---
+# jpaRmdの始め方(9)
+
+&lt;img src="fig/17.png" width="500" align="right"&gt;
+右のようなPDFが出力されれば，Knit成功している。
+
+---
+
+class: center, middle
+# 演習：jpaRmdでPDF出力してみよう！
+
+---
+class: center, middle
+# jpaRmdで自分の論文を書いてみよう！
+
+&lt;img  src="fig/08.png" width="250"&gt;
+
+---
+# jpaRmdの書き方(1)
+&lt;img src="fig/22.png" width="530" align="right"&gt;
+
+RStudioのスペルチェック機能は日本語入力時には不便（英語は便利）
+
+Tools → Global Options...
+
+赤点線で囲われたチェックボックスのチェックが入っている場合は，.red[チェックを取る]
+---
+# jpaRmdの書き方(2)
+
+RStudioのバージョンによっては，１つ目に開いたファイルは日本語入力ができないことがある。
+
+&lt;img src="fig/23.png" width="580" align="right"&gt;
+
+日本語を入力するファイルの前になにか適当なファイルを開いて（例の場合はmemo.md），日本語入力する。
+---
+# jpaRmdの書き方(3)
+
+- タイトル（青），英タイトル（オレンジ）を変更する。
+
+&lt;img src="fig/18.png" width="850"&gt;
+
+---
+# jpaRmdの書き方(4)
+
+- &lt;！--と--&gt;で囲われた緑の説明文書は，PDF出力されない。削除してもよいが，メモとしても使えるし便利なので，そのままにしておくと良い。
+
+&lt;img src="fig/19.png" width="800"&gt;
+
+- Abstractやkeywordsなどを書き込んでいく。
+---
+# jpaRmdの書き方(5)
+
+- 最初に使用するRパッケージをlibrary()関数で読み込む。
+
+&lt;img src="fig/20.png" width="800"&gt;
+
+---
+# jpaRmdの書き方(6)
+
+- 引用文献をBibTeX形式で管理すれば(テンプレートにはreference.bibが同封，そちらに追加して管理)，引用キーを使って，本文での引用と引用文献リスト作成を自動化（詳細は「8 TWS: jpaRmdでらくらく文献処理！」にて）
+
+&lt;img src="fig/30.png" width="750"&gt;
+
+---
+# jpaRmdの書き方(7)
+
+- 脚注は以下のように本文中にいれる。
+&lt;img src="fig/28.png" width="650"&gt;
+- 内容は引用文献の後ろに以下のように書き込む
+&lt;img src="fig/29.png" width="650"&gt;
+---
+
+# jpaRmdの書き方(8)
+
+- 『心理学研究』は，25字，32行で1頁800字（余白は3.5cm以上）である。それを，以下で確認できる（確認したら削除して良い）。
+
+&lt;img src="fig/24.png" width="700"&gt;
+---
+# jpaRmdの書き方(9)
+&lt;img src="fig/25.png" width="450" align="right"&gt;
+以下のように，中央大見出し，横大見出し，横小見出しをつけられる（右のようになる）。
+
+- "#"は，方法，結果，考察などの中央大見出し
+- "##"は，参加者や研究手続きなどの横大見出し
+- "**"で挟むと太字になり，小見出しを表現できる
+
+---
+# jpaRmdの書き方(10)
+- 論文内で数値の手による打ち込みとコピペをできるだけしない。.red[r sprintf('%.0f',本文にいれる数値のオブジェクト)]で，Rでデータをひっぱてきて本文に挿入する
+
+&lt;img src="fig/26.png" width="750"&gt;
+
+---
+&lt;img src="fig/25.png" width="450" align="right"&gt;
+
+- こんな感じで，数値が挿入される。
+- データが変わると，それに合わせて，本文も書き換わる。
+- 結果についても同様にしてコピペせずに数値を挿入するのを心がける。
+---
+# jpaRmdの書き方(11)
+- FigureやTableの挿入位置を指定したい場合，.red[”\marginpar{\fbox{Figure 1}}”]を使う。
+- 以下のような感じで余白に挿入位置の指定がはいる（色々と試して，これが一番『心理学研究』に近かった）。
+
+&lt;img src="fig/27.png" width="700"&gt;
+---
+
+# jpaRmdの書き方(12)
+
+- 表はkable関数を使って，latexフォーマットで出力するときれい（表データのsummary_bfiは別途整形しておく）。
+
+
+```r
+# kableを使って表を作る（以下のようにやると結構きれいになります）
+kable(summary_bfi, 
+      format = "latex", 
+      booktabs = T, 
+      caption = "Descriptive Statistics of bfi",
+      digits = 2,
+      col.names = c("n","Mean","SD","Median","Min","Max","Skewness","kurtosis")) %&gt;%
+  kable_styling(latex_options = c("striped", "hold_position"),full_width = F)
+```
+
+---
+- 以下のように出力される。
+- kableでlatex形式の表を出力すると，自動でTable1から連番が振られる。
+
+&lt;img src="fig/31.png" width="800"&gt;
+
+---
+# jpaRmdの書き方(13)
+- 画像ファイルの挿入([]内に図のタイトルを書く)
+
+```
+![How R Markdown works](fig1.png)
+```
+- 以下のように出力(Table同様，図はFigure1のように連番がつく)
+
+&lt;img src="fig/32.png" width="800"&gt;
+---
+# jpaRmdの書き方(14)
+
+- ggplot2で作ったグラフを導入する場合，R Markdownのチャンクを.red[{r figs, echo=FALSE, message=FALSE, warning=FALSE, fig.width=7,fig.height=4,fig.cap='\\label{fig:figs}Examples of bar plot and scatter plot'}]のようにする（fig.width, fig.height, fig.capは適宜変更）。
+- jtoolsパッケージのtheme_apa()を使うとAPA形式の図を出力できる。
+
+---
+- 以下のように出力(Figure2のように連番がつく)
+- ggplot2は表現力が高いので，そのまま挿入できるのは楽
+
+&lt;img src="fig/33.png" width="700"&gt;
+---
+# Wordの便利さは諸刃の刃
+
+- R Markdownだけで書く場合，Wordだとコピペしたり一部改変すれば終わる作業に時間がかかる・・・しかしその便利さはコピペ汚染にも繋がり，諸刃の刃である。
+
+- 論文内の数値のミスは，致命的。本文中に挿入される数値や図表は，（軽い処理の場合は）論文と同じファイル内で処理をして，再現可能性を高めることが重要である。
+
+---
+class: center, middle
+# 演習：ご自身の研究に合わせて変更を加えて，PDF出力してみよう！
+---
+## R Markdownをさらに極めたい方へ
+.med[
+- ドキュメント・プレゼンテーション生成(高橋康介著,2014年，共立出版)
+- 再現可能性のすゝめ(高橋康介著,2018年，共立出版)
+- 自然科学研究のためのR入門(江口哲史著,2018年，共立出版)
+- RユーザのためのRStudio[実践]入門　改訂第２版(松村優哉・湯谷啓明・紀ノ定保礼・前田和寛著，2021年,技術評論社)
+- R Markdown Cookbook (Yihui Xie, Christophe Dervieux, Emily Riederer, 2020年10月30日, Chapman and Hall/CRC)
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
