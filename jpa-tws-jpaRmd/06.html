@@ -25,6 +25,13 @@ class: center, middle, inverse, title-slide
 
 
 
+# TWS開始前のアナウンス
+
+- 本TWSでは，RとRStudioを使用します。
+- TWS用のサイトを用意していますので，以下を参考に，RとRStudioのセットアップをお願いします。 https://ykunisato.github.io/jpa2021-tws-jpaRmd/index.html
+- 「6 TWS: 再現可能な論文執筆と環境構築」は，概要説明になります。RやRStudio(可能ならDockerが良いです)の準備がまだの場合は，そちらを優先なさってください。
+
+---
 class: center, middle
 # 1.再現可能な論文執筆とは？
 
@@ -89,16 +96,16 @@ class: center, middle
 
 → コードだけでなく，解析環境やバージョン情報も公開する。
 
-→ Dockerを使ってOSやソフトを含んだコンテナを共有する。
+→ **Docker**を使ってOSやソフトを含んだコンテナを共有する。
 ---
 # 方法の再現可能性を高めるツール
 
-1. 共有を前提にデータとコードを用意する = The tidyverse style guide
-2. ファイルを組織化する(Research Compendium) = jpaRmd
-3. データから論文出版までを一気につなぐ = Rstudio, R Markdown, github, osfr
-4. 解析環境をまるごと共有する = Docker, renv
+1. 共有を前提にデータとコードを用意する → **The tidyverse style guide**
+2. ファイルを組織化する(Research Compendium) → **jpaRmd**
+3. データから論文出版までを一気につなぐ → **R Markdown**
+4. 解析環境をまるごと共有する → **Docker**
 
-→　今回は主にRStudio, RMarkdown, jpaRmdを中心に解説を行う。
+→　今回は主に**RStudio, RMarkdown, jpaRmd**を中心に解説を行う。
 
 ---
 
@@ -132,7 +139,7 @@ class: center, middle
 
 - ykunisato/paper-rは，RstudioでR Markdownを用いて論文執筆を行う際に便利なパッケージやアドインを含めたDockerファイルのリポジトリ (https://hub.docker.com/r/ykunisato/paper-r )
 - ykunisato/paper-rは，rocker/verseをベースにしており，心理学で使いそうなRパッケージは大体入っている（stanも最初から入っている）。
-- 注意点：Paper-rは10GBくらい容量を使う。Win,Mac.Linuxに関係なく導入ができるが，長く使っており様々な設定を施したパソコンは導入が難しいことがある（タブレットは導入が難しい印象）。
+- 注意点：Paper-rは10GBくらい容量を使う。Win,Mac.Linuxに関係なく導入ができるが，長く使用していて様々な設定を施したパソコンは導入が難しいことがある（また，タブレットは導入が難しい印象）。
 
 ---
 
@@ -142,16 +149,14 @@ class: center, middle
 
 ### Windows
 
-```
+
 docker run -e PASSWORD=paper -p 8787:8787 -v "%cd%":/home/rstudio -d --name paper ykunisato/paper-r
-```
+
 
 ### Mac
 
-```
 docker run -e PASSWORD=paper -e DISABLE_AUTH=true -p 8787:8787 -v $(pwd):/home/rstudio -d --name paper ykunisato/paper-r
 
-```
 ---
 # jpaRmdパッケージ
 
@@ -164,7 +169,7 @@ docker run -e PASSWORD=paper -e DISABLE_AUTH=true -p 8787:8787 -v $(pwd):/home/r
 
 # jpaRmdのインストール
 
-- jpaRmdは，githubからremotesのinstall_github()関数を用いてインストールする(cranには登録されていない)。
+- jpaRmdは，githubからremotesのinstall_github()関数を用いてインストールする(CRANには登録されていない)。
 - remotesがインストールされてない方は，CRANからインストールください。
 
 
