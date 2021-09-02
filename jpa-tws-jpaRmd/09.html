@@ -35,7 +35,7 @@ class: center, middle
 &lt;img  src="fig/36.png" width="400"  align="right"&gt;
 - 投稿したら，査読者からのコメント対応も必要となる。
 - リプライと修正対照表の作成もR Markdownで可能です。
-- jpaRmdのテンプレートから，「Reply to Reviewer」を選択して，「OK」をクリック
+- 「From Template」から，「Reply to Reviewer {jpaRmd}」を選択して，「OK」をクリック
 ---
 # 査読へのリプライと修正対照表の作成(2)
 
@@ -53,10 +53,13 @@ class: center, middle
 
 - 書けたらknitをクリックするとPDFが出力される。
 ---
-- リプライは以下のようになる
-&lt;img  src="fig/39.png" width="650"&gt;
-- 修正対照表は以下のようになる
-&lt;img  src="fig/40.png" width="650"&gt;
+- **リプライ**
+
+&lt;img  src="fig/39.png" width="550"&gt;
+
+- **修正対照表**
+
+&lt;img  src="fig/40.png" width="550"&gt;
 
 ---
 # 無慈悲なWordでの原稿提出要求
@@ -64,7 +67,7 @@ class: center, middle
 &lt;img  src="fig/41.png" width="300"  align="right"&gt;
 - R Markdownで出力される原稿が美しいので，自己満足に浸っていたら，採択後の原稿提出でWordが指定されることが・・・（他にもPDFはNGな共著者もいるかもしれない・・・）
 
-→ じわじわとR Markdownで使ったことを後悔してしまうかも・・・
+→ R Markdownで使ったことを後悔・・・
 
 ---
 # 心配ご無用！Pandocがある！
@@ -76,10 +79,10 @@ knitrのpandoc()で，PDF作成時に出力されるtexファイルをWordに変
 - フォーマットは美しくないが，wordで出力される。Word入稿，Wordの校閲機能好きな共著者への送付もできる。
 &lt;img  src="fig/35.png" width="650"&gt;
 ---
-# 専修大学心理学科卒論用Rmd
+# senshuRmd.med[(専修大学心理学科用テンプレート)]
 - R Markdownテンプレートの活用は，「心理学研究」に限定されない。卒業論文や修士論文で活用しては？
 - senshuRmd(https://github.com/ykunisato/senshuRmd )は，専修大学の心理学科の卒論で求められる形式のPDF出力するRMarkdownテンプレート用Rパッケージ
-- 国里ゼミでは，Rstudioサーバーにゼミ生のアカウントをつくって，ゼミ生はこのRmdを更新＆Githubでバージョン管理しつつ卒論を執筆する（指導教員としては，卒業研究のみに指導を集中できるので，楽になりました）。
+- 国里ゼミでは，Rstudioサーバーにゼミ生のアカウントをつくって，ゼミ生はこのRmdを更新＆Githubでバージョン管理しつつ卒論を執筆する（指導教員としては，卒業研究のみに指導を集中できるので，すごく楽になりました。ゼミ論集もそのまま出力にもっていける）。
 ---
 # 方法の再現可能性の問題：データ共有の低さ
 

@@ -48,19 +48,18 @@ class: center, middle
 ---
 # jpaRmdの始め方(3)
 
-&lt;img src="fig/11.png" width="450"  align="right"&gt;
+&lt;img src="fig/11.png" width="430"  align="right"&gt;
 
-「Japanese Psychological Association format {jpaRmd}」を選択する。
-
-Nameを好きな名前にする。
-
-「OK」をクリックする。
+- 「Japanese Psychological Association format {jpaRmd}」を選択する。
+- Name:に好きな名前をいれる。
+- Location:は変更したい場合は変更する。
+- 「OK」をクリックする。
 
 ---
 # jpaRmdの始め方(4)
 
 - フォルダとファイルが作られて，以下のように，Rmdファイルが自動的に開きます。
-- 上から７行目のRmd_file:が“Untitled.Rmd”のままになっている(Rmdファイル名と同じにしないといけない)
+- 上から７行目のRmd_file:が“Untitled.Rmd”のままなのを確認ください。
 
 &lt;img src="fig/12.png" width="800"&gt;
 
@@ -75,16 +74,16 @@ Nameを好きな名前にする。
 # jpaRmdの始め方(6)
 
 - Rmd_fileの名前変更ができたら，「Knit」ボタンをクリックする（RmdファイルからPDFファイルを生成する）
-- 最初のKnitは各種パッケージのインストールのため時間がかかります。
+- 最初のKnitは各種パッケージのインストールのため時間がかかります（数分かかると思います）。
 
 &lt;img src="fig/14.png" width="700"&gt;
 
 ---
 # jpaRmdの始め方(7)
 
-下のようなメッセージがでてきたら，PDFが出力できている。
+下のようなエラーメッセージがでてきたら，PDFが出力できている（エラーが消えないんです・・・）。
 
-&lt;img src="fig/16.png" width="600"&gt;
+&lt;img src="fig/16.png" width="550"&gt;
 
 ---
 # jpaRmdの始め方(8)
@@ -96,7 +95,7 @@ Nameを好きな名前にする。
 # jpaRmdの始め方(9)
 
 &lt;img src="fig/17.png" width="500" align="right"&gt;
-右のようなPDFが出力されれば，Knit成功している。
+右のようなPDFが出力されれば，Knit成功！
 
 ---
 
@@ -115,7 +114,7 @@ class: center, middle
 
 RStudioのスペルチェック機能は日本語入力時には不便（英語は便利）
 
-Tools → Global Options...
+「Tools」 → 「Global Options...」
 
 赤点線で囲われたチェックボックスのチェックが入っている場合は，.red[チェックを取る]
 ---
@@ -125,7 +124,7 @@ RStudioのバージョンによっては，１つ目に開いたファイルは�
 
 &lt;img src="fig/23.png" width="580" align="right"&gt;
 
-日本語を入力するファイルの前になにか適当なファイルを開いて（例の場合はmemo.md），日本語入力する。
+日本語を入力するファイルの前になにか適当なファイルを開いて（例では，memo.md），日本語入力する。
 ---
 # jpaRmdの書き方(3)
 
@@ -151,7 +150,7 @@ RStudioのバージョンによっては，１つ目に開いたファイルは�
 ---
 # jpaRmdの書き方(6)
 
-- 引用文献をBibTeX形式で管理すれば(テンプレートにはreference.bibが同封，そちらに追加して管理)，引用キーを使って，本文での引用と引用文献リスト作成を自動化（詳細は「8 TWS: jpaRmdでらくらく文献処理！」にて）
+- 引用文献をBibTeX形式で管理すれば(テンプレートにはreference.bibが同封，そちらに追加して管理)，引用キーを使って，本文での引用と引用文献リスト作成を自動化（詳細は[「8 TWS: jpaRmdでらくらく文献処理！」](https://ykunisato.github.io/jpa2021-tws-jpaRmd/08.html)）
 
 &lt;img src="fig/30.png" width="750"&gt;
 
@@ -180,7 +179,7 @@ RStudioのバージョンによっては，１つ目に開いたファイルは�
 
 ---
 # jpaRmdの書き方(10)
-- 論文内で数値の手による打ち込みとコピペをできるだけしない。.red[r sprintf('%.0f',本文にいれる数値のオブジェクト)]で，Rでデータをひっぱてきて本文に挿入する
+- 論文内で数値の手による打ち込みとコピペをできるだけしない。.red[r sprintf('%.0f',本文にいれる数値のオブジェクト)]で，Rでデータをもってきて本文に挿入する
 
 &lt;img src="fig/26.png" width="750"&gt;
 
@@ -200,7 +199,7 @@ RStudioのバージョンによっては，１つ目に開いたファイルは�
 
 # jpaRmdの書き方(12)
 
-- 表はkable関数を使って，latexフォーマットで出力するときれい（表データのsummary_bfiは別途整形しておく）。
+- 表はkable関数を使って，LaTeXフォーマットで出力すると美しい（表データのsummary_bfiは別途整形しておく）。
 
 
 ```r
@@ -244,7 +243,7 @@ kable(summary_bfi,
 ---
 # Wordの便利さは諸刃の刃
 
-- R Markdownだけで書く場合，Wordだとコピペしたり一部改変すれば終わる作業に時間がかかる・・・しかしその便利さはコピペ汚染にも繋がり，諸刃の刃である。
+- R MarkdowよりもWordの方が楽かもしれない（コピペして，一部改変すれば望む図表になる）。しかしその便利さはコピペ汚染にも繋がり，諸刃の刃である。
 
 - 論文内の数値のミスは，致命的。本文中に挿入される数値や図表は，（軽い処理の場合は）論文と同じファイル内で処理をして，再現可能性を高めることが重要である。
 
