@@ -22,6 +22,19 @@ class: center, middle, inverse, title-slide
 
 
 
+```r
+# タブにアイコンを挿入
+library(htmltools)
+tagList(
+tags$link(rel='apple-touch-icon', type='image/png', href='apple-touch-icon-180x180.png'),
+tags$link(rel='icon', type='image/png', href='fig/icon-192x192.png')
+)
+```
+
+<link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/png" href="fig/icon-192x192.png"/>
+
+
 
 
 
@@ -250,14 +263,15 @@ kable(summary_bfi,
 ---
 class: center, middle
 # 演習：ご自身の研究に合わせて変更を加えて，PDF出力してみよう！
+# Q&amp;A
 ---
 ## R Markdownをさらに極めたい方へ
 .med[
 - ドキュメント・プレゼンテーション生成(高橋康介著,2014年，共立出版)
 - 再現可能性のすゝめ(高橋康介著,2018年，共立出版)
 - 自然科学研究のためのR入門(江口哲史著,2018年，共立出版)
-- RユーザのためのRStudio[実践]入門　改訂第２版(松村優哉・湯谷啓明・紀ノ定保礼・前田和寛著，2021年,技術評論社)
 - R Markdown Cookbook (Yihui Xie, Christophe Dervieux, Emily Riederer, 2020年10月30日, Chapman and Hall/CRC)
+- RユーザのためのRStudio[実践]入門　改訂第２版(松村優哉・湯谷啓明・紀ノ定保礼・前田和寛著，2021年,技術評論社)
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

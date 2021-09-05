@@ -22,6 +22,20 @@ class: center, middle, inverse, title-slide
 
 
 
+```r
+# タブにアイコンを挿入
+library(htmltools)
+tagList(
+tags$link(rel='apple-touch-icon', type='image/png', href='apple-touch-icon-180x180.png'),
+tags$link(rel='icon', type='image/png', href='fig/icon-192x192.png')
+)
+```
+
+<link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/png" href="fig/icon-192x192.png"/>
+
+
+
 
 
 
@@ -102,7 +116,7 @@ class: center, middle
 
 1. 共有を前提にデータとコードを用意する → **The tidyverse style guide**
 2. ファイルを組織化する(Research Compendium) → **jpaRmd**
-3. データから論文出版までを一気につなぐ → **R Markdown**
+3. データから論文出版までを一気につなぐ → **R Markdown, rticles, jpaRmd, **
 4. 解析環境をまるごと共有する → **Docker**
 
 →　今回は主に**RStudio, RMarkdown, jpaRmd**を中心に解説を行う。
@@ -139,7 +153,7 @@ class: center, middle
 
 - ykunisato/paper-rは，RstudioでR Markdownを用いて論文執筆を行う際に便利なパッケージやアドインを含めたDockerファイルのリポジトリ (https://hub.docker.com/r/ykunisato/paper-r )
 - ykunisato/paper-rは，rocker/verseをベースにしており，心理学で使いそうなRパッケージは大体入っている（stanも最初から入っている）。
-- 注意点：Paper-rは10GBくらい容量を使う。Win,Mac.Linuxに関係なく導入ができるが，長く使用していて様々な設定を施したパソコンは導入が難しいことがある（また，タブレットは導入が難しい印象）。
+- 注意点：Paper-rは10GBくらい容量を使う。Win,Mac,Linuxに関係なく導入ができるが，長く使用していて様々な設定を施したパソコンは導入が難しいことがある（また，タブレットは導入が難しい印象）。
 
 ---
 
@@ -180,7 +194,7 @@ remotes::install_github("ykunisato/jpaRmd")
 
 ---
 class: center, middle
-# 再現可能な論文執筆と環境構築のQ&amp;A
+# Q&amp;A
 
 ---
 # 引用文献

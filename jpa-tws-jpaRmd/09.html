@@ -22,6 +22,19 @@ class: center, middle, inverse, title-slide
 
 
 
+```r
+# タブにアイコンを挿入
+library(htmltools)
+tagList(
+tags$link(rel='apple-touch-icon', type='image/png', href='apple-touch-icon-180x180.png'),
+tags$link(rel='icon', type='image/png', href='fig/icon-192x192.png')
+)
+```
+
+<link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png"/>
+<link rel="icon" type="image/png" href="fig/icon-192x192.png"/>
+
+
 
 
 
@@ -107,7 +120,8 @@ knitrのpandoc()で，PDF作成時に出力されるtexファイルをWordに変
 
 ---
 class: center, middle
-# jpaRmdについての総合質疑・要望
+# Q&amp;A
+# jpaRmdへの要望
 
 ---
 # 引用文献
