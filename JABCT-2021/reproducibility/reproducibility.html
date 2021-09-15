@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>再現可能性問題</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="日本認知・行動療法学会第47回大会" />
+    <script src="reproducibility_files/header-attrs-2.7/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# 再現可能性問題
+## 国里愛彦（専修大学）
+### 日本認知・行動療法学会第47回大会
+### 利益相反（COI）開示: 演題発表に関連し，開示すべきCOI関係にある企業などはありません。
+
+---
+
+
+
+# 再現性の危機
+
+&lt;img style="float:right" src="fig/01.png" width="250"&gt;
+- 100本の心理学研究を追試したところ，元の研究は97%が有意な効果なのに，追試は有意な効果が36%だけ.med[(Open Science Collaboration, 2015)]
+- 1576名の研究者への調査.med[(Baker, 2016, Nature)]で，90%が再現性の危機があると回答.med[(52%が重大な危機，38%が軽い危機)]
+
+→ 再現可能性を高めないと！
+
+---
+# 3つの再現可能性(Goodman et al., 2016)
+&lt;img style="float:right" src="fig/02.png" width="220"&gt;
+1. **.large[方法]の再現可能性** 同じデータ＋同じ方法 → 同じ結果
+2. **.large[結果]の再現可能性** 新規データ＋同じ方法 → 同じ結果
+3. **.large[推論]の再現可能性** 同じ結果 → 同じ結論
+
+→　本発表は，３つの再現可能性から問題を整理し，現状提案されている解決策について説明する。
+
+---
+# 方法の再現可能性の課題
+&lt;img style="float:right" src="fig/03.png" width="250"&gt;
+「同じデータ＋同じ方法 → 同じ結果」の検討では，データ共有が必要
+
+→ 生物医学論文.med[(2015-2017年)]の調査.med[(Wallach et al., 2018)]：データ入手可能性の記載は18.3%
+
+→ 心理学論文.med[(2014-2017年)]の調査.med[(Hardwicke et al., 2021)]:データ共有2%
+
+解析コードの共有は一般的ではない.med[(Hardwicke et al.(2021)によると1%程度)]。データ共有されていても結果が再現できるのは62%程度（著者の助けがなければ31%).med[(Hardwicke et al.,2018）]
+
+---
+# 方法の再現可能性を高める方法
+&lt;img style="float:right" src="fig/04.png" width="250"&gt;
+- データ共有は学術雑誌から要求されたり，科学技術政策として推進中。
+- データ共有サービス(OSFなど)が増えているが，臨床研究で扱うデータでは，研究参加者のプライバシーを守ることが重要になる。
+
+→ データ共有に関する同意の取得とデータの匿名化（データの抑制，データの一般化，ノイズの追加）
+
+.med[詳細は，[国里(2021)「データ・解析コード・マテリアルをどのようにオープンにすればよいのか？」](https://ykunisato.github.io/ccp-lab-slide/edupsych2021/slide.html)参照]
+
+---
+# 方法の再現可能性を高める方法
+&lt;img style="float:right" src="fig/05.png" width="250"&gt;
+- 第３者が読みやすく，機械も読み込みやすい形式でデータ・コードを共有.med[（✗wordにコピペ後PDF　○CSVファイル）]
+- オープンソースソフトウェアが望ましい.med[（SPSSではなくRやJASP）]
+- データの場所，コードの場所，ライセンス情報などを分かりやすく配置して解析をパッケージ化する。
+- ソフトとOSのバージョン違いで再現しないこともある。バージョン情報の共有＆Dockerなどのコンテナサービスの活用.med[(詳細は，[国里・小杉(2021)「再現可能な日本語論文執筆入門」](https://ykunisato.github.io/ccp-lab-slide/edupsych2021/slide.html)参照)]
+
+---
+# 結果の再現可能性の課題
+&lt;img style="float:right" src="fig/06.png" width="250"&gt;
+- 心理学の研究報告の質は低い...
+- 心理・社会的介入の無作為化比較試験.med[(2010年)]の研究報告の質の調査.med[(Grant et al., 2013)]：盲検化の報告15%,乱数の生成法の報告23%,割付の隠蔽化の報告17%と重要報告項目の欠落が目立つ。
+- メタ分析の研究報告の質の調査.med[(Polanin et al., 2020)]:調査対象論文を平均すると報告が望ましい項目の55%しか報告されてない。
+
+---
+# 結果の再現可能性を高める方法
+&lt;img style="float:right" src="fig/07.png" width="250"&gt;
+- 研究報告ガイドラインを遵守した研究報告を行う。
+
+→　『行動療法研究』の特集「行動療法研究における研究報告に関するガイドライン」(2014-2015年)が参考になる（ただ，ガイドラインは最新のものを参照）
+
+→ 目的に合わせて，CONSORT-SPI.med[(心理社会的介入の無作為化試験)]，STROBE.med[(観察研究)],PRISMA.med[(系統レビュー)],STARD.med[(診断精度)]，CARE.med[(事例報告)]，JARS.med[(心理学研究)]などを研究計画と執筆時に参照
+
+---
+# 結果の再現可能性を高める方法
+&lt;img style="float:right" src="fig/08.png" width="250"&gt;
+- マテリアル・プロトコル共有は一般的な研究実践ではないが.med[(Hardwicke et al., 2021)]，追試では必要になる。
+- 新しい心理的介入では詳細な介入プロトコル，行動課題を用いたアセスメントの場合はその刺激とプログラムコード，質問紙を用いたアセスメントの場合は項目だけでなく実際の質問紙のフォーマットがあるととても良い。
+
+→　他の研究者が利用する可能性のあるマテリアル・プロトコルは，ライセンスをつけて配布する。
+
+---
+# 推論の再現可能性の課題
+&lt;img style="float:right" src="fig/03.png" width="250"&gt;
+- 追試や再解析結果から質的に同じ結論を再現させるのは難しい。
+- 例. 介入Aと通常治療の比較で介入Aの方が統計学的に有意に症状が低減
+
+→ 研究者A「介入Aは有効である」
+
+→ 研究者B「バイアスリスク，信頼区間の広さ，先行研究から研究Aの有効性への確信度は低い」
+
+- p-hacking, HARKing, 粉飾などの「好ましくない研究行為」によって，推論の再現可能性はさらに低くなる。
+
+---
+# 推論の再現可能性の課題
+&lt;img style="float:right" src="fig/06.png" width="230"&gt;
+- p-hacking: 帰無仮説検定でp値が有意水準未満になるように行うハッキング行為.med[(有意な結果のみ報告，様々な共変量を投入し有意な結果のみ報告，有意になるまで参加者を追加)]
+- HARKing：結果が分かってから後づけで仮説を設定すること。
+
+→　設定した有意水準よりも第一種の過誤が高くなる。
+
+- 粉飾:否定的な結果が得られた場合に，結果の解釈を歪めた結論に読者を誘導する(奥村, 2017)。
+
+---
+# 推論の再現可能性を高める方法
+&lt;img style="float:right" src="fig/09.png" width="250"&gt;
+- 事前に仮説や方法を登録してからデータ収集を行う「事前登録」によって，p-hacking, HARKing, 粉飾を防止できる。
+
+→　臨床試験では，臨床試験登録が事前登録になる。臨床試験以外の研究においても事前登録を行う。
+
+- 事前審査付き報告：事前登録を査読した結果アクセプトされれば，データ収集後の結果に関わらず掲載される。
+
+→　好ましくない研究行為だけでなく出版バイアスも減らす。
+
+---
+# 研究の無駄を減らし，価値を高める
+&lt;img style="float:right" src="fig/10.png" width="200"&gt;
+- 研究の無駄(研究の重複，研究費配分分野の偏り，ユーザーのニーズに合わないなど）が問題に。
+
+→ 認知行動療法研究の無駄を減らし，価値を高める上で，研究疑問の優先順位付けが重要。
+
+→ 研究者だけでなく，患者などの当事者と共に研究疑問の優先順位付けを行うことが求められるようになってきている。
+
+→ 研究資源は限られているので，研究者間の「競争」ではなく，研究者・当事者・関係者の「共創」が必要である。
+
+---
+# 今後に向けて
+&lt;img style="float:right" src="fig/11.png" width="200"&gt;
+- 再現可能性を高めるには，データ・解析コード・マテリアルの共有，事前登録が重要！
+
+→　これらの取り組みが無理なく出来るようなシステム作りが大切になる。
+
+→　データ共有にあたっての国内における倫理的問題・方法の整理，マテリアル（認知課題，質問紙）の効率的な共有方法の提案
+
+**詳細は，「国里・土屋(印刷中). 認知行動療法の研究の再現可能性を高める　認知行動療法研究」をご確認ください！**
+
+---
+# 引用文献
+.small[
+- Baker, M. (2016). 1,500 scientists lift the lid on reproducibility. Nature, 533(7604), 452–454.
+- Goodman, S. N., Fanelli, D., &amp; Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341), 341ps12.
+- Grant, S.P., Mayo-Wilson, E., Melendez-Torres, G.J. and Montgomery, P. (2013). Reporting quality of social and psychological intervention trials: a systematic review of reporting guidelines and trial publications, PloS one, 8(5), e65442.
+- Hardwicke, T.E., Mathur, M.B., MacDonald, K., Nilsonne, G., Banks, G.C., Kidwell, M.C….Frank, M.C. (2018). Data availability, reusability, and analytic reproducibility: evaluating the impact of a mandatory open data policy at the journal Cognition, Royal Society Open Science, 5(8), 180448.
+- Hardwicke, T.E., Thibault, R.T., Kosie, J.E., Wallach, J.D., Kidwell, M.C. and Ioannidis, J.P. (2021). Estimating the Prevalence of Transparency and Reproducibility-Related Research Practices in Psychology (2014-2017), Perspectives on psychological science, , 1745691620979806.
+- 奥村 泰之 (2017). 粉飾された臨床試験の判別法: 臨床試験のすべての関係者へ   臨床評価, 45(1), 25–34.
+- Open Science Collaboration. (2015). Estimating the reproducibility of psychological science. Science, 349(6251), aac4716.
+- Polanin, J.R., Hennessy, E.A. and Tsuji, S. (2020). Transparency and Reproducibility of Meta-Analyses in Psychology: A Meta-Review, Perspectives on psychological science, 15(4), 1026–1041.
+- Wallach, J.D., Boyack, K.W. and Ioannidis, J.P. (2018). Reproducible research practices, transparency, and open access data in the biomedical literature, 2015-2017, PLoS biology, 16(11), e2006930.
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
