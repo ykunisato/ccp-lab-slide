@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>JuliaConnectoR</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="国里愛彦" />
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# JuliaConnectoR
+]
+.author[
+### 国里愛彦
+]
+.institute[
+### 専修大学
+]
+.date[
+### 2022/8/15
+]
+
+---
+
+## Juliaが使いたい！
+
+-   Rも好きだけど，Juliaも気になる。
+
+-   JuliaはC言語なみに速度が早いので（私の環境・コードではRの25倍早い!），Juliaで重めの計算をさせてRで処理とかしたい。
+
+-   春のベイズ塾合宿(2022)で紹介したjuliaCallはちょっとオブジェクトのやりとりがめんどい（気がつくとJupyter notebookを使っているし，ゼミ生には薦めにくい）。
+
+&lt;img style="float: left;" src="fig01.png" width="300"&gt;
+
+---
+## JuliaConnectoR
+
+-   関数志向言語としてRとJuliaの統合を目指すRパッケージ
+-   先行するJuliaCallやXRJuliaよりもできることが多い。
+
+&lt;img src="fig02.png" width="800"&gt;
+
+Lenz, S., Hackenberg, M., &amp; Binder, H. (2022). The JuliaConnectoR: A Functionally-Oriented Interface for Integrating Julia in R. Journal of Statistical Software, 101, 1--24.
+
+---
+## JuliaConnectoRの関数
+
+&lt;img style="float: left;" src="fig04.png" width="800"&gt;
+
+---
+## Juliaパッケージの利用法
+
+- "juliaImport"を使ってJuliaのパッケージ全体を読み込んでオブジェクトにいれるとRで使える。Juliaでは，以下のようにパッケージのインストール(Pkg.add)と利用(import)がなされる。
+
+```
+julia&gt; import Pkg
+julia&gt; Pkg.add("CUDA")
+julia&gt; Pkg.add("Flux")
+julia&gt; import Flux
+julia&gt; model = Flux.Chain(Flux.Dense(4, 4, Flux.relu), Flux.Dense(4, 1))
+```
+- JuliaConnectoRでは，以下のようになる。"."が"$"になり，"import" が "juliaImport"になるくらい。RオブジェクトになるのでRStudioのEnvironmentで見れる。
+
+
+```r
+library(JuliaConnectoR)
+Pkg &lt;- juliaImport("Pkg")
+Pkg$add("CUDA")
+Pkg$add("Flux")
+Flux &lt;- juliaImport("Flux")
+model &lt;- Flux$Chain(Flux$Dense(4L, 4L, Flux$relu), Flux$Dense(4L, 1L))
+```
+
+
+---
+## 自作Julia関数を使う(1)
+
+- juliaCall("include","Juliaで書いたコードのパス")を使って，自作Juliaコードを実行できる（関数・モジュール化している場合は，juliaFunでR化できるが，今回は引数がややこしいので却下）。R上でJuliaを実行する場合は初回こけがち，RMarkdownを使うときに困るので，以下の関数を書いてその場しのぎの対処。
+
+
+
+```r
+juliaAvoidError &lt;- function(function_name, output = FALSE){
+  i &lt;- 1
+  while (i &lt; 5) {
+    eval(parse(text = paste0('e &lt;- try(',function_name,',silent=FALSE)')))
+    if( class(e)[1] == "try-error") {
+      i &lt;- i + 1
+    }else{
+      i &lt;- 5
+    }
+  }
+  if(output == TRUE){
+    output = juliaGet(e)
+    return(output)
+  }
+}
+```
+
+---
+## 自作Julia関数を使う(2)
+
+- 自作したjuliaAvoidError()を使ってJuliaのコードを実行します。
+
+- juliaAvoidError()の第１引数にあるjuliaCall()でincludeを使うと.juliaに保存したコードを実行できる。
+
+- juliaAvoidError()の第２引数は，実行したJuliaコードが出力するオブジェクトをRオブジェクトにするかどうか。
+
+
+
+
+
+```r
+library(JuliaConnectoR)
+juliaAvoidError("juliaCall('include','panic_ode.julia')")
+res &lt;- juliaAvoidError("juliaCall('include','run_sim.julia')", output = TRUE)
+```
+---
+## Juliaの結果をRで読み込んで処理する
+
+- 先程のresにいれたデータを読み込む。Julia上で，計算結果を複数のベクトルにしてresにいれて，juliaGetで読み込む（リスト形式で読み込める。なおJuliaのデータフレームを使うとむしろややこしいことになる）。今回はjuliaAvoidError()内でjuliaGetを使っているので，以下では使わない。
+
+- リスト形式で読み込まれるので，bind_rows()でデータフレームにしておく。あとはggplotが使える。
+
+
+```r
+library(tidyverse)
+data2 &lt;- bind_rows(res)
+```
+---
+ggplotなら可視化も楽ですね〜
+
+
+```r
+ggplot(data2,aes(mins, fear)) +
+  geom_line() +
+  geom_point(aes(mins,S,colour = "red"))
+```
+
+![](JuliaConnectoR_test_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+---
+## RStudioでJuliaを書く場合
+
+- Juliaは拡張子が".jl"だが，これだとRStudioのシンタックスハイライトが機能しない。
+- Juliaで書いたファイルは".julia"の拡張子を使うとシンタックスハイライトが機能する。
+
+&lt;img src="fig03.png" width="600"&gt;
+---
+## JuliaConnectoRの関数（再掲）
+
+&lt;img style="float: left;" src="fig04.png" width="800"&gt;
+
+---
+## RStudioから出ないJulia-Rワークフロー案
+### 方針：重い計算だけJulia，それ以外はRを使う
+- RStudioからJuliaが使える設定をする(docker hubのpaper-rは設定済み)
+- Quartを開いて，まずRチャンクでJuliaConnectoRを読み込む。
+&lt;img src="fig05.png" width="600"&gt;
+- 次にJuliaチャンクで以下を入れる。
+&lt;img src="fig06.png" width="600"&gt;
+- Juliaチャンクを使って重い計算を行うJuliaコードを書いていく(JuliaチャンクならそのままJuliaがかけるし確認も楽)。
+- Juliaコードがちゃんと動くようになったら，JuliaConnectoRを使ってRベースにしていく。
+
+---
+
+class: center, middle
+
+# Enjoy Julia with Rstudio!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
