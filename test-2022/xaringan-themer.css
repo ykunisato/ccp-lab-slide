@@ -18,21 +18,21 @@
  *  Version: 0.4.1
  *
  * ------------------------------------------------------- */
-@import url(https://fonts.googleapis.com/css?family=Song+Myung:400,400i&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Song+Myung&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Song+Myung&display=swap);
+@import url(https://fonts.googleapis.com/css?family=BIZ+UDGothic:400,400i&display=swap);
+@import url(https://fonts.googleapis.com/css?family=BIZ+UDGothic&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Fira+Mono&display=swap);
 
 
 :root {
   /* Fonts */
-  --text-font-family: 'Song Myung';
+  --text-font-family: 'BIZ UDGothic';
   --text-font-is-google: 1;
   --text-font-family-fallback: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial;
   --text-font-base: sans-serif;
-  --header-font-family: 'Song Myung';
+  --header-font-family: 'BIZ UDGothic';
   --header-font-is-google: 1;
   --header-font-family-fallback: Georgia, serif;
-  --code-font-family: 'Song Myung';
+  --code-font-family: 'Fira Mono';
   --code-font-is-google: 1;
   --base-font-size: 20px;
   --text-font-size: 30px;
