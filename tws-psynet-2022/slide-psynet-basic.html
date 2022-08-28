@@ -36,7 +36,7 @@ class: center, middle, inverse, title-slide
 ---
 ## 心理ネットワークとは？
 
-- 潜在変数を仮定してそれから各項目・症状を説明するのではなく，症状（心理変数）間のネットワーク構造を検討する.med[(Epskamp, Borsboom &amp; Fried, 2018)]。
+- 潜在変数を仮定して項目・症状を説明するのではなく，項目・症状（心理変数）間のネットワーク構造を検討する.med[(Epskamp, Borsboom &amp; Fried, 2018)]。
 - 観察可能な変数を表すノード（図では円）と統計的関係を表すエッジ（図では線）から構成される
 
 ![](fig/net01.png)
@@ -46,8 +46,8 @@ class: center, middle, inverse, title-slide
 
 1. 統計的手法によってノード間のエッジを推定する
 2. 推定された統計的関係をもとにネットワークを図示する
-3. ネットワーク特性の指標の検討する
-4. ネットワークの精度の検討する
+3. ネットワーク特性の指標を検討する
+4. ネットワークの精度を検討する
 
 
 - 心理ネットワークのエッジは，データから推定される（重み付きネットワーク）
@@ -84,25 +84,23 @@ class: center, middle, inverse, title-slide
 ## Gaussian graphical model(GGM)
 
 - データが連続かつ正規分布の場合には，多変量正規分布を用いたGGMを用いる。GGMでは変数間の関係を偏相関係数によってモデル化する。
-
-
-- **Y**は，平均 `\(\boldsymbol{\mu}\)` と分散共分散行列 `\(\boldsymbol{\sum}\)` の多変量正規分布に従う.med[(**Y**は，ランダムに選んだ参加者からのn個の反応のベクトル)]
+- `\(\boldsymbol{Y}\)`は，平均 `\(\boldsymbol{\mu}\)` と分散共分散行列 `\(\boldsymbol{\Sigma}\)` の多変量正規分布に従う( `\(\boldsymbol{Y}\)` はランダムに選んだ参加者からのn個の反応のベクトル)
 
 $$
-\boldsymbol{Y} \sim N\left(\boldsymbol{\mu}, \boldsymbol{\sum}\right)
+\boldsymbol{Y} \sim N\left(\boldsymbol{\mu}, \boldsymbol{\Sigma}\right)
 $$  
 
-- GGMでは，推定した分散共分散行列 `\(\boldsymbol{\sum}\)`から偏相関行列を計算する。
+- GGMでは，推定した分散共分散行列 `\(\boldsymbol{\Sigma}\)`から偏相関行列を計算する。
 ---
 ## 分散共分散行列→精度行列→偏相関行列
 
-- GGMでは，分散共分散行列 `\(\boldsymbol{\sum}\)` からその逆行列である精度行列  `\(\boldsymbol{K}\)` を計算し，精度行列から偏相関行列を計算する。
-- 精度行列  `\(\boldsymbol{K}\)` は， `\(\boldsymbol{\sum}\)` の逆行列( `\(\boldsymbol{K}=\boldsymbol{\Sigma}^{-1}\)` )として求める.med[(逆行列はΣ に掛けた場合に単位行列になるような行列)]
-- 以下の式で精度行列から偏相関係数を計算し，偏相関係数をエッジにしてネットワークをプロットする。
+- GGMでは，分散共分散行列 `\(\boldsymbol{\Sigma}\)` からその逆行列である精度行列  `\(\boldsymbol{K}\)` を計算し，精度行列から偏相関行列を計算する
+- 精度行列  `\(\boldsymbol{K}\)` は， `\(\boldsymbol{\Sigma}\)` の逆行列( `\(\boldsymbol{K}=\boldsymbol{\Sigma}^{-1}\)` )として求める(逆行列は `\(\boldsymbol{\Sigma}\)`  に掛けた場合に単位行列になるような行列)
+- 以下の式で精度行列から偏相関係数を計算し，偏相関係数をエッジにしてネットワークをプロットする
 
 `$$\operatorname{Cor}\left(Y_{i}, Y_{j} \mid \boldsymbol{y}_{-(i, j)}\right)=-\frac{\kappa_{i j}}{\sqrt{\kappa_{i i}} \sqrt{\kappa_{j j}}}$$`
 
-- 具体的な計算例は配布したドキュメントに記載している。
+※具体的な計算例は[配布ドキュメント](https://ykunisato.github.io/ccp-lab-slide/tws-psynet-2022/doc-psynet-basic.html)参照
 
 ---
 ## Ising モデル  
@@ -112,14 +110,14 @@ $$
 
 
 `$$\operatorname{Pr}(\boldsymbol{Y}=\boldsymbol{y})=\frac{1}{Z} \exp \left(\sum_{i} y_{i} \tau_{i}+\sum_{&lt;i, j&gt;} y_{i} y_{j} \omega_{i j}\right)%$$`  
-- τは閾値(どっちの反応が出やすいか），ωはノード間の反応の類似度を表す。Zは確率の合計が１になるように機能する
-- Zの計算は，**Y**の全ての可能性について考慮するので20変数以上の多変量推定は難しい.med[(その場合は，単変量推定)]
+- `\(\tau_{i}\)` は閾値.med[(どっちの反応が出やすいか）]， `\(\omega_{i j}\)` はノード間の反応の類似度を表す。Zは確率の合計が１になるように機能する
+- Zの計算は， `\(\boldsymbol{Y}\)` の全ての可能性について考慮するので20変数以上の多変量推定は難しい.med[(その場合は，単変量推定)]
 
 ---
 ## Mixed graphical models(MGMs)
 
 - 連続，カウント，カテゴリカル変数が混ざったデータに適用できる.med[(Epskamp et al., 2022)] 
-- データのタイプに合わせてノードごとに確率分布が適用.med[(ただし，全て指数分布族正規分布，ポワソン分布，指数分布，多項分布）]
+- データのタイプに合わせてノードごとに確率分布が適用.med[(ただし指数分布族: 正規分布，ポワソン分布，指数分布，多項分布）]
 - ノードごとに回帰分析によって推定し，すべての推定されたパラメータが最終モデルで統合される。
 - MGMsは，ペアワイズである必要もなくて，高次の相互作用を含めたmoderated network modelも検討できる。
 
@@ -138,7 +136,7 @@ $$
 **しきい値(Thresholding)**
 
 - しきい値では，ある基準.med[（p値, false discovery rate, credibility interval, Bayes factor）]に基づいて，エッジを除去する.med[（エッジを0に設定）]
-- 基準以下エッジを見せてないだけで影響は残る
+- 基準以下のエッジを見せてないだけで影響は残る
 
 **刈り込み(Pruning)**
 
@@ -158,10 +156,9 @@ $$
 ---
 ## GGMでのモデル選択の推奨.med[(Isvoranu &amp; Epskamp, 2021)]
 
-- (1)サンプルサイズが5000の場合，真のネットワークの探索には，正則化しないモデル探索が好ましい。
-- (2)サンプルサイズが300の場合，ネットワーク構造の発見には，正則化が好ましい。
-- (3)サンプルサイズが1000の場合，ネットワーク構造や強いエッジに興味があるなら正則化，特定のエッジに関心があるならモデル探索が好ましい。
-
+- (1)サンプルサイズが300の場合，ネットワーク構造の発見には，正則化が好ましい。
+- (2)サンプルサイズが1000の場合，ネットワーク構造や強いエッジに興味があるなら正則化，特定のエッジに関心があるならモデル探索が好ましい。
+- (3)サンプルサイズが5000の場合，真のネットワークの探索には，正則化しないモデル探索が好ましい。
 ---
 ** 順序カテゴリカル・非正規変数でのモデル選択の推奨.med[(Blanken, Isvoranu &amp; Epskamp, 2022)]**
 
@@ -204,17 +201,17 @@ $$
 
 1. ブートストラップ法による信頼区間をプロットすることでエッジの重みの正確度を検討する .med[(有意性の検討には使わない)]
 2. データのサブセットを用いた場合の中心性指標の安定性を検討する .med[(サンプルサイズを小さくしても安定するか検討，CS係数が0.25未満は不適切であり0.5を超えている必要がある)]
-3. エッジの重みと中心性指標間でブートストラップ差異検定行って，それらが有意に異なるのかを検討する
+3. エッジの重みと中心性指標間でブートストラップ差異検定を行って，それらが有意に異なるのかを検討する
 
 ---
 ## Rパッケージ 
 
-- アムステルダム大学の[Sacha Epskamp](http://sachaepskamp.com/)が開発した[qgraph](https://cran.r-project.org/web/packages/qgraph/index.html)，[bootnet](https://cran.r-project.org/web/packages/bootnet/index.html)，[psychonetrics](https://cran.r-project.org/web/packages/psychonetrics/index.html)があれば，横断データの心理ネットワーク分析は実施できる。
-- [qgraph](https://cran.r-project.org/web/packages/qgraph/index.html): ネットワークのプロットと推定
-- [bootnet](https://cran.r-project.org/web/packages/bootnet/index.html):  様々な種類のネットワーク推定，ネットワークの正確度の検討
-- [psychonetrics](https://cran.r-project.org/web/packages/psychonetrics/index.html)： より洗練化した書き方でネットワーク分析ができるパッケージ
+- アムステルダム大学の[Sacha Epskamp](http://sachaepskamp.com/)達が開発した[qgraph](https://cran.r-project.org/web/packages/qgraph/index.html)，[bootnet](https://cran.r-project.org/web/packages/bootnet/index.html)，[psychonetrics](https://cran.r-project.org/web/packages/psychonetrics/index.html)があれば，横断データの心理ネットワーク分析は実施できる。
+1. [qgraph](https://cran.r-project.org/web/packages/qgraph/index.html): ネットワークのプロットと推定
+2. [bootnet](https://cran.r-project.org/web/packages/bootnet/index.html):  様々な種類のネットワーク推定，ネットワークの正確度の検討
+3. [psychonetrics](https://cran.r-project.org/web/packages/psychonetrics/index.html)： より洗練化した書き方でネットワーク分析ができるパッケージ
 
-アムステルダム大学で開発している統計ソフト[JASP](https://jasp-stats.org/)には，心理ネットワーク分析が組み込まれており，ちょっと試すのに便利
+アムステルダム大学の統計ソフト[JASP](https://jasp-stats.org/)には，心理ネットワーク分析が入っており，ちょっと試すのに便利
 
 ---
 ### 心理ネットワーク分析を試してみよう！
@@ -364,20 +361,21 @@ plot(results_gad, theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
 ---
 ## モデル選択：正則化
 
-以降は正則化手法を使ったネットワークで解析をすすめる。
+.med[以降は正則化手法を使ったこの結果で解析をすすめる]
 
 ![](slide-psynet-basic_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 
 ---
 ### エッジの重みの正確度
 
-- bootnetパッケージのbootnet()関数を使う。nBootsでサンプル数を設定するが，プロットをなめらかにするために2500サンプルとする。nCoresで並列処理をして計算を高速化.med[(４コアに設定しているが，お手持ちのPCに合わせて変更ください)]
+- bootnetパッケージのbootnet()関数を使う。nBootsでサンプル数を設定するが，プロットをなめらかにするために2500にした。nCoresで並列処理をして計算を高速化できる
 - 中心性指標も計算するために，statisticsで指定する。
 - summaryで推定結果を確認できるが，プロットのほうが確認がしやすい。
 
 
 ```r
 accuracy_edge &lt;- bootnet(results_gad, nBoots = 2500, nCores =4, statistics =   c("edge", "strength", "closeness", "betweenness"))
+summary(accuracy_edge)
 ```
 
 ---
@@ -403,7 +401,7 @@ centralityPlot(results_gad, include = c("Strength", "Betweenness", "Closeness"))
 ```
 
 ---
-psychonetricsでは，以下のように書ける
+.med[psychonetricsでは，以下のように書ける]
 
 
 ```r
@@ -448,8 +446,8 @@ corStability(stability_centrality)
 ---
 ## 有意差検定
 
-- Strengthに関して，最も高いgad7bと最も低いgad7fを比較する。
-- bootnetパッケージのdifferenceTest()関数で検討できる。95%CIが0をまたいでおり，gad7bはgad7fよりも有意にstrengthが大きい。
+- Strengthに関して，最も高いgad7bと最も低いgad7fを比較する
+- bootnetパッケージのdifferenceTest()関数で検討できる。95%CIが0をまたいでおり，gad7bはgad7fよりも有意にstrengthが大きい
 
 
 
@@ -477,12 +475,12 @@ plot(accuracy_edge,"strength")
 
 ![](fig/plot6.png)
 ---
-## 横断的ネットワーク解析：基礎編
+## まとめ
 
-- 心理ネットワーク解析は新しい方法だが，偏相関をエッジとしたネットワークを描く方法と考えると難しくない。
-- 便利なRパッケージも増えており実施も簡単になっているが，モデル選択やエッジ・中心性指標の評価などは理論的な理解も必要になる。
-- 日々新しい方法の開発がなされており，解析法の推奨も変化しているので，アムステルダム大学の[Psych Systems](http://psychosystems.org/)のサイトを確認したり，最新の動向を抑えておく必要がある。
-- 配布ドキュメントでは，IsingモデルやMGMsを用いた解析の実施法やより詳細な説明などを書いているので，ご一読ください。
+- 心理ネットワーク解析は新しい方法だが，偏相関をエッジとしたネットワークを描く方法と考えると難しくない
+- 便利なRパッケージも増えており実施は簡単だが，モデル選択・エッジ・中心性指標の評価などは理論的な理解も必要
+- 日々新しい方法の開発と解析法の推奨の変化があるので，アムステルダム大学の[Psych Systems](http://psychosystems.org/)のサイトを確認したり，最新の動向をおさえる
+- [配布ドキュメント](https://ykunisato.github.io/ccp-lab-slide/tws-psynet-2022/doc-psynet-basic.html)に，IsingモデルやMGMsを用いた解析法や詳細な補足説明を書いているので参照ください
 
 ---
 ## 参考文献
