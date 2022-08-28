@@ -36,27 +36,31 @@ class: center, middle, inverse, title-slide
 ---
 ## 心理ネットワークとは？
 
-- 項目・症状（心理変数）間のネットワーク構造を検討する.med[(Epskamp, Borsboom &amp; Fried, 2018)]。
+- 項目（心理変数）間のネットワーク構造を検討する方法.med[(Epskamp, Borsboom &amp; Fried, 2018)]。
 
-- 観察可能な変数を表すノード（図では円）と統計的関係を表すエッジ（図では線）から構成される
+- ネットワークは，観察可能な変数を表すノード（円）と統計的関係を表すエッジ（線）から構成される
 
 ![](fig/net01.png)
+
 ---
 
 ## 心理ネットワーク分析の手順
 
 1. 統計的手法によってノード間のエッジを推定する
 
-2. 推定された統計的関係をもとにネットワークを図示する
+2. 推定されたエッジをもとにネットワークを図示する
 
 3. ネットワーク特性の指標を検討する
 
 4. ネットワークの正確度・安定性を検討する
 
+&lt;/br&gt;
 
-- 心理ネットワークのエッジは，データから推定される（重み付きネットワーク）
+- エッジはデータから推定される（重み付きネットワーク）
 
-→(1)サンプルサイズの影響を受けるので正確度・安定性を検討する，(2)グローバルなネットワーク特性.med[(small worldnessなど)]は使えないので，ローカルなネットワーク特性.med[(中心性指標)]を用いる。
+→(1)サンプルサイズに影響されるので正確度・安定性を検討
+
+→(2)グローバルなネットワーク特性.med[(small worldnessなど)]は使えないので，ローカルなネットワーク特性.med[(中心性指標)]を用いる。
 ---
 
 ## 有向・無向ネットワーク
@@ -80,22 +84,22 @@ class: center, middle, inverse, title-slide
 ---
 ## ペアワイズマルコフ確率場
 
-- 無向ネットワークモデルの推定では，ペアワイズ・マルコフ確率場(pairwise Markov random field)がよく使われる.med[(Epskamp, Haslbeck, Isvoranu,&amp; Van Borkulo, 2022)]
+- 無向ネットワークモデルの推定では，ペアワイズ・マルコフ確率場.med[(pairwise Markov random field)]がよく使われる.med[(Epskamp, Haslbeck, Isvoranu,&amp; Van Borkulo, 2022)]
 
-- 心理ネットワーク分析の主なペアワイズ・マルコフ確率場のモデルは以下に３つがある
+- 心理ネットワーク分析の主なペアワイズ・マルコフ確率場のモデルには以下の３つがある
 
 1. **Gaussian graphical model (GGM)**: 連続変数のデータ.med[(エッジの値は-1から1の範囲)]
 
 2. **Ising model**: 2値変数のデータ.med[(エッジの値は-∞から∞の範囲)]
 
-3. **mixed graphical models (MGMs)**: 2値変数と連続変数の混ざったデータ.med[(エッジの値は-1から1の範囲)]
+3. **mixed graphical models (MGMs)**: 2値変数,順序変数,連続変数の混ざったデータ.med[(エッジの値は-1から1の範囲)]
 
 ---
 ## Gaussian graphical model(GGM)
 
 - データが連続かつ正規分布の場合には，多変量正規分布を用いたGGMを用いる。GGMでは変数間の関係を偏相関係数によってモデル化する。
 
-- `\(\boldsymbol{Y}\)`は，平均 `\(\boldsymbol{\mu}\)` と分散共分散行列 `\(\boldsymbol{\Sigma}\)` の多変量正規分布に従う( `\(\boldsymbol{Y}\)` はランダムに選んだ参加者からのn個の反応のベクトル)
+- `\(\boldsymbol{Y}\)`.med[(ランダムに選んだ参加者からのn個の反応のベクトル)]は，平均 `\(\boldsymbol{\mu}\)` と分散共分散行列 `\(\boldsymbol{\Sigma}\)` の多変量正規分布に従う
 
 $$
 \boldsymbol{Y} \sim N\left(\boldsymbol{\mu}, \boldsymbol{\Sigma}\right)
@@ -105,7 +109,9 @@ $$
 ---
 ## 分散共分散行列→精度行列→偏相関行列
 
-- GGMでは，分散共分散行列 `\(\boldsymbol{\Sigma}\)` からその逆行列である精度行列 `\(\boldsymbol{K}\)` を計算し( `\(\boldsymbol{K}=\boldsymbol{\Sigma}^{-1}\)`)，精度行列 `\(\boldsymbol{K}\)` から偏相関行列を計算する.med[(逆行列はΣに掛けた場合に単位行列になるような行列)]
+- GGMでは，分散共分散行列 `\(\boldsymbol{\Sigma}\)` からその逆行列である精度行列 `\(\boldsymbol{K}\)` を計算し( `\(\boldsymbol{K}=\boldsymbol{\Sigma}^{-1}\)`)，精度行列 `\(\boldsymbol{K}\)` から偏相関行列を計算する
+
+.med[※逆行列はΣに掛けた場合に単位行列になるような行列]
 
 - 以下の式で精度行列から偏相関係数を計算し，偏相関係数をエッジにしてネットワークをプロットする
 
@@ -129,17 +135,18 @@ $$
 ---
 ## Mixed graphical models(MGMs)
 
-- 連続，カウント，カテゴリカル変数が混ざったデータに適用できる.med[(Epskamp et al., 2022)] 
+- 連続・カウント・2値変数が混ざったデータに適用できる.med[(Epskamp et al., 2022)] 
 
 - データのタイプに合わせてノードごとに確率分布が適用.med[(指数分布族: 正規分布，ポワソン分布，指数分布，多項分布）]
-- ノードごとに回帰分析によって推定し，推定されたパラメータが最終モデルで統合される。
 
-- MGMsは，ペアワイズである必要もなくて，高次の相互作用を含めたmoderated network modelも検討できる。
+- ノードごとに一般化線形モデルによって推定し，推定されたパラメータが最終モデルで統合される。
+
+- MGMsは，ペアワイズである必要もなくて，高次の交互作用を含めたmoderated network modelも検討できる。
 
 ---
 ## モデル選択
 
-- ネットワークは，エッジが１つもないものから全てのノード間にエッジがある飽和モデルの間に，大量のネットワークの可能性がある.med[(Blanken, Isvoranu &amp; Epskamp, 2022 )]
+- ネットワークは，エッジが１つもないものから全てのノード間にエッジがある飽和モデルの間に，大量の可能性のあるネットワークがある.med[(Blanken, Isvoranu &amp; Epskamp, 2022)]
 
 - オッカムの剃刀に従い，パフォーマンスを下げないようにして，シンプルなモデルを選ぶ。
 
@@ -185,9 +192,9 @@ $$
 
 (2)サンプルサイズが1000の場合，ネットワーク構造や強いエッジに興味があるなら正則化，特定のエッジに関心があるならモデル探索が好ましい。
 
-(3)サンプルサイズが5000の場合，真のネットワークの探索には，正則化しないモデル探索が好ましい。
+(3)サンプルサイズが5000の場合，真のネットワークの探索には，モデル探索が好ましい。
 
-### IsingモデルとMGMsでのモデル選択の推奨.med[(Blanken, Isvoranu &amp; Epskamp, 2022)]
+### IsingモデルとMGMsでのモデル選択の推奨.med[(Blanken et al, 2022)]
 
 Isingモデルの場合，小中サンプルサイズでは正則化手法が見やすく，大サンプルサイズでは非正則化手法も使える。現状，MGMsで使えるのは正則化手法のみ。
 
@@ -195,7 +202,7 @@ Isingモデルの場合，小中サンプルサイズでは正則化手法が見
 ** 順序・非正規変数での注意点.med[(Blanken, Isvoranu &amp; Epskamp, 2022)]**
 
 - 順序変数ではポリコリック相関を使うが，小サンプルサイズでは不安定になる.med[（psychonetricsパッケージの推定法やBGGMパッケージを使う）]
-- 正規分布していないデータの場合は，スピアマンの順位相関係数をrank-transformationしてからGGMする。
+- 正規分布していないデータの場合は，スピアマンの順位相関係数をrank-transformationしてからGGMする
 
 **サンプルサイズ**
 
@@ -209,11 +216,13 @@ Isingモデルの場合，小中サンプルサイズでは正則化手法が見
 ---
 ### エッジの解釈法
 
-- PRMFのエッジは，２変数以外の影響も考慮した２変数の関係を表す（ネットワーク全体の影響を考慮する）。解釈としては以下の２つがある。
+- PRMFのエッジは，２変数以外の影響も考慮した２変数の関係を表す.med[（ネットワーク全体の影響を考慮する）]。
 
-(1)予測可能性の示唆: 他の変数の影響を考慮しても，ある変数から別の変数が予測できる可能性がある。A-B-Cという形でエッジがある場合に，BはAやCを予測する可能性がある。
+- エッジの解釈としては以下の２つがある。
 
-(2)因果関係の示唆: 因果の方向性は不明だが，そのエッジにはなんらかの因果的な効果がある可能性はある.med[(逆にいうと，強い理論的予測による仮説検証の結果のような解釈はしない)]。
+(1)**予測可能性の示唆**: 他の変数の影響を考慮しても，ある変数から別の変数が予測できる可能性がある。A-B-Cという形でエッジがある場合に，BはAやCを予測する可能性がある。
+
+(2)**因果関係の可能性の示唆**: 因果の方向性は不明だが，そのエッジにはなんらかの因果的な効果がある可能性はある.med[(逆にいうと，強い理論的予測による仮説検証の結果のような解釈はしない)]。
 
 ---
 ## ノードの中心性指標
@@ -237,15 +246,16 @@ Isingモデルの場合，小中サンプルサイズでは正則化手法が見
 
 3. エッジの重みと中心性指標間でブートストラップ差異検定を行って，それらが有意に異なるのかを検討する
 
+.med[※1は必須，2は中心性指標を使う場合，3は目的に合わせて]
 ---
 ## Rパッケージ 
 
-- アムステルダム大学の[Sacha Epskamp](http://sachaepskamp.com/)達が開発した[qgraph](https://cran.r-project.org/web/packages/qgraph/index.html)，[bootnet](https://cran.r-project.org/web/packages/bootnet/index.html)，[psychonetrics](https://cran.r-project.org/web/packages/psychonetrics/index.html)があれば，横断データの心理ネットワーク分析は実施できる。
-1. [qgraph](https://cran.r-project.org/web/packages/qgraph/index.html): ネットワークのプロットと推定
+- アムステルダム大学の[Sacha Epskamp](http://sachaepskamp.com/)達が開発した以下のRパッケージがあれば，横断データの心理ネットワーク分析は実施できる。
+1. [qgraph](https://cran.r-project.org/web/packages/qgraph/index.html): ネットワークの推定とプロット
 
-2. [bootnet](https://cran.r-project.org/web/packages/bootnet/index.html):  様々な種類のネットワーク推定，ネットワークの正確度の検討
+2. [bootnet](https://cran.r-project.org/web/packages/bootnet/index.html):  様々な種類のネットワーク推定，ネットワークの正確度・安定性の検討
 
-3. [psychonetrics](https://cran.r-project.org/web/packages/psychonetrics/index.html)： より洗練化した書き方でネットワーク分析ができるパッケージ
+3. [psychonetrics](https://cran.r-project.org/web/packages/psychonetrics/index.html)： より洗練化した書き方でネットワーク分析ができる
 
 アムステルダム大学の統計ソフト[JASP](https://jasp-stats.org/)には，心理ネットワーク分析が入っており，ちょっと試すのに便利
 
@@ -279,7 +289,7 @@ data &lt;- read.spss("pone.0182162.s004.sav", to.data.frame=TRUE)
 
 
 
-GAD-7のデータを使う。renameで変数名を整理する。
+GAD-7（不安に関する７項目）のデータを使う。renameで変数名を整理する。
 
 
 ```r
@@ -288,6 +298,28 @@ data_gad &lt;- data %&gt;%
   rename(gad7a = S_GAD7_a, gad7b = S_GAD7_b, gad7c = S_GAD7_c, gad7d = S_GAD7_d,gad7e = S_GAD7_e, gad7f = S_GAD7_f, gad7g = S_GAD7_g) %&gt;% 
   select(gad7a, gad7b, gad7c, gad7d, gad7e, gad7f, gad7g)
 ```
+
+---
+ggm()関数の「omega="empty"」でエッジのないモデルを推定
+
+
+```r
+ggm(data_gad,omega="empty") %&gt;%runmodel %&gt;%getmatrix("omega") %&gt;%
+  qgraph(theme = "colorblind", layout = "spring",labels = TRUE)
+```
+
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+---
+ggm()関数の「omega="full"」で飽和モデルを推定
+
+
+```r
+ggm(data_gad,omega="full") %&gt;% runmodel %&gt;% getmatrix("omega") %&gt;%
+  qgraph(theme = "colorblind", layout = "spring",labels = TRUE)
+```
+
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
 
 ---
 ### モデル選択： しきい値
@@ -302,7 +334,7 @@ results_gad &lt;- estimateNetwork(data_gad,default = "pcor", threshold = "sig", 
 plot(results_gad, theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
 ```
 
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 
 ---
 ### モデル選択： 刈り込み
@@ -318,48 +350,12 @@ ggm(data_gad) %&gt;%
   qgraph(theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
 ```
 
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
-
----
-ggm()やIsng()の「omega="full"」で飽和モデルを推定
-
-
-```r
-ggm(data_gad,omega="full") %&gt;% runmodel %&gt;% getmatrix("omega") %&gt;%
-  qgraph(theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
-```
-
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
-
----
-ggm()やIsng()の「omega="empty"」でエッジ0モデルを推定
-
-
-```r
-ggm(data_gad,omega="empty") %&gt;%runmodel %&gt;%getmatrix("omega") %&gt;%
-  qgraph(theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
-```
-
 ![](slide-psynet-basic_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
-
----
-### モデル選択：モデル探索(Step-up)
-
-.med[エッジがない状態からエッジを足していって，BICが最小のモデルを選択するStep-upは，以下のように実行する]
-
-
-```r
-ggm(data_gad, omega = "empty") %&gt;% runmodel %&gt;%
-  stepup(criterion = "bic") %&gt;%
-  getmatrix("omega") %&gt;% qgraph(theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
-```
-
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
 
 ---
 ### モデル選択：モデル探索
 
-.med[モデル探索は以下のように行う]
+.med[モデル探索は以下のように行う(Step-upの方法は[配布ドキュメント](https://ykunisato.github.io/ccp-lab-slide/tws-psynet-2022/doc-psynet-basic.html)に記載)]
 
 
 ```r
@@ -368,18 +364,18 @@ ggm(data_gad) %&gt;% runmodel %&gt;%
   getmatrix("omega") %&gt;% qgraph(theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
 ```
 
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
 
 ---
 ### モデル選択：正則化
-.med[bootnetパッケージのestimateNetwork()関数を使って，EBICでモデル選択して，パラメータ調整をするGLASSOを使う(「default="EBICglasso"」を指定する）]
+.med[bootnetのestimateNetwork()関数を使って，EBICでパラメータ調整をするGLASSOを使う(「default="EBICglasso"」を指定する）]
 
 ```r
 results_gad &lt;- estimateNetwork(data_gad,default = "EBICglasso", corMethod = "cor_auto")
 plot(results_gad, theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
 ```
 
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
 
 ---
 ### エッジの重みの正確度
@@ -396,7 +392,7 @@ plot(accuracy_edge, labels = FALSE, order = "sample")
 ---
 ## 中心性の指標のプロット
 
-.med[qgraphパッケージのcontralityPlot関数でプロットできる。includeで"Strength", "Betweenness", "Closeness"の３つを指定する.med[（デフォルトではStrengthのみが出力される）]]
+.med[qgraphパッケージのcontralityPlot関数でプロットできる。デフォルトではStrengthのみが出力されるので，includeで"Strength", "Betweenness", "Closeness"の３つを指定する]
 
 
 
@@ -404,7 +400,7 @@ plot(accuracy_edge, labels = FALSE, order = "sample")
 centralityPlot(results_gad, include = c("Strength", "Betweenness", "Closeness"))
 ```
 
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
 
 ---
 ## 中心性指標の安定性(Stability)
@@ -468,24 +464,17 @@ plot(accuracy_edge,"strength")
 
 - 日々新しい方法の開発と解析法の推奨の変化があるので，アムステルダム大学の[Psych Systems](http://psychosystems.org/)のサイトを確認したり，最新の動向をおさえる
 
-- [配布ドキュメント](https://ykunisato.github.io/ccp-lab-slide/tws-psynet-2022/doc-psynet-basic.html)に，IsingモデルやMGMsを用いた解析法や詳細な補足説明を書いているので参照ください
+&lt;/br&gt;
+
+※ [配布ドキュメント](https://ykunisato.github.io/ccp-lab-slide/tws-psynet-2022/doc-psynet-basic.html)に，IsingモデルやMGMsを用いた解析法や詳細な補足説明を書いているので参照ください
 
 ---
 ## 参考文献
 .med[
 - Blanken, T. F., Isvoranu, A. M., &amp; Epskamp, S. (2022). Chapter 7. Estimating network structures using model selection. In Isvoranu, A. M., Epskamp, S., Waldorp, L. J., &amp; Borsboom, D. (Eds.). Network psychometrics with R: A guide for behavioral and social scientists. Routledge, Taylor &amp; Francis Group.
-- Epskamp, S., Haslbeck, J. M. B., Isvoranu, A. M., &amp; Van Borkulo, C. D. (2022). Chapter 6. Pairwise Markov random fields. In Isvoranu, A. M., Epskamp, S., Waldorp, L. J., &amp; Borsboom, D. (Eds.). Network psychometrics with R: A guide for behavioral and social scientists. Routledge, Taylor &amp; Francis Group.
 - Epskamp, S., Borsboom, D., &amp; Fried, E. I. (2018). Estimating psychological networks and their accuracy: A tutorial paper. Behavior Research Methods, 50(1), 195–212.
-- Epskamp, S., Waldorp, L. J., Mõttus, R., &amp; Borsboom, D. (2018). The Gaussian Graphical Model in Cross-Sectional and Time-Series Data. Multivariate Behavioral Research, 53(4), 453–480.
-]
-
----
-## 参考文献
-.med[
-- Epskamp, S., Maris, G., Waldorp, L. J., &amp; Borsboom, D. (2018). Network Psychometrics. In The Wiley Handbook of Psychometric Testing (pp. 953–986). John Wiley &amp; Sons, Ltd.
-- Fried, E. I., Epskamp, S., Veenman, M., &amp; van Borkulo, C. D. (2022). Chapter 8. Network stability, comparison, and replicability. In Isvoranu, A. M., Epskamp, S., Waldorp, L. J., &amp; Borsboom, D. (Eds.). Network psychometrics with R: A guide for behavioral and social scientists. Routledge, Taylor &amp; Francis Group.
-- Isvoranu, A., &amp; Epskamp, S. (2021, January 26). Which Estimation Method to Choose in Network Psychometrics? Deriving Guidelines for Applied Researchers.
-- Jones, P. J., Ma, R., &amp; McNally, R. J. (2021). Bridge Centrality: A Network Approach to Understanding Comorbidity. Multivariate Behavioral Research, 56(2), 353–367.
+- Epskamp, S., Haslbeck, J. M. B., Isvoranu, A. M., &amp; Van Borkulo, C. D. (2022). Chapter 6. Pairwise Markov random fields. In Isvoranu, A. M., Epskamp, S., Waldorp, L. J., &amp; Borsboom, D. (Eds.). Network psychometrics with R: A guide for behavioral and social scientists. Routledge, Taylor &amp; Francis Group.
+- Isvoranu, A., &amp; Epskamp, S. (2021). Which Estimation Method to Choose in Network Psychometrics? Deriving Guidelines for Applied Researchers. preprint
 - Jordan, P., Shedden-Mora, M. C., &amp; Löwe, B. (2017). Psychometric analysis of the Generalized Anxiety Disorder scale (GAD-7) in primary care using modern item response theory. PloS One, 12(8), e0182162.
 ]
     </textarea>
