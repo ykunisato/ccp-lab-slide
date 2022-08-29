@@ -300,28 +300,6 @@ data_gad &lt;- data %&gt;%
 ```
 
 ---
-ggm()関数の「omega="empty"」でエッジのないモデルを推定
-
-
-```r
-ggm(data_gad,omega="empty") %&gt;%runmodel %&gt;%getmatrix("omega") %&gt;%
-  qgraph(theme = "colorblind", layout = "spring",labels = TRUE)
-```
-
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
-
----
-ggm()関数の「omega="full"」で飽和モデルを推定
-
-
-```r
-ggm(data_gad,omega="full") %&gt;% runmodel %&gt;% getmatrix("omega") %&gt;%
-  qgraph(theme = "colorblind", layout = "spring",labels = TRUE)
-```
-
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
-
----
 ### モデル選択： しきい値
 .med[
 - bootnetのestimateNetwork()関数で，thresholdとalphaを指定する。
@@ -334,7 +312,7 @@ results_gad &lt;- estimateNetwork(data_gad,default = "pcor", threshold = "sig", 
 plot(results_gad, theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
 ```
 
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
 
 ---
 ### モデル選択： 刈り込み
@@ -350,8 +328,28 @@ ggm(data_gad) %&gt;%
   qgraph(theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
 ```
 
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+---
+ggm()関数の「omega="empty"」でエッジのないモデルを推定
 
+
+```r
+ggm(data_gad,omega="empty") %&gt;%runmodel %&gt;%getmatrix("omega") %&gt;%
+  qgraph(theme = "colorblind", layout = "spring",labels = TRUE)
+```
+
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+---
+ggm()関数の「omega="full"」で飽和モデルを推定
+
+
+```r
+ggm(data_gad,omega="full") %&gt;% runmodel %&gt;% getmatrix("omega") %&gt;%
+  qgraph(theme = "colorblind", layout = "spring",labels = TRUE)
+```
+
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
 ---
 ### モデル選択：モデル探索
 
