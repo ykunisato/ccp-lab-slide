@@ -123,7 +123,7 @@
 <li><a href="#有向無向ネットワーク" class="nav-link" data-scroll-target="#有向無向ネットワーク">有向・無向ネットワーク</a></li>
 <li><a href="#つのノードの関係エッジの符号" class="nav-link" data-scroll-target="#つのノードの関係エッジの符号">２つのノードの関係(エッジの符号)</a></li>
 </ul></li>
-<li><a href="#pairwise-markov-random-field-pmrfペアワイズマルコフ確率場" class="nav-link" data-scroll-target="#pairwise-markov-random-field-pmrfペアワイズマルコフ確率場">pairwise Markov random field (PMRF：ペアワイズマルコフ確率場)</a>
+<li><a href="#ペアワイズマルコフ確率場" class="nav-link" data-scroll-target="#ペアワイズマルコフ確率場">ペアワイズ・マルコフ確率場</a>
 <ul class="collapse">
 <li><a href="#gaussian-graphical-model" class="nav-link" data-scroll-target="#gaussian-graphical-model">Gaussian graphical model</a></li>
 <li><a href="#ising-モデル" class="nav-link" data-scroll-target="#ising-モデル">Ising モデル</a></li>
@@ -174,7 +174,7 @@
 
 <section id="心理ネットワークとは" class="level2">
 <h2 class="anchored" data-anchor-id="心理ネットワークとは">心理ネットワークとは？</h2>
-<p>心理ネットワークは，観察可能な変数を表すノードと統計的関係を表すエッジから構成される<span class="citation" data-cites="epskamp2018estimating">(<a href="#ref-epskamp2018estimating" role="doc-biblioref">Epskamp, Borsboom, and Fried 2018</a>)</span>。心理ネットワークモデルは，因子分析やSEMなどのように潜在変数を仮定してそれから各項目・症状を説明するのではなく，症状（心理変数）間のネットワーク構造を検討する。</p>
+<p>心理ネットワークは，観察可能な変数を表すノードと統計的関係を表すエッジから構成される<span class="citation" data-cites="epskamp2018estimating">(<a href="#ref-epskamp2018estimating" role="doc-biblioref">Sacha Epskamp, Borsboom, and Fried 2018</a>)</span>。心理ネットワークモデルは，因子分析やSEMなどのように潜在変数を仮定してそれから各項目・症状を説明するのではなく，症状（心理変数）間のネットワーク構造を検討する。</p>
 <p>心理ネットワークは，以下の図のように，観察可能な変数を表すノードは円で，関係を表すエッジは線でプロットされる。</p>
 <p><img src="fig/net01.png" class="img-fluid"></p>
 <section id="心理ネットワーク分析の手順" class="level3">
@@ -186,12 +186,13 @@
 <li>ネットワーク特性の指標の検討する</li>
 <li>ネットワークの精度の検討する</li>
 </ol>
-<p>ここで注意すべき点は，一般的なネットワーク科学で扱うネットワークの場合は，エッジは観察可能な点である（例えば，電力網ネットワークのエッジは直接観察・測定可能です）。しかし，心理ネットワークのエッジは，データから推定される（重み付きネットワーク）。そのため，サンプルサイズの影響も受けるので，ネットワークのエッジの精度も検討する必要がある。また，一般的なネットワーク科学では，グローバルなネットワーク特性の指標が使われる(small worldness, density, global clustering)。しかし，心理ネットワークのような重み付けネットワークではこれらは使えない。そのため，２つのノードの関係や１つのノードがどのような影響力をもつのか（中心性の指標）といったローカルなネットワーク特性を用いる。</p>
+<p>ここで注意すべき点は，一般的なネットワーク科学で扱うネットワークの場合は，エッジは観察可能な点である（例えば，電力網ネットワークのエッジは直接観察・測定可能になる）。しかし，心理ネットワークのエッジは，データから推定され，重み付きネットワークである。エッジの推定はサンプルサイズの影響を受けるので，ネットワークのエッジの精度も検討する必要がある。また，一般的なネットワーク科学では，グローバルなネットワーク特性の指標が使われる(small worldness, density, global clustering)。しかし，心理ネットワークのような重み付きネットワークではこれらは使えない。そのため，２つのノードの関係や１つのノードがどのような影響力をもつのか（中心性の指標）といったローカルなネットワーク特性を用いる。</p>
 </section>
 <section id="有向無向ネットワーク" class="level3">
 <h3 class="anchored" data-anchor-id="有向無向ネットワーク">有向・無向ネットワーク</h3>
-<p>心理ネットワークの話の前に，有向ネットワークと無向ネットワークについて説明する。まず，有向ネットワークとはエッジに方向性があるネットワークになる。以下の図ようにエッジが矢印になっているネットワークが有向ネットワークである。この矢印の方向には因果関係が想定される。例えば，「活動性低下→抑うつ気分増加」なら，活動低下が原因となって抑うつ気分増加するという意味になる。ただし，「活動性低下→抑うつ気分増加」と聞いて，「活動性低下←抑うつ気分増加」もありえるのではないかと感じた方もおられるかもしれない。そのとおりで，因果関係を言うには，まず原因は結果に時間的に先行する必要があり，因果に関連する変数が全て測定された上で，原因と結果が巡回しない（非巡回）必要がある。観察研究によって収集された心理学のデータの場合，時間的な前後関係は縦断データによって示せても，非巡回となるとかなり難しい。そのため，横断データに対する心理ネットワークでは，エッジに方向性がない無向ネットワークが用いられる。</p>
+<p>心理ネットワークの話の前に，有向ネットワークと無向ネットワークについて説明する。まず，有向ネットワークとはエッジに方向性があるネットワークになる。以下の図ようにエッジが矢印になっているネットワークが有向ネットワークである。</p>
 <p><img src="fig/net02.png" class="img-fluid"></p>
+<p>矢印の方向には因果関係が想定される。例えば，「活動性低下→抑うつ気分増加」なら，活動低下が原因となって抑うつ気分増加するという意味になる。ただし，「活動性低下→抑うつ気分増加」と聞いて，「活動性低下←抑うつ気分増加」もありえるのではないかと感じた方もおられるかもしれない。そのとおりで，因果関係を言うには，まず原因は結果に時間的に先行する必要があり，因果に関連する変数が全て測定された上で，原因と結果が巡回しない（非巡回）必要がある。観察研究によって収集された心理学のデータの場合，時間的な前後関係は縦断データによって示せても，非巡回となるとかなり難しい。横断データに対する心理ネットワークでは，エッジに方向性がない無向ネットワークが用いられる。</p>
 </section>
 <section id="つのノードの関係エッジの符号" class="level3">
 <h3 class="anchored" data-anchor-id="つのノードの関係エッジの符号">２つのノードの関係(エッジの符号)</h3>
@@ -199,9 +200,9 @@
 <p><img src="fig/net01.png" class="img-fluid"></p>
 </section>
 </section>
-<section id="pairwise-markov-random-field-pmrfペアワイズマルコフ確率場" class="level2">
-<h2 class="anchored" data-anchor-id="pairwise-markov-random-field-pmrfペアワイズマルコフ確率場">pairwise Markov random field (PMRF：ペアワイズマルコフ確率場)</h2>
-<p>変数間の関係がある・ないというグラフを作る場合に，確率分布と結びつけるようなモデルのことをペアワイズ・マルコフ・グラフ(pairwise Markov graph)と呼ぶ。そして，心理ネットワークで用いる無向ネットワークモデルの推定では，ペアワイズ・マルコフ確率場(pairwise Markov random field: PMRF)がよく使われる(Epskamp, Haslbeck, Isvoranu,&amp; Van Borkulo, 2022)。心理ネットワーク分析で用いられるPMRFは，基本的に重み付きネットワークである。PMRFでは，ネットワークのエッジは，他のすべてのノードの影響を除外したあとでの２つのノード間の条件付き関連になります。つまり，２つのノード間にエッジがあるということは，条件付き依存(conditionally dependent)関係にあることを表し，一方でエッジがない場合は，条件付き独立(conditionally independent)関係にあることを表す。</p>
+<section id="ペアワイズマルコフ確率場" class="level2">
+<h2 class="anchored" data-anchor-id="ペアワイズマルコフ確率場">ペアワイズ・マルコフ確率場</h2>
+<p>変数間の関係がある・ないというグラフを作る場合に，確率分布と結びつけるようなモデルのことをペアワイズ・マルコフ・グラフ(pairwise Markov graph)と呼ぶ。そして，心理ネットワークで用いる無向ネットワークモデルの推定では，ペアワイズ・マルコフ確率場(pairwise Markov random field: PMRF)がよく使われる<span class="citation" data-cites="Epskamp_netPsychomet2022">(<a href="#ref-Epskamp_netPsychomet2022" role="doc-biblioref">S. Epskamp et al. 2022</a>)</span>。心理ネットワーク分析で用いられるペアワイズ・マルコフ確率場は，基本的に重み付きネットワークである。ペアワイズ・マルコフ確率場では，ネットワークのエッジは，他のすべてのノードの影響を除外したあとでの２つのノード間の条件付き関連になります。つまり，２つのノード間にエッジがあるということは，条件付き依存(conditionally dependent)関係にあることを表し，一方でエッジがない場合は，条件付き独立(conditionally independent)関係にあることを表す。</p>
 <p>ペアワイズマルコフ確率場には様々なモデルがあるが，心理ネットワーク分析においては，以下の３つのモデルがよく用いられる。</p>
 <ol type="1">
 <li>Gaussian graphical model (GGM): 連続変数のデータ</li>
@@ -226,15 +227,15 @@ f(\boldsymbol{Y}=\boldsymbol{y})=\frac{1}{\sqrt{(2 \pi)^{n}\left|\boldsymbol{\su
 \]</span> ここで，<span class="math inline">\(\mathbf{y_{c}}\)</span> のcはcaseつまり人であり，データフレームの行に対応している（例. y[c=1,1]は１人目の不安得点，y[c=2,1]は2人目の不安得点, y[c=1,2]は１人目のうつ得点になる）。そして，分散共分散行列 <span class="math inline">\(\mathbf{\Sigma}\)</span>は，ベクトル<strong>y</strong>に含まれる変数間の分散共分散行列になる。</p>
 <section id="分散共分散行列精度行列偏相関行列" class="level4">
 <h4 class="anchored" data-anchor-id="分散共分散行列精度行列偏相関行列">分散共分散行列→精度行列→偏相関行列</h4>
-<p>GGMでの偏相関行列を算出する際に，分散共分散行列 <span class="math inline">\(\boldsymbol{\sum}\)</span> が重要になる。GGMでは， <span class="math inline">\(\boldsymbol{\sum}\)</span> を直接的に扱わずに，その逆数である <span class="math inline">\(\boldsymbol{K}\)</span> の標準化した要素を扱う。具体的な手続きとしては，分散共分散行列からその逆行列である精度行列を計算し，精度行列から偏相関行列を計算する。以下では，順を追って計算手続きを説明する。</p>
+<p>GGMでの偏相関行列を算出する際に，分散共分散行列 <span class="math inline">\(\boldsymbol{\Sigma}\)</span> が重要になる。GGMでは， <span class="math inline">\(\boldsymbol{\Sigma}\)</span> を直接的に扱わずに，その逆数である <span class="math inline">\(\boldsymbol{K}\)</span> の標準化した要素を扱う。具体的な手続きとしては，分散共分散行列からその逆行列である精度行列を計算し，精度行列から偏相関行列を計算する。以下では，順を追って計算手続きを説明する。</p>
 <p>まず精度行列はKと記載する。この精度行列Kは，分散共分散行列の逆行列になる。</p>
 <p><span class="math display">\[
 \boldsymbol{K}=\boldsymbol{\Sigma}^{-1}
 \]</span></p>
 <p>「逆行列って何？」って感じだが，逆行列は，ｎ次正方行列Aに掛けた場合に以下のような単位行列Eとなるような行列である。つまり，分散共分散行列に何か行列をかけ合わせた時に，以下のような単位行列Eになるようなものがここで知りたい逆行列＝精度行列になる。</p>
 <p><span class="math display">\[\boldsymbol{E}=\left[\begin{array}{lcc}1 &amp; 0 \\ 0 &amp; 1\end{array}\right]\]</span></p>
-<p>以降はRで計算させつつ分散共分散行列から精度行列を経由して，偏相関行列を計算する。計算にあたり，Epskamp, Waldorp, Mõttus &amp; Borsboom(2018)に記載されている例を用いる。</p>
-<p>これから，以下のような分散共分散行列( <span class="math inline">\(\mathbf{\Sigma}\)</span> ) Aを偏相関行列にする。Rで計算できますので，以下をコピペして実行ください。変数１と変数２は負の関連があり，変数１と変数３は正の関連があり，変数２と変数３は関連が弱い。</p>
+<p>以降はRで計算させつつ分散共分散行列から精度行列を経由して，偏相関行列を計算する。計算にあたり，<span class="citation" data-cites="Epskamp2018-juに記載されている例を用いる">(<a href="#ref-Epskamp2018-juに記載されている例を用いる" role="doc-biblioref"><strong>Epskamp2018-juに記載されている例を用いる?</strong></a>)</span>。</p>
+<p>これから，以下のような分散共分散行列( <span class="math inline">\(\mathbf{\Sigma}\)</span> ) Aを偏相関行列にする。Rで計算していくので，以下をコピペして実行ください。変数１と変数２は負の関連があり，変数１と変数３は正の関連があり，変数２と変数３は関連が弱い。</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.26</span>,<span class="fl">0.31</span>,<span class="sc">-</span><span class="fl">0.26</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="fl">0.08</span>,<span class="fl">0.31</span>,<span class="sc">-</span><span class="fl">0.08</span>,<span class="dv">1</span>), <span class="dv">3</span>, <span class="dv">3</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -273,33 +274,32 @@ f(\boldsymbol{Y}=\boldsymbol{y})=\frac{1}{\sqrt{(2 \pi)^{n}\left|\boldsymbol{\su
 </section>
 <section id="ising-モデル" class="level3">
 <h3 class="anchored" data-anchor-id="ising-モデル">Ising モデル</h3>
-<p>Isingモデルは，磁石などの磁性体に関する統計力学的モデルにある。データが２値の場合のネットワークの記述に使えるのと，相転移などの現象も扱えるので，心理ネットワーク分析では用いられる（なお，Isingモデルは項目反応理論との類似点が指摘されている。馴染みは薄いが，まったく無関連なものでもない）。Isingモデルは２値反応のペアの同時確率をモデル化しており，同時確率分布は以下になる(Epskamp et al., 2022) 。</p>
+<p>Isingモデルは，磁石などの磁性体に関する統計力学的モデルにある。データが２値の場合のネットワークの記述に使えるのと，相転移などの現象も扱えるので，心理ネットワーク分析では用いられる（なお，Isingモデルは項目反応理論との類似点が指摘されている。馴染みは薄いが，まったく無関連なものでもない）。Isingモデルは２値反応のペアの同時確率をモデル化しており，同時確率分布は以下になる<span class="citation" data-cites="Epskamp_netPsychomet2022">(<a href="#ref-Epskamp_netPsychomet2022" role="doc-biblioref">S. Epskamp et al. 2022</a>)</span>。</p>
 <p><span class="math display">\[
 \operatorname{Pr}(\boldsymbol{Y}=\boldsymbol{y})=\frac{1}{Z} \exp \left(\sum_{i} y_{i} \tau_{i}+\sum_{&lt;i, j&gt;} y_{i} y_{j} \omega_{i j}\right)%
 \]</span></p>
-<p><strong>Y</strong>はランダムな参加者の２値反応のベクトルであり，<strong>ｙ</strong>はその実現値の２値反応のベクトルである。τは，閾値であり，２値反応のどちらにいきやすいかを表す。ωは，ネットワークパラメータであり，ノード間の反応の類似度を表す。Zは，分割関数(partition function)であり，確率の合計が１になるような機能を担っている。Zは以下のように計算できる。</p>
+<p><strong>Y</strong>はランダムな参加者の２値反応のベクトルであり，<strong>ｙ</strong>はその実現値の２値反応のベクトルである。<span class="math inline">\(\tau_{i}\)</span> は閾値であり，２値反応のどちらにいきやすいかを表す。 <span class="math inline">\(\omega_{i j}\)</span> は，ネットワークパラメータであり，ノード間の反応の類似度を表す。Zは，分割関数(partition function)であり，確率の合計が１になるような機能を担っている。Zは以下のように計算できる。</p>
 <p><span class="math display">\[
 Z=\sum_{y} \exp \left(\sum_{i} y_{i} \tau_{i}+\sum_{&lt;i, j&gt;} y_{i} y_{j} \omega_{i j}\right)
 \]</span></p>
-<p>このZの計算は，<strong>Y</strong>の全ての可能性のあるアウトカムの合計になる。そのため，計算は大変であり，20変数以上の多変量推定は難しい。その場合は，単変量推定にして，単純化して推定する。なお，Isingモデルには逆温度(β)パラメータも含まれるが，パメータ推定の際には１に固定している。 Isingモデルは，Epskamp, Maris, Waldorp &amp; Borsboom(2018)に詳しい。</p>
+<p>このZの計算は，<strong>Y</strong>の全ての可能性のあるアウトカムの合計になる。そのため，計算は大変であり，20変数以上の多変量推定は難しい。その場合は，単変量推定にして，単純化して推定する。なお，Isingモデルには逆温度(β)パラメータも含まれるが，パメータ推定の際には１に固定している。 Isingモデルは，<span class="citation" data-cites="Epskamp2018-gx">Sacha Epskamp, Maris, and Waldorp (<a href="#ref-Epskamp2018-gx" role="doc-biblioref">2018</a>)</span> に詳しい。</p>
 </section>
 <section id="mixed-graphical-models" class="level3">
 <h3 class="anchored" data-anchor-id="mixed-graphical-models">Mixed graphical models</h3>
-<p>MGMsは，連続，カウント，カテゴリカルデータのような異なるデータを用いてネットワークを作ることができる(Epskamp et al., 2022) 。データのタイプが異なるので，それぞれのノードは異なる確率分布が関係するが，どれも指数分布族(正規分布，ポワソン分布，指数分布，多項分布）に含まれる。</p>
-<p>MGMsは，ｎ個の単変量で条件付きの指数分布族を同時分布に因子分解することで作られる。nはノードの番号， <span class="math inline">\(\boldsymbol{Y}_{\backslash i}\)</span> は，ノードi以外のノードのセットになる。 GGMもIsingモデルも指数分布族を使って因子分解しているので，MGMsの特殊なケースといえる。<br>
-MGMsは，ノードごとの回帰分析によって推定し（ノードごとの条件つき分布が推定される），すべての推定されたパラメータが最終モデルで統合される。</p>
+<p>MGMsは，連続，カウント，カテゴリカルデータのような異なるデータを用いてネットワークを作ることができる<span class="citation" data-cites="Epskamp_netPsychomet2022">(<a href="#ref-Epskamp_netPsychomet2022" role="doc-biblioref">S. Epskamp et al. 2022</a>)</span>。データのタイプが異なるので，それぞれのノードは異なる確率分布が関係するが，どれも指数分布族(正規分布，ポワソン分布，指数分布，多項分布）に含まれる。</p>
+<p>MGMsは，ｎ個の単変量で条件付きの指数分布族を同時分布に因子分解することで作られる。nはノードの番号， <span class="math inline">\(\boldsymbol{Y}_{\backslash i}\)</span> は，ノードi以外のノードのセットになる。 GGMもIsingモデルも指数分布族を使って因子分解しているので，MGMsの特殊なケースといえる。 MGMsは，ノードごとの回帰分析によって推定し（ノードごとの条件つき分布が推定される），すべての推定されたパラメータが最終モデルで統合される。</p>
 <p><span class="math display">\[
 P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsymbol{Y}_{\backslash i}\right)
 \]</span></p>
-<p>MGMsは，ペアワイズである必要もなくて，高次の相互作用を含めたmoderated network modelも検討できる。</p>
+<p>MGMsは，ペアワイズである必要もなくて，高次の交互作用を含めたmoderated network modelも検討できる。</p>
 </section>
 </section>
 <section id="エッジの推定法とモデル選択解釈" class="level2">
 <h2 class="anchored" data-anchor-id="エッジの推定法とモデル選択解釈">エッジの推定法とモデル選択，解釈</h2>
 <section id="推定法とモデル選択" class="level3">
 <h3 class="anchored" data-anchor-id="推定法とモデル選択">推定法とモデル選択</h3>
-<p>GGMは上記で説明をしたように，推定は簡単なので，最尤推定，最小二乗法，ベイズどれを使っても良い。一方で，ネットワークは，エッジが0なネットワークからすべてのノード間にエッジのある飽和モデル(Saturated model)の間に，大量のネットワークの可能性がある<span class="citation" data-cites="blanken2022">(<a href="#ref-blanken2022" role="doc-biblioref">Blanken, Isvoranu, and Epskamp 2022</a>)</span>。例えば，ノード３つのネットワークでも，８つのネットワークの可能性がある。</p>
-<p>弱いエッジは0としたいが，どのエッジを0にするかどうかは，モデル選択になる。モデル選択では，オッカムの剃刀にしたがって，モデルのパフォーマンスを下げないようにして，よりシンプルなモデルを選ぶ。モデル選択は，使用するデータ，研究疑問に依存するのっで，ゴールドスタンダードはない。モデル選択は，大まかに分けると，以下の４つのカテゴリーに分けられる。</p>
+<p>GGMは上記で説明したように，推定は簡単なので，最尤推定，最小二乗法，ベイズどれを使っても良い。一方で，ネットワークは，エッジが0なネットワークからすべてのノード間にエッジのある飽和モデル(Saturated model)の間に，大量のネットワークの可能性がある<span class="citation" data-cites="blanken2022">(<a href="#ref-blanken2022" role="doc-biblioref">Blanken, Isvoranu, and Epskamp 2022</a>)</span>。例えば，ノード３つのネットワークでも，８つのネットワークの可能性がある。</p>
+<p>弱いエッジは0としたいが，どのエッジを0にするかどうかは，モデル選択になる。モデル選択では，オッカムの剃刀にしたがって，モデルのパフォーマンスを下げないようにして，よりシンプルなモデルを選ぶ。モデル選択は，使用するデータ，研究疑問に依存するので，ゴールドスタンダードはない。心理ネットワーク分析におけるモデル選択は，大まかに分けると，以下の４つに分けられる。</p>
 <ol type="1">
 <li>しきい値(Thresholding)</li>
 <li>刈り込み(Pruning)</li>
@@ -316,22 +316,43 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 </section>
 <section id="正則化regularization" class="level4">
 <h4 class="anchored" data-anchor-id="正則化regularization">正則化(regularization)</h4>
-<p>ネットワークを疎(sparse)にするような手法として，正則化(regularization)がある。正則化は，機械学習などにおいて発展してきた手法で，モデルの複雑さに罰則をかけて，過学習を避けるような手法である。ざっくり説明すると，多数の変数を使って予測をする場合に，影響力が弱い変数の影響をゼロに近づけるような工夫を導入することで，不要なエッジを除くことができるというもの。影響力は弱いけど存在している変数が減るとモデルが複雑ではなくなる。複雑さに罰則をかけると，影響力は弱いけど存在している変数の影響をゼロに近づけるようになる。このようにして，煩雑な弱いエッジを減らすことができる。GGMでは，LASSO(least absokute shrinkage and selection operator)が使われます。特にLASSOの一種のGraphical LASSOは，精度行列に直接的に罰則をかけられ，分散共分散行列があれば計算でき，一般的に他の方法よりも早い。GLASSOには罰則の強さを調整する<span class="math inline">\(\lambda\)</span>があるが，手動の調整をするのではなく，cross-validation(CV)やEBICを使う。EBICには，<span class="math inline">\(\gamma\)</span>パラメータがあり，ソフトによってデフォルトが決まっているが(mgmとIsingFitは0.25, qgraphとhugeは0.5)，手動でも調整ができる（高くするとよりスパースになる）。</p>
+<p>ネットワークを疎(sparse)にするような手法として，正則化(regularization)がある。正則化は，機械学習などにおいて発展してきた手法で，モデルの複雑さに罰則をかけて，過学習を避けるような手法である。ざっくり説明すると，多数の変数を使って予測をする場合に，影響力が弱い変数の影響をゼロに近づけるような工夫を導入することで，不要なエッジを除くことができる。影響力が弱い変数が減るとモデルが複雑ではなくなる。複雑さに罰則をかけると，影響力は弱いけど存在している変数の影響をゼロに近づけるようになる。このようにして，煩雑な弱いエッジを減らすことができる。</p>
+<p>GGMでは，LASSO(least absokute shrinkage and selection operator)が使われる。特にLASSOの一種のGraphical LASSOは，精度行列に直接的に罰則をかけられ，分散共分散行列があれば計算でき，一般的に他の方法よりも早い。GLASSOには罰則の強さを調整する<span class="math inline">\(\lambda\)</span>があるが，手動の調整をするのではなく，cross-validation(CV)やEBICを使う。EBICには，<span class="math inline">\(\gamma\)</span>パラメータがあり，ソフトによってデフォルトが決まっているが(mgmとIsingFitは0.25, qgraphとhugeは0.5)，手動でも調整ができる（高くするとよりスパースになる）。</p>
 </section>
-<section id="モデル選択の推奨blanken2022" class="level4">
-<h4 class="anchored" data-anchor-id="モデル選択の推奨blanken2022">モデル選択の推奨<span class="citation" data-cites="blanken2022">(<a href="#ref-blanken2022" role="doc-biblioref">Blanken, Isvoranu, and Epskamp 2022</a>)</span></h4>
-<p>心理学研究の目的，対象，サンプルサイズ，測定変数が多様なので，絶対的なモデル選択の推奨は難しい。</p>
+<section id="ggmでのモデル選択の推奨-isvoranuunknownestimationc3c0" class="level4">
+<h4 class="anchored" data-anchor-id="ggmでのモデル選択の推奨-isvoranuunknownestimationc3c0">GGMでのモデル選択の推奨　<span class="citation" data-cites="IsvoranuUnknownEstimation:c3c0">(<a href="#ref-IsvoranuUnknownEstimation:c3c0" role="doc-biblioref">Isvoranu and Epskamp 2021</a>)</span></h4>
+<p>心理学研究の目的，対象，サンプルサイズ，測定変数が多様なので，絶対的なモデル選択の推奨は難しい。<span class="citation" data-cites="IsvoranuUnknownEstimation:c3c0">Isvoranu and Epskamp (<a href="#ref-IsvoranuUnknownEstimation:c3c0" role="doc-biblioref">2021</a>)</span> の大規模シミュレーションが参考になる。</p>
 <ul>
-<li><p>GGM(Isvoranu &amp; Epskamp, 2021): サンプルサイズが5000くらいならほとんどのモデル選択法でうまくいくが，真のネットワークに似たネットワークの探索には，モデル探索などの正則化しないggmModSelectが好ましい。サンプルサイズが300くらいなら，EBICglassoなどの正則化する方法が一般化可能なネットワーク構造の発見においては好ましい。サンプルサイズが1000くらいなら，ネットワークの全体構造や強いエッジに興味があるなら正則化する方法を選び，特定の（ブリッジする）エッジに関心があるならggmModSelectやmgmが好ましい。</p></li>
-<li><p>順序カテゴリカル・非正規連続変数<span class="citation" data-cites="blanken2022">(<a href="#ref-blanken2022" role="doc-biblioref">Blanken, Isvoranu, and Epskamp 2022</a>)</span>：５選択肢以上だと連続として扱うが，３や４選択肢だと妥当な方法で２値化するか順序カテゴリ変数として扱う。その場合は，相関ではなくてポリコリック相関を使う。ただし，小サンプルサイズでポリコリック相関を使うと不安定になるので注意が必要である（psychonetricsパッケージで実装されている推定法やBGGMパッケージを使うと良い）。正規分布していないデータの場合は，スピアマンの順位相関係数をrank-transformationしてからGGMを行う(bootnetパッケージでcorMethod = “spearman”とするかtransform = “rank”とする)。</p></li>
-<li><p>MGMsとIsingモデル<span class="citation" data-cites="blanken2022">(<a href="#ref-blanken2022" role="doc-biblioref">Blanken, Isvoranu, and Epskamp 2022</a>)</span>：MGMsはmgmパッケージで推定され，用いるのは正則化である。Isingmモデルは，正則化手法(IsingFit)と非正則化手法(IsingSamplerとpsychonetrics)がある。Isingモデルでは，小中サンプルサイズでは正則化手法が見やすいネットワークになる。大サンプルサイズでは非正則化手法も使える。</p></li>
-<li><p>サンプルサイズと欠測処理<span class="citation" data-cites="blanken2022">(<a href="#ref-blanken2022" role="doc-biblioref">Blanken, Isvoranu, and Epskamp 2022</a>)</span>：サンプルサイズは研究の目的に依存する。bootnetパッケージのnetSimulator関数でシミュレーションもできるが，ネットワークの構造が不明なこともあるので使いにくい。Isvoranu &amp; Epskamp(2021)の大規模シミュレーション研究が参考になり，ノードは３０より少ないのが望ましく，できるだけサンプルサイズが大きいほうが望ましい。研究目的がネットワークの構造を調べるものより，特定のエッジに焦点をしぼったもの方が大きなサンプルサイズが必要になる。bootnetパッケージの場合は，欠測値があると推定ができないが，psychonetricsパッケージの場合は完全情報最尤推定法が使える(estimator = “FIML”)。</p></li>
+<li>サンプルサイズが5000くらいならほとんどのモデル選択法でうまくいくが，真のネットワークに似たネットワークの探索には，モデル探索などの正則化しないggmModSelectが好ましい。</li>
+<li>サンプルサイズが1000くらいなら，ネットワークの全体構造や強いエッジに興味があるなら正則化する方法を選び，特定の（ブリッジする）エッジに関心があるならggmModSelectやmgmが好ましい。</li>
+<li>サンプルサイズが300くらいなら，EBICglassoなどの正則化する方法が一般化可能なネットワーク構造の発見においては好ましい。</li>
 </ul>
+</section>
+<section id="isingモデルとmgmsでのモデル選択の推奨.medblanken-et-al-2022" class="level4">
+<h4 class="anchored" data-anchor-id="isingモデルとmgmsでのモデル選択の推奨.medblanken-et-al-2022">IsingモデルとMGMsでのモデル選択の推奨.med[(Blanken et al, 2022)]</h4>
+<p>Isingmモデルは，正則化手法(IsingFit)と非正則化手法(IsingSamplerとpsychonetrics)がある。Isingモデルでは，小中サンプルサイズでは正則化手法が見やすいネットワークになる。大サンプルサイズでは非正則化手法も使える。</p>
+<p>MGMsはmgmパッケージで推定され，用いるのは正則化手法のみである。</p>
+</section>
+<section id="順序変数の扱いblanken2022" class="level4">
+<h4 class="anchored" data-anchor-id="順序変数の扱いblanken2022">順序変数の扱い<span class="citation" data-cites="blanken2022">(<a href="#ref-blanken2022" role="doc-biblioref">Blanken, Isvoranu, and Epskamp 2022</a>)</span></h4>
+<p>５選択肢以上だと連続として扱うが，３や４選択肢だと妥当な方法で２値化するか順序カテゴリ変数として扱う。その場合は，相関ではなくてポリコリック相関を使う。ただし，小サンプルサイズでポリコリック相関を使うと不安定になるので注意が必要である（psychonetricsパッケージで実装されている推定法やBGGMパッケージを使うと良い）。</p>
+</section>
+<section id="非正規連続変数の扱いblanken2022" class="level4">
+<h4 class="anchored" data-anchor-id="非正規連続変数の扱いblanken2022">非正規連続変数の扱い<span class="citation" data-cites="blanken2022">(<a href="#ref-blanken2022" role="doc-biblioref">Blanken, Isvoranu, and Epskamp 2022</a>)</span></h4>
+<p>正規分布していないデータの場合は，スピアマンの順位相関係数を用いてGGMを行う(bootnetパッケージでcorMethod = “spearman”とするかtransform = “rank”とする)。</p>
+</section>
+<section id="サンプルサイズについてblanken2022" class="level4">
+<h4 class="anchored" data-anchor-id="サンプルサイズについてblanken2022">サンプルサイズについて<span class="citation" data-cites="blanken2022">(<a href="#ref-blanken2022" role="doc-biblioref">Blanken, Isvoranu, and Epskamp 2022</a>)</span></h4>
+<p>サンプルサイズは研究の目的に依存する。bootnetパッケージのnetSimulator関数でシミュレーションもできるが，ネットワークの構造が不明なこともあるので使いにくい。<span class="citation" data-cites="IsvoranuUnknownEstimation:c3c0">Isvoranu and Epskamp (<a href="#ref-IsvoranuUnknownEstimation:c3c0" role="doc-biblioref">2021</a>)</span> の大規模シミュレーション研究が参考になり，ノードは３０より少ないのが望ましく，できるだけサンプルサイズが大きいほうが望ましい。研究目的がネットワークの構造を調べるものより，特定のエッジに焦点をしぼったもの方が大きなサンプルサイズが必要になる。</p>
+</section>
+<section id="欠測処理についてblanken2022" class="level4">
+<h4 class="anchored" data-anchor-id="欠測処理についてblanken2022">欠測処理について<span class="citation" data-cites="blanken2022">(<a href="#ref-blanken2022" role="doc-biblioref">Blanken, Isvoranu, and Epskamp 2022</a>)</span></h4>
+<p>bootnetパッケージの場合は，欠測値があると推定ができないが，psychonetricsパッケージの場合は完全情報最尤推定法が使える(estimator = “FIML”)。</p>
 </section>
 </section>
 <section id="エッジの解釈法" class="level3">
 <h3 class="anchored" data-anchor-id="エッジの解釈法">エッジの解釈法</h3>
-<p>GGMのエッジは，偏相関になるので，通常の２変数間の相関係数ではなく，２変数以外の影響も考慮した２変数の関係になる。なので，ネットワークに含まれる変数の違いによっては，値が異なる可能性もあり，２変数だけでなくネットワーク全体を考慮した解釈が必要になる。その際の解釈としては，つい「変数Aによって変数Bが引き起こされた」のような因果に踏み込んだ解釈をしてしまうが，横断データのGGMで得られたエッジからそのような因果の方向性をもった解釈は難しい。</p>
+<p>GGMのエッジは，偏相関になるので，通常の２変数間の相関係数ではなく，２変数以外の影響も考慮した２変数の関係になる。ネットワークに含まれる変数の違いによっては，値が異なる可能性もあり，２変数だけでなくネットワーク全体を考慮した解釈が必要になる。その際の解釈としては，つい「変数Aによって変数Bが引き起こされた」のような因果に踏み込んだ解釈をしてしまうが，横断データのGGMで得られたエッジからそのような因果の方向性をもった解釈は難しい。</p>
 <p>PRMFのエッジの解釈としては，(1)予測可能性の示唆と(2)因果関係の示唆がある。因果関係は不明だが，他の変数の影響を考慮しても，ある変数から別の変数が予測できているとはいえる。そのため，A-B-Cという形でエッジがある場合に，BはAかCを予測する可能性がある。もちろん，最終的には縦断調査によって予測ができるかどうか検証する必要はある。</p>
 <p>次に，因果関係の仮定を満たすことはできないし，因果の方向性は不明だが，そのエッジにはなんらかの因果的な効果がある可能性はある。横断データのネットワーク解析の結果を踏まえて，より因果関係に踏み込めるような研究を計画できる。若干，奥歯に物が挟まったような表現だが，多くの場合心理ネットワークは探索的に実施されることからも，強い理論的予測による仮説検証の結果のような解釈をしないように気をつける必要がある。</p>
 </section>
@@ -349,8 +370,9 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 <section id="closeness" class="level3">
 <h3 class="anchored" data-anchor-id="closeness">Closeness</h3>
 <p>Closenessは，あるノードと他の全てのノード間の最短経路長の合計の逆数になる。少しややこしいので順を追って説明する。 まず，ノード間の最短経路長とは，あるノードから別のノードまで最短距離でいける距離になる。この距離というのは，エッジの強さの逆数になる。つまり，エッジの強さが0.1ならばその逆数は1/0.1で10になり，エッジの強さが0.5ならば1/0.5で2になる。最短経路長は，この距離を使って，あるノードから別のノードまでの距離を計算して，最も短い距離でいける距離を計算する。そして，あるノードへの他の全てのノードとの最短経路長を計算して，合計したものの逆数がClosenessになる。</p>
-<p>具体的に計算してみる。以下の図で，ノード１からノード３の最短経路長を調べる。ノード３からノード１に行くには，(1)ノード３からノード１に直接移動する，(2)ノード３からノード２を経由してノード１へ移動する，(3)ノード３からノード６を経由してノード１にいくの３つがある。まず，(1)のノード１から３への直接経路については，ノード１と３のエッジの強さは0.1なので距離は10になる。次に，(2)のノード２を経由する間接経路は，ノード３と２のエッジが0.1で距離10,ノード２とノード１のエッジが0.3で距離3.33なので，合計13.33になる。最後に，(3)のノード６を経由する間接経路は，ノード3と6のエッジが0.05で距離20，ノード6とノード１が0.2で距離５なので合計25になる。(1)(2)(3)を比較すると，ノード１から３の直接経路の長さが最短経路長となる。ただ，もしノード３と２のエッジが0.2の場合は，ノード２を経由する間接経路が最短経路になる（なお，以下の図は，手作業で作ったので強さと距離の関係が適切ではありません…)。</p>
-<p><img src="fig/net03.png" class="img-fluid"> 上記のようにあるノードから他のノードまでの最短経路長をそれぞれ計算していって，それらを合計したものの逆数がClosenessになる。Closenessは，あるノードがどのくらい間接的な影響を含めて他のノードとつながっているのかを示している。一方，Strengthは，あるノードがどのくらい直接的に他のノードとつながっているのかを示している。つまり，あるノードから他のノードへの拡散の速さを表現していると言える。</p>
+<p>具体的に計算してみる。以下の図で，ノード１からノード３の最短経路長を調べる。ノード３からノード１に行くには，(1)ノード３からノード１に直接移動する，(2)ノード３からノード２を経由してノード１へ移動する，(3)ノード３からノード６を経由してノード１にいくの３つがある。まず，(1)のノード１から３への直接経路については，ノード１と３のエッジの強さは0.1なので距離は10になる。次に，(2)のノード２を経由する間接経路は，ノード３と２のエッジが0.1で距離10,ノード２とノード１のエッジが0.3で距離3.33なので，合計13.33になる。最後に，(3)のノード６を経由する間接経路は，ノード3と6のエッジが0.05で距離20，ノード6とノード１が0.2で距離５なので合計25になる。(1)(2)(3)を比較すると，ノード１から３の直接経路の長さが最短経路長となる。ただ，もしノード３と２のエッジが0.2の場合は，ノード２を経由する間接経路が最短経路になる（なお，以下の図は，手作業で作ったので，強さと距離の関係が適切ではない…)。</p>
+<p><img src="fig/net03.png" class="img-fluid"></p>
+<p>上記のようにあるノードから他のノードまでの最短経路長をそれぞれ計算していって，それらを合計したものの逆数がClosenessになる。Closenessは，あるノードがどのくらい間接的な影響を含めて他のノードとつながっているのかを示している。一方，Strengthは，あるノードがどのくらい直接的に他のノードとつながっているのかを示している。つまり，あるノードから他のノードへの拡散の速さを表現していると言える。</p>
 </section>
 <section id="betweeness" class="level3">
 <h3 class="anchored" data-anchor-id="betweeness">Betweeness</h3>
@@ -362,10 +384,10 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 </section>
 <section id="エッジの正確度と中心性指標の安定性" class="level2">
 <h2 class="anchored" data-anchor-id="エッジの正確度と中心性指標の安定性">エッジの正確度と中心性指標の安定性</h2>
-<p>エッジは統計的に推定されるものなのでサンプルやサンプルサイズの影響をうける。ノードが増えると推定するパラメータはどんどん増えるので，サンプルサイズが足りないこともある。そのため，ネットワーク分析で正確度(accuracy)や安定性(Stability)についても検討しておく必要がある（ネットワークの正確度については，Epskamp, Borsboom &amp; Fried (2018)やFried, Epskamp, Veenman &amp; van Borkulo(2022)が詳しい）。</p>
-<p>エッジの重みと中心性指標の精度の検証方法は，以下の３ステップになる(Epskamp, Borsboom,&amp; Fried, 2018)。</p>
+<p>エッジは統計的に推定されるものなので，サンプルやサンプルサイズの影響をうける。ノードが増えると推定するパラメータは増えるので，サンプルサイズが足りないこともある。そのため，ネットワーク分析で正確度(accuracy)や安定性(Stability)についても検討しておく必要がある（ネットワークの正確度については，<span class="citation" data-cites="epskamp2018estimating">Sacha Epskamp, Borsboom, and Fried (<a href="#ref-epskamp2018estimating" role="doc-biblioref">2018</a>)</span> や <span class="citation" data-cites="Fried_netPsychomet2022">Fried et al. (<a href="#ref-Fried_netPsychomet2022" role="doc-biblioref">2022</a>)</span> が詳しい）。</p>
+<p>エッジの重みの正確度と中心性指標の安定性の検証方法は，以下の３ステップになる<span class="citation" data-cites="epskamp2018estimating">(<a href="#ref-epskamp2018estimating" role="doc-biblioref">Sacha Epskamp, Borsboom, and Fried 2018</a>)</span>。</p>
 <ol type="1">
-<li>ブートストラップされた信頼区間をプロットすることでエッジの重みの正確度(accuracy)を検討する</li>
+<li>ブートストラップされた信頼区間をプロットすることでエッジの重みの正確度を検討する</li>
 <li>データのサブセットを用いた場合の中心性指標の安定性(Stability)を検討する</li>
 <li>エッジの重みと中心性指標間でブートストラップ差異検定行って，それらが有意に異なるのかを検討する</li>
 </ol>
@@ -379,35 +401,37 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 <section id="中心性指標の安定性stability" class="level3">
 <h3 class="anchored" data-anchor-id="中心性指標の安定性stability">2.中心性指標の安定性(Stability)</h3>
 <p>中心性指標の正確度の解釈ができるように，データのサブセットを用いて，中心性指標の順序がどのくらい安定しているか検討する。具体的には，参加者を減らしていった場合（ケースドロップ）もしくはノードを減らしていった場合（ノードドロップ）にどのくらい中心性指標の順序が安定しているかを検討する。ノードドロップは解釈が難しくなるので（ノードをへらすと別のネットワークになるのは当然なので評価しにくい），ケースドロップを使用すると良い。</p>
-<p>中心性指標の安定性は，CS係数(correlation stability coefficient)によって評価する。CSはドロップできるケースの最大比率を表現している。具体的には，参加者数を減らしていった場合に，元の中心性指標とドロップした中心性指標間に0.7以上の相関がブートストラップしたサンプルの95%にあるような最大のドロップケース比率である。多少恣意的な基準にはなるが，中心性の解釈をする上では，CS係数が0.25未満は不適切であり，できればCS係数は0.5を越えている必要がある(Epskamp, Borsboom, &amp; Fried, 2018)。</p>
+<p>中心性指標の安定性は，CS係数(correlation stability coefficient)によって評価する。CSはドロップできるケースの最大比率を表現している。具体的には，参加者数を減らしていった場合に，元の中心性指標とドロップした中心性指標間に0.7以上の相関がブートストラップしたサンプルの95%にあるような最大のドロップケース比率である。多少恣意的な基準にはなるが，中心性の解釈をする上では，CS係数が0.25未満は不適切であり，できればCS係数は0.5を越えている必要がある<span class="citation" data-cites="epskamp2018estimating">(<a href="#ref-epskamp2018estimating" role="doc-biblioref">Sacha Epskamp, Borsboom, and Fried 2018</a>)</span>。</p>
 </section>
 <section id="有意差検定" class="level3">
 <h3 class="anchored" data-anchor-id="有意差検定">3.有意差検定</h3>
-<p>ブートストラップを活用して，エッジの重みの比較や中心性指標の比較もできる。項目１と項目２のエッジは，項目１と項目３のエッジよりも大きいことを確認したい場合や項目１のノードのStrengthは項目２のノードのStrengthよりも大きいことを確認したい場合に使える。これは，ブートストラップ差異検定(bootstrapped difference test)と呼ばれる。具体的には，比較したいエッジ（中心性指標）のブートストラップ値の差を計算して，その差の95%信頼区間を計算することで，０をまたぐかどうかで差の有無を判断できる。なお，この際に，０をまたぐことは，そこに差があることを示すが，０をまたがないことでエッジや中心性指標が等しいとはいえない点に注意する必要がある。</p>
+<p>ブートストラップを活用して，エッジの重みの比較や中心性指標の比較もできる。項目１と項目２のエッジは，項目１と項目３のエッジよりも大きいことを確認したい場合や項目１のノードのStrengthは項目２のノードのStrengthよりも大きいことを確認したい場合に使える。これは，ブートストラップ差異検定(bootstrapped difference test)と呼ばれる。具体的には，比較したいエッジ（中心性指標）のブートストラップ値の差を計算して，その差の95%信頼区間を計算することで，０をまたぐかどうかで差の有無を判断できる。なお，この際に，０をまたがないことで，そこに差があることを示すが，０をまたぐことでエッジや中心性指標が等しいとはいえない点に注意する必要がある。</p>
 </section>
 </section>
 <section id="rパッケージ" class="level2">
 <h2 class="anchored" data-anchor-id="rパッケージ">Rパッケージ</h2>
-<p>心理ネットワーク分析に使えるRパッケージは複数あるが，心理ネットワーク分析の中心地でもあるアムステルダム大学の<a href="http://sachaepskamp.com/">Sacha Epskamp</a>が開発した<a href="https://cran.r-project.org/web/packages/qgraph/index.html">qgraph</a>，<a href="https://cran.r-project.org/web/packages/bootnet/index.html">bootnet</a>，<a href="https://cran.r-project.org/web/packages/psychonetrics/index.html">psychonetrics</a>があれば，横断データの心理ネットワーク分析は実施できる。qgraphとbootnetで十分心理ネットワーク分析ができるが，psychonetricsは色々と便利になっていくことが予想できるので，以下で紹介する。</p>
+<p>心理ネットワーク分析に使えるRパッケージは複数あるが，心理ネットワーク分析の中心地でもあるアムステルダム大学の研究者が開発した以下のRパッケージがあれば，横断データの心理ネットワーク分析は実施できる。</p>
 <ul>
-<li><a href="https://cran.r-project.org/web/packages/qgraph/index.html">qgraph</a>:ネットワークのプロットと推定</li>
-<li><a href="https://cran.r-project.org/web/packages/bootnet/index.html">bootnet</a>: 様々な種類のネットワーク推定，ネットワークの正確度の検討</li>
-<li><a href="https://cran.r-project.org/web/packages/psychonetrics/index.html">psychonetrics</a>：より洗練化した書き方でネットワーク分析ができるパッケージ</li>
+<li><a href="https://cran.r-project.org/web/packages/qgraph/index.html">qgraph</a>:ネットワークの推定(GGM)とプロット</li>
+<li><a href="https://cran.r-project.org/web/packages/bootnet/index.html">bootnet</a>: ネットワーク推定(GGM &amp; Isingモデル)，ネットワークの正確度と安定性の検討</li>
+<li><a href="https://cran.r-project.org/web/packages/psychonetrics/index.html">psychonetrics</a>：より洗練化した書き方でネットワーク推定(GGM &amp; Isingモデル)</li>
+<li><a href="https://cran.r-project.org/web/packages/mgm/index.html">mgm</a>:ネットワークの推定(MGMs)</li>
 </ul>
-<p>なお，アムステルダム大学で開発しているベイズ統計と頻度論統計のGUIソフトウェアである<a href="https://jasp-stats.org/">JASP</a>には，心理ネットワーク分析が組み込まれており，簡単に実施して見る上ではかなり便利である（JASPの心理ネットワーク分析は最新の動向を反映していないこともあるが，ちょっと試す分には便利になる）。JASPは国里を含む日本語化チームにより2021年9月(v0.15)より一部が日本語化されている。心理ネットワーク分析の説明は，<a href="https://jasp-stats.org/2018/03/20/perform-network-analysis-jasp/">こちら</a>をご確認ください。</p>
+<p>なお，アムステルダム大学で開発しているベイズ統計と頻度論統計のGUIソフトウェアである<a href="https://jasp-stats.org/">JASP</a>には，心理ネットワーク分析が組み込まれており，簡単に実施して見る上ではかなり便利である（JASPの心理ネットワーク分析は最新の動向を反映していないこともあるが，ちょっと試す分には便利である）。JASPは国里を含む日本語化チームにより2021年9月(v0.15)より一部が日本語化されている。心理ネットワーク分析の説明は，<a href="https://jasp-stats.org/2018/03/20/perform-network-analysis-jasp/">こちら</a>をご確認ください。</p>
 </section>
 <section id="心理ネットワーク分析を試してみよう" class="level2">
 <h2 class="anchored" data-anchor-id="心理ネットワーク分析を試してみよう">心理ネットワーク分析を試してみよう！</h2>
-<p>以下では，実際にRで心理ネットワーク分析を実行してみる。そのためのデータに， <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0182162">Jordan, P., Shedden-Mora, M. C., &amp; Löwe, B. (2017). Psychometric analysis of the Generalized Anxiety Disorder scale (GAD-7) in primary care using modern item response theory. PloS One, 12(8), e0182162.</a>のデータを用いる。この研究は，不安の症状評価で用いられるGAD-7について項目反応理論を用いた検討を行った研究になる。Hamburgのプライマリケアを受診した3404名からGAD-7(全般性不安)，PHQ-9(うつ),PHQ-15(身体症状)データを収集しており，比較的サンプルサイズが大きいのと，Plos Oneのサイト上でデータを公開していることから，以下の心理ネットワーク分析の練習で使用する。</p>
+<p>以下では，実際にRで心理ネットワーク分析を実行してみる。それにあたり， <span class="citation" data-cites="jordan2017psychometric">Jordan, Shedden-Mora, and Löwe (<a href="#ref-jordan2017psychometric" role="doc-biblioref">2017</a>)</span> のデータを用いる。この研究は，不安の症状評価で用いられるGAD-7について項目反応理論を用いた検討を行った研究になる。Hamburgのプライマリケアを受診した3404名からGAD-7(全般性不安)，PHQ-9(うつ),PHQ-15(身体症状)データを収集しており，比較的サンプルサイズが大きいのと，Plos Oneのサイト上でデータを公開していることから，以下の心理ネットワーク分析の練習で使用する。</p>
 <section id="使用するrパッケージの読み込み" class="level3">
 <h3 class="anchored" data-anchor-id="使用するrパッケージの読み込み">使用するRパッケージの読み込み</h3>
-<p>Jordan et al.(2017)のデータがSPSS形式で配布されているので，SPSS形式のデータを読み込むforeignパッケージとデータ処理用にtidyverseパッケージを読み込む。そして，心理ネットワーク分析では，上述したbootnetパッケージとqgraphパッケージ，psychonetricsパッケージを読み込む。</p>
+<p>Jordan et al.(2017)のデータがSPSS形式で配布されているので，SPSS形式のデータを読み込むforeignパッケージとデータ処理用にtidyverseパッケージを読み込む。そして，心理ネットワーク分析では，上述したbootnetパッケージとqgraphパッケージ，psychonetricsパッケージ,mgmパッケージを読み込む。</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(foreign)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bootnet)</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qgraph)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psychonetrics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psychonetrics)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="データの読み込み" class="level3">
@@ -443,10 +467,10 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 <section id="しきい値" class="level4">
 <h4 class="anchored" data-anchor-id="しきい値">1.しきい値</h4>
 <p>しきい値は，bootnetパッケージのestimateNetwork()関数において，default = “pcor”, threshold = “sig”, alpha = 0.05などの指定をすることで実行可能になる（5%水準で有意でないエッジはプロットしない）。</p>
-<p>GAD-7は，不安症状について，「まったくない」から「ほとんど毎日」の４件法で頻度を問う尺度です。これは，順序変数と考えられるので，通常の分散共分散ではなくて，ポリコリック相関（順序変数の相関）を計算する。orMethodで “cor_auto”を指定すれば，自動的に順序変数にはポリコリック相関を計算してエッジの推定をしてくれる（なお，“cor_auto”では７件法以下は順序変数として扱う）。plotでは，theme = “colorblind”, cut = 0,layout = “spring”,labels = TRUEを指定する。その他にも色々と引数があるので，qgraphについて調べると作りたいプロットが作れることが多い。</p>
+<p>GAD-7は，不安症状について，「まったくない」から「ほとんど毎日」の４件法で頻度を問う尺度になる。これは，順序変数と考えられるので，通常の分散共分散ではなくて，ポリコリック相関（順序変数の相関）を計算する。corMethodで “cor_auto”を指定すれば，自動的に順序変数にはポリコリック相関を計算してエッジの推定をしてくれる（なお，“cor_auto”では７件法以下は順序変数として扱う）。plotでは，theme = “colorblind”, cut = 0,layout = “spring”,labels = TRUEを指定する。その他にも色々と引数があるので，qgraphについて調べると作りたいプロットが作れることが多い。</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>results_gad <span class="ot">&lt;-</span> <span class="fu">estimateNetwork</span>(data_gad,<span class="at">default =</span> <span class="st">"pcor"</span>, <span class="at">threshold =</span> <span class="st">"sig"</span>, <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">corMethod =</span> <span class="st">"cor_auto"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(results_gad, <span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">cut =</span> <span class="dv">0</span>,<span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(results_gad, <span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="doc-psynet-basic_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -461,7 +485,7 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  runmodel <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prune</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getmatrix</span>(<span class="st">"omega"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">cut =</span> <span class="dv">0</span>,<span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="doc-psynet-basic_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -523,29 +547,29 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggm</span>(data_gad) <span class="sc">%&gt;%</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  runmodel <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prune</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>,<span class="at">adjust=</span><span class="st">"bonferroni"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prune</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">adjust=</span><span class="st">"bonferroni"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getmatrix</span>(<span class="st">"omega"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">cut =</span> <span class="dv">0</span>,<span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="doc-psynet-basic_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>ggm()やIsng()において，omega=“full”にすると飽和モデルが推定できる。</p>
+<p>なお，ggm()において，omega=“full”にすると飽和モデルが推定できる。</p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggm</span>(data_gad,<span class="at">omega=</span><span class="st">"full"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  runmodel <span class="sc">%&gt;%</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getmatrix</span>(<span class="st">"omega"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">cut =</span> <span class="dv">0</span>,<span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="doc-psynet-basic_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>ggm()やIsng()において，omega=“empty”にするとエッジなしのモデルが作られる。</p>
+<p>また，ggm()において，omega=“empty”にするとエッジなしのモデルが作られる。</p>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggm</span>(data_gad,<span class="at">omega=</span><span class="st">"empty"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  runmodel <span class="sc">%&gt;%</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getmatrix</span>(<span class="st">"omega"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">cut =</span> <span class="dv">0</span>,<span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="doc-psynet-basic_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -553,13 +577,13 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 </section>
 <section id="モデル探索" class="level4">
 <h4 class="anchored" data-anchor-id="モデル探索">3.モデル探索</h4>
-<p>BICを最適化するようにしてエッジがない状態からエッジを足していくstepupは以下のように実行する。</p>
+<p>BICを最適化するようにしてエッジがない状態からエッジを足していくStep-upは以下のように実行する。</p>
 <div class="cell">
 <div class="sourceCode" id="cb18"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggm</span>(data_gad, <span class="at">omega =</span> <span class="st">"empty"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  runmodel <span class="sc">%&gt;%</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stepup</span>(<span class="at">criterion =</span> <span class="st">"bic"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getmatrix</span>(<span class="st">"omega"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">cut =</span> <span class="dv">0</span>,<span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="doc-psynet-basic_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -570,19 +594,19 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  runmodel <span class="sc">%&gt;%</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modelsearch</span>(<span class="at">criterion =</span> <span class="st">"bic"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getmatrix</span>(<span class="st">"omega"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">cut =</span> <span class="dv">0</span>,<span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="doc-psynet-basic_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>刈り込みとモデル探索を組み合わせる場合は，以下のようにできる。</p>
+<p>刈り込みとモデル探索を組み合わせることもできて，以下のようにできる。</p>
 <div class="cell">
 <div class="sourceCode" id="cb20"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggm</span>(data_gad) <span class="sc">%&gt;%</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  runmodel <span class="sc">%&gt;%</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prune</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modelsearch</span>(<span class="at">criterion =</span> <span class="st">"bic"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getmatrix</span>(<span class="st">"omega"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">cut =</span> <span class="dv">0</span>,<span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">qgraph</span>(<span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="doc-psynet-basic_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -590,18 +614,18 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 </section>
 <section id="正則化" class="level4">
 <h4 class="anchored" data-anchor-id="正則化">4.正則化</h4>
-<p>正則化手法を使う場合は，bootnetパッケージのestimateNetwork()関数を使って，ネットワークのエッジの推定する。エッジの推定にあたり，EBICでモデル選択して，パラメータ調整をするGLASSOを使う(defaultで”EBICglasso”を指定する）。つまり，正則化手法を使ってみる。</p>
+<p>正則化手法を使う場合は，bootnetパッケージのestimateNetwork()関数を使って，ネットワークのエッジの推定する。エッジの推定にあたり，EBICでパラメータ調整をするGLASSOを使う(defaultで”EBICglasso”を指定する）。</p>
 <div class="cell">
 <div class="sourceCode" id="cb21"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>results_gad <span class="ot">&lt;-</span> <span class="fu">estimateNetwork</span>(data_gad,<span class="at">default =</span> <span class="st">"EBICglasso"</span>, <span class="at">corMethod =</span> <span class="st">"cor_auto"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>推定したエッジをネットワークとしてプロットする。</p>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(results_gad, <span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">cut =</span> <span class="dv">0</span>,<span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(results_gad, <span class="at">theme =</span> <span class="st">"colorblind"</span>, <span class="at">layout =</span> <span class="st">"spring"</span>,<span class="at">labels =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="doc-psynet-basic_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>なお，以降は正則化手法を使ったネットワークで解析をすすめる。</p>
+<p>なお，以降は正則化手法を使ったネットワークの結果をつかって正確度と安定性を調べる。</p>
 </section>
 </section>
 <section id="エッジの重みの正確度-1" class="level3">
@@ -618,16 +642,16 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 # Groups:   type, node1, node2 [42]
    type  id    node1 node2  sample   mean      sd CIlower CIupper   q2.5   q97.5
    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
- 1 betw… gad7a gad7a ""     2      1.51   1.23    -0.456   4.46   0       4     
- 2 betw… gad7b gad7b ""     2      3.19   1.99    -1.98    5.98   2      10     
- 3 betw… gad7c gad7c ""     0      1.74   2.45    -4.89    4.89   0       8     
- 4 betw… gad7d gad7d ""    12      9.37   2.24     7.53   16.5    4      12     
- 5 betw… gad7e gad7e ""     0      1.02   1.95    -3.91    3.91   0       6.95  
- 6 betw… gad7f gad7f ""     0      0.388  0.821   -1.64    1.64   0       2     
- 7 betw… gad7g gad7g ""     0      1.17   1.62    -3.24    3.24   0       6     
- 8 clos… gad7a gad7a ""     0.0257 0.0257 0.00148  0.0227  0.0286 0.0227  0.0285
- 9 clos… gad7b gad7b ""     0.0260 0.0264 0.00159  0.0228  0.0292 0.0237  0.0299
-10 clos… gad7c gad7c ""     0.0252 0.0257 0.00173  0.0217  0.0286 0.0225  0.0291
+ 1 betw… gad7a gad7a ""     2      1.54   1.20    -0.400   4.40   0       4     
+ 2 betw… gad7b gad7b ""     2      3.10   1.79    -1.58    5.58   2       8     
+ 3 betw… gad7c gad7c ""     0      1.73   2.43    -4.86    4.86   0       8     
+ 4 betw… gad7d gad7d ""    12      9.36   2.27     7.46   16.5    4      12     
+ 5 betw… gad7e gad7e ""     0      0.990  1.86    -3.72    3.72   0       6     
+ 6 betw… gad7f gad7f ""     0      0.389  0.819   -1.64    1.64   0       2     
+ 7 betw… gad7g gad7g ""     0      1.10   1.55    -3.09    3.09   0       4     
+ 8 clos… gad7a gad7a ""     0.0257 0.0257 0.00143  0.0228  0.0285 0.0230  0.0285
+ 9 clos… gad7b gad7b ""     0.0260 0.0264 0.00157  0.0229  0.0291 0.0236  0.0298
+10 clos… gad7c gad7c ""     0.0252 0.0258 0.00168  0.0218  0.0285 0.0227  0.0291
 # … with 32 more rows, and 6 more variables: q2.5_non0 &lt;dbl&gt;, mean_non0 &lt;dbl&gt;,
 #   q97.5_non0 &lt;dbl&gt;, var_non0 &lt;dbl&gt;, sd_non0 &lt;dbl&gt;, prop0 &lt;dbl&gt;
 # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
@@ -682,21 +706,21 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 
 Sampling levels tested:
    nPerson Drop%   n
-1      851  75.0 240
-2     1116  67.2 247
-3     1381  59.4 261
-4     1645  51.7 255
-5     1910  43.9 269
-6     2175  36.1 252
-7     2440  28.3 240
-8     2704  20.6 243
-9     2969  12.8 237
-10    3234   5.0 256
+1      851  75.0 257
+2     1116  67.2 266
+3     1381  59.4 241
+4     1645  51.7 239
+5     1910  43.9 252
+6     2175  36.1 271
+7     2440  28.3 248
+8     2704  20.6 233
+9     2969  12.8 248
+10    3234   5.0 245
 
 Maximum drop proportions to retain correlation of 0.7 in at least 95% of the samples:
 
-betweenness: 0.361 
-  - For more accuracy, run bootnet(..., caseMin = 0.283, caseMax = 0.439) 
+betweenness: 0.283 
+  - For more accuracy, run bootnet(..., caseMin = 0.206, caseMax = 0.361) 
 
 closeness: 0.672 
   - For more accuracy, run bootnet(..., caseMin = 0.594, caseMax = 0.75) 
@@ -710,12 +734,12 @@ Accuracy can also be increased by increasing both 'nBoots' and 'caseN'.</code></
 </section>
 <section id="有意差検定-1" class="level3">
 <h3 class="anchored" data-anchor-id="有意差検定-1">有意差検定</h3>
-<p>最もStrengthの高いgadbと最も低いgadfを比較する。bootnetパッケージのdifferenceTest関数で検討できる。実行すると，95%CIが0をまたいでいることが分かる。</p>
+<p>最もStrengthの高いgadbと最も低いgadfを比較する。bootnetパッケージのdifferenceTest関数で検討できる。実行すると，95%CIが0をまたいでいないことが分かる。</p>
 <div class="cell">
 <div class="sourceCode" id="cb33"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">differenceTest</span>(accuracy_edge, <span class="dv">2</span>, <span class="dv">6</span>, <span class="st">"strength"</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>    id1   id2  measure      lower      upper significant
-1 gad7b gad7f strength -0.5910508 -0.4055517        TRUE</code></pre>
+1 gad7b gad7f strength -0.5924851 -0.4031851        TRUE</code></pre>
 </div>
 </div>
 <p>エッジ間の差の検定結果をプロットする。それぞれのエッジ間で有意な差がある場合は黒く塗りつぶされ，有意ではない場合は灰色に塗りつぶされる。</p>
@@ -755,7 +779,7 @@ Accuracy can also be increased by increasing both 'nBoots' and 'caseN'.</code></
 <p><img src="doc-psynet-basic_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>psychonetricsでもIsingモデルが扱える（最尤推定）。</p>
+<p>psychonetricsでもIsingモデルが扱える（最尤推定が使える）。</p>
 <div class="cell">
 <div class="sourceCode" id="cb39"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Ising</span>(data_phq) <span class="sc">%&gt;%</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  runmodel <span class="sc">%&gt;%</span></span>
@@ -801,15 +825,14 @@ Accuracy can also be increased by increasing both 'nBoots' and 'caseN'.</code></
 <li>lambdaSel:モデル選択ではcross validation (“CV”)とExtended Bayesian Information Criterion (“EBIC”)が選べる。EBICはCVSよりもエッジを減らす傾向があるので，スパースなネットワークを推定する場合はEBIC，エッジが残ったネットワークを推定する場合はCVを選ぶ（ただし，CVはカテゴリカル変数の推定で上手く推定できないこともある）。</li>
 <li>lambdaFolds: lambdaSelでCVを選んだ場合は，クロスバリデーションで保持する数を指定する。</li>
 </ul>
-<p>以下では，lambdaSelに”CV”を，lambdaFoldsに10を指定して，MGMsを実行する。</p>
+<p>以下では，lambdaSelに”CV”を，lambdaFoldsに10を指定して，MGMsを実行してみる。</p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgm)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>result_mgm1 <span class="ot">&lt;-</span> <span class="fu">mgm</span>(<span class="at">data =</span> data_mgm,</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">type =</span> data_mgm_type,</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">level =</span> data_mgm_level,</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">lambdaSel =</span> <span class="st">"CV"</span>,</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">lambdaFolds =</span> <span class="dv">10</span>,</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">pbar =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>result_mgm1 <span class="ot">&lt;-</span> <span class="fu">mgm</span>(<span class="at">data =</span> data_mgm,</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">type =</span> data_mgm_type,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">level =</span> data_mgm_level,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">lambdaSel =</span> <span class="st">"CV"</span>,</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">lambdaFolds =</span> <span class="dv">10</span>,</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">pbar =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>Note that the sign of parameter estimates is stored separately; see ?mgm</code></pre>
 </div>
@@ -844,8 +867,7 @@ Accuracy can also be increased by increasing both 'nBoots' and 'caseN'.</code></
 </section>
 <section id="おわりに" class="level2">
 <h2 class="anchored" data-anchor-id="おわりに">おわりに</h2>
-<p>本資料では，横断データの心理ネットワーク解析について概観した。心理ネットワーク解析は，JASPでも簡単に試すことができ，便利なRパッケージも充実してきている。その一方で，心理ネットワーク分析がどのように行われているのか中身についての理解がないと，誤用にも繋がりやすい手法になる。また，心理ネットワーク解析の方法は，日々新しい方法の開発がなされており，解析法の推奨も変化していっている。そのような状況があるので，アムステルダム大学の<a href="http://psychosystems.org/">Psych Systems</a>のサイトを確認したり，最新の動向を抑えておく必要がある。</p>
-<p>引用文献</p>
+<p>本資料では，横断データの心理ネットワーク分析について概観した。心理ネットワーク分析は，JASPでも簡単に試すことができ，便利なRパッケージも充実してきている。その一方で，心理ネットワーク分析がどのように行われているのか中身についての理論的な理解がないと，誤用にも繋がりやすい手法になる。また，心理ネットワーク解析の方法は，日々新しい方法の開発がなされており，解析法の推奨も変化していっている。そのような状況があるので，アムステルダム大学の<a href="http://psychosystems.org/">Psych Systems</a>のサイトを確認したり，最新の動向を抑えておく必要がある。</p>
 
 
 </section>
@@ -855,6 +877,21 @@ Blanken, T. F., A. M. Isvoranu, and S. Epskamp. 2022. <span>“Estimating Networ
 </div>
 <div id="ref-epskamp2018estimating" class="csl-entry" role="doc-biblioentry">
 Epskamp, Sacha, Denny Borsboom, and Eiko I Fried. 2018. <span>“Estimating Psychological Networks and Their Accuracy: A Tutorial Paper.”</span> <em>Behavior Research Methods</em> 50 (1): 195–212.
+</div>
+<div id="ref-Epskamp2018-gx" class="csl-entry" role="doc-biblioentry">
+Epskamp, Sacha, Gunter Maris, and Waldorp. 2018. <span>“Network Psychometrics.”</span> In <em>The Wiley Handbook of Psychometric Testing</em>, 953–86. Chichester, UK: John Wiley &amp; Sons, Ltd.
+</div>
+<div id="ref-Epskamp_netPsychomet2022" class="csl-entry" role="doc-biblioentry">
+Epskamp, S., J. M. B. Haslbeck, A. M. Isvoranu, and C. D. Van Borkulo. 2022. <span>“Pairwise Markov Random Fields.”</span> In <em>Network Psychometrics with r: A Guide for Behavioral and Social Scientists</em>, edited by A. M. Isvoranu, S. Epskamp, L. J. Waldorp, and D. Borsboom, 93–110. London: Routledge, Taylor &amp; Francis Group.
+</div>
+<div id="ref-Fried_netPsychomet2022" class="csl-entry" role="doc-biblioentry">
+Fried, E. I., S. Epskamp, M. Veenman, and C. D. van Borkulo. 2022. <span>“Network Stability, Comparison, and Replicability.”</span> In <em>Network Psychometrics with r: A Guide for Behavioral and Social Scientists</em>, edited by A. M. Isvoranu, S. Epskamp, L. J. Waldorp, and D. Borsboom, 133–53. London: Routledge, Taylor &amp; Francis Group.
+</div>
+<div id="ref-IsvoranuUnknownEstimation:c3c0" class="csl-entry" role="doc-biblioentry">
+Isvoranu, Adela-Maria, and Sacha Epskamp. 2021. <span>“Which Estimation Method to Choose in Network Psychometrics? Deriving Guidelines for Applied Researchers.”</span> <em>PsyArXiv</em>. <a href="https://doi.org/10.31234/osf.io/mbycn">https://doi.org/10.31234/osf.io/mbycn</a>.
+</div>
+<div id="ref-jordan2017psychometric" class="csl-entry" role="doc-biblioentry">
+Jordan, Pascal, Meike C Shedden-Mora, and Bernd Löwe. 2017. <span>“Psychometric Analysis of the Generalized Anxiety Disorder Scale (GAD-7) in Primary Care Using Modern Item Response Theory.”</span> <em>PloS One</em> 12 (8): e0182162.
 </div>
 </div></section></div></main>
 <!-- /main column -->

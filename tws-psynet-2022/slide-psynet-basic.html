@@ -97,25 +97,15 @@ class: center, middle, inverse, title-slide
 ---
 ## Gaussian graphical model(GGM)
 
-- データが連続かつ正規分布の場合には，多変量正規分布を用いたGGMを用いる。GGMでは変数間の関係を偏相関係数によってモデル化する。
-
+- データが連続かつ正規分布の場合には，多変量正規分布を用いたGGMを用いる。  
 - `\(\boldsymbol{Y}\)`.med[(ランダムに選んだ参加者からのn個の反応のベクトル)]は，平均 `\(\boldsymbol{\mu}\)` と分散共分散行列 `\(\boldsymbol{\Sigma}\)` の多変量正規分布に従う
 
 $$
 \boldsymbol{Y} \sim N\left(\boldsymbol{\mu}, \boldsymbol{\Sigma}\right)
 $$  
 
-- GGMでは，推定した分散共分散行列 `\(\boldsymbol{\Sigma}\)`から偏相関行列を計算する。
----
-## 分散共分散行列→精度行列→偏相関行列
-
-- GGMでは，分散共分散行列 `\(\boldsymbol{\Sigma}\)` からその逆行列である精度行列 `\(\boldsymbol{K}\)` を計算し( `\(\boldsymbol{K}=\boldsymbol{\Sigma}^{-1}\)`)，精度行列 `\(\boldsymbol{K}\)` から偏相関行列を計算する
-
-.med[※逆行列はΣに掛けた場合に単位行列になるような行列]
-
-- 以下の式で精度行列から偏相関係数を計算し，偏相関係数をエッジにしてネットワークをプロットする
-
-`$$\operatorname{Cor}\left(Y_{i}, Y_{j} \mid \boldsymbol{y}_{-(i, j)}\right)=-\frac{\kappa_{i j}}{\sqrt{\kappa_{i i}} \sqrt{\kappa_{j j}}}$$`
+- GGMでは，分散共分散行列 `\(\boldsymbol{\Sigma}\)`からその逆行列である精度行列 `\(\boldsymbol{K}\)` を計算し( `\(\boldsymbol{K}=\boldsymbol{\Sigma}^{-1}\)`)，精度行列 `\(\boldsymbol{K}\)` から偏相関行列を計算する。
+- 偏相関係数をエッジにしてネットワークをプロットする。
 
 ※具体的な計算例は[配布ドキュメント](https://ykunisato.github.io/ccp-lab-slide/tws-psynet-2022/doc-psynet-basic.html)参照
 
@@ -178,7 +168,6 @@ $$
 
 - 可能なネットワークを反復的に探索して最もデータフィットしたモデルを選ぶ.med[（AIC, BIC, EBICなどの情報量規準を用いる])
 
-- Step-upでは，エッジがゼロから徐々にエッジを足して，情報量規準が最小のネットワークを探索.med[（Step-downは逆）]
 
 **正則化(regularization)**
 
@@ -202,7 +191,7 @@ Isingモデルの場合，小中サンプルサイズでは正則化手法が見
 ** 順序・非正規変数での注意点.med[(Blanken, Isvoranu &amp; Epskamp, 2022)]**
 
 - 順序変数ではポリコリック相関を使うが，小サンプルサイズでは不安定になる.med[（psychonetricsパッケージの推定法やBGGMパッケージを使う）]
-- 正規分布していないデータの場合は，スピアマンの順位相関係数をrank-transformationしてからGGMする
+- 正規分布していないデータの場合は，スピアマンの順位相関係数を用いてGGMする
 
 **サンプルサイズ**
 
@@ -220,7 +209,7 @@ Isingモデルの場合，小中サンプルサイズでは正則化手法が見
 
 - エッジの解釈としては以下の２つがある。
 
-(1)**予測可能性の示唆**: 他の変数の影響を考慮しても，ある変数から別の変数が予測できる可能性がある。A-B-Cという形でエッジがある場合に，BはAやCを予測する可能性がある。
+(1)**予測可能性の示唆**: 他の変数の影響を考慮しても，ある変数から別の変数が予測できる可能性がある。
 
 (2)**因果関係の可能性の示唆**: 因果の方向性は不明だが，そのエッジにはなんらかの因果的な効果がある可能性はある.med[(逆にいうと，強い理論的予測による仮説検証の結果のような解釈はしない)]。
 
@@ -250,12 +239,15 @@ Isingモデルの場合，小中サンプルサイズでは正則化手法が見
 ---
 ## Rパッケージ 
 
-- アムステルダム大学の[Sacha Epskamp](http://sachaepskamp.com/)達が開発した以下のRパッケージがあれば，横断データの心理ネットワーク分析は実施できる。
-1. [qgraph](https://cran.r-project.org/web/packages/qgraph/index.html): ネットワークの推定とプロット
+- アムステルダム大学の研究者達が開発した以下のRパッケージがあれば，横断データの心理ネットワーク分析は実施できる。
 
-2. [bootnet](https://cran.r-project.org/web/packages/bootnet/index.html):  様々な種類のネットワーク推定，ネットワークの正確度・安定性の検討
+- [qgraph](https://cran.r-project.org/web/packages/qgraph/index.html):ネットワークの推定(GGM)とプロット
 
-3. [psychonetrics](https://cran.r-project.org/web/packages/psychonetrics/index.html)： より洗練化した書き方でネットワーク分析ができる
+- [bootnet](https://cran.r-project.org/web/packages/bootnet/index.html): ネットワーク推定(GGM &amp; Isingモデル)，ネットワークの正確度と安定性の検討
+
+- [psychonetrics](https://cran.r-project.org/web/packages/psychonetrics/index.html)：より洗練化した書き方でネットワーク推定(GGM &amp; Isingモデル)
+
+- [mgm](https://cran.r-project.org/web/packages/mgm/index.html):ネットワークの推定(MGMs)
 
 アムステルダム大学の統計ソフト[JASP](https://jasp-stats.org/)には，心理ネットワーク分析が入っており，ちょっと試すのに便利
 
@@ -329,31 +321,11 @@ ggm(data_gad) %&gt;%
 ```
 
 ![](slide-psynet-basic_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
----
-ggm()関数の「omega="empty"」でエッジのないモデルを推定
 
-
-```r
-ggm(data_gad,omega="empty") %&gt;%runmodel %&gt;%getmatrix("omega") %&gt;%
-  qgraph(theme = "colorblind", layout = "spring",labels = TRUE)
-```
-
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
-
----
-ggm()関数の「omega="full"」で飽和モデルを推定
-
-
-```r
-ggm(data_gad,omega="full") %&gt;% runmodel %&gt;% getmatrix("omega") %&gt;%
-  qgraph(theme = "colorblind", layout = "spring",labels = TRUE)
-```
-
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
 ---
 ### モデル選択：モデル探索
 
-.med[モデル探索は以下のように行う(Step-upの方法は[配布ドキュメント](https://ykunisato.github.io/ccp-lab-slide/tws-psynet-2022/doc-psynet-basic.html)に記載)]
+モデル探索はmodelsearch()で行う
 
 
 ```r
@@ -362,7 +334,7 @@ ggm(data_gad) %&gt;% runmodel %&gt;%
   getmatrix("omega") %&gt;% qgraph(theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
 ```
 
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 
 ---
 ### モデル選択：正則化
@@ -373,7 +345,7 @@ results_gad &lt;- estimateNetwork(data_gad,default = "EBICglasso", corMethod = "
 plot(results_gad, theme = "colorblind", cut = 0,layout = "spring",labels = TRUE)
 ```
 
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
 
 ---
 ### エッジの重みの正確度
@@ -398,7 +370,7 @@ plot(accuracy_edge, labels = FALSE, order = "sample")
 centralityPlot(results_gad, include = c("Strength", "Betweenness", "Closeness"))
 ```
 
-![](slide-psynet-basic_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+![](slide-psynet-basic_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
 
 ---
 ## 中心性指標の安定性(Stability)
