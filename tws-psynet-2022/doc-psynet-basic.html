@@ -186,11 +186,11 @@
 <li>ネットワーク特性の指標の検討する</li>
 <li>ネットワークの精度の検討する</li>
 </ol>
-<p>ここで注意すべき点は，一般的なネットワーク科学で扱うネットワークの場合は，エッジは観察可能な点である（例えば，電力網ネットワークのエッジは直接観察・測定可能になる）。しかし，心理ネットワークのエッジは，データから推定され，重み付きネットワークである。エッジの推定はサンプルサイズの影響を受けるので，ネットワークのエッジの精度も検討する必要がある。また，一般的なネットワーク科学では，グローバルなネットワーク特性の指標が使われる(small worldness, density, global clustering)。しかし，心理ネットワークのような重み付きネットワークではこれらは使えない。そのため，２つのノードの関係や１つのノードがどのような影響力をもつのか（中心性の指標）といったローカルなネットワーク特性を用いる。</p>
+<p>ここで注意すべき点は，一般的なネットワーク科学で扱うネットワークの場合，エッジは観察可能な点である（例えば，電力網ネットワークのエッジは直接観察・測定可能になる）。しかし，心理ネットワークのエッジは，データから推定された重み付きネットワークである。エッジの推定はサンプルサイズの影響を受けるので，ネットワークのエッジの精度も検討する必要がある。また，一般的なネットワーク科学では，グローバルなネットワーク特性の指標が使われる(small worldness, density, global clustering)。しかし，心理ネットワークのような重み付きネットワークではこれらは使えない。そのため，２つのノードの関係や１つのノードがどのような影響力をもつのか（中心性の指標）といったローカルなネットワーク特性を用いる。</p>
 </section>
 <section id="有向無向ネットワーク" class="level3">
 <h3 class="anchored" data-anchor-id="有向無向ネットワーク">有向・無向ネットワーク</h3>
-<p>心理ネットワークの話の前に，有向ネットワークと無向ネットワークについて説明する。まず，有向ネットワークとはエッジに方向性があるネットワークになる。以下の図ようにエッジが矢印になっているネットワークが有向ネットワークである。</p>
+<p>心理ネットワークの話の前に，有向ネットワークと無向ネットワークについて説明する。まず，有向ネットワークとはエッジに方向性があるネットワークである。以下の図ようにエッジが矢印になっているネットワークが有向ネットワークである。</p>
 <p><img src="fig/net02.png" class="img-fluid"></p>
 <p>矢印の方向には因果関係が想定される。例えば，「活動性低下→抑うつ気分増加」なら，活動低下が原因となって抑うつ気分増加するという意味になる。ただし，「活動性低下→抑うつ気分増加」と聞いて，「活動性低下←抑うつ気分増加」もありえるのではないかと感じた方もおられるかもしれない。そのとおりで，因果関係を言うには，まず原因は結果に時間的に先行する必要があり，因果に関連する変数が全て測定された上で，原因と結果が巡回しない（非巡回）必要がある。観察研究によって収集された心理学のデータの場合，時間的な前後関係は縦断データによって示せても，非巡回となるとかなり難しい。横断データに対する心理ネットワークでは，エッジに方向性がない無向ネットワークが用いられる。</p>
 </section>
@@ -202,8 +202,8 @@
 </section>
 <section id="ペアワイズマルコフ確率場" class="level2">
 <h2 class="anchored" data-anchor-id="ペアワイズマルコフ確率場">ペアワイズ・マルコフ確率場</h2>
-<p>変数間の関係がある・ないというグラフを作る場合に，確率分布と結びつけるようなモデルのことをペアワイズ・マルコフ・グラフ(pairwise Markov graph)と呼ぶ。そして，心理ネットワークで用いる無向ネットワークモデルの推定では，ペアワイズ・マルコフ確率場(pairwise Markov random field: PMRF)がよく使われる<span class="citation" data-cites="Epskamp_netPsychomet2022">(<a href="#ref-Epskamp_netPsychomet2022" role="doc-biblioref">S. Epskamp et al. 2022</a>)</span>。心理ネットワーク分析で用いられるペアワイズ・マルコフ確率場は，基本的に重み付きネットワークである。ペアワイズ・マルコフ確率場では，ネットワークのエッジは，他のすべてのノードの影響を除外したあとでの２つのノード間の条件付き関連になります。つまり，２つのノード間にエッジがあるということは，条件付き依存(conditionally dependent)関係にあることを表し，一方でエッジがない場合は，条件付き独立(conditionally independent)関係にあることを表す。</p>
-<p>ペアワイズマルコフ確率場には様々なモデルがあるが，心理ネットワーク分析においては，以下の３つのモデルがよく用いられる。</p>
+<p>変数間の関係がある・ないというグラフを作る場合に，確率分布と結びつけるようなモデルのことをペアワイズ・マルコフ・グラフ(pairwise Markov graph)と呼ぶ。そして，心理ネットワークで用いる無向ネットワークモデルの推定では，ペアワイズ・マルコフ確率場(pairwise Markov random field: PMRF)がよく使われる<span class="citation" data-cites="Epskamp_netPsychomet2022">(<a href="#ref-Epskamp_netPsychomet2022" role="doc-biblioref">S. Epskamp et al. 2022</a>)</span>。心理ネットワーク分析で用いられるペアワイズ・マルコフ確率場は，基本的に重み付きネットワークである。ペアワイズ・マルコフ確率場では，ネットワークのエッジは，他のすべてのノードの影響を除外したあとでの２つのノード間の条件付き関連になる。つまり，２つのノード間にエッジがあるということは，条件付き依存(conditionally dependent)関係にあることを表し，一方でエッジがない場合は，条件付き独立(conditionally independent)関係にあることを表す。</p>
+<p>ペアワイズ・マルコフ確率場には様々なモデルがあるが，心理ネットワーク分析においては，以下の３つのモデルがよく用いられる。</p>
 <ol type="1">
 <li>Gaussian graphical model (GGM): 連続変数のデータ</li>
 <li>Ising model: 2値変数のデータ</li>
@@ -258,7 +258,7 @@ f(\boldsymbol{Y}=\boldsymbol{y})=\frac{1}{\sqrt{(2 \pi)^{n}\left|\boldsymbol{\su
 </div>
 </div>
 <p>以下の式を使って，上記で算出した精度行列から偏相関係数を求めることができる。</p>
-<p><span class="math display">\[\operatorname{Cor}\left(Y_{i}, Y_{j} \mid \boldsymbol{y}_{-(i, j)}\right)=-\frac{\kappa_{i j}}{\sqrt{\kappa_{i i}} \sqrt{\kappa_{j j}}}\]</span> これは手計算でも簡単にできるが，Rのstatsパッケージのcov2cor関数を使って偏相関行列を計算する。あまり大きな変化はないようにも見えるが，変数２と３の関係が分散共分散行列行列よりもさらに小さくなり，関係がないと言ってもよいかと思われる。GGMでは，この偏相関行列の偏相関係数をエッジにしてネットワークを描く。</p>
+<p><span class="math display">\[\operatorname{Cor}\left(Y_{i}, Y_{j} \mid \boldsymbol{y}_{-(i, j)}\right)=-\frac{\kappa_{i j}}{\sqrt{\kappa_{i i}} \sqrt{\kappa_{j j}}}\]</span> これは手計算でも簡単にできるが，Rのstatsパッケージのcov2cor関数を使って偏相関行列を計算する。あまり大きな変化はないようにも見えるが，変数２と３の関係が分散共分散行列よりもさらに小さくなり，関係がないと言ってもよいかと思われる。GGMでは，この偏相関行列の偏相関係数をエッジにしてネットワークを描く。</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">1</span> <span class="sc">*</span> <span class="fu">cov2cor</span>(inv_A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -282,7 +282,7 @@ f(\boldsymbol{Y}=\boldsymbol{y})=\frac{1}{\sqrt{(2 \pi)^{n}\left|\boldsymbol{\su
 <p><span class="math display">\[
 Z=\sum_{y} \exp \left(\sum_{i} y_{i} \tau_{i}+\sum_{&lt;i, j&gt;} y_{i} y_{j} \omega_{i j}\right)
 \]</span></p>
-<p>このZの計算は，<strong>Y</strong>の全ての可能性のあるアウトカムの合計になる。そのため，計算は大変であり，20変数以上の多変量推定は難しい。その場合は，単変量推定にして，単純化して推定する。なお，Isingモデルには逆温度(β)パラメータも含まれるが，パメータ推定の際には１に固定している。 Isingモデルは，<span class="citation" data-cites="Epskamp2018-gx">Sacha Epskamp, Maris, and Waldorp (<a href="#ref-Epskamp2018-gx" role="doc-biblioref">2018</a>)</span> に詳しい。</p>
+<p>このZの計算は，<strong>Y</strong>の全ての可能性のあるアウトカムの合計になる。そのため，計算は大変であり，20変数以上の多変量推定は難しい。その場合は，単変量推定にして，単純化して推定する。なお，Isingモデルには逆温度(β)パラメータも含まれるが，パラメータ推定の際には１に固定している。 Isingモデルは，<span class="citation" data-cites="Epskamp2018-gx">Sacha Epskamp, Maris, and Waldorp (<a href="#ref-Epskamp2018-gx" role="doc-biblioref">2018</a>)</span> に詳しい。</p>
 </section>
 <section id="mixed-graphical-models" class="level3">
 <h3 class="anchored" data-anchor-id="mixed-graphical-models">Mixed graphical models</h3>
@@ -291,7 +291,7 @@ Z=\sum_{y} \exp \left(\sum_{i} y_{i} \tau_{i}+\sum_{&lt;i, j&gt;} y_{i} y_{j} \o
 <p><span class="math display">\[
 P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsymbol{Y}_{\backslash i}\right)
 \]</span></p>
-<p>MGMsは，ペアワイズである必要もなくて，高次の交互作用を含めたmoderated network modelも検討できる。</p>
+<p>MGMsは，ペアワイズである必要もなく，高次の交互作用を含めたmoderated network modelも検討できる。</p>
 </section>
 </section>
 <section id="エッジの推定法とモデル選択解釈" class="level2">
@@ -312,25 +312,25 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 </section>
 <section id="モデル探索model-search" class="level4">
 <h4 class="anchored" data-anchor-id="モデル探索model-search">モデル探索(model search)</h4>
-<p>可能なネットワークを反復的に探索して最もデータフィットしたモデルを選ぶ方法である。選択の基準として，AIC, BIC, EBIC(extended BIC)などの情報量規準を用いる。Step-upでは，反復において，エッジが少ない状態から徐々に足していって，情報量規準がそれ以上ちいさくならなくなるまで最適なネットワークを探索する（Step-downだと逆）。重回帰分析におけるステップワイズ法と同じような動作をする。</p>
+<p>可能なネットワークを反復的に探索して最もデータフィットしたモデルを選ぶ方法である。選択の基準として，AIC, BIC, EBIC(extended BIC)などの情報量規準を用いる。Step-upでは，反復において，エッジが少ない状態から徐々に足していって，情報量規準がそれ以上小さくならなくなるまで最適なネットワークを探索する（Step-downだと逆）。重回帰分析におけるステップワイズ法と同じような動作をする。</p>
 </section>
 <section id="正則化regularization" class="level4">
 <h4 class="anchored" data-anchor-id="正則化regularization">正則化(regularization)</h4>
 <p>ネットワークを疎(sparse)にするような手法として，正則化(regularization)がある。正則化は，機械学習などにおいて発展してきた手法で，モデルの複雑さに罰則をかけて，過学習を避けるような手法である。ざっくり説明すると，多数の変数を使って予測をする場合に，影響力が弱い変数の影響をゼロに近づけるような工夫を導入することで，不要なエッジを除くことができる。影響力が弱い変数が減るとモデルが複雑ではなくなる。複雑さに罰則をかけると，影響力は弱いけど存在している変数の影響をゼロに近づけるようになる。このようにして，煩雑な弱いエッジを減らすことができる。</p>
-<p>GGMでは，LASSO(least absokute shrinkage and selection operator)が使われる。特にLASSOの一種のGraphical LASSOは，精度行列に直接的に罰則をかけられ，分散共分散行列があれば計算でき，一般的に他の方法よりも早い。GLASSOには罰則の強さを調整する<span class="math inline">\(\lambda\)</span>があるが，手動の調整をするのではなく，cross-validation(CV)やEBICを使う。EBICには，<span class="math inline">\(\gamma\)</span>パラメータがあり，ソフトによってデフォルトが決まっているが(mgmとIsingFitは0.25, qgraphとhugeは0.5)，手動でも調整ができる（高くするとよりスパースになる）。</p>
+<p>GGMでは，LASSO(least absolute shrinkage and selection operator)が使われる。特にLASSOの一種のGraphical LASSOは，精度行列に直接的に罰則をかけられ，分散共分散行列があれば計算でき，一般的に他の方法よりも早い。GLASSOには罰則の強さを調整する<span class="math inline">\(\lambda\)</span>があるが，手動の調整をするのではなく，cross-validation(CV)やEBICを使う。EBICには，<span class="math inline">\(\gamma\)</span>パラメータがあり，ソフトによってデフォルトが決まっているが(mgmとIsingFitは0.25, qgraphとhugeは0.5)，手動でも調整ができる（高くするとよりスパースになる）。</p>
 </section>
 <section id="ggmでのモデル選択の推奨-isvoranuunknownestimationc3c0" class="level4">
 <h4 class="anchored" data-anchor-id="ggmでのモデル選択の推奨-isvoranuunknownestimationc3c0">GGMでのモデル選択の推奨　<span class="citation" data-cites="IsvoranuUnknownEstimation:c3c0">(<a href="#ref-IsvoranuUnknownEstimation:c3c0" role="doc-biblioref">Isvoranu and Epskamp 2021</a>)</span></h4>
 <p>心理学研究の目的，対象，サンプルサイズ，測定変数が多様なので，絶対的なモデル選択の推奨は難しい。<span class="citation" data-cites="IsvoranuUnknownEstimation:c3c0">Isvoranu and Epskamp (<a href="#ref-IsvoranuUnknownEstimation:c3c0" role="doc-biblioref">2021</a>)</span> の大規模シミュレーションが参考になる。</p>
 <ul>
 <li>サンプルサイズが5000くらいならほとんどのモデル選択法でうまくいくが，真のネットワークに似たネットワークの探索には，モデル探索などの正則化しないggmModSelectが好ましい。</li>
-<li>サンプルサイズが1000くらいなら，ネットワークの全体構造や強いエッジに興味があるなら正則化する方法を選び，特定の（ブリッジする）エッジに関心があるならggmModSelectやmgmが好ましい。</li>
+<li>サンプルサイズが1000くらいなら，ネットワークの全体構造や強いエッジに興味がある場合は正則化する方法を選び，特定の（ブリッジする）エッジに関心がある場合はggmModSelectやmgmが好ましい。</li>
 <li>サンプルサイズが300くらいなら，EBICglassoなどの正則化する方法が一般化可能なネットワーク構造の発見においては好ましい。</li>
 </ul>
 </section>
 <section id="isingモデルとmgmsでのモデル選択の推奨.medblanken-et-al-2022" class="level4">
 <h4 class="anchored" data-anchor-id="isingモデルとmgmsでのモデル選択の推奨.medblanken-et-al-2022">IsingモデルとMGMsでのモデル選択の推奨.med[(Blanken et al, 2022)]</h4>
-<p>Isingmモデルは，正則化手法(IsingFit)と非正則化手法(IsingSamplerとpsychonetrics)がある。Isingモデルでは，小中サンプルサイズでは正則化手法が見やすいネットワークになる。大サンプルサイズでは非正則化手法も使える。</p>
+<p>Isingモデルは，正則化手法(IsingFit)と非正則化手法(IsingSamplerとpsychonetrics)がある。Isingモデルでは，小中サンプルサイズでは正則化手法が見やすいネットワークになる。大サンプルサイズでは非正則化手法も使える。</p>
 <p>MGMsはmgmパッケージで推定され，用いるのは正則化手法のみである。</p>
 </section>
 <section id="順序変数の扱いblanken2022" class="level4">
@@ -365,19 +365,19 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 <p>Strength（重み付けのないネットワークの場合は，degreeと呼ぶ）は，あるノードがつながっている全てのエッジの強さを合計したものである。あるノードが他のノードとどのくらい強くつながっているのかを表す指標であり，そのノードの全体に対する影響力を表している。</p>
 <p>以下のようなネットワークを例にして，ノード１のStrengthを計算してみる。ノード1とノード2の間には，0.3の緑のエッジがある。ノード1とノード3の間には，0.1の緑のエッジがある。ノード1とノード6の間には，0.2の緑のエッジがある。最後にノード1とノード4の間には，0.2の赤のエッジがある。これらを合計した0.8がノード１のStrengthになる。この計算では，エッジの正負は問われない。</p>
 <p><img src="fig/net03.png" class="img-fluid"></p>
-<p>Strengthは接続しているノードの合計なので，ノードが増えるほど大きくなる。そのため，かつては中心性指標はz得点に変換されてプロットされてたが，最近は変換されてない値をプロットするのが推奨されており，qgraphパッケージでもデフォルトがz変換していないものになっている。</p>
+<p>Strengthは接続しているノードの合計なので，ノードが増えるほど大きくなる。そのため，かつては中心性指標はz得点に変換されてプロットされていたが，最近は変換されてない値をプロットするのが推奨されており，qgraphパッケージでもデフォルトがz変換していないものになっている。</p>
 </section>
 <section id="closeness" class="level3">
 <h3 class="anchored" data-anchor-id="closeness">Closeness</h3>
 <p>Closenessは，あるノードと他の全てのノード間の最短経路長の合計の逆数になる。少しややこしいので順を追って説明する。 まず，ノード間の最短経路長とは，あるノードから別のノードまで最短距離でいける距離になる。この距離というのは，エッジの強さの逆数になる。つまり，エッジの強さが0.1ならばその逆数は1/0.1で10になり，エッジの強さが0.5ならば1/0.5で2になる。最短経路長は，この距離を使って，あるノードから別のノードまでの距離を計算して，最も短い距離でいける距離を計算する。そして，あるノードへの他の全てのノードとの最短経路長を計算して，合計したものの逆数がClosenessになる。</p>
-<p>具体的に計算してみる。以下の図で，ノード１からノード３の最短経路長を調べる。ノード３からノード１に行くには，(1)ノード３からノード１に直接移動する，(2)ノード３からノード２を経由してノード１へ移動する，(3)ノード３からノード６を経由してノード１にいくの３つがある。まず，(1)のノード１から３への直接経路については，ノード１と３のエッジの強さは0.1なので距離は10になる。次に，(2)のノード２を経由する間接経路は，ノード３と２のエッジが0.1で距離10,ノード２とノード１のエッジが0.3で距離3.33なので，合計13.33になる。最後に，(3)のノード６を経由する間接経路は，ノード3と6のエッジが0.05で距離20，ノード6とノード１が0.2で距離５なので合計25になる。(1)(2)(3)を比較すると，ノード１から３の直接経路の長さが最短経路長となる。ただ，もしノード３と２のエッジが0.2の場合は，ノード２を経由する間接経路が最短経路になる（なお，以下の図は，手作業で作ったので，強さと距離の関係が適切ではない…)。</p>
+<p>具体的に計算してみる。以下の図で，ノード１からノード３の最短経路長を調べる。ノード３からノード１に行くには，(1)ノード３からノード１に直接移動する，(2)ノード３からノード２を経由してノード１へ移動する，(3)ノード３からノード６を経由してノード１にいく３つがある。まず，(1)のノード１から３への直接経路については，ノード１と３のエッジの強さは0.1なので距離は10になる。次に，(2)のノード２を経由する間接経路は，ノード３と２のエッジが0.1で距離10,ノード２とノード１のエッジが0.3で距離3.33なので，合計13.33になる。最後に，(3)のノード６を経由する間接経路は，ノード3と6のエッジが0.05で距離20，ノード6とノード１が0.2で距離５なので合計25になる。(1)(2)(3)を比較すると，ノード１から３の直接経路の長さが最短経路長となる。ただ，もしノード３と２のエッジが0.2の場合は，ノード２を経由する間接経路が最短経路になる（なお，以下の図は，手作業で作ったので，強さと距離の関係が適切ではない…)。</p>
 <p><img src="fig/net03.png" class="img-fluid"></p>
-<p>上記のようにあるノードから他のノードまでの最短経路長をそれぞれ計算していって，それらを合計したものの逆数がClosenessになる。Closenessは，あるノードがどのくらい間接的な影響を含めて他のノードとつながっているのかを示している。一方，Strengthは，あるノードがどのくらい直接的に他のノードとつながっているのかを示している。つまり，あるノードから他のノードへの拡散の速さを表現していると言える。</p>
+<p>上記のようにあるノードから他のノードまでの最短経路長をそれぞれ計算していって，それらを合計したものの逆数がClosenessになる。Closenessは，あるノードがどのくらい間接的な影響を含めて他のノードとつながっているのかを示している。一方，Strengthは，あるノードがどのくらい直接的に他のノードとつながっているのかを示している。つまり，Closenessは，あるノードから他のノードへの拡散の速さを表現していると言える。</p>
 </section>
 <section id="betweeness" class="level3">
 <h3 class="anchored" data-anchor-id="betweeness">Betweeness</h3>
 <p>Betweennessは，2つのノード間の最短経路上に，あるノードが何回あるのかを示している。Clonenessで最短経路を計算したが，その最短経路上に，特定のノードが登場する回数を見ることで，そのノードが影響性の流れにおいてどの程度の影響力を持つのかを検討できる。</p>
-<p>以下の図の場合，ノード4と2の最短経路は，ノード４からノード１を経由してノード１に行くというものである。このように，ノード４とノード２の最短経路上には，ノード１がある。このようにして，特定のノード（今回はノード１）が最短経路上に何回出てくるのかカウントすることでBetweenessが計算できる。</p>
+<p>以下の図の場合，ノード4と2の最短経路は，ノード4からノード１を経由してノード2に行くというものである。このように，ノード4とノード2の最短経路上には，ノード１がある。このようにして，特定のノード（今回はノード１）が最短経路上に何回出てくるのかカウントすることでBetweenessが計算できる。</p>
 <p><img src="fig/net03.png" class="img-fluid"></p>
 <p>Betweennessは，あるノードが2つのノードの接続においてどのくらい重要かを示すものである。このノードによっては，影響性の流れを変えることができるので，心理的介入などにおいても重視される指標といえるかもしれない。</p>
 </section>
@@ -396,7 +396,7 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 <h3 class="anchored" data-anchor-id="エッジの重みの正確度">1.エッジの重みの正確度</h3>
 <p>エッジの重みの正確度を評価する方法として，95%信頼区間を使う方法がある。その際に，ブートストラップ法を用いる。ブートストラップ法は，データ元から復元抽出（無作為に取り出したデータを戻してから取り出すことを繰り返すこと，つまり同じデータを取り出すことがある）を繰り返して，何度も取り出したデータから推定値を計算して，誤差などの性質を明らかにする方法になる。エッジの重みの95%信頼区間もブートストラップ法を用いて計算できる。</p>
 <p>ブートストラップ法には，ノンパラメトリックとパラメトリックがある。ノンパラメトリック・ブートストラップは常に使えるが，パラメトリック・ブートストラップは，データのパラメトリックモデルがある場合のみ使用できる。基本的にはノンパラメトリックブートストラップを使う。正則化されてない，ノンパラメトリックでは結果が不安定である，ノンパラとパラメトリックで比較したい場合のみパラメトリックブートストラップを使う。</p>
-<p>ちなみに，ブートストラップで推定した95%信頼区間は，０をまたぐかどうかで有意性の確認にも使えますが，心理ネットワークモデルの場合は正則化されているので，避けるほうが良い。あくまで，エッジの重みの正確度を調べるために使う。</p>
+<p>ちなみに，ブートストラップで推定した95%信頼区間は，０をまたぐかどうかで有意性の確認にも使えるが，心理ネットワークモデルの場合は正則化されているので，避けるほうが良い。あくまで，エッジの重みの正確度を調べるために使う。</p>
 </section>
 <section id="中心性指標の安定性stability" class="level3">
 <h3 class="anchored" data-anchor-id="中心性指標の安定性stability">2.中心性指標の安定性(Stability)</h3>
@@ -405,7 +405,7 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 </section>
 <section id="有意差検定" class="level3">
 <h3 class="anchored" data-anchor-id="有意差検定">3.有意差検定</h3>
-<p>ブートストラップを活用して，エッジの重みの比較や中心性指標の比較もできる。項目１と項目２のエッジは，項目１と項目３のエッジよりも大きいことを確認したい場合や項目１のノードのStrengthは項目２のノードのStrengthよりも大きいことを確認したい場合に使える。これは，ブートストラップ差異検定(bootstrapped difference test)と呼ばれる。具体的には，比較したいエッジ（中心性指標）のブートストラップ値の差を計算して，その差の95%信頼区間を計算することで，０をまたぐかどうかで差の有無を判断できる。なお，この際に，０をまたがないことで，そこに差があることを示すが，０をまたぐことでエッジや中心性指標が等しいとはいえない点に注意する必要がある。</p>
+<p>ブートストラップを活用して，エッジの重みの比較や中心性指標の比較もできる。項目１と項目２のエッジは，項目１と項目３のエッジよりも大きいことを確認したい場合や項目１のノードのStrengthは項目２のノードのStrengthよりも大きいことを確認したい場合に使える。これは，ブートストラップ差異検定(bootstrapped difference test)と呼ばれる。具体的には，比較したいエッジ（中心性指標）のブートストラップ値の差を計算して，その差の95%信頼区間を算出し，０をまたぐかどうかで差の有無を判断できる。なお，この際に，０をまたがないことで，そこに差があることを示すが，０をまたぐことでエッジや中心性指標が等しいとはいえない点に注意する必要がある。</p>
 </section>
 </section>
 <section id="rパッケージ" class="level2">
@@ -417,11 +417,11 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 <li><a href="https://cran.r-project.org/web/packages/psychonetrics/index.html">psychonetrics</a>：より洗練化した書き方でネットワーク推定(GGM &amp; Isingモデル)</li>
 <li><a href="https://cran.r-project.org/web/packages/mgm/index.html">mgm</a>:ネットワークの推定(MGMs)</li>
 </ul>
-<p>なお，アムステルダム大学で開発しているベイズ統計と頻度論統計のGUIソフトウェアである<a href="https://jasp-stats.org/">JASP</a>には，心理ネットワーク分析が組み込まれており，簡単に実施して見る上ではかなり便利である（JASPの心理ネットワーク分析は最新の動向を反映していないこともあるが，ちょっと試す分には便利である）。JASPは国里を含む日本語化チームにより2021年9月(v0.15)より一部が日本語化されている。心理ネットワーク分析の説明は，<a href="https://jasp-stats.org/2018/03/20/perform-network-analysis-jasp/">こちら</a>をご確認ください。</p>
+<p>なお，アムステルダム大学で開発しているベイズ統計と頻度論統計のGUIソフトウェアである<a href="https://jasp-stats.org/">JASP</a>には，心理ネットワーク分析が組み込まれており，簡単に実施してみる上ではかなり便利である（JASPの心理ネットワーク分析は最新の動向を反映していないこともあるが，ちょっと試す分には便利である）。JASPは国里を含む日本語化チームにより2021年9月(v0.15)より一部が日本語化されている。心理ネットワーク分析の説明は，<a href="https://jasp-stats.org/2018/03/20/perform-network-analysis-jasp/">こちら</a>をご確認ください。</p>
 </section>
 <section id="心理ネットワーク分析を試してみよう" class="level2">
 <h2 class="anchored" data-anchor-id="心理ネットワーク分析を試してみよう">心理ネットワーク分析を試してみよう！</h2>
-<p>以下では，実際にRで心理ネットワーク分析を実行してみる。それにあたり， <span class="citation" data-cites="jordan2017psychometric">Jordan, Shedden-Mora, and Löwe (<a href="#ref-jordan2017psychometric" role="doc-biblioref">2017</a>)</span> のデータを用いる。この研究は，不安の症状評価で用いられるGAD-7について項目反応理論を用いた検討を行った研究になる。Hamburgのプライマリケアを受診した3404名からGAD-7(全般性不安)，PHQ-9(うつ),PHQ-15(身体症状)データを収集しており，比較的サンプルサイズが大きいのと，Plos Oneのサイト上でデータを公開していることから，以下の心理ネットワーク分析の練習で使用する。</p>
+<p>以下では，実際にRで心理ネットワーク分析を実行してみる。それにあたり， <span class="citation" data-cites="jordan2017psychometric">Jordan, Shedden-Mora, and Löwe (<a href="#ref-jordan2017psychometric" role="doc-biblioref">2017</a>)</span> のデータを用いる。この研究では，不安の症状評価で用いられるGAD-7について項目反応理論を用いた検討が行われている。Hamburgのプライマリケアを受診した3404名からGAD-7(全般性不安)，PHQ-9(うつ),PHQ-15(身体症状)データを収集しており，比較的サンプルサイズが大きいのと，Plos Oneのサイト上でデータを公開していることから，以下の心理ネットワーク分析の練習で使用する。</p>
 <section id="使用するrパッケージの読み込み" class="level3">
 <h3 class="anchored" data-anchor-id="使用するrパッケージの読み込み">使用するRパッケージの読み込み</h3>
 <p>Jordan et al.(2017)のデータがSPSS形式で配布されているので，SPSS形式のデータを読み込むforeignパッケージとデータ処理用にtidyverseパッケージを読み込む。そして，心理ネットワーク分析では，上述したbootnetパッケージとqgraphパッケージ，psychonetricsパッケージ,mgmパッケージを読み込む。</p>
@@ -634,7 +634,7 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>accuracy_edge <span class="ot">&lt;-</span> <span class="fu">bootnet</span>(results_gad, <span class="at">nBoots =</span> <span class="dv">2500</span>, <span class="at">nCores =</span><span class="dv">4</span>, <span class="at">statistics =</span>   <span class="fu">c</span>(<span class="st">"edge"</span>, <span class="st">"strength"</span>, <span class="st">"closeness"</span>, <span class="st">"betweenness"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>summaryで推定結果を確認できる。ただ，以下のプロットのほうが確認がしやすい。</p>
+<p>summaryで推定結果を確認できる。ただ，以下のプロットのほうが確認しやすい。</p>
 <div class="cell">
 <div class="sourceCode" id="cb24"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(accuracy_edge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
@@ -642,19 +642,18 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 # Groups:   type, node1, node2 [42]
    type  id    node1 node2  sample   mean      sd CIlower CIupper   q2.5   q97.5
    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
- 1 betw… gad7a gad7a ""     2      1.54   1.20    -0.400   4.40   0       4     
- 2 betw… gad7b gad7b ""     2      3.10   1.79    -1.58    5.58   2       8     
- 3 betw… gad7c gad7c ""     0      1.73   2.43    -4.86    4.86   0       8     
- 4 betw… gad7d gad7d ""    12      9.36   2.27     7.46   16.5    4      12     
- 5 betw… gad7e gad7e ""     0      0.990  1.86    -3.72    3.72   0       6     
- 6 betw… gad7f gad7f ""     0      0.389  0.819   -1.64    1.64   0       2     
- 7 betw… gad7g gad7g ""     0      1.10   1.55    -3.09    3.09   0       4     
- 8 clos… gad7a gad7a ""     0.0257 0.0257 0.00143  0.0228  0.0285 0.0230  0.0285
- 9 clos… gad7b gad7b ""     0.0260 0.0264 0.00157  0.0229  0.0291 0.0236  0.0298
-10 clos… gad7c gad7c ""     0.0252 0.0258 0.00168  0.0218  0.0285 0.0227  0.0291
+ 1 betw… gad7a gad7a ""     2      1.49   1.22    -0.444   4.44   0       4     
+ 2 betw… gad7b gad7b ""     2      3.18   1.91    -1.83    5.83   2       8     
+ 3 betw… gad7c gad7c ""     0      1.64   2.34    -4.69    4.69   0       8     
+ 4 betw… gad7d gad7d ""    12      9.34   2.25     7.50   16.5    4      12     
+ 5 betw… gad7e gad7e ""     0      0.963  1.79    -3.58    3.58   0       6     
+ 6 betw… gad7f gad7f ""     0      0.386  0.815   -1.63    1.63   0       2     
+ 7 betw… gad7g gad7g ""     0      1.11   1.58    -3.17    3.17   0       4     
+ 8 clos… gad7a gad7a ""     0.0257 0.0256 0.00147  0.0227  0.0286 0.0228  0.0285
+ 9 clos… gad7b gad7b ""     0.0260 0.0264 0.00160  0.0228  0.0292 0.0237  0.0298
+10 clos… gad7c gad7c ""     0.0252 0.0257 0.00167  0.0218  0.0285 0.0226  0.0291
 # … with 32 more rows, and 6 more variables: q2.5_non0 &lt;dbl&gt;, mean_non0 &lt;dbl&gt;,
-#   q97.5_non0 &lt;dbl&gt;, var_non0 &lt;dbl&gt;, sd_non0 &lt;dbl&gt;, prop0 &lt;dbl&gt;
-# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+#   q97.5_non0 &lt;dbl&gt;, var_non0 &lt;dbl&gt;, sd_non0 &lt;dbl&gt;, prop0 &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p>以下のように，プロットする。サンプルサイズが大きいためか，95%信頼区間の幅が狭いことが確認できる。</p>
@@ -706,16 +705,16 @@ P_{P L}(\boldsymbol{Y}=\boldsymbol{y})=\prod_{i-1}^{n} P\left(Y_{i} \mid \boldsy
 
 Sampling levels tested:
    nPerson Drop%   n
-1      851  75.0 257
-2     1116  67.2 266
-3     1381  59.4 241
-4     1645  51.7 239
-5     1910  43.9 252
-6     2175  36.1 271
-7     2440  28.3 248
-8     2704  20.6 233
-9     2969  12.8 248
-10    3234   5.0 245
+1      851  75.0 227
+2     1116  67.2 270
+3     1381  59.4 247
+4     1645  51.7 237
+5     1910  43.9 231
+6     2175  36.1 256
+7     2440  28.3 260
+8     2704  20.6 251
+9     2969  12.8 265
+10    3234   5.0 256
 
 Maximum drop proportions to retain correlation of 0.7 in at least 95% of the samples:
 
@@ -734,12 +733,12 @@ Accuracy can also be increased by increasing both 'nBoots' and 'caseN'.</code></
 </section>
 <section id="有意差検定-1" class="level3">
 <h3 class="anchored" data-anchor-id="有意差検定-1">有意差検定</h3>
-<p>最もStrengthの高いgadbと最も低いgadfを比較する。bootnetパッケージのdifferenceTest関数で検討できる。実行すると，95%CIが0をまたいでいないことが分かる。</p>
+<p>最もStrengthの高いgad7bと最も低いgad7fを比較する。bootnetパッケージのdifferenceTest関数で検討できる。実行すると，95%CIが0をまたいでいないことが分かる。</p>
 <div class="cell">
 <div class="sourceCode" id="cb33"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">differenceTest</span>(accuracy_edge, <span class="dv">2</span>, <span class="dv">6</span>, <span class="st">"strength"</span>)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>    id1   id2  measure      lower      upper significant
-1 gad7b gad7f strength -0.5924851 -0.4031851        TRUE</code></pre>
+1 gad7b gad7f strength -0.5864128 -0.4033287        TRUE</code></pre>
 </div>
 </div>
 <p>エッジ間の差の検定結果をプロットする。それぞれのエッジ間で有意な差がある場合は黒く塗りつぶされ，有意ではない場合は灰色に塗りつぶされる。</p>
@@ -867,7 +866,7 @@ Accuracy can also be increased by increasing both 'nBoots' and 'caseN'.</code></
 </section>
 <section id="おわりに" class="level2">
 <h2 class="anchored" data-anchor-id="おわりに">おわりに</h2>
-<p>本資料では，横断データの心理ネットワーク分析について概観した。心理ネットワーク分析は，JASPでも簡単に試すことができ，便利なRパッケージも充実してきている。その一方で，心理ネットワーク分析がどのように行われているのか中身についての理論的な理解がないと，誤用にも繋がりやすい手法になる。また，心理ネットワーク解析の方法は，日々新しい方法の開発がなされており，解析法の推奨も変化していっている。そのような状況があるので，アムステルダム大学の<a href="http://psychosystems.org/">Psych Systems</a>のサイトを確認したり，最新の動向を抑えておく必要がある。</p>
+<p>本資料では，横断データの心理ネットワーク分析について概観した。心理ネットワーク分析は，JASPでも簡単に試すことができ，便利なRパッケージも充実してきている。その一方で，心理ネットワーク分析がどのように行われているのか中身についての理論的な理解がないと，誤用に繋がりやすい手法にもなる。また，心理ネットワーク解析の方法は，日々新しい方法の開発がなされており，解析法の推奨も変化していっている。そのような状況があるので，アムステルダム大学の<a href="http://psychosystems.org/">Psych Systems</a>のサイトを確認したり，最新の動向を抑えておく必要がある。</p>
 
 
 </section>
