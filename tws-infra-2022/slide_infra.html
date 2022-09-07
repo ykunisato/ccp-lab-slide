@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>心理学研究における研究室インフラの整備</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="国里愛彦（専修大学）" />
+    <script src="slide_infra_files/header-attrs-2.16/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# <font size='10'>心理学研究における研究室インフラの整備</font>
+]
+.subtitle[
+## <font size='6'>日本心理学会第86回大会(2022年9月10日)</font>
+]
+.author[
+### 国里愛彦（専修大学）<img style="float:right" src="pic/yk.png" width="250">
+]
+
+---
+
+
+
+# TWSの構成
+- ３つの再現性可能性
+ - 解析の問題
+ - 解析環境の問題
+ - リソース低下
+- 解析のパッケージ化
+ - research compendium
+ - GitHub
+ - psyinfr
+- 解析環境のパッケージ化
+ - Dockerの使い方
+ - Dockerの作り方
+- Dockerベースの研究室クラウド基盤
+ - Rstudio server, JupyterHUb
+ - リサーチモジュールとWordPress
+ - JATOSとCBAT
+
+
+---
+# 3つの再現可能性 .med[(Goodman et al., 2016)]
+
+1. **方法の再現可能性** 同じデータ＋同じ方法 → 同じ結果
+
+2. **結果の再現可能性** 新規データ＋同じ方法 → 同じ結果
+
+3. **推論の再現可能性** 同じ結果 → 同じ結論
+
+→ 事前登録，オープンデータ・マテリアル，出版後査読，研究者評価などが提案されている
+
+--
+
+→ 本TWSでは，方法の再現可能性（一部，結果の再現可能性）を高めるための取り組みを紹介しつつ，これらを実現するための研究室のクラウド基盤の構築法について提案し，議論をする。
+
+---
+### 方法の再現可能性を低める要因：解析の問題
+「同じデータ + 同じ方法 = 同じ結果」って，当たり前？
+
+--
+
+- Cognition誌(2009-2016年)でデータ共有している35本の内，同じ解析で同じ結果を再現できたのは，**62%**(著者の助けなく再現できたのは**31%**, Hardwicke et al., 2018)。
+
+- 事前審査付き報告論文62本の内，データと解析コードを入手できたのが**58%**であり，その内の**58%**において元論文の結果が再現された(Obels et al., 2020)
+
+- 同じ仮説.small[「移民が市民の社会政策への支持を低下させるか」]＆同じデータを，73の研究チーム（162名の研究者）が解析すると，推定値もその結論(**60.7%が仮説棄却，28.5%が仮説支持**)も大きく異なった(Breznau et al.,2021)
+
+---
+# なぜ解析が再現しない？
+
+- こういうフォルダ構成だと再現しなそう・・・
+
+&lt;img style="float" src="pic/rs17.png" width="400"&gt;
+
+→ どのドキュメントを開けばいい？どのデータを使う？どのコードから実行すればいい？
+
+---
+# なぜ解析が再現しない？
+
+- エクセルで生データの処理　→　SPSSにデータを読み込み　→　SPSSでの出力結果から数値をコピペ　→　エクセルで図表の作成
+
+→ この作業過程でミスが混入しないとは限らない.med[(査読・論文でも見かけるありえない数値はコピペミスの氷山の一角)]
+
+&lt;img style="float" src="pic/rep01.png" width="400"&gt;
+
+---
+# なぜ解析が再現しない？
+
+- Rパッケージに限らず，ソフトウェア開発は加速
+- 正式リリースの前にβ版を発表し，FBをもらいつつ改善する方法も増える.med[(アップデートによって結果が再現しなくなる)]
+- OSなどの環境の違いも結果の再現性に影響する
+
+
+&lt;img style="float:left" src="pic/epskamp.png" width="600"&gt;
+
+Epskamp(2019)
+
+---
+# なぜ解析が再現しない？
+
+&lt;img style="float:right" src="pic/hakase.png" width="300"&gt;
+
+- 相互運用・再利用を想定した形式でデータとコードを管理していない
+
+- コピペミスが混入する余地があるワークフロー
+
+- ソフトウェア・OSのバージョンなどの環境が共有できていない
+
+---
+
+# 修士から博士への進学率の減少
+
+
+&lt;img style="float" src="pic/insei.png" width="800"&gt;
+
+.small[[中央教育審議会大学分科会大学院部会「人文科学・社会科学系における大学院教育改革の方向性」の「人文科学・社会科学系における大学院教育の関連データ集」](https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo4/004/mext_01176.html)]
+---
+# 大学や心理学を取り巻く環境の変化
+
+&lt;img style="float:right" src="pic/hakase2.png" width="300"&gt;
+- 少子化を含めて大学を取り巻く環境は厳しくなってきている
+
+- 事前登録，オープンデータ・マテリアル，サンプルサイズ設計，高度な統計解析など，研究で要求されるものは増加している
+
+- 博士の院生が研究室のインフラを整備することもあったが，院生の減少にともなって，教員が整えていく必要がある
+
+
+---
+# 問題のまとめ
+
+- フォルダ構成やコピペ汚染の問題
+
+→ 解析のパッケージ化(github, research compendium, psyinfr)
+
+- OSやソフトのバージョンの問題
+
+→ 解析環境のパッケージ化(Docker)
+
+- 研究室インフラの整備
+
+→ Dockerベースの研究室クラウド基盤(Rstudio server, JupyterHUb, リサーチモジュールとWordPress, JATOSとCBAT)
+
+---
+
+class: center, middle
+
+#　解析のパッケージ化
+
+---
+### 方法の再現可能性を高める:解析のパッケージ化
+- 実行するコードの順番や説明を入れたり，データの場所が分かりやすいようにフォルダを作成(ソフトのパッケージ化を意識した**Research Compendium**.med[(Marwick et al., 2018)]の利用)
+
+&lt;img style="float:right" src="pic/os03.png" width="900"&gt;
+
+---
+# Research Compendium
+
+- Marwick et al.(2018)では，規模ごとに [Research Compendium](https://research-compendium.science/)を提案している。
+
+&lt;img style="float:left" src="pic/rc01.png" width="250"&gt;
+&lt;img style="float:left" src="pic/rc02.png" width="250"&gt;
+&lt;img style="float:left" src="pic/rc03.png" width="250"&gt;
+
+---
+&lt;img style="float:right" src="pic/rc01.png" width="500"&gt;
+###  Research Compendium (小規模)
+
+- 小規模には，説明(DESCRIPTION, README),dataフォルダ，analysisフォルダで良い。
+
+---
+&lt;img style="float:right" src="pic/rc02.png" width="500"&gt;
+### Research Compendium (中規模)
+
+- 中規模の例ではLicenseが追加されている。公開する場合は，ライセンスを考える。
+
+---
+&lt;img style="float:right" src="pic/rc03.png" width="350"&gt;
+### Research Compendium (大規模)
+
+- 大規模では，R関数を繰り返し使うためのNAMESPACE，RのfunctionをいれるRフォルダやその説明をいれるmanフォルダが追加される。
+- functionはanalysisのコードを見やすくするためには重要と思われる。
+
+
+---
+# psyinfr
+
+- psyinfrは心理学のインフラツールとなることを目的としたRパッケージ（国里がゼミ用に作っている野良Rパッケージ）
+
+- [https://github.com/ykunisato/psyinfr](https://github.com/ykunisato/psyinfr)に使用法の説明がある。
+
+- インストール：GitHub経由でインストールができます(事前にremotesパッケージを入れておく必要があります)
+
+
+```r
+remotes::install_github("ykunisato/psyinfr")
+```
+
+---
+## psyinfrによるResearch Compendiumの準備
+
+- 以下のコードを実行すると，Marwick et al.(2018)のResearch Compendiumを参考にした卒論・修論用Research Compendiumが用意される
+
+- フォルダ・ファイルの準備＆README.md, paper.Rmd(論文執筆用ファイル)，Analysis01.Rmd(分析用ファイル)が開く
+
+
+```r
+psyinfr::set_rc()
+```
+
+---
+
+&lt;img style="float:right" src="pic/set_rc.png" width="350"&gt;
+
+# psyinfr::set_rc()
+- analysisフォルダ：分析用Rmdファイル(Analysis01.Rmd)，dataフォルダ（データをいれる），functionフォルダ（Rの関数のファイルをいれる），high_loadフォルダ（高負荷な計算用のフォルダ）
+- exercise: ゼミでの演習課題で使うフォルダ
+- labnote: ラボノート（後述）用のフォルダ
+- material: マテリアル用のフォルダ（質問紙，認知課題など）
+- paper: 卒論・修論用のRmdファイルなどが入っている
+
+---
+# psyinfraのおまけ機能
+
+### jsPsych課題作成テンプレートの準備
+
+- set_cbat("認知課題名（英語）","jsPsychのバージョン")を実行すると，exerciseフォルダ内に指定した認知課題名のフォルダを作成し，必要なjsPsych関連ファイルがダウンロードされます。
+
+- 特に設定をしなくても，その中にあるtask.jsファイルに書き込むだけでjsPsych課題が作成できます。
+
+
+
+```r
+psyinfr::set_cbat("stroop","7.1.1")
+```
+
+---
+### 方法の再現可能性を高める:解析のパッケージ化
+- データから最終的な結果までが追跡できるようにコードとドキュメントを用意.med[（スタイルガイド，コードへのコメントも）]
+
+&lt;img style="float:right" src="pic/os02.png" width="800"&gt;
+
+---
+# GitHubによるバージョン管理
+
+- Gitは，プログラムのコードなどの変更履歴を記録・追跡するための分散型バージョン管理システム(Wikipedia)
+
+- GitHubは，Gitをベースにしたコードの共有用リポジトリになる。
+
+- GitHubは，特定のユーザーしか閲覧・変更ができないプライベートリポジトリも設定できる。
+
+- [GitHubの準備からRstudioでの設定方法](https://kunisatolab.github.io/main/how-to-github.html)
+
+---
+# GitHubによる研究のバージョン管理
+
+- 卒論・修論・執筆中の論文は，バージョン管理して戻れるようにする。
+
+&lt;img style="float" src="pic/github.png" width="700"&gt;
+
+---
+class: middle
+
+# GitHubいいかもしれんけど，面倒...
+---
+## ラボノートとバージョン管理を自動化(開始時)
+
+- GitHubの設定をした上で，その日の研究の開始時に以下の関数を実行する
+ - GitHubのリポジトリからプルを実行
+ - ラボノート用Rmdファイルを作成
+
+
+```r
+psyinfr::researchIn()
+```
+
+- プルをするので，GitHubリポジトリの最新の情報がローカルに反映される
+
+- ラボノートは自動で開くので，適宜メモをとりながら研究を実施して，適宜knitをして確認する。
+
+---
+## ラボノートとバージョン管理を自動化(終了時)
+
+- その日の研究の終了時に以下の関数を実行する
+ - ラボノートを保存
+ - 変更加えたファイルにコミットを加えた上で，GitHubにプッシュ
+
+
+```r
+psyinfr::researchOut()
+```
+
+
+- 日々の研究は，researchIn()で初めて，researchOut()で終わる(ラボノートとバージョン管理ができる)
+
+- バックアップ先がOSFが良い場合は，up2osf()も使える
+
+---
+# 解析のパッケージ化のまとめ
+
+- 再現可能な解析を実施するには，Research Compendiumとバージョン管理が大切
+
+- psyinfrパッケージのset_rc()でResearch Compendiumが簡単につくれる。
+
+- バージョン管理にはGitHubなどが使えるが，なれるまで手間なので，psyinfr::researchIn()とpsyinfr::researchOut()を使って自動化できる。
+
+---
+class: center, middle
+
+#　解析環境のコンテナ化
+
+---
+### 方法の再現可能性を高める:解析環境のコンテナ化
+- 解析環境(OSやソフト)が違うとそもそも実行もできないor結果が再現できないことがある。
+
+&lt;img style="float:right" src="pic/os04.png" width="550"&gt;
+
+(1)解析環境とバージョン情報を公開する
+
+(2)解析環境をひとまとまりにコンテナ化して共有する(Docker)
+---
+# Dockerとは
+
+- Docker社が提供するコンテナ型の仮想環境を作成・配布・実行するためのプラットフォーム
+
+- 雑に言うと，RやRstudioなどのアプリとそれを動かすための最小限の仮想環境(基本LinuxベースのOS)を１つの箱に入れて使える仕組み。コンテナはイメージにできるので，配布できる。
+
+- Windowsを使っていても，Macを使っていても，すぐに同じRやRstudioを動かす環境を作ることができる
+
+→それぞれの環境に依存せずに解析環境を共有することができる
+
+---
+
+## 統計解析でDockerを導入する利点
+
+
+- 統計解析環境を再現可能にできる（使ったDockerイメージを配布すればいいだけ）
+
+- 最初にDockerさえインストールできれば，あとはコマンド１つで，簡単に面倒なソフトのインストールなどが終わる
+
+- プラウザで作業ができるので，今どきの仕事スタイルにあっている
+
+- サーバー上にDockerを導入すれば，簡単に自分のサーバーでサービスを稼働できる（後述）
+
+---
+## Rocker: RとRstudio用のDocker
+
+- RやRstudio用のDockerコンテナをつくる[Rockerプロジェクト](https://hub.docker.com/u/rocker)が公開したイメージが便利(Nüst et al., 2020)
+
+.med[
+- rocker/r-ver: R
+- rocker/rstudio: rocker/r-verにRStudio Serverを追加
+- rocker/tidyverse: rocker/rstudioにtidyverseやdevtoolsパッケージを追加
+- rocker/verse:	rocker/tidyverseにtexや出版関連パッケージを追加
+- rocker/geospatial: rocker/verseにgeospatialパッケージを追加
+- rocker/binder: rocker/geospatialにmybinder.org関連ソフトを追加
+- rocker/shiny: rocker/r-verにshiny serverを追加
+- rocker/shiny-verse: rocker/shinyにtidyverseパッケージを追加
+- rocker/cuda: rocker/r-verでCUDAを利用可能に
+- rocker/ml: rocker/cudaにrocker/tidyverseと同様のものを追加
+- rocker/ml-verse: rocker/mlにrocker/geospatialと同様のものを追加
+]
+---
+# Dockerのインストール
+
+- インストール方法：[Docker社のHP](https://www.docker.com/)より，ダウンロードしてインストールする（OSごとにインストール方法は違うので調べてインストール，Dockerのアカウントを作ってログインする必要もあるかも？）
+
+- Dockerのインストール方法は，[2021年日心TWS「再現可能な日本語論文執筆入門:jpaRmdで実現する再現可能で低コストな日本語論文執筆のはじめの一歩」](https://ykunisato.github.io/jpa2021-tws-jpaRmd/02.html)参照 
+
+---
+# rocker/rstudioを試してみよう！
+
+- まずは，あまりイメージサイズが大きくないrocker/rstudioを試してみる。
+- なお，Dockerを使うにあたって，15~20GBくらいハードディスクに余裕があると良い
+
+- Macのターミナルで以下を実行
+
+
+```r
+docker run -e PASSWORD=password -p 8787:8787 -v $(pwd):/home/rstudio -d --name rstudio rocker/tidyverse
+```
+
+- Windowsのコマンドプロンプトで以下を実行
+
+
+```r
+docker run -e PASSWORD=password -p 8787:8787 -v "%cd%":/home/rstudio -d --name paper ykunisato/paper-r
+```
+
+- "-e DISABLE_AUTH=true"をいれて，パスワード入力を省略することもできる
+
+---
+# rocker/rstudioを試してみよう！
+
+- http://localhost:8787/ にアクセスして，IDにrstudio, パスワードをいれる
+
+&lt;img src="pic/rstudio01.png" width="650"&gt;
+
+---
+
+## Dockerコマンド
+### コンテナの確認
+
+- コンテナの動作確認するには，ターミナル・コマンドプロンプトに以下を打ち込む。STATUSがUpになっているとコンテナが動いている
+
+
+```r
+docker ps -a
+```
+
+- コンテナが停止している場合は(STATUSがExitedになっている)，コマンドプロンプトに以下を打ち込んで，コンテナを開始する
+
+
+```r
+docker start コンテナ名
+```
+
+---
+
+## Dockerコマンド
+### コンテナの停止と削除
+
+- コンテナが不要になったら，停止して削除する。コンテナの停止には，コマンドプロンプトに以下を打ち込む
+
+
+```r
+docker stop コンテナ名
+```
+
+- コンテナの削除には，コマンドプロンプトに以下を打ち込む
+
+
+```r
+docker rm コンテナ名
+```
+
+---
+
+## Dockerコマンド
+### イメージの削除
+
+- rmしてもコンテナが削除されただけでダウンロードしたイメージは残っている
+- 以下をコマンドプロンプトに打ち込んで，イメージの状況を確認します。削除したいイメージのIMAGE IDをコピーする
+
+
+```r
+docker images
+```
+
+- 上記でコピーしたIMAGE IDを使って，以下をコマンドプロンプトに打ち込んで，イメージを削除する
+
+
+```r
+docker rmi IMAGE_ID
+```
+
+---
+# Docker Hub
+- Docker Hub(https://hub.docker.com/ )では，多数のイメージが公開されている。国里がよく使うイメージは以下になる
+
+1. [paper-r](https://hub.docker.com/r/ykunisato/paper-r): 国里がrocker/verseをベースに各種心理関連パッケージやStan, python, Juliaなどもモリモリに追加したイメージ(使い方はrocker/rstudioと同様)
+2. [ccp-lab-j](https://hub.docker.com/r/ykunisato/ccp-lab-j):国里がjupyter/scipy-notebookをベースにjuliaの追加と各種Pythonパッケージを追加したイメージ
+3. [jatos](https://hub.docker.com/r/jatos/jatos/): JsPsychやlab.jsなどをホスティングできるサーバーのJATOS (Just Another Tool for Online Studies) 用のイメージ
+
+---
+# ccp-lab-jの使い方(1)
+
+- Macの場合，以下をターミナルで実行("token that you set"は変更)
+
+
+```r
+docker run -d --name notebook -v `pwd`:/home/jovyan/work -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes ykunisato/ccp-lab-j start-notebook.sh --NotebookApp.token="token that you set"
+```
+
+- Windowsの場合，以下をコマンドプロンプトで実行("token that you set"は変更)
+
+```r
+docker run -d --name notebook -v "%cd%":/home/jovyan/work -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes ykunisato/ccp-lab-j start-notebook.sh --NotebookApp.token="token that you set"
+```
+
+---
+# ccp-lab-jの使い方(2)
+
+- http://localhost:8888/ にアクセスする
+
+&lt;img src="pic/jupyter.png" width="750"&gt;
+
+---
+# JATOSの使い方(1)
+
+
+- Macの場合，以下をターミナルで実行
+
+
+```r
+docker run -d -p 9000:9000 -e TZ=Asia/Tokyo -v $(pwd)/jatos/study_assets_root:/opt/docker/study_assets_root --name jatos jatos/jatos:latest
+```
+
+- Windowsの場合，以下をコマンドプロンプトで実行
+
+
+```r
+docker run -d -p 9000:9000 -e TZ=Asia/Tokyo -v %cd%/jatos/study_assets_root:/opt/docker/study_assets_root --name jatos jatos/jatos:latest
+```
+
+---
+# JATOSの使い方(2)
+
+- http://localhost:9000/ にアクセスする(最初は，admin, adminでログインする)
+
+&lt;img src="pic/jatos.png" width="600"&gt;
+
+--- 
+# #  マイDockerの作成方法
+
+https://confit.atlas.jp/guide/event/jpa2022/subject/39901-08-01/advanced
+
+[TWS-007] 心理ネットワークアプローチ入門
+横断データ解析を中心に
+.講師（Speaker）：樫原 潤1、国里 愛彦2、竹林 由武3、菅原 大地4
+
+
+```r
+docker stop rstudio
+```
+
+
+
+```r
+FROM rocker/tidyverse:latest
+LABEL maintainer="Yoshihiko Kunisato &lt;mail&gt;"
+
+RUN apt update &amp;&amp; apt install -y libglpk-dev
+RUN R -e "install.packages(c('remotes','psych','foreign'), dependencies = TRUE)"
+RUN R -e "install.packages(c('bootnet','qgraph','psychonetrics'), dependencies = TRUE)"
+RUN R -e "install.packages(c('networktools','NetworkComparisonTest'), dependencies = TRUE)"
+```
+
+
+
+```r
+docker build ./ -t ykunisato/psynet
+```
+
+
+```r
+docker images
+```
+
+&lt;img src="fig/dockerimages.png" width="500"&gt;
+
+
+
+```r
+docker run -e PASSWORD=password -p 8787:8787 -v $(pwd):/home/rstudio -d --name psynet ykunisato/psynet
+```
+
+&lt;img src="fig/rstudio02.png" width="500"&gt;
+
+
+#  マイDockerの作成方法
+
+```
+FROM rocker/tidyverse
+
+# Change environment to Japanese(Character and DateTime)
+ENV LANG ja_JP.UTF-8
+ENV LC_ALL ja_JP.UTF-8
+RUN sed -i '$d' /etc/locale.gen \
+  &amp;&amp; echo "ja_JP.UTF-8 UTF-8" &gt;&gt; /etc/locale.gen \
+	&amp;&amp; locale-gen ja_JP.UTF-8 \
+	&amp;&amp; /usr/sbin/update-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja"
+RUN /bin/bash -c "source /etc/default/locale"
+RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
+# Install Japanese fonts
+RUN apt-get update &amp;&amp; apt-get install -y \
+  fonts-ipaexfont
+
+# Install packages
+# rstanarmが2017/12/21からコンパイルでコケる。pythonがらみっぽいので外す
+RUN Rscript -e "install.packages(c('githubinstall','rstan','ggmcmc','bayesplot','brms'))"
+
+CMD ["/init"]
+```
+
+１行目をみると```FROM rocker/tidyverse```とありますので，[rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse/~/dockerfile/)がベースになっているのが分かります。さらに，rocker/tidyverseのベースは・・・とたどっていくと[rocker/r-ver](https://hub.docker.com/r/rocker/r-ver/~/dockerfile/)にたどりつきます。このrocker/r-verの1行目に，```FROM debian:stretch```とありますので，どうやら，このDockerfileは，LinuxのDebian 9.0（コードネーム: stretch）の上に，RやRstudioをインストールしたものに，tidyverseなどのパッケージをいれたものをベースにしていると考えられます。重要なのは，LinuxのDebian 9.0の上で動いていることです。
+
+```# Change environment to Japanese(Character and DateTime)```と```# Install Japanese fonts```の部分は，日本語環境の設定になります。自分用のDockerfileでもそのまま引き継ぐと良いかと思います。
+
+自家製Dockerのためには，```# Install packages```が重要になります。```RUN Rscript -e "install.packages```を使って，Rスクリプトを走らせてパッケージをインストールします。ここでは，'githubinstall','rstan','ggmcmc','bayesplot','brms'がインストールされるのが分かります。なお，rocker/tidyverseがベースなので，tidyverse関連のパッケージはすでに入っています。
+
+このような感じで，すでにあるDockerfileをベースにしながら，自分に必要なアプリやパッケージを追加することができます。
+
+---
+#####  2 Docker fileを自分流にいじる
+
+今回は，心理ネットワーク分析用のファイルにする
+
+さて，自分流のDockerfileを作ってみましょう。作成はお好きなテキストエディタをお使いください。今回は，たまたま私がネットワークメタ分析の勉強をしていたので，ネットワークメタ分析のためのDockerfileを作ることにします。以下が，kazutan/stan-dに追加したいRパッケージです。
+
+- devtools
+- rjags
+- gemtc
+- netmeta
+- ggnetwork
+- tidybayes
+
+基本的には，```RUN Rscript -e "install.packages(c(...))"```に必要なRパッケージを入れればよいのですが，ベイズ流のネットワークメタ分析を簡単にやってくれるgemtcはJAGSベースのパッケージなので，JAGSも別途入れる必要があります(当たり前ですが，rjagsもJAGSが必要です)。「あれ，DockerでJAGSをどうやっていれればいいの？」ってなりますが，大元がLinuxのDebianだったのを思い出します。ということで，Debian系でのJAGSのインストール方法をググったり，[merliseclyde/docker-jags](https://github.com/merliseclyde/docker-jags/blob/master/Dockerfile)を参考にして，以下のようにしました。なお，libglpk-devは何かのパッケージで必要だったので，追加しました（何かは忘れた）。
+
+```
+# Install JAGS &amp; libglpk(for dependencies of gemtc)
+RUN apt-get update &amp;&amp; apt-get install -y \
+    jags \
+    libglpk-dev \
+&amp;&amp; apt-get clean \
+&amp;&amp; rm -rf /var/lib/apt/lists/*
+```
+
+さて，以下のように自分用のDockerfileができました。Dockerfileという名前をつけて保存ください(拡張子は不要です)。実際は，次のローカル環境でのbuildをしてみて，うまくいくかチェックしつつ作成をします。
+
+```
+FROM rocker/tidyverse
+MAINTAINER "Yoshihiko Kunisato" ykunisato@psy.senshu-u.ac.jp
+# This Dockerfile was created based on kazutan/stan-d
+
+# Change environment to Japanese(Character and DateTime)
+ENV LANG ja_JP.UTF-8
+ENV LC_ALL ja_JP.UTF-8
+RUN sed -i '$d' /etc/locale.gen \
+  &amp;&amp; echo "ja_JP.UTF-8 UTF-8" &gt;&gt; /etc/locale.gen \
+	&amp;&amp; locale-gen ja_JP.UTF-8 \
+	&amp;&amp; /usr/sbin/update-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja"
+RUN /bin/bash -c "source /etc/default/locale"
+RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
+# Install Japanese fonts
+RUN apt-get update &amp;&amp; apt-get install -y \
+  fonts-ipaexfont
+
+# Install JAGS &amp; libglpk(for dependencies of gemtc)
+RUN apt-get update &amp;&amp; apt-get install -y \
+    jags \
+    libglpk-dev \
+&amp;&amp; apt-get clean \
+&amp;&amp; rm -rf /var/lib/apt/lists/*
+
+# Install R packages
+RUN Rscript -e "install.packages(c('devtools','rjags','gemtc','rstan','ggmcmc','bayesplot','tidybayes','brms','netmeta','ggnetwork'))"
+
+CMD ["/init"]
+```
+---
+#####  3 ローカル環境でうまくいくかチェック
+
+Dockerfileができたら，ローカル環境で試します。ターミナルを起動して(Macユーザーの場合，Winの方はくぐってください)。Dockerfileの置いてあるフォルダに移動します(Macユーザーなら，ターミナルにcd って打ち込んでからDockerfileのあるフォルダをターミナルにドラッグすればcdの後にパスが入るので，それで移動できます。さらに、lsと打ち込んでDockerfile があればオッケーです)。Dockerfile のあるフォルダに移動できたら，以下を打ち込みます。netmetaはこちらでつける名前なので，何でも良いです。無事，buildができたら完了です。私が初めて試した時はJAGS周りのインストールで何度か失敗して，Dockerfileを何度か書き直しました。とはいえ，linuxでRを使うときの情報は多いので，それほど大変な試行錯誤でもなかったです。
+
+```
+docker build ./ -t netmeta
+```
+
+---
+#####  4 Githubのリポジトリと連携したDocker hubリポジトリの作成
+
+ローカルでうまくいったら，docker hubにアップします。ただ，そのままアップするより，githubと連携させて，githubのリポジトリにREADMEとDockerfileを置いて，そこに変更が加えられたらdocker hubも自動更新されるようにすると便利です。やり方は以下が分かりやすかったです。これが上手くいくと，githubの内容がdocker hubで自動更新され，docker hub上でbuildされます。ここでbuildされるので，他のユーザーはそのイメージをpull(ダウンロード)して，すぐに使えるようになります。
+
+[https://nekopunch.hatenablog.com/entry/2018/10/10/214213:embed:cite]
+
+---
+####  ykunisato/netmeta-rの使用法
+
+さて、早速使ってみましよう！
+
+(1) 以下から，Docker Desktopをダウンロードしてインストールする。
+
+[https://www.docker.com/:embed:cite]
+
+(2) ターミナル（Macユーザー）を開く
+
+(3) ターミナルに以下を打ち込んで、イメージをpullする
+
+```
+docker pull ykunisato/netmeta-r
+```
+
+(4) ターミナルに以下を打ち込んで、コンテナーをrunする。パスワードとコンテナ名はご自身の好きなように設定ください。
+
+```
+docker run -e PASSWORD=パスワード -p 8787:8787 -v ~:/home/rstudio -d --name コンテナ名 ykunisato/netmeta-r
+```
+
+(5) ブラウザを開いて，urlバー（アドレスバー）に，http://localhost:8787/ とタイプする
+
+(6) ブラウザ上にRstudioが出てくるので，IDにrstudio，パスに上記で設定したパスワードをいれる。
+
+これだけで，ご自身のパソコンで簡単にネットワークメタ分析をするための環境が構築できました。
+
+####  最後に
+
+Dockerについて，最初に@kazutanから聞いたときは，あまりその重要性には気づけませんでした。ただ，一度使ってみると，どこでも同じ解析環境を作ることができるのは非常に便利なことに気づきます。少なくともパソコンを２台以上使用される方は，是非とも活用してみてください！
+---
+
+
+&lt;img style="float" src="pic/infra01.png" width="800"&gt;
+---
+&lt;img style="float" src="pic/infra02.png" width="800"&gt;
+---
+&lt;img style="float" src="pic/infra03.png" width="800"&gt;
+---
+&lt;img style="float" src="pic/infra04.png" width="800"&gt;
+
+
+---
+# 見出し
+- Dockerベースの研究室クラウド基盤　60分
+ - Rstudio server, JupyterHUb
+ - リサーチモジュールとWordPress
+ - JATOSとCBAT
+
+
+---
+## 結果の再現可能性を高める：マテリアルの共有
+
+- 追試を行う上でマテリアルやプロトコルの共有は不可欠だが，まだ一般的ではない(Hardwicke et al., 2021)。
+
+- マテリアルやプロトコルの共有は，(1)結果の再現可能性を高め，(2)研究にかかる時間的コストを減らし，(3)実施時の誤りも減らす。
+
+- .med[例えば，全般性不安尺度のGAD-7の4択の下限は，「not at all」なのに，2012年くらいから「not at all sure」ってタイポが論文上で出現(Zorowitz et al.,2021)。間違った選択肢の研究が147本ある・・・]
+
+---
+## 結果の再現可能性を高める：マテリアルの共有
+
+- 第3者が理解できるように，(1)実験・調査・介入のプロトコル，(2)認知課題の刺激とプログラムコード，(3)質問紙の項目と調査に使用したフォーマットを共有する。
+
+- ライセンス上実行環境も共有できる場合は，コンテナ化して共有する.med[(難しい場合は，コードとソフトのバージョンを公開)]。例.[Experiment Factory .med[(Sochat et al., 2018)]](https://expfactory.github.io/)
+
+- 質問紙はライセンス形式が不透明なので，質問紙開発論文では質問項目だけでなく調査フォーマット(コード)も公開し，ライセンスも付与すべき？
+
+---
+## [Cognitive &amp; Behavioral Assessment Toolbox](https://cbat.cpsy-lab.com/)
+
+
+&lt;img style="float:right" src="pic/cbat.png" width="550"&gt;
+- jsPsychやlab.jsで作成された課題・質問紙を共有するリポジトリを準備中
+- 共有された課題は，すぐに試してみたり，研究で利用可能
+
+---
+# ライセンスの付与
+- ライセンスを付与して，どのような条件で使用可能かを明示する。
+
+→ 以下のようなオープンソース由来のライセンスが使えるが，Creative Commonsは利用条件がわかりやすい。
+
+.med[
+- CC0 1.0 Universal
+- CC-By Attribution 4.0 International
+- MIT License
+- Apache License 2.0
+- BSD 2-Clause “Simplified” License
+- GNU General Public License (GPL) 3.0 or 2.0
+- GNU Lesser General Public License (LGPL) 3.0 or 2.1 ...
+]
+---
+.med[**Creative Commons** OSFでデータ共有する場合はCC0 1.0かCC BY 4.0。
+CC0 1.0ならクレジットなしで，CC BY 4.0ならクレジットをつければ，個人利用，改変，再配布，商用利用を許可（商標権と特許権は保持される）]
+
+&lt;img style="float" src="pic/os01.png" width="700"&gt;
+---
+
+
+```
+docker stats -a
+```
+https://jupyterhub.computational-clinical-psychology-lab.com
+
+https://rstudio.computational-clinical-psychology-lab.com
+
+
+https://jatos.computational-clinical-psychology-lab.com/
+
+https://wordpress.computational-clinical-psychology-lab.com/
+
+https://traefik.computational-clinical-psychology-lab.com/dashboard/#/
+
+---
+### 引用文献
+- Breznau, N., Rinke, E. M., Wuttke, A., Adem, M., Adriaans, J., Alvarez-Benjumea, A., Andersen, H. K., Auer, D., Azevedo, F., Bahnsen, O., Balzer, D., Bauer, G., Bauer, P., Baumann, M., Baute, S., Benoit, V., Bernauer, J., Berning, C., Berthold, A., … Nguyen, H. H. V. (2021). Observing many researchers using the same data and hypothesis reveals a hidden universe of uncertainty. In BITSS. https://doi.org/10.31222/osf.io/cd5j9
+- Epskamp, S. (2019). Reproducibility and Replicability in a Fast-Paced Methodological World. Advances in Methods and Practices in Psychological Science, 2(2), 145–155.
+- 船守美穂(2022) 大学はオープンサイエンスにどのように向き合うか　科学, 192(8), 703-707.
+- Hardwicke, T. E., Mathur, M. B., MacDonald, K., Nilsonne, G., Banks, G. C., Kidwell, M. C., Hofelich Mohr, A., Clayton, E., Yoon, E. J., Henry Tessler, M., Lenne, R. L., Altman, S., Long, B., &amp; Frank, M. C. (2018). Data availability, reusability, and analytic reproducibility: evaluating the impact of a mandatory open data policy at the journal Cognition. Royal Society Open Science, 5(8), 180448.
+- Hardwicke, T. E., Thibault, R. T., Kosie, J. E., Wallach, J. D., Kidwell, M. C., &amp; Ioannidis, J. P. A. (2021). Estimating the Prevalence of Transparency and Reproducibility-Related Research Practices in Psychology (2014-2017). Perspectives on Psychological Science: A Journal of the Association for Psychological Science, 1745691620979806.
+- Goodman, S. N., Fanelli, D., &amp; Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341), 341ps12.
+- Marwick, B., Boettiger, C., &amp; Mullen, L. (2018). Packaging Data Analytical Work Reproducibly Using R (and Friends). The American Statistician, 72(1), 80–88.
+- Obels, P., Lakens, D., Coles, N. A., Gottfried, J., &amp; Green, S. A. (2020). Analysis of Open Data and Computational Reproducibility in Registered Reports in Psychology. Advances in Methods and Practices in Psychological Science, 2515245920918872.
+- Nüst, D., Eddelbuettel, D., Bennett, D., Cannoodt, R., Clark, D., Daróczi, G., Edmondson, M., Fay, C., Hughes, E., Kjeldgaard, L., Lopp, S., Marwick, B., Nolis, H., Nolis, J., Ooi, H., Ram, K., Ross, N., Shepherd, L., Sólymos, P., … Xiao, N. (2020). The Rockerverse: Packages and Applications for Containerisation with R. The R Journal, 12(1), 437.
+- Sochat, V. (2018). The Experiment Factory: Reproducible Experiment Containers. The Journal of Open Source Software, 3(22), 521.
+- Zorowitz, S., Bennett, D., Choe, G., &amp; Niv, Y. (2021). A recurring reproduction error in the administration of the Generalized Anxiety Disorder scale. The Lancet. Psychiatry, 8(3), 180–181.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
