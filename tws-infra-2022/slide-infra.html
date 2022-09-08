@@ -609,21 +609,123 @@ class: center, middle
 #　Dockerベースの研究室クラウド基盤
 
 ---
-# 
-
----
 # クラウド基盤に必要な機能
 
-&lt;img style="float" src="pic/infra01.png" width="600"&gt;
+&lt;img style="float:right" src="pic/infra01.png" width="600"&gt;
+- データ収集・解析・執筆までをフォローする必要がある
+
+- 教員・先輩による偶発的な学習によらない学習環境を用意する
+
 ---
 # 必要なソフトウェア
 
-&lt;img style="float" src="pic/infra02.png" width="700"&gt;
----
-# サーバー設定
-&lt;img style="float" src="pic/infra03.png" width="800"&gt;
----
+&lt;img style="float:right" src="pic/infra02.png" width="600"&gt;
+.med[
+- JATOS：jsPsychやlab.jsをホスティングし，対面・オンラインでのデータ収集ができる
 
+- RStudio:Rを用いたデータ解析・執筆ができる(paper-rを使うとJuliaも)
+
+- Jupyter:PythonやJuliaを用いたデータ解析ができる
+
+- WordPress:ブログサービスだが，プラグインによってEラーニングサイトにできる。
+
+]
+
+---
+**サーバー設定**
+&lt;img style="float" src="pic/infra03.png" width="800"&gt;
+.med[
+- さくらインターネットやGCPなどのサーバー上にDockerでサービスを展開
+- traefikを通して，SSL，負荷分散などを行って，１つのサーバー上で複数のサービスを展開
+- 実際の設定は[こちら](https://ykunisato.github.io/ccp-lab-slide/tws-infra-2022/doc-cloud-computing.html)で説明する。
+]
+
+---
+#　リサーチモジュール
+
+&lt;img style="float" src="pic/rs00.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs01.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs02.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs03.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs04.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs05.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs06.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs07.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs08.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs09.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs10.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs11.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs12.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs13.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs14.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs15.png" width="600"&gt;
+
+---
+#　XX
+
+&lt;img style="float" src="pic/rs16.png" width="600"&gt;
+
+---
 ---
 # CBAT
 &lt;img style="float" src="pic/infra04.png" width="800"&gt;
@@ -656,41 +758,8 @@ class: center, middle
 - 共有された課題は，すぐに試してみたり，研究で利用可能
 
 ---
-# ライセンスの付与
-- ライセンスを付与して，どのような条件で使用可能かを明示する。
-
-→ 以下のようなオープンソース由来のライセンスが使えるが，Creative Commonsは利用条件がわかりやすい。
-
-.med[
-- CC0 1.0 Universal
-- CC-By Attribution 4.0 International
-- MIT License
-- Apache License 2.0
-- BSD 2-Clause “Simplified” License
-- GNU General Public License (GPL) 3.0 or 2.0
-- GNU Lesser General Public License (LGPL) 3.0 or 2.1 ...
-]
----
-.med[**Creative Commons** OSFでデータ共有する場合はCC0 1.0かCC BY 4.0。
-CC0 1.0ならクレジットなしで，CC BY 4.0ならクレジットをつければ，個人利用，改変，再配布，商用利用を許可（商標権と特許権は保持される）]
-
-&lt;img style="float" src="pic/os01.png" width="700"&gt;
----
 
 
-```
-docker stats -a
-```
-https://jupyterhub.computational-clinical-psychology-lab.com
-
-https://rstudio.computational-clinical-psychology-lab.com
-
-
-https://jatos.computational-clinical-psychology-lab.com/
-
-https://wordpress.computational-clinical-psychology-lab.com/
-
-https://traefik.computational-clinical-psychology-lab.com/dashboard/#/
 
 ---
 ### 引用文献

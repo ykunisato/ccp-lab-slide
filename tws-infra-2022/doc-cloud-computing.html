@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.178">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="国里愛彦（専修大学">
+  <title>TWS-004「心理学研究における研究室インフラの整備:Dockerベースの研究室クラウド基盤」の資料</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <script src="doc-cloud-computing_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="doc-cloud-computing_files/libs/quarto-html/quarto.js"></script>
+  <script src="doc-cloud-computing_files/libs/quarto-html/popper.min.js"></script>
+  <script src="doc-cloud-computing_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="doc-cloud-computing_files/libs/quarto-html/anchor.min.js"></script>
+  <link href="doc-cloud-computing_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="doc-cloud-computing_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="doc-cloud-computing_files/libs/bootstrap/bootstrap.min.js"></script>
+  <link href="doc-cloud-computing_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="doc-cloud-computing_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#dockerベースの研究室クラウド基盤" class="nav-link active" data-scroll-target="#dockerベースの研究室クラウド基盤">Dockerベースの研究室クラウド基盤</a>
+<ul class="collapse">
+<li><a href="#サーバー設定" class="nav-link" data-scroll-target="#サーバー設定">サーバー設定</a></li>
+<li><a href="#注意事項" class="nav-link" data-scroll-target="#注意事項">注意事項</a></li>
+</ul></li>
+<li><a href="#サーバーの選択" class="nav-link" data-scroll-target="#サーバーの選択">サーバーの選択</a></li>
+<li><a href="#gcpgoogle-cloud-platformを用いたクラウド基盤の構築法" class="nav-link" data-scroll-target="#gcpgoogle-cloud-platformを用いたクラウド基盤の構築法">GCP(Google Cloud Platform）を用いたクラウド基盤の構築法</a>
+<ul class="collapse">
+<li><a href="#本日のデモの構成" class="nav-link" data-scroll-target="#本日のデモの構成">本日のデモの構成</a></li>
+<li><a href="#ブートディスクを変更する" class="nav-link" data-scroll-target="#ブートディスクを変更する">ブートディスクを変更する</a></li>
+<li><a href="#osやディスクの設定" class="nav-link" data-scroll-target="#osやディスクの設定">OSやディスクの設定</a></li>
+<li><a href="#ファイヤーウォールの設定" class="nav-link" data-scroll-target="#ファイヤーウォールの設定">ファイヤーウォールの設定</a></li>
+<li><a href="#ssh接続してポートの変更をする" class="nav-link" data-scroll-target="#ssh接続してポートの変更をする">SSH接続してポートの変更をする</a>
+<ul class="collapse">
+<li><a href="#ファイヤーウォールルールの追加" class="nav-link" data-scroll-target="#ファイヤーウォールルールの追加">ファイヤーウォールルールの追加</a></li>
+<li><a href="#ssh接続してポートを変更する" class="nav-link" data-scroll-target="#ssh接続してポートを変更する">SSH接続してポートを変更する</a></li>
+<li><a href="#ポートを閉じる" class="nav-link" data-scroll-target="#ポートを閉じる">22ポートを閉じる</a></li>
+</ul></li>
+<li><a href="#domainの入手とサブドメインの設定" class="nav-link" data-scroll-target="#domainの入手とサブドメインの設定">Domainの入手とサブドメインの設定</a></li>
+<li><a href="#dockerのインストール" class="nav-link" data-scroll-target="#dockerのインストール">Dockerのインストール</a></li>
+<li><a href="#traefikの準備" class="nav-link" data-scroll-target="#traefikの準備">Traefikの準備</a></li>
+<li><a href="#rstudio-serverを用意する" class="nav-link" data-scroll-target="#rstudio-serverを用意する">RStudio serverを用意する</a>
+<ul class="collapse">
+<li><a href="#rstudioへのユーザー追加" class="nav-link" data-scroll-target="#rstudioへのユーザー追加">RStudioへのユーザー追加</a></li>
+</ul></li>
+<li><a href="#jupyterhubを用意する" class="nav-link" data-scroll-target="#jupyterhubを用意する">JupyterHubを用意する</a>
+<ul class="collapse">
+<li><a href="#jupyter-hubのユーザー追加と設定" class="nav-link" data-scroll-target="#jupyter-hubのユーザー追加と設定">Jupyter Hubのユーザー追加と設定</a></li>
+</ul></li>
+<li><a href="#jatosを用意する" class="nav-link" data-scroll-target="#jatosを用意する">JATOSを用意する</a></li>
+<li><a href="#wordpressを用意する" class="nav-link" data-scroll-target="#wordpressを用意する">WordPressを用意する</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+
+
+
+<div class="quarto-title"><h1 class="title display-7">TWS-004「心理学研究における研究室インフラの整備:Dockerベースの研究室クラウド基盤」の資料</h1><p class="subtitle lead">日本心理学会(2022年)</p></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Author</div><div class="quarto-title-meta-contents"><div class="quarto-title-authors"><div><div>
+<p>国里愛彦（専修大学</p>
+</div></div></div></div></div></div></header>
+
+<section id="dockerベースの研究室クラウド基盤" class="level1">
+<h1>Dockerベースの研究室クラウド基盤</h1>
+<section id="サーバー設定" class="level2">
+<h2 class="anchored" data-anchor-id="サーバー設定">サーバー設定</h2>
+<ul>
+<li>さくらインターネットやGCPなどのサーバー上にDockerでサービスを展開していく。</li>
+<li>traefikを通して，SSL，負荷分散などを行って，１つのサーバー上で複数のサービスを展開する。</li>
+</ul>
+<p><img src="pic/infra03.png" class="img-fluid"></p>
+</section>
+<section id="注意事項" class="level2">
+<h2 class="anchored" data-anchor-id="注意事項">注意事項</h2>
+<ul>
+<li>以降では各種サービスをサーバー上で展開して，研究室で活用していく方法について説明していく。</li>
+<li>国里は臨床心理学者であり，情報系の専門家でもない。サーバーの利用については，各自がセキュリティ管理をしっかりしていただくようにお願いします。</li>
+<li>以降の内容について，誤った操作・設定による損害・損失について国里は責任を持てませんので，各自の判断で行ってください。</li>
+</ul>
+</section>
+</section>
+<section id="サーバーの選択" class="level1">
+<h1>サーバーの選択</h1>
+<ul>
+<li>クラウドコンピューティングサービスは，GCP（Google Cloud Platform），AWS（Amazon Web Service），Microsoft Azure，さくらインターネット(専用サーバー)など様々ある。</li>
+<li>VPSなどのサービスは安価だが，CPUの負荷がかかるRStudioやJupyterを使う場合は微妙と思われる。</li>
+<li>国里は，2019年くらいからGCPを使っているが，2022年度からはゼミはさくらインターネットを使っている（円安の影響を受けない，固定金額）。</li>
+</ul>
+</section>
+<section id="gcpgoogle-cloud-platformを用いたクラウド基盤の構築法" class="level1">
+<h1>GCP(Google Cloud Platform）を用いたクラウド基盤の構築法</h1>
+<section id="本日のデモの構成" class="level2">
+<h2 class="anchored" data-anchor-id="本日のデモの構成">本日のデモの構成</h2>
+<ul>
+<li><a href="https://cloud.google.com/landing/free-trial?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=japac-JP-all-ja-dr-bkws-all-super-trial-e-dr-1009882&amp;utm_content=text-ad-none-none-DEV_c-CRE_521901739373-ADGP_Hybrid%20%7C%20BKWS%20-%20PHR%20%7C%20Txt%20~%20GCP%20~%20General_Cloud%20-%20google%20cloud-KWID_43700065767095849-aud-970366092687%3Akwd-1189010393212&amp;userloc_1009315-network_g&amp;utm_term=KW_google%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89&amp;gclid=Cj0KCQjwguGYBhDRARIsAHgRm49jVeXvjosnZwWtlwH7JdhKHnhEQHzgQMa84ql66iAeIqbPu2ycbOIaAmmPEALw_wcB&amp;gclsrc=aw.ds">GCPを使えるように設定し</a>，GCE(Compute Engine)にて「インスタンスの作成」をクリックする。</li>
+<li>今回は，月額の利用料金も高くないので，GCPの<strong>e2-medium</strong>(2vCPU, 4GB)を使う。</li>
+<li>複数人で使う場合は，<strong>n2-standard-2</strong>(2vCPU, 8GBメモリ，約75ドル/月)，<strong>n2-standard-4</strong>(4vCPU, 8GBメモリ，約150ドル/月)が良いかもしれない(国里のゼミ15名弱では，昨年度はn2-standard-4くらいを使っていた)。</li>
+</ul>
+<p><img src="pic/gce01.png" class="img-fluid"></p>
+</section>
+<section id="ブートディスクを変更する" class="level2">
+<h2 class="anchored" data-anchor-id="ブートディスクを変更する">ブートディスクを変更する</h2>
+<p>インスタンスを選んだら，「ブートディスク」で「変更」をクリックする。</p>
+<p><img src="pic/gce04.png" class="img-fluid"></p>
+</section>
+<section id="osやディスクの設定" class="level2">
+<h2 class="anchored" data-anchor-id="osやディスクの設定">OSやディスクの設定</h2>
+<p>OSはUbuntu 20.04 LTS，ディスクは50GBにした。</p>
+<p><img style="float" src="pic/gce05.png" width="500"></p>
+</section>
+<section id="ファイヤーウォールの設定" class="level2">
+<h2 class="anchored" data-anchor-id="ファイヤーウォールの設定">ファイヤーウォールの設定</h2>
+<p>「HTTP トラフィックを許可する」と「HTTPS トラフィックを許可する」にチェックをいれて，「作成」をクリック（インスタンスが作成されて起動される）</p>
+<p><img src="pic/gce06.png" class="img-fluid"></p>
+</section>
+<section id="ssh接続してポートの変更をする" class="level2">
+<h2 class="anchored" data-anchor-id="ssh接続してポートの変更をする">SSH接続してポートの変更をする</h2>
+<p>デフォルトの22番ポートには外部からの攻撃もあるのでポートを変更する。</p>
+<section id="ファイヤーウォールルールの追加" class="level3">
+<h3 class="anchored" data-anchor-id="ファイヤーウォールルールの追加">ファイヤーウォールルールの追加</h3>
+<p>GCPの「VPCネットワーク」→「ファイヤーウォールルール」で「ファイアウォール ルールの作成」を押して，以下のように新しいSSHポートを設定する。</p>
+<ul>
+<li>名前やターゲットタグは任意(私は”ssh-allow-port”としています）</li>
+<li>優先度は「 <code>1000</code>」</li>
+<li>トラフィックの方向は「上り」</li>
+<li>一致した時のアクションは「許可」</li>
+<li>ソースのIP範囲は「<code>0.0.0.0/0</code>」</li>
+<li>プロトコルは「<code>tcp</code>」</li>
+<li>ポートに「好きなポート番号」</li>
+</ul>
+<p>GCP上でVMインスタンスをクリックし，「編集」ボタンを押して，ネットワークタグに上記で決めたターゲットタグを入れて保存する。</p>
+</section>
+<section id="ssh接続してポートを変更する" class="level3">
+<h3 class="anchored" data-anchor-id="ssh接続してポートを変更する">SSH接続してポートを変更する</h3>
+<p>インスタンスの「SSH」をクリックして，サーバーに接続(22番ポート仕様)する。</p>
+<p><img src="pic/ssh.png" class="img-fluid"></p>
+<p>コンソールが出てきたら，以下のコマンドでsshdの設定ファイルを開く。</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sudo vi <span class="sc">/</span>etc<span class="sc">/</span>ssh<span class="sc">/</span>sshd_config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>画面上で<code># Port 22</code> を探して， <code>i</code> をタイプして（文字が入可能に），#を削除して，22の代わりに使いたいポート番号を入力し，escキーをタイプしてから， <code>:wq</code> とタイプする（保存＆閉じる）。</p>
+<p>sshdの設定を反映させるために，以下のコマンドで再起動させます。</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sudo systemctl restart sshd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ポートを閉じる" class="level3">
+<h3 class="anchored" data-anchor-id="ポートを閉じる">22ポートを閉じる</h3>
+<p>今，22番portで開いた画面は閉じずにそのままにし，VMインスタンスの「SSH」の下矢印を押して，「ブラウザウィンドウでカスタムポートを開く」をクリックする。そして，入力欄に先程設定した新しいSSHポート番号を入力する。</p>
+<p><img src="pic/ssh2.png" class="img-fluid"></p>
+<p>新しいSSHポートでも開けたら,「VPCネットワーク」→「ファイヤーウォールルール」で「ファイアウォール ルールの作成」を押して，以下を設定する。</p>
+<ul>
+<li>名前やターゲットタグは「任意」（私は”disallow-ssh22”とした)</li>
+<li>優先度は「 <code>1000</code> 」</li>
+<li>トラフィックの方向は「上り」</li>
+<li>一致した時のアクションは 「<code>拒否</code> 」</li>
+<li>ソースのIP範囲は，「 <code>0.0.0.0/0</code> 」</li>
+<li>プロトコルは「 <code>tcp</code> 」</li>
+<li>ポートは「 <code>22</code> 」</li>
+</ul>
+<p>VMインスタンスの「編集」を押し，ネットワークタグに上記で決めたターゲットタグを入れて保存する(これで，httpのタグ，httpsのタグ，新しいsshポートのタグ，22番ポートを閉じるタグの４つになる)。</p>
+<p>通常のSSH接続(22番ポート)をしても接続できず，「ブラウザウィンドウでカスタムポートを開く」で自分で設定したSSHポートを使って接続できたら成功になる。</p>
+<p>SSH接続後に以下を入力するとアクセス状況が見れる（ <code>f</code> で次の画面に進んで， <code>q</code> で閉じます）</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sudo less <span class="sc">/</span>var<span class="sc">/</span>log<span class="sc">/</span>auth.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>他のセキュリティ設定としては，(1)Googleアカウントの2 段階認証設定, (2)請求アラートの設定（不正利用にも気付ける），(3)公開鍵接続などがある。</p>
+</section>
+</section>
+<section id="domainの入手とサブドメインの設定" class="level2">
+<h2 class="anchored" data-anchor-id="domainの入手とサブドメインの設定">Domainの入手とサブドメインの設定</h2>
+<p><a href="https://domains.google/intl/ja_jp/">Google Domain</a>などで研究室サーバー用のドメインを入手（年1400円，無料でも入手できるサービスもあるが，国里は利用したことがない）</p>
+<p>Google Domainなどで，DNS設定をする（ドメイン名とIPアドレスを紐付ける）。ホスト名にサービス名をいれるとサブドメイン化できる（データにはインスタンスで表示される外部IPを入れる）。</p>
+<p><img src="pic/gce07.png" class="img-fluid"></p>
+</section>
+<section id="dockerのインストール" class="level2">
+<h2 class="anchored" data-anchor-id="dockerのインストール">Dockerのインストール</h2>
+<p><a href="https://docs.docker.com/engine/install/ubuntu/">Docker社のドキュメント</a>に従ってインストールする。</p>
+<p>まず，以下の必要なソフトをインストールする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install ca<span class="sc">-</span>certificates curl gnupg lsb<span class="sc">-</span>release</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>GPGキーの追加とリポジトリの用意をする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sudo mkdir <span class="sc">-</span>p <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>keyrings</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>curl <span class="sc">-</span>fsSL https<span class="sc">:</span><span class="er">//</span>download.docker.com<span class="sc">/</span>linux<span class="sc">/</span>ubuntu<span class="sc">/</span>gpg <span class="sc">|</span> sudo gpg <span class="sc">--</span>dearmor <span class="sc">-</span>o <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>keyrings<span class="sc">/</span>docker.gpg</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"</span> <span class="sc">|</span> sudo tee <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list.d<span class="sc">/</span>docker.list <span class="sc">&gt;</span> <span class="er">/</span>dev<span class="sc">/</span>null</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Docker Engineをインストールする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install docker<span class="sc">-</span>ce docker<span class="sc">-</span>ce<span class="sc">-</span>cli containerd.io docker<span class="sc">-</span>compose<span class="sc">-</span>plugin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="traefikの準備" class="level2">
+<h2 class="anchored" data-anchor-id="traefikの準備">Traefikの準備</h2>
+<p>Traefikはダッシュボードを出してくれるが，周りから丸見えなので，パスワードをつけるBASIC認証で使う。その際に，htpasswdというソフトを使うので，それが入ったapache2-utilsをインストールする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sudo apt install apache2<span class="sc">-</span>utils</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ユーザー名とパスワードを変更して実行する。アカウント名とハッシュ値が出てくるので保存しておく。</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>htpasswd <span class="sc">-</span>nb ユーザー名 パスワード</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>dockerでネットワークの準備をする(traefik-networkという名前にします)。</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sudo docker network create traefik<span class="sc">-</span>network</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Traefikの作業フォルダを作って，移動する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mkdir traefik</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>cd traefik</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>以下を実行して，traefik.ymlを用意する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sudo vi traefik.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>「メールアドレス@example.com」は自分のアドレスに変えてコピペする，「Esc」を押して，「:wq」をタイプすることで保存して閉じる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>entryPoints<span class="sc">:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  web<span class="sc">:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    address<span class="sc">:</span> <span class="er">:</span><span class="dv">80</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    http<span class="sc">:</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      redirections<span class="sc">:</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        entryPoint<span class="sc">:</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>          to<span class="sc">:</span> websecure</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>          scheme<span class="sc">:</span> https</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  websecure<span class="sc">:</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    address<span class="sc">:</span> <span class="er">:</span><span class="dv">443</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>api<span class="sc">:</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  insecure<span class="sc">:</span> false</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  dashboard<span class="sc">:</span> true</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>providers<span class="sc">:</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  docker<span class="sc">:</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    exposedByDefault<span class="sc">:</span> false</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>certificatesresolvers<span class="sc">:</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  myresolver<span class="sc">:</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    acme<span class="sc">:</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>      httpChallenge<span class="sc">:</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        entryPoint<span class="sc">:</span> web</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>      email<span class="sc">:</span> <span class="st">"メールアドレス@example.com"</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>      storage<span class="sc">:</span> <span class="st">"/letsencrypt/acme_myresolver.json"</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>log<span class="sc">:</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  filePath<span class="sc">:</span> <span class="st">"/logs/traefik.log"</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  format<span class="sc">:</span> json</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  level<span class="sc">:</span> INFO</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>accessLog<span class="sc">:</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  filePath<span class="sc">:</span> <span class="st">"/logs/access.log"</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  format<span class="sc">:</span> json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>以下を実行して，compose.yml を用意する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sudo vi compose.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>your.domainは自分の使っているドメインにしてコピペする，「アカウント名とハッシュ値を貼り付け」もコピペする（その際に， $は全て$$にしないと動かない落とし穴があるので注意する）。「Esc」を押して，「:wq」をタイプすることで保存して閉じる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>services<span class="sc">:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  traefik<span class="sc">:</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    image<span class="sc">:</span> traefik<span class="sc">:</span>latest</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    container_name<span class="sc">:</span> traefik</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    restart<span class="sc">:</span> always</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    ports<span class="sc">:</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> <span class="st">"80:80"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> <span class="st">"443:443"</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    networks<span class="sc">:</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> traefik<span class="sc">-</span>network</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    environment<span class="sc">:</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>      TZ<span class="sc">:</span> Asia<span class="sc">/</span>Tokyo</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    labels<span class="sc">:</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>      traefik.enable<span class="sc">:</span> true</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.dashboard.rule<span class="sc">:</span> <span class="fu">Host</span>(<span class="st">`</span><span class="at">traefik.your.domain</span><span class="st">`</span>)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.dashboard.entrypoints<span class="sc">:</span> websecure</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.dashboard.tls.certresolver<span class="sc">:</span> myresolver</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.dashboard.service<span class="sc">:</span> api<span class="sc">@</span>internal</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.dashboard.middlewares<span class="sc">:</span> auth</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>      traefik.http.middlewares.auth.basicauth.users<span class="sc">:</span> アカウント名とハッシュ値を貼り付け</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    volumes<span class="sc">:</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> letsencrypt_data<span class="sc">:</span><span class="er">/</span>letsencrypt </span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> <span class="er">/</span>var<span class="sc">/</span>run<span class="sc">/</span>docker.sock<span class="sc">:</span><span class="er">/</span>var<span class="sc">/</span>run<span class="sc">/</span>docker.sock<span class="sc">:</span>ro</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> .<span class="sc">/</span>traefik.yml<span class="sc">:</span><span class="er">/</span>etc<span class="sc">/</span>traefik<span class="sc">/</span>traefik.yml<span class="sc">:</span>ro</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> <span class="er">/</span>var<span class="sc">/</span>log<span class="sc">:</span><span class="er">/</span>logs</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>volumes<span class="sc">:</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  letsencrypt_data<span class="sc">:</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>networks<span class="sc">:</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  traefik<span class="sc">-</span>network<span class="sc">:</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    external<span class="sc">:</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>compose.ymlを以下のように実行する。これで，compose.ymlで設定したようにdockerが設定され，コンテナが起動する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sudo docker compose up <span class="sc">-</span>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>traefik.your.domainにアクセスすると，アカウント認証があるが，設定したものを入力して，以下のようなダッシュボードがでてきたら，成功している。</p>
+<p>一度ホームディレクトリに戻る。 ::: {.cell}</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>cd ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+</section>
+<section id="rstudio-serverを用意する" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-serverを用意する">RStudio serverを用意する</h2>
+<p>まず，ホームディレクトリ内にrstudio_composeディレクトリを作って，そちらに移動し，compose.ymlを作る。</p>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sudo mkdir rstudio_compose</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>cd rstudio_compose</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>sudo vi compose.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>開いたdocker-compose.ymlに，以下を変更したその下のコードをコピペする。改変した内容をコピペできたら，escキーをタイプして， <code>:wq</code> とタイプする（保存して閉じる）。</p>
+<ul>
+<li>「your.domain」のドメイン名を自分のものに変更する。<br>
+</li>
+<li>rstudioのユーザーIDとパスワードを変更する。<br>
+</li>
+<li>volumesの左側の./rstudioは，.のところをGCP上でpwdをした時にでてくるカレントディレクトにする必要があるかもしれません。</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>services<span class="sc">:</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  rstudio<span class="sc">:</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    image<span class="sc">:</span> ykunisato<span class="sc">/</span>paper<span class="sc">-</span>r<span class="sc">:</span>latest</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    container_name<span class="sc">:</span> rstudio</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    networks<span class="sc">:</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> traefik<span class="sc">-</span>network</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    container_name<span class="sc">:</span> rstudio</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    restart<span class="sc">:</span> always</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    environment<span class="sc">:</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> USER<span class="ot">=</span>ユーザー名</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> PASSWORD<span class="ot">=</span>パスワード</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    volumes<span class="sc">:</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> .<span class="sc">/</span>rstudio<span class="sc">:</span><span class="er">/</span>home<span class="sc">/</span>rstudio</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    labels<span class="sc">:</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>      traefik.enable<span class="sc">:</span> true</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.rstudio.rule<span class="sc">:</span> <span class="fu">Host</span>(<span class="st">`</span><span class="at">rstudio.your.domain</span><span class="st">`</span>)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.rstudio.entrypoints<span class="sc">:</span> websecure</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.rstudio.tls.certresolver<span class="sc">:</span> myresolver</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>networks<span class="sc">:</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  traefik<span class="sc">-</span>network<span class="sc">:</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    external<span class="sc">:</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>以下を実行して，用意したコンテナを起動します。イメージのダウンロードなどにしばらく時間がかかります。doneとでてきたら，終了です。</p>
+<p>compose.ymlに従ってコンテナを起動する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sudo docker compose up <span class="sc">-</span>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>rstudio.your.domainにアクセスして，RStudioのログイン画面が出てきたら，一度ホーム画面に戻る</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>cd ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="rstudioへのユーザー追加" class="level3">
+<h3 class="anchored" data-anchor-id="rstudioへのユーザー追加">RStudioへのユーザー追加</h3>
+<p>compose.ymlで設定した以外のユーザーを追加する場合は，Dockerコンテナに接続してユーザーアカウントを作る。まず，以下のコマンドで，Dockerコンテナにssh接続する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sudo docker exec <span class="sc">-</span>it rstudio bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>次に，以下のコマンドで新規ユーザー登録する。パスワードを聞かれるので打ち込んで，あとはエンターキーやYをタイプする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sudo adduser 新規ユーザー名</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>このままだと，各ユーザーが自由にRパッケージをいれられないので，以下のコマンドで，ユーザーをstaffグループにする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sudo usermod <span class="sc">-</span>a <span class="sc">-</span>G staff ユーザー名</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>exitでコンテナから出る。</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>exit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="jupyterhubを用意する" class="level2">
+<h2 class="anchored" data-anchor-id="jupyterhubを用意する">JupyterHubを用意する</h2>
+<p>まず，ホームディレクトリ内にjupyterhub_composeディレクトリを作って，そちらに移動し，compose.ymlを作る。</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mkdir jupyterhub_compose</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>cd jupyterhub_compose</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>sudo vi compose.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>以下をコピペして，:wqする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>services<span class="sc">:</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  jupyterhub<span class="sc">:</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    image<span class="sc">:</span> ykunisato<span class="sc">/</span>ccp<span class="sc">-</span>lab<span class="sc">-</span>hub</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    container_name<span class="sc">:</span> jupyterhub</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    networks<span class="sc">:</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> traefik<span class="sc">-</span>network</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    restart<span class="sc">:</span> always</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    volumes<span class="sc">:</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> <span class="er">/</span>home<span class="sc">/</span>ubuntu<span class="sc">/</span>jupyterhub<span class="sc">:</span><span class="er">/</span>home</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    labels<span class="sc">:</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>      traefik.enable<span class="sc">:</span> true</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.jupyterhub.rule<span class="sc">:</span> <span class="fu">Host</span>(<span class="st">`</span><span class="at">jupyterhub.your.domain</span><span class="st">`</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.jupyterhub.entrypoints<span class="sc">:</span> websecure</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.jupyterhub.tls.certresolver<span class="sc">:</span> myresolver</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>networks<span class="sc">:</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  traefik<span class="sc">-</span>network<span class="sc">:</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    external<span class="sc">:</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>compose.ymlに従ってコンテナを起動する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sudo docker compose up <span class="sc">-</span>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>一度ホーム画面に戻る</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>cd ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="jupyter-hubのユーザー追加と設定" class="level3">
+<h3 class="anchored" data-anchor-id="jupyter-hubのユーザー追加と設定">Jupyter Hubのユーザー追加と設定</h3>
+<p>利用開始にあたり，コンテナ内に入ってユーザーを追加する(XXXはユーザー名，途中でパスワード聞かれる)。</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sudo docker exec <span class="sc">-</span>it jupyterhub bash</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>adduser XXX</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>作成したアカウントをsuにして，juliaを起動する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>su XXX</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>julia</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>以下をコピペして，juliaを設定する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>ENV[<span class="st">"PYTHON"</span>] <span class="ot">=</span> <span class="st">""</span>;using Pkg;<span class="fu">Pkg.update</span>(); <span class="fu">Pkg.add</span>([<span class="st">"IJulia"</span>,<span class="st">"PyCall"</span>]); <span class="fu">Pkg.build</span>([<span class="st">"IJulia"</span>,<span class="st">"PyCall"</span>]); <span class="fu">Pkg.add</span>([<span class="st">"DataFrames"</span>,<span class="st">"PyPlot"</span>,<span class="st">"Distributions"</span>,<span class="st">"Statistics"</span>,<span class="st">"JuliaFormatter"</span>,<span class="st">"CPUTime"</span>,<span class="st">"Gadfly"</span>,<span class="st">"GLM"</span>,<span class="st">"Optim"</span>,<span class="st">"Plots"</span>,<span class="st">"Query"</span>,<span class="st">"RDatasets"</span>,<span class="st">"SpecialFunctions"</span>,<span class="st">"StatisticalRethinking"</span>,<span class="st">"StatsBase"</span>,<span class="st">"StatsFuns"</span>,<span class="st">"StatsPlots"</span>,<span class="st">"AdvancedHMC"</span>,<span class="st">"BAT"</span>,<span class="st">"Bijectors"</span>,<span class="st">"CmdStan"</span>,<span class="st">"DiffEqBayes"</span>,<span class="st">"DistributionsAD"</span>,<span class="st">"ForwardDiff"</span>,<span class="st">"MCMCChains"</span>,<span class="st">"MeasureTheory"</span>,<span class="st">"ParameterizedFunctions"</span>,<span class="st">"Turing"</span>,<span class="st">"LinearAlgebra"</span>,<span class="st">"DifferentialEquations"</span>,<span class="st">"Roots"</span>,<span class="st">"SymPy"</span>,<span class="st">"ForneyLab"</span>]);<span class="fu">Pkg.precompile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>exitでコンテナから出る。</p>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>exit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="jatosを用意する" class="level2">
+<h2 class="anchored" data-anchor-id="jatosを用意する">JATOSを用意する</h2>
+<p>まず，ホームディレクトリ内にjatos_composeディレクトリを作って，そちらに移動し，compose.ymlを作る。</p>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sudo mkdir jatos_compose</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>cd jatos_compose</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>sudo vi compose.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>jatos.your.domainを変更して，以下をコピペして，:wqする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>services<span class="sc">:</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  jatos<span class="sc">:</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    image<span class="sc">:</span> jatos<span class="sc">/</span>jatos<span class="sc">:</span>latest</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    container_name<span class="sc">:</span> jatos</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    networks<span class="sc">:</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> traefik<span class="sc">-</span>network</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    restart<span class="sc">:</span> always</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    labels<span class="sc">:</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>      traefik.enable<span class="sc">:</span> true</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.jatos.rule<span class="sc">:</span> <span class="fu">Host</span>(<span class="st">`</span><span class="at">jatos.your.domain</span><span class="st">`</span>)</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.jatos.entrypoints<span class="sc">:</span> websecure</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.jatos.tls.certresolver<span class="sc">:</span> myresolver</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>networks<span class="sc">:</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>  traefik<span class="sc">-</span>network<span class="sc">:</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    external<span class="sc">:</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>compose.ymlしたがって実行する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sudo docker compose up <span class="sc">-</span>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>一度ホーム画面に戻る</p>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>cd ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>JATOSは立ち上がったらすぐに，admin/adminでログインして，アドミンのパスワードを変更する。</p>
+</section>
+<section id="wordpressを用意する" class="level2">
+<h2 class="anchored" data-anchor-id="wordpressを用意する">WordPressを用意する</h2>
+<p>まず，ホームディレクトリ内にwordpress_composeディレクトリを作って，そちらに移動し，compose.ymlを作る。</p>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>sudo mkdir wordpress_compose</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>cd wordpress_compose</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>sudo vi compose.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>wordpress.your.domainを変更して，ルートのパスワードとDBのパスワードを設定してコピペして，:wqする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>services<span class="sc">:</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  db<span class="sc">:</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    image<span class="sc">:</span> mysql<span class="sc">:</span><span class="fl">5.7</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    container_name<span class="sc">:</span> wp<span class="sc">-</span>db</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    volumes<span class="sc">:</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> db_data<span class="sc">:</span><span class="er">/</span>var<span class="sc">/</span>lib<span class="sc">/</span>mysql</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    networks<span class="sc">:</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> default</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    restart<span class="sc">:</span> always</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    environment<span class="sc">:</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>      MYSQL_ROOT_PASSWORD<span class="sc">:</span> ルートのパスワード</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>      MYSQL_DATABASE<span class="sc">:</span> wordpress</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>      MYSQL_USER<span class="sc">:</span> wordpress</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>      MYSQL_PASSWORD<span class="sc">:</span> DBのパスワード</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>  wordpress<span class="sc">:</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>    depends_on<span class="sc">:</span></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> db</span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>    image<span class="sc">:</span> wordpress<span class="sc">:</span>latest</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>    container_name<span class="sc">:</span> wordpress</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>    networks<span class="sc">:</span></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> traefik<span class="sc">-</span>network</span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>      <span class="sc">-</span> default</span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>    restart<span class="sc">:</span> always</span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>    environment<span class="sc">:</span></span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>      WORDPRESS_DB_HOST<span class="sc">:</span> db<span class="sc">:</span><span class="dv">3306</span></span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a>      WORDPRESS_DB_USER<span class="sc">:</span> wordpress</span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>      WORDPRESS_DB_PASSWORD<span class="sc">:</span> DBのパスワード</span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>    labels<span class="sc">:</span></span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>      traefik.enable<span class="sc">:</span> true</span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.wordpress.rule<span class="sc">:</span> <span class="fu">Host</span>(<span class="st">`</span><span class="at">wordpress.your.domain</span><span class="st">`</span>)</span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.wordpress.entrypoints<span class="sc">:</span> websecure</span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a>      traefik.http.routers.wordpress.tls.certresolver<span class="sc">:</span> myresolver</span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a>volumes<span class="sc">:</span></span>
+<span id="cb38-36"><a href="#cb38-36" aria-hidden="true" tabindex="-1"></a>    db_data<span class="sc">:</span></span>
+<span id="cb38-37"><a href="#cb38-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-38"><a href="#cb38-38" aria-hidden="true" tabindex="-1"></a>networks<span class="sc">:</span></span>
+<span id="cb38-39"><a href="#cb38-39" aria-hidden="true" tabindex="-1"></a>  traefik<span class="sc">-</span>network<span class="sc">:</span></span>
+<span id="cb38-40"><a href="#cb38-40" aria-hidden="true" tabindex="-1"></a>    external<span class="sc">:</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>compose.ymlに従ってコンテナを起動する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>sudo docker compose up <span class="sc">-</span>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>一度ホームに戻る。</p>
+<div class="cell">
+<div class="sourceCode" id="cb40"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>cd ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>WordPressが立ち上がったのを確認したら，WordPressのインストールとアドミンアカウントの設定を行う。プラグインのSensei-LMSをインストールして，有効化する。</p>
+<p>これで，自分のサーバーで４サービス(RStudio server, JupyterHub, JATOS, WordPress)が展開できた。各サービスの使用状況（CPUやメモリ）は，以下を実行すると見やすい。</p>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>sudo docker stats <span class="sc">-</span>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+</section>
+</section>
+</main>
+<!-- /main column -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>
