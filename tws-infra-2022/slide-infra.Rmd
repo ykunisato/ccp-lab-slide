@@ -1,30 +1,47 @@
-<!DOCTYPE html>
-<html lang="" xml:lang="">
-  <head>
-    <title>心理学研究における研究室インフラの整備</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="国里愛彦（専修大学）" />
-    <script src="slide-infra_files/header-attrs-2.16/header-attrs.js"></script>
-    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
-  </head>
-  <body>
-    <textarea id="source">
-class: center, middle, inverse, title-slide
-
-.title[
-# <font size='10'>心理学研究における研究室インフラの整備</font>
-]
-.subtitle[
-## <font size='6'>日本心理学会第86回大会(2022年9月10日)</font>
-]
-.author[
-### 国里愛彦（専修大学）<img style="float:right" src="pic/yk.png" width="250">
-]
-
+---
+title: "<font size='10'>心理学研究における研究室インフラの整備</font>"
+subtitle: "<font size='6'>日本心理学会第86回大会(2022年9月10日)</font>"
+author: '国里愛彦（専修大学）<img style="float:right" src="pic/yk.png" width="250">'
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
 ---
 
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+extra_css <- list(
+  ".red"   = list(color = "red"),
+  ".small2" = list("font-size" = "50%"),
+  ".small" = list("font-size" = "65%"),
+  ".med" = list("font-size" = "80%"),
+  ".full-width" = list(
+    display = "flex",
+    width   = "100%",
+    flex    = "1 1 auto"
+  )
+)
 
+style_mono_accent(base_color = "#006400",
+  text_font_size = "30px",
+  code_font_size = "20px",
+  padding = "1em 1em 1em 1em",#margin
+  header_h1_font_size = "45px",
+  header_h2_font_size = "40px",
+  header_h3_font_size = "35px",
+  header_color = "#006400",
+  header_font_google = google_font("BIZ UDGothic"),
+  text_font_google   = google_font("BIZ UDGothic", "400", "400i"),
+  code_font_google   = google_font("Fira Mono"),
+  link_color = "#A52A2A",
+  extra_css = extra_css
+)
+# 2時間
+# 心理学研究では，データ収集や解析用ソフトウェアのインストール・設定・実行などが必要となる。近年は，オープンソースソフトウェアの広まりにより，有償ソフト以上に高機能なソフトウェアも無償で利用できるようになっている。一方で，ソフトウェアの共同開発体制が整うにしたがって，開発速度が早くなっており，ソフトウェアの再現性を担保しつつ研究を行うことが難しくなりつつある。これらに対して，再現性向上を目指して，Dockerなどを始めとしたコンテナ技術などが用いられるようになってきている。これらの技術は，心理学研究を行う上での研究室のインフラとなることが期待できるが，心理学者が学ぶ機会は少ない。本TWSでは，DockerやGitHubなどを活用した研究室インフラ構築を扱う。具体的には，jsPsychでの実験課題作成環境を研究室内で揃える方法，統計解析環境を揃える方法，サーバー上にRStuido serverやJupyterHubを導入しブラウザからのアクセスのみで研究実施環境を構築する方法について扱う。これらにより再現性だけでなく、研究室メンバーの利便性向上と管理にかかるコスト低減にもつながる。
 
+# 以下のDockerのセキュリティもチェック
+# https://qiita.com/ohhara_shiojiri/items/08909bfaed8073af57f0
+# E-learningサイト
+```
 # TWSの構成
 - ３つの再現性可能性
  - 解析の問題
@@ -75,7 +92,7 @@ class: center, middle, inverse, title-slide
 
 - こういうフォルダ構成だと再現しなそう・・・
 
-&lt;img style="float" src="pic/rs17.png" width="400"&gt;
+<img style="float" src="pic/rs17.png" width="400">
 
 - どのドキュメントを開けばいい？
 - どのデータを使う？
@@ -88,7 +105,7 @@ class: center, middle, inverse, title-slide
 
 → この作業過程でミスが混入しないとは限らない.med[(査読・論文でも見かけるありえない数値はコピペミスの氷山の一角)]
 
-&lt;img style="float" src="pic/rep01.png" width="400"&gt;
+<img style="float" src="pic/rep01.png" width="400">
 
 ---
 # なぜ解析が再現しない？
@@ -98,14 +115,14 @@ class: center, middle, inverse, title-slide
 - OSなどの環境の違いも結果の再現性に影響する
 
 
-&lt;img style="float:left" src="pic/epskamp.png" width="600"&gt;
+<img style="float:left" src="pic/epskamp.png" width="600">
 
 Epskamp(2019)
 
 ---
 # なぜ解析が再現しない？
 
-&lt;img style="float:right" src="pic/hakase.png" width="300"&gt;
+<img style="float:right" src="pic/hakase.png" width="300">
 
 - 相互運用・再利用を想定した形式でデータとコードを管理していない
 
@@ -118,13 +135,13 @@ Epskamp(2019)
 # 修士から博士への進学率の減少
 
 
-&lt;img style="float" src="pic/insei.png" width="800"&gt;
+<img style="float" src="pic/insei.png" width="800">
 
 .small[[中央教育審議会大学分科会大学院部会「人文科学・社会科学系における大学院教育改革の方向性」の「人文科学・社会科学系における大学院教育の関連データ集」](https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo4/004/mext_01176.html)]
 ---
 # 大学や心理学を取り巻く環境の変化
 
-&lt;img style="float:right" src="pic/hakase2.png" width="300"&gt;
+<img style="float:right" src="pic/hakase2.png" width="300">
 - 少子化を含めて大学を取り巻く環境は厳しくなってきている
 
 - 事前登録，オープンデータ・マテリアル，サンプルサイズ設計，高度な統計解析など，研究での要求水準は高くなっている
@@ -156,31 +173,31 @@ class: center, middle
 ### 方法の再現可能性を高める:解析のパッケージ化
 - 実行するコードの順番や説明を入れたり，データの場所が分かりやすいようにフォルダを作成(ソフトのパッケージ化を意識した**Research Compendium**.med[(Marwick et al., 2018)]の利用)
 
-&lt;img style="float:right" src="pic/os03.png" width="900"&gt;
+<img style="float:right" src="pic/os03.png" width="900">
 
 ---
 # Research Compendium
 
 - Marwick et al.(2018)では，規模ごとに [Research Compendium](https://research-compendium.science/)を提案している。
 
-&lt;img style="float:left" src="pic/rc01.png" width="250"&gt;
-&lt;img style="float:left" src="pic/rc02.png" width="250"&gt;
-&lt;img style="float:left" src="pic/rc03.png" width="250"&gt;
+<img style="float:left" src="pic/rc01.png" width="250">
+<img style="float:left" src="pic/rc02.png" width="250">
+<img style="float:left" src="pic/rc03.png" width="250">
 
 ---
-&lt;img style="float:right" src="pic/rc01.png" width="500"&gt;
+<img style="float:right" src="pic/rc01.png" width="500">
 ###  Research Compendium (小規模)
 
 - 小規模には，説明(DESCRIPTION, README),dataフォルダ，analysisフォルダで良い。
 
 ---
-&lt;img style="float:right" src="pic/rc02.png" width="500"&gt;
+<img style="float:right" src="pic/rc02.png" width="500">
 ### Research Compendium (中規模)
 
 - 中規模の例ではLicenseが追加されている。公開する場合は，ライセンスを考える。
 
 ---
-&lt;img style="float:right" src="pic/rc03.png" width="350"&gt;
+<img style="float:right" src="pic/rc03.png" width="350">
 ### Research Compendium (大規模)
 
 - 大規模では，独自R関数を繰り返し使うためのNAMESPACE，フォルダ(Rフォルダ)，その説明をいれるmanフォルダが追加される。
@@ -197,8 +214,7 @@ class: center, middle
 
 - インストール：GitHub経由でインストールができる.med[(事前にremotesパッケージを入れておく必要がある)]
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 remotes::install_github("ykunisato/psyinfr")
 ```
 
@@ -209,14 +225,13 @@ remotes::install_github("ykunisato/psyinfr")
 
 - フォルダ・ファイルの準備＆README.md, paper.Rmd(論文執筆用ファイル)，Analysis01.Rmd(分析用ファイル)が開く
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 psyinfr::set_rc()
 ```
 
 ---
 
-&lt;img style="float:right" src="pic/set_rc.png" width="350"&gt;
+<img style="float:right" src="pic/set_rc.png" width="350">
 
 # psyinfr::set_rc()
 - analysis: 分析用Rmdファイルをいれるフォルダ(Analysis01.Rmd)
@@ -238,8 +253,7 @@ psyinfr::set_rc()
 - 特に設定をしなくても，その中にあるtask.jsファイルに書き込むだけでjsPsych課題が作成できる
 
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 psyinfr::set_cbat("stroop","7.1.1")
 ```
 
@@ -247,7 +261,7 @@ psyinfr::set_cbat("stroop","7.1.1")
 ### 方法の再現可能性を高める:解析のパッケージ化
 - データから最終的な結果までが追跡できるようにコードとドキュメントを用意.med[（スタイルガイド，コードへのコメントも）]
 
-&lt;img style="float:right" src="pic/os02.png" width="800"&gt;
+<img style="float:right" src="pic/os02.png" width="800">
 
 ---
 # GitHubによるバージョン管理
@@ -265,7 +279,7 @@ psyinfr::set_cbat("stroop","7.1.1")
 
 卒論・修論・執筆中の論文は，バージョン管理して戻れるようにする
 
-&lt;img style="float" src="pic/github.png" width="700"&gt;
+<img style="float" src="pic/github.png" width="700">
 
 ---
 class: middle
@@ -276,8 +290,7 @@ class: middle
 
 - GitHubを設定して，その日の研究の開始時に以下を実行
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 psyinfr::researchIn()
 ```
 
@@ -294,8 +307,7 @@ psyinfr::researchIn()
 
 - その日の研究の終了時に以下を実行
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 psyinfr::researchOut()
 ```
 
@@ -324,7 +336,7 @@ class: center, middle
 ### 方法の再現可能性を高める:解析環境のコンテナ化
 - 解析環境(OSやソフト)が違うとそもそも実行もできないor結果が再現できないことがある。
 
-&lt;img style="float:right" src="pic/os04.png" width="550"&gt;
+<img style="float:right" src="pic/os04.png" width="550">
 
 (1)解析環境とバージョン情報を公開する
 
@@ -386,15 +398,13 @@ class: center, middle
 
 - Macのターミナルで以下を実行
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker run -e PASSWORD=password -p 8787:8787 -v $(pwd):/home/rstudio -d --name rstudio rocker/tidyverse
 ```
 
 - Windowsのコマンドプロンプトで以下を実行
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker run -e PASSWORD=password -p 8787:8787 -v "%cd%":/home/rstudio -d --name paper ykunisato/paper-r
 ```
 
@@ -405,7 +415,7 @@ docker run -e PASSWORD=password -p 8787:8787 -v "%cd%":/home/rstudio -d --name p
 
 - http://localhost:8787/ にアクセスして，IDにrstudio, パスワードをいれる
 
-&lt;img src="pic/rstudio01.png" width="650"&gt;
+<img src="pic/rstudio01.png" width="650">
 
 ---
 
@@ -414,15 +424,13 @@ docker run -e PASSWORD=password -p 8787:8787 -v "%cd%":/home/rstudio -d --name p
 
 - コンテナの動作確認するには，ターミナル・コマンドプロンプトに以下を打ち込む。STATUSがUpになっているとコンテナが動いている
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker ps -a
 ```
 
 - コンテナが停止している場合は(STATUSがExitedになっている)，コマンドプロンプトに以下を打ち込んで，コンテナを開始する
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker start コンテナ名
 ```
 
@@ -433,15 +441,13 @@ docker start コンテナ名
 
 - コンテナが不要になったら，停止して削除する。コンテナの停止には，コマンドプロンプトに以下を打ち込む
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker stop コンテナ名
 ```
 
 - コンテナの削除には，コマンドプロンプトに以下を打ち込む
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker rm コンテナ名
 ```
 
@@ -453,15 +459,13 @@ docker rm コンテナ名
 - rmしてもコンテナが削除されただけでダウンロードしたイメージは残っている
 - 以下をコマンドプロンプトに打ち込んで，イメージの状況を確認する。削除したいイメージのIMAGE IDをコピーする
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker images
 ```
 
 - 上記でコピーしたIMAGE IDを使って，以下をコマンドプロンプトに打ち込んで，イメージを削除する
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker rmi IMAGE_ID
 ```
 
@@ -480,14 +484,12 @@ docker rmi IMAGE_ID
 
 - Macの場合，以下をターミナルで実行("token that you set"は変更)
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker run -d --name notebook -v `pwd`:/home/jovyan/work -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes ykunisato/ccp-lab-j start-notebook.sh --NotebookApp.token="token that you set"
 ```
 
 - Windowsの場合，以下をコマンドプロンプトで実行("token that you set"は変更)
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker run -d --name notebook -v "%cd%":/home/jovyan/work -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes ykunisato/ccp-lab-j start-notebook.sh --NotebookApp.token="token that you set"
 ```
 
@@ -496,7 +498,7 @@ docker run -d --name notebook -v "%cd%":/home/jovyan/work -p 8888:8888 -e JUPYTE
 
 http://localhost:8888/ にアクセスする
 
-&lt;img src="pic/jupyter.png" width="750"&gt;
+<img src="pic/jupyter.png" width="750">
 
 ---
 # JATOSの使い方(1)
@@ -504,15 +506,13 @@ http://localhost:8888/ にアクセスする
 
 - Macの場合，以下をターミナルで実行
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker run -d -p 9000:9000 -e TZ=Asia/Tokyo -v $(pwd)/jatos/study_assets_root:/opt/docker/study_assets_root --name jatos jatos/jatos:latest
 ```
 
 - Windowsの場合，以下をコマンドプロンプトで実行
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker run -d -p 9000:9000 -e TZ=Asia/Tokyo -v %cd%/jatos/study_assets_root:/opt/docker/study_assets_root --name jatos jatos/jatos:latest
 ```
 
@@ -521,7 +521,7 @@ docker run -d -p 9000:9000 -e TZ=Asia/Tokyo -v %cd%/jatos/study_assets_root:/opt
 
 http://localhost:9000/ にアクセスする(最初は，admin, adminでログインする)
 
-&lt;img src="pic/jatos.png" width="500"&gt;
+<img src="pic/jatos.png" width="500">
 
 ---
 # マイDockerの作り方
@@ -534,8 +534,7 @@ http://localhost:9000/ にアクセスする(最初は，admin, adminでログ�
 
 - rocker系は8787ポートを使うので，すでに何かコンテナ立ち上げている場合は，止めておく
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker stop rstudio
 ```
 
@@ -544,12 +543,11 @@ docker stop rstudio
 
 - Dockerfileという名前のファイルを作って（拡張子はなし），以下を書き込む
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 FROM rocker/tidyverse:latest
-LABEL maintainer="Yoshihiko Kunisato &lt;mail&gt;"
+LABEL maintainer="Yoshihiko Kunisato <mail>"
 
-RUN apt update &amp;&amp; apt install -y libglpk-dev
+RUN apt update && apt install -y libglpk-dev
 RUN R -e "install.packages(c('remotes','psych','foreign'), dependencies = TRUE)"
 RUN R -e "install.packages(c('bootnet','qgraph','psychonetrics'), dependencies = TRUE)"
 RUN R -e "install.packages(c('networktools','NetworkComparisonTest'), dependencies = TRUE)"
@@ -566,31 +564,28 @@ RUN R -e "install.packages(c('networktools','NetworkComparisonTest'), dependenci
 - Dockerfileがあるフォルダに移動して(cdコマンド)，以下を実行して，ビルドする。最後のykunisato/psynetは好きな名前で良い
 - ビルドがうまくいかなこともある.med[(Linuxのコマンドを探すなど，試行錯誤が必要)]
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker build ./ -t ykunisato/psynet
 ```
 
 - imagesでビルドしたイメージを確認する
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker images
 ```
 
-&lt;img src="pic/dockerimages.png" width="800"&gt;
+<img src="pic/dockerimages.png" width="800">
 
 ---
 # コンテナを起動
 
 - 以下のコマンドでコンテナを起動する.med[（Windowsは省略）]
 
-
-```r
+```{r eval=FALSE, echo=TRUE}
 docker run -e PASSWORD=password -p 8787:8787 -v $(pwd):/home/rstudio -d --name psynet ykunisato/psynet
 ```
 
-&lt;img src="pic/rstudio02.png" width="600"&gt;
+<img src="pic/rstudio02.png" width="600">
 
 ---
 # マイDockerの活用
@@ -604,7 +599,7 @@ docker run -e PASSWORD=password -p 8787:8787 -v $(pwd):/home/rstudio -d --name p
 ---
 # 解析環境のコンテナ化のまとめ
 
-&lt;img style="float:right" src="pic/os04.png" width="500"&gt;
+<img style="float:right" src="pic/os04.png" width="500">
 
 - Dockerを使うことで，簡単に統計解析環境を再現可能にできる
 
@@ -620,7 +615,7 @@ class: center, middle
 ---
 # 研究活動（研究室運営）に必要な機能
 
-&lt;img style="float:right" src="pic/infra01.png" width="500"&gt;
+<img style="float:right" src="pic/infra01.png" width="500">
 
 - データ収集・解析・執筆までをフォローするソフトウェアが必要
 
@@ -629,7 +624,7 @@ class: center, middle
 ---
 # 必要なソフトウェア
 
-&lt;img style="float:right" src="pic/infra02.png" width="600"&gt;
+<img style="float:right" src="pic/infra02.png" width="600">
 .med[
 
 - RStudio:Rを用いたデータ解析・執筆ができる(paper-rを使うとJuliaも)
@@ -655,7 +650,7 @@ JATOSやWordPressはサーバーが必要だが，RStudioやJupyterはローカ�
 
 ---
 # サーバーの設定
-&lt;img style="float" src="pic/infra03.png" width="750"&gt;
+<img style="float" src="pic/infra03.png" width="750">
 
 .med[
 - さくらインターネットやGCPなどのサーバー上にDockerでサービスを展開
@@ -689,7 +684,7 @@ class: middle
 
 - JATOS(サーバー)があれば，オンライン実験も可能
 
-&lt;img style="float" src="pic/jatos2.png" width="750"&gt;
+<img style="float" src="pic/jatos2.png" width="750">
 
 JATOSの詳細は，[こちら](https://kunisatolab.github.io/main/data-collection-module.html)を参照ください。
 
@@ -705,10 +700,10 @@ JATOSの詳細は，[こちら](https://kunisatolab.github.io/main/data-collecti
 - 質問紙はライセンス形式が不透明なので，質問紙開発論文では質問項目だけでなく調査フォーマット(コード)も公開し，ライセンスも付与すべき？
 
 ---
-## [Cognitive &amp; Behavioral Assessment Toolbox](https://cbat.cpsy-lab.com/)
+## [Cognitive & Behavioral Assessment Toolbox](https://cbat.cpsy-lab.com/)
 
 
-&lt;img style="float:right" src="pic/cbat.png" width="550"&gt;
+<img style="float:right" src="pic/cbat.png" width="550">
 - jsPsychやlab.jsで作成された課題・質問紙を共有するリポジトリを準備中
 
 - 共有された課題は，すぐに試してみたり，研究で利用可能
@@ -718,14 +713,14 @@ JATOSの詳細は，[こちら](https://kunisatolab.github.io/main/data-collecti
 
 # CBAT
 
-&lt;img style="float" src="pic/infra04.png" width="650"&gt;
+<img style="float" src="pic/infra04.png" width="650">
 
 **DEMO**
 
 ---
 # リサーチモジュール
 
-&lt;img style="float:right" src="pic/rs00.png" width="600"&gt;
+<img style="float:right" src="pic/rs00.png" width="600">
 
 - 2022年度からゼミ生向けの演習課題(自習教材)はモジュール化
 
@@ -737,52 +732,52 @@ JATOSの詳細は，[こちら](https://kunisatolab.github.io/main/data-collecti
 # WordPressの"Sensei LMS"
 
 
-&lt;img style="float" src="pic/rs01.png" width="800"&gt;
+<img style="float" src="pic/rs01.png" width="800">
 
 ---
 # Eラーニングコース
 
-&lt;img style="float" src="pic/rs02.png" width="600"&gt;
+<img style="float" src="pic/rs02.png" width="600">
 
 ---
 # モジュール
 
-&lt;img style="float" src="pic/rs03.png" width="600"&gt;
+<img style="float" src="pic/rs03.png" width="600">
 
 ---
 # 内容と小テスト
 
-&lt;img style="float" src="pic/rs06.png" width="600"&gt;
+<img style="float" src="pic/rs06.png" width="600">
 
 ---
 # 小テスト
 
-&lt;img style="float" src="pic/rs07.png" width="600"&gt;
+<img style="float" src="pic/rs07.png" width="600">
 
 ---
 # 小テストのFB
 
-&lt;img style="float" src="pic/rs08.png" width="500"&gt;
+<img style="float" src="pic/rs08.png" width="500">
 
 ---
 # テストの採点
 
-&lt;img style="float" src="pic/rs10.png" width="600"&gt;
+<img style="float" src="pic/rs10.png" width="600">
 
 ---
 # 採点
 
-&lt;img style="float" src="pic/rs11.png" width="600"&gt;
+<img style="float" src="pic/rs11.png" width="600">
 
 ---
 # 進捗の確認(参加者)
 
-&lt;img style="float" src="pic/rs14.png" width="600"&gt;
+<img style="float" src="pic/rs14.png" width="600">
 
 ---
 # 進捗の確認（モジュール）
 
-&lt;img style="float" src="pic/rs16.png" width="600"&gt;
+<img style="float" src="pic/rs16.png" width="600">
 ---
 # まとめ
 
@@ -800,7 +795,7 @@ JATOSの詳細は，[こちら](https://kunisatolab.github.io/main/data-collecti
 - Breznau, N., Rinke, E. M., Wuttke, A., Adem, M., Adriaans, J., ... Nguyen, H. H. V. (2021). Observing many researchers using the same data and hypothesis reveals a hidden universe of uncertainty. In BITSS. https://doi.org/10.31222/osf.io/cd5j9
 - 中央教育審議会大学分科会大学院部会 (2022).人文科学・社会科学系における大学院教育の関連データ集  人文科学・社会科学系における大学院教育改革の方向性 https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo4/004/mext_01176.html
 - Epskamp, S. (2019). Reproducibility and Replicability in a Fast-Paced Methodological World. Advances in Methods and Practices in Psychological Science, 2(2), 145–155.
-- Goodman, S. N., Fanelli, D., &amp; Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341), 341ps12.
+- Goodman, S. N., Fanelli, D., & Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341), 341ps12.
 - Hardwicke, T. E., Mathur, M. B., MacDonald, K., ... Frank, M. C. (2018). Data availability, reusability, and analytic reproducibility: evaluating the impact of a mandatory open data policy at the journal Cognition. Royal Society Open Science, 5(8), 180448.
 ]
 
@@ -808,123 +803,8 @@ JATOSの詳細は，[こちら](https://kunisatolab.github.io/main/data-collecti
 ### 引用文献
 .med[
 - Hardwicke, T. E., Thibault, R. T., Kosie, J. E., ... Ioannidis, J. P. A. (2021). Estimating the Prevalence of Transparency and Reproducibility-Related Research Practices in Psychology (2014-2017). Perspectives on Psychological Science: A Journal of the Association for Psychological Science, 1745691620979806.
-- Marwick, B., Boettiger, C., &amp; Mullen, L. (2018). Packaging Data Analytical Work Reproducibly Using R (and Friends). The American Statistician, 72(1), 80–88.
+- Marwick, B., Boettiger, C., & Mullen, L. (2018). Packaging Data Analytical Work Reproducibly Using R (and Friends). The American Statistician, 72(1), 80–88.
 - Nüst, D., Eddelbuettel, D., Bennett, D., ... Xiao, N. (2020). The Rockerverse: Packages and Applications for Containerisation with R. The R Journal, 12(1), 437.
-- Obels, P., Lakens, D., Coles, N. A., Gottfried, J., &amp; Green, S. A. (2020). Analysis of Open Data and Computational Reproducibility in Registered Reports in Psychology. Advances in Methods and Practices in Psychological Science, 2515245920918872.
+- Obels, P., Lakens, D., Coles, N. A., Gottfried, J., & Green, S. A. (2020). Analysis of Open Data and Computational Reproducibility in Registered Reports in Psychology. Advances in Methods and Practices in Psychological Science, 2515245920918872.
 - Sochat, V. (2018). The Experiment Factory: Reproducible Experiment Containers. The Journal of Open Source Software, 3(22), 521.
 ]
-    </textarea>
-<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script>var slideshow = remark.create();
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function(d) {
-  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})(document);
-
-(function(d) {
-  var el = d.getElementsByClassName("remark-slides-area");
-  if (!el) return;
-  var slide, slides = slideshow.getSlides(), els = el[0].children;
-  for (var i = 1; i < slides.length; i++) {
-    slide = slides[i];
-    if (slide.properties.continued === "true" || slide.properties.count === "false") {
-      els[i - 1].className += ' has-continuation';
-    }
-  }
-  var s = d.createElement("style");
-  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
-  d.head.appendChild(s);
-})(document);
-// delete the temporary CSS (for displaying all slides initially) when the user
-// starts to view slides
-(function() {
-  var deleted = false;
-  slideshow.on('beforeShowSlide', function(slide) {
-    if (deleted) return;
-    var sheets = document.styleSheets, node;
-    for (var i = 0; i < sheets.length; i++) {
-      node = sheets[i].ownerNode;
-      if (node.dataset["target"] !== "print-only") continue;
-      node.parentNode.removeChild(node);
-    }
-    deleted = true;
-  });
-})();
-// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
-// screen reader (see PR #262)
-(function(d) {
-  let res = {};
-  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
-    const t = tr.querySelector('td:nth-child(2)').innerText;
-    tr.querySelectorAll('td:first-child .key').forEach(key => {
-      const k = key.innerText;
-      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
-    });
-  });
-  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
-})(document);
-(function() {
-  "use strict"
-  // Replace <script> tags in slides area to make them executable
-  var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container script'
-  );
-  if (!scripts.length) return;
-  for (var i = 0; i < scripts.length; i++) {
-    var s = document.createElement('script');
-    var code = document.createTextNode(scripts[i].textContent);
-    s.appendChild(code);
-    var scriptAttrs = scripts[i].attributes;
-    for (var j = 0; j < scriptAttrs.length; j++) {
-      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
-    }
-    scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-})();
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();</script>
-
-<script>
-slideshow._releaseMath = function(el) {
-  var i, text, code, codes = el.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
-  }
-};
-slideshow._releaseMath(document);
-</script>
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
-  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
-    script.src  = script.src.replace(/^https?:/, '');
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-</script>
-  </body>
-</html>
