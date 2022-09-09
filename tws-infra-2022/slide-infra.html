@@ -609,10 +609,11 @@ class: center, middle
 #　Dockerベースの研究室クラウド基盤
 
 ---
-# クラウド基盤に必要な機能
+# 研究活動（研究室運営）に必要な機能
 
-&lt;img style="float:right" src="pic/infra01.png" width="600"&gt;
-- データ収集・解析・執筆までをフォローする必要がある
+&lt;img style="float:right" src="pic/infra01.png" width="500"&gt;
+
+- データ収集・解析・執筆までをフォローするソフトウェアが必要
 
 - 教員・先輩による偶発的な学習によらない学習環境を用意する
 
@@ -621,127 +622,72 @@ class: center, middle
 
 &lt;img style="float:right" src="pic/infra02.png" width="600"&gt;
 .med[
-- JATOS：jsPsychやlab.jsをホスティングし，対面・オンラインでのデータ収集ができる
 
 - RStudio:Rを用いたデータ解析・執筆ができる(paper-rを使うとJuliaも)
 
 - Jupyter:PythonやJuliaを用いたデータ解析ができる
+
+- JATOS：jsPsychやlab.jsをホスティングし，対面・オンラインでのデータ収集ができる
 
 - WordPress:ブログサービスだが，プラグインによってEラーニングサイトにできる。
 
 ]
 
 ---
-**サーバー設定**
-&lt;img style="float" src="pic/infra03.png" width="800"&gt;
+# サーバー必要？
+
+JATOSやWordPressはサーバーが必要だが，RStudioやJupyterはローカルPCにインストールすることができる。サーバーにRStudioやJupyterを入れる利点は以下の通り。
+
+1. ゼミ生の作業環境を整えることができる
+2. 新型コロナによって大学に来れなくても卒論・修論などができる
+3. ゼミ生のPCの種類やOSに関わらず，ブラウザを開くことができれば，卒論・修論ができる.med[(Chromebookでもいい)]
+4. 研究室に置くPCなどの備品にかかるコストを減らし，実験・調査にかかる費用に割り振れる
+5. 複数拠点.med[(大学，自宅，出張先)]で作業をしたり，複数のPCで作業する場合に，解析環境が整っているのは実に便利
+
+---
+# サーバーの設定
+&lt;img style="float" src="pic/infra03.png" width="750"&gt;
+
 .med[
 - さくらインターネットやGCPなどのサーバー上にDockerでサービスを展開
 - traefikを通して，SSL，負荷分散などを行って，１つのサーバー上で複数のサービスを展開
-- 実際の設定は[こちら](https://ykunisato.github.io/ccp-lab-slide/tws-infra-2022/doc-cloud-computing.html)で説明する。
+]
+---
+class: middle
+
+# 具体的なサーバーの設定方法は[こちら](https://ykunisato.github.io/ccp-lab-slide/tws-infra-2022/doc-cloud-computing.html)で説明する
+---
+# RStudio Server
+
+- RStudio serverは，paper-rを使っているので，すぐにStanやJuliaも使える
+
+- 専修大学の卒論・修論用のRパッケージ（SenshuRmd）も入っているので，あとは中身を書くだけ
+
+- いつでも・どこでもRStudioが使える
+
+# JupyterHub
+
+- すぐにPythonとJuliaを試すことができる
+
+- 就職に向けてPythonなどを学んでおきたい学生も多いので，さっと試せる環境を用意しておけるのは便利
+
+.med[
+深層学習でGPUを使う場合は，Google Colaboratoryの課金の方がコスパ良い
 ]
 
 ---
-#　リサーチモジュール
+# JATOS
 
-&lt;img style="float" src="pic/rs00.png" width="600"&gt;
+- JATOS(サーバー)があれば，オンライン実験も可能
 
----
-#　XX
+&lt;img style="float" src="pic/jatos2.png" width="750"&gt;
 
-&lt;img style="float" src="pic/rs01.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs02.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs03.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs04.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs05.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs06.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs07.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs08.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs09.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs10.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs11.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs12.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs13.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs14.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs15.png" width="600"&gt;
-
----
-#　XX
-
-&lt;img style="float" src="pic/rs16.png" width="600"&gt;
-
----
----
-# CBAT
-&lt;img style="float" src="pic/infra04.png" width="800"&gt;
-
+JATOSの詳細は，[こちら](https://kunisatolab.github.io/main/data-collection-module.html)を参照ください。
 
 ---
 ## 結果の再現可能性を高める：マテリアルの共有
 
 - 追試を行う上でマテリアルやプロトコルの共有は不可欠だが，まだ一般的ではない(Hardwicke et al., 2021)。
-
-- マテリアルやプロトコルの共有は，(1)結果の再現可能性を高め，(2)研究にかかる時間的コストを減らし，(3)実施時の誤りも減らす。
-
-- .med[例えば，全般性不安尺度のGAD-7の4択の下限は，「not at all」なのに，2012年くらいから「not at all sure」ってタイポが論文上で出現(Zorowitz et al.,2021)。間違った選択肢の研究が147本ある・・・]
-
----
-## 結果の再現可能性を高める：マテリアルの共有
 
 - 第3者が理解できるように，(1)実験・調査・介入のプロトコル，(2)認知課題の刺激とプログラムコード，(3)質問紙の項目と調査に使用したフォーマットを共有する。
 
@@ -759,21 +705,106 @@ class: center, middle
 
 ---
 
+&lt;img style="float:right" src="pic/infra04.png" width="700"&gt;
+# CBAT
 
+**DEMO**
+
+---
+# リサーチモジュール
+
+&lt;img style="float:right" src="pic/rs00.png" width="600"&gt;
+
+- 2022年度からゼミ生向けの演習課題(自習教材)はモジュール化
+
+- 基本モジュールは全員
+
+- もう少しEラーニング化＆進捗管理もしたい
+
+---
+# WordPressのSensei LMS
+
+
+&lt;img style="float" src="pic/rs01.png" width="800"&gt;
+
+---
+# Eラーニングコース
+
+&lt;img style="float" src="pic/rs02.png" width="600"&gt;
+
+---
+# モジュール
+
+&lt;img style="float" src="pic/rs03.png" width="600"&gt;
+
+---
+# 内容と小テスト
+
+&lt;img style="float" src="pic/rs06.png" width="600"&gt;
+
+---
+# 小テスト
+
+&lt;img style="float" src="pic/rs07.png" width="600"&gt;
+
+---
+# 小テストのFB
+
+&lt;img style="float" src="pic/rs08.png" width="500"&gt;
+
+---
+# テストの採点
+
+&lt;img style="float" src="pic/rs10.png" width="600"&gt;
+
+---
+# 採点
+
+&lt;img style="float" src="pic/rs11.png" width="600"&gt;
+
+---
+# 進捗の確認(参加者)
+
+&lt;img style="float" src="pic/rs14.png" width="600"&gt;
+
+---
+# 進捗の確認（モジュール）
+
+&lt;img style="float" src="pic/rs16.png" width="600"&gt;
+---
+# まとめ
+
+- 解析のパッケージ化
+ - research compendium
+ - GitHub
+ - psyinfr
+- 解析環境のパッケージ化
+ - Dockerの使い方
+ - Dockerの作り方
+- Dockerベースの研究室クラウド基盤
+ - Rstudio server, JupyterHub
+ - リサーチモジュールとWordPress
+ - JATOSとCBAT
+ 
+---
+### 引用文献
+.med[
+- Breznau, N., Rinke, E. M., Wuttke, A., Adem, M., Adriaans, J., ... Nguyen, H. H. V. (2021). Observing many researchers using the same data and hypothesis reveals a hidden universe of uncertainty. In BITSS. https://doi.org/10.31222/osf.io/cd5j9
+- 中央教育審議会大学分科会大学院部会 (2022).人文科学・社会科学系における大学院教育の関連データ集  人文科学・社会科学系における大学院教育改革の方向性 https://www.mext.go.jp/b_menu/shingi/chukyo/chukyo4/004/mext_01176.html
+- Epskamp, S. (2019). Reproducibility and Replicability in a Fast-Paced Methodological World. Advances in Methods and Practices in Psychological Science, 2(2), 145–155.
+- Goodman, S. N., Fanelli, D., &amp; Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341), 341ps12.
+- Hardwicke, T. E., Mathur, M. B., MacDonald, K., ... Frank, M. C. (2018). Data availability, reusability, and analytic reproducibility: evaluating the impact of a mandatory open data policy at the journal Cognition. Royal Society Open Science, 5(8), 180448.
+]
 
 ---
 ### 引用文献
-- Breznau, N., Rinke, E. M., Wuttke, A., Adem, M., Adriaans, J., Alvarez-Benjumea, A., Andersen, H. K., Auer, D., Azevedo, F., Bahnsen, O., Balzer, D., Bauer, G., Bauer, P., Baumann, M., Baute, S., Benoit, V., Bernauer, J., Berning, C., Berthold, A., … Nguyen, H. H. V. (2021). Observing many researchers using the same data and hypothesis reveals a hidden universe of uncertainty. In BITSS. https://doi.org/10.31222/osf.io/cd5j9
-- Epskamp, S. (2019). Reproducibility and Replicability in a Fast-Paced Methodological World. Advances in Methods and Practices in Psychological Science, 2(2), 145–155.
-- 船守美穂(2022) 大学はオープンサイエンスにどのように向き合うか　科学, 192(8), 703-707.
-- Hardwicke, T. E., Mathur, M. B., MacDonald, K., Nilsonne, G., Banks, G. C., Kidwell, M. C., Hofelich Mohr, A., Clayton, E., Yoon, E. J., Henry Tessler, M., Lenne, R. L., Altman, S., Long, B., &amp; Frank, M. C. (2018). Data availability, reusability, and analytic reproducibility: evaluating the impact of a mandatory open data policy at the journal Cognition. Royal Society Open Science, 5(8), 180448.
-- Hardwicke, T. E., Thibault, R. T., Kosie, J. E., Wallach, J. D., Kidwell, M. C., &amp; Ioannidis, J. P. A. (2021). Estimating the Prevalence of Transparency and Reproducibility-Related Research Practices in Psychology (2014-2017). Perspectives on Psychological Science: A Journal of the Association for Psychological Science, 1745691620979806.
-- Goodman, S. N., Fanelli, D., &amp; Ioannidis, J. P. A. (2016). What does research reproducibility mean? Science Translational Medicine, 8(341), 341ps12.
+.med[
+- Hardwicke, T. E., Thibault, R. T., Kosie, J. E., ... Ioannidis, J. P. A. (2021). Estimating the Prevalence of Transparency and Reproducibility-Related Research Practices in Psychology (2014-2017). Perspectives on Psychological Science: A Journal of the Association for Psychological Science, 1745691620979806.
 - Marwick, B., Boettiger, C., &amp; Mullen, L. (2018). Packaging Data Analytical Work Reproducibly Using R (and Friends). The American Statistician, 72(1), 80–88.
+- Nüst, D., Eddelbuettel, D., Bennett, D., ... Xiao, N. (2020). The Rockerverse: Packages and Applications for Containerisation with R. The R Journal, 12(1), 437.
 - Obels, P., Lakens, D., Coles, N. A., Gottfried, J., &amp; Green, S. A. (2020). Analysis of Open Data and Computational Reproducibility in Registered Reports in Psychology. Advances in Methods and Practices in Psychological Science, 2515245920918872.
-- Nüst, D., Eddelbuettel, D., Bennett, D., Cannoodt, R., Clark, D., Daróczi, G., Edmondson, M., Fay, C., Hughes, E., Kjeldgaard, L., Lopp, S., Marwick, B., Nolis, H., Nolis, J., Ooi, H., Ram, K., Ross, N., Shepherd, L., Sólymos, P., … Xiao, N. (2020). The Rockerverse: Packages and Applications for Containerisation with R. The R Journal, 12(1), 437.
 - Sochat, V. (2018). The Experiment Factory: Reproducible Experiment Containers. The Journal of Open Source Software, 3(22), 521.
-- Zorowitz, S., Bennett, D., Choe, G., &amp; Niv, Y. (2021). A recurring reproduction error in the administration of the Generalized Anxiety Disorder scale. The Lancet. Psychiatry, 8(3), 180–181.
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
