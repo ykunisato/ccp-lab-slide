@@ -158,7 +158,7 @@
 <h2 class="anchored" data-anchor-id="注意事項">注意事項</h2>
 <p>以降では各種サービスをサーバー上で展開して，研究室で活用していく方法について説明するが，以下の注意事項がある。</p>
 <ul>
-<li>国里は臨床心理学者であり，<strong>情報系の専門家</strong>ではない。<strong>サーバーの利用については，各自がサーバーの基礎知識や基本的なセキュリティ管理をしっかり身につけていただくようにお願いします。</strong></li>
+<li>国里は臨床心理学者であり，<strong>情報系の専門家ではない</strong>。<strong>サーバーの利用については，各自がサーバーの基礎知識や基本的なセキュリティ管理をしっかり身につけていただくようにお願いします。</strong></li>
 <li><strong>以降の内容について，誤った操作・設定による損害・損失について国里は責任を持てませんので，各自の判断で行ってください。</strong></li>
 </ul>
 </section>
@@ -172,7 +172,7 @@
 <h1>GCP(Google Cloud Platform）を用いたクラウド基盤の構築法</h1>
 <section id="本日のデモの構成" class="level2">
 <h2 class="anchored" data-anchor-id="本日のデモの構成">本日のデモの構成</h2>
-<p><a href="https://cloud.google.com/landing/free-trial?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=japac-JP-all-ja-dr-bkws-all-super-trial-e-dr-1009882&amp;utm_content=text-ad-none-none-DEV_c-CRE_521901739373-ADGP_Hybrid%20%7C%20BKWS%20-%20PHR%20%7C%20Txt%20~%20GCP%20~%20General_Cloud%20-%20google%20cloud-KWID_43700065767095849-aud-970366092687%3Akwd-1189010393212&amp;userloc_1009315-network_g&amp;utm_term=KW_google%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89&amp;gclid=Cj0KCQjwguGYBhDRARIsAHgRm49jVeXvjosnZwWtlwH7JdhKHnhEQHzgQMa84ql66iAeIqbPu2ycbOIaAmmPEALw_wcB&amp;gclsrc=aw.ds">GCPを使えるように設定し</a>，GCE(Compute Engine)にて「インスタンスの作成」をクリックする。なお，Googleアカウントの2 段階認証を設定していない場合は，この機会に設定して，セキュリティを高める（パスワードも長いものにしておく）。</p>
+<p><a href="https://cloud.google.com/landing/free-trial?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=japac-JP-all-ja-dr-bkws-all-super-trial-e-dr-1009882&amp;utm_content=text-ad-none-none-DEV_c-CRE_521901739373-ADGP_Hybrid%20%7C%20BKWS%20-%20PHR%20%7C%20Txt%20~%20GCP%20~%20General_Cloud%20-%20google%20cloud-KWID_43700065767095849-aud-970366092687%3Akwd-1189010393212&amp;userloc_1009315-network_g&amp;utm_term=KW_google%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89&amp;gclid=Cj0KCQjwguGYBhDRARIsAHgRm49jVeXvjosnZwWtlwH7JdhKHnhEQHzgQMa84ql66iAeIqbPu2ycbOIaAmmPEALw_wcB&amp;gclsrc=aw.ds">GCPを使えるように設定し</a>，GCE(Compute Engine)にて「インスタンスの作成」をクリックする。なお，Googleアカウントの2 段階認証を設定していない場合は，この機会に設定して，セキュリティを高める（パスワードも長く複雑性の高いものにしておく）。</p>
 <p>今回は，月額の利用料金を低く抑えられるGCPの<strong>e2-medium</strong>(2vCPU, 4GB)を使う。複数人で使う場合は，<strong>n2-standard-2</strong>(2vCPU, 8GBメモリ，約75ドル/月)，<strong>n2-standard-4</strong>(4vCPU, 8GBメモリ，約150ドル/月)が良いかもしれない(大体15名程度が在籍する国里研究室では，昨年度はn2-standard-4くらいを使っていた)。</p>
 <p><img src="pic/gce01.png" class="img-fluid"></p>
 </section>
@@ -224,7 +224,7 @@
 </section>
 <section id="ポートを閉じる" class="level3">
 <h3 class="anchored" data-anchor-id="ポートを閉じる">22ポートを閉じる</h3>
-<p>22番portで開いた画面は閉じずにそのままにし（もしここで閉じちゃうと，ポート設定がうまくできてない場合にサーバーにアクセスできなくなる），VMインスタンスの「SSH」の下矢印を押して，「ブラウザウィンドウでカスタムポートを開く」をクリックする。そして，入力欄に先程設定した新しいSSHポート番号を入力する。</p>
+<p>22番portで開いた画面は閉じずにそのままにし（もしここで閉じちゃうと，ポート設定がうまくできてない場合に自分がサーバーにアクセスできなくなる），VMインスタンスの「SSH」の下矢印を押して，「ブラウザウィンドウでカスタムポートを開く」をクリックする。そして，入力欄に先程設定した新しいSSHポート番号を入力する。</p>
 <p><img src="pic/ssh2.png" class="img-fluid"></p>
 <p>新しいSSHポートでも開けたら,「VPCネットワーク」→「ファイヤーウォールルール」で「ファイアウォール ルールの作成」を押して，以下を設定する。</p>
 <ul>
@@ -243,7 +243,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sudo less <span class="sc">/</span>var<span class="sc">/</span>log<span class="sc">/</span>auth.log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>その他のセキュリティ設定としては，(1)請求アラートの設定（不正利用にも気付ける），(2)サーバー稼働状況の監視などがある。</p>
+<p>その他のセキュリティ設定としては，(1)請求アラートの設定（不正利用にも気付ける），(2)サーバー稼働状況の監視，(3)GCPのスマホアプリをいれていつでもVMをシャットダウンできるようにしておくなどがある。</p>
 </section>
 </section>
 <section id="domainの入手とサブドメインの設定" class="level2">
