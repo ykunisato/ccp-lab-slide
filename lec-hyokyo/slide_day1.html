@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="slide_day1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="slide_day1_files/libs/quarto-html/tabby.min.js"></script>
+<script src="slide_day1_files/libs/quarto-html/popper.min.js"></script>
+<script src="slide_day1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="slide_day1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="slide_day1_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="slide_day1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.2.335">
+
+  <meta name="author" content="国里愛彦">
+  <title>臨床心理統計研究法</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slide_day1_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="slide_day1_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="slide_day1_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="slide_day1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="slide_day1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="slide_day1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="slide_day1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">臨床心理統計研究法</h1>
+  <p class="subtitle">1日目</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+国里愛彦 
+</div>
+</div>
+</div>
+
+</section>
+<section class="slide level2">
+
+<p>【授業のテーマ】臨床現場では様々な意思決定が求められるが，それにあたり最新かつ最良の科学的根拠を考慮することが望ましい。臨床実践に関わる科学的根拠を理解し，評価し，さらには作り出すためには，研究デザインと統計学の理解が必要となる。本授業では，受講生が臨床心理学に関連した研究デザインと統計学について理解し，研究論文を評価できるようになり，ひいては受講生の研究計画の立案・実施にも使えることを目指す。 【到達目標】 ・臨床心理学・医学領域で用いられる研究デザインについて理解し，論文の批判的吟味ができるようになる。 ・臨床心理学・医学領域で用いられる研究デザインを用いた研究計画を立てられるようになる。 ・臨床心理学・医学領域で用いられる統計学について理解し，実際に統計解析できるようになる。</p>
+</section>
+<section id="授業内容1日目" class="slide level2">
+<h2>授業内容(1日目)</h2>
+<ul>
+<li>1.科学的根拠とは何か？</li>
+<li>2.無作為化比較試験の批判的吟味</li>
+<li>3.観察研究の批判的吟味</li>
+<li>4.メタ分析の批判的吟味</li>
+<li>5.患者報告式アウトカム尺度の批判的吟味</li>
+<li>研究倫理についても学ぶ</li>
+</ul>
+</section>
+<section id="授業内容2日目" class="slide level2">
+<h2>授業内容(2日目)</h2>
+<ul>
+<li>6.統計解析環境の構築</li>
+<li>7.データの読み込みと前処理</li>
+<li>8.データの可視化</li>
+<li>9.記述統計と効果量</li>
+<li>10.平均値差の検定</li>
+<li>11.回帰分析と因果関係</li>
+<li>12.因子分析，SEM，メタ分析</li>
+</ul>
+</section>
+<section id="授業内容3日目" class="slide level2">
+<h2>授業内容(3日目)</h2>
+<ul>
+<li>13.心理ネットワークアプローチ</li>
+<li>14.計算論的アプローチ</li>
+<li>15.再現可能な臨床心理学研究</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="科学的根拠とは何か" class="title-slide slide level1 center">
+<h1>1.科学的根拠とは何か？</h1>
+
+</section>
+<section id="機序研究と実用研究" class="slide level2">
+<h2>機序研究と実用研究</h2>
+<ul>
+<li>心理学・精神医学研究には，機序研究(Mechanistic research)と実用研究(Pragmatic research)がある（榊原, 2020,「精神医学におけるM科学とP科学」）</li>
+<li>機序研究：基礎的な心や精神的な病のメカニズムにかかわる研究（生物学的研究の場合，ミクロな原因を探る）</li>
+<li>実用研究：現象の予測や介入に関する知見を蓄積する研究（原因が分からなくても，予測はできるし，効果的な治療法の評価はできる）</li>
+</ul>
+</section>
+<section id="機序研究と実用研究の混同に注意" class="slide level2">
+<h2>機序研究と実用研究の混同に注意</h2>
+<ul>
+<li>臨床実践における意思決定・問題解決には実用研究が適している。</li>
+<li>すぐには役には立たないかもしれないが，解明されることで一気に実践に変化が生じるのが機序研究になる。</li>
+<li>機序研究も実用研究も両方が必要だが，２つを混同すると議論がややこしくなる（例.研究=機序研究とは限らない，エビデンス≠機序研究知見，役に立つ研究とは？）。</li>
+</ul>
+</section>
+<section id="ebmと実用研究" class="slide level2">
+<h2>EBMと実用研究</h2>
+<ul>
+<li>EBMは1991年にGuyattらによって提唱された。 1996年の以下のSackettらの定義が一般的にEBMの定義とされる。</li>
+<li>EBMとは，「個々の患者のケアに関わる意思を決定するために，最新かつ最良の根拠を，一貫性を持って，明示的な態度で，思慮深く用いること」</li>
+<li>EBMでは実用研究(臨床研究)の知見を用いる。EBMの実践は実用研究の実施につながることも多く，エビデンスの活用と創出が表裏になる。</li>
+</ul>
+</section>
+<section id="ebmの実施方法" class="slide level2">
+<h2>EBMの実施方法</h2>
+<ul>
+<li>ステップ１：臨床上の問題の定式化</li>
+<li>ステップ２：問題についての情報収集</li>
+<li>ステップ３：得られた情報の批判的吟味</li>
+<li>ステップ４：得られた情報の患者への適用</li>
+<li>ステップ５：これまでの実践の評価</li>
+</ul>
+</section>
+<section id="ebmの実施方法-1" class="slide level2">
+<h2>EBMの実施方法</h2>
+<ul>
+<li><strong>ステップ１：臨床上の問題の定式化</strong></li>
+<li><strong>ステップ２：問題についての情報収集</strong></li>
+<li>ステップ３：得られた情報の批判的吟味</li>
+<li>ステップ４：得られた情報の患者への適用</li>
+<li>ステップ５：これまでの実践の評価</li>
+</ul>
+</section>
+<section id="臨床的疑問の定式化介入方法" class="slide level2">
+<h2>臨床的疑問の定式化：介入方法</h2>
+<ul>
+<li>臨床実践における疑問が介入方法の場合は，PICO形式で定式化する。</li>
+<li>Patients: どのような臨床状態の患者が対象か？</li>
+<li>Intervention: どのような治療的介入を行うと？</li>
+<li>Comparison: Iを実施しないorその他の介入（無治療？通常治療？）に比べて？</li>
+<li>Outcome:何に効果があるのか？</li>
+</ul>
+</section>
+<section id="臨床的疑問の定式化治療法" class="slide level2">
+<h2>臨床的疑問の定式化：治療法</h2>
+<ul>
+<li>Patients: 老年期うつ病患者</li>
+<li>Intervention: 行動活性化療法</li>
+<li>Comparison: 通常治療（抗うつ薬治療）</li>
+<li>Outcome:うつ症状</li>
+</ul>
+<p>→PとIでPubmed検索したところ，“Engage”(社会的報酬への曝露などの行動活性化を含んだ老年期うつ病向けの介入パッケージ)の非RCTの介入研究が見つかった(Solomonov et al., 2019, American Journal of Geriatric Psychiatry, 27, 571–578)。症状低下と行動活性化の増加が報告されている。</p>
+</section>
+<section id="臨床的疑問の定式化原因や予測" class="slide level2">
+<h2>臨床的疑問の定式化：原因や予測</h2>
+<ul>
+<li>臨床実践における疑問が原因や予測の場合は，PECO形式で定式化する。</li>
+<li>Patients: どのような臨床状態の患者が対象か？</li>
+<li>Exposure: どのような要因があることで？</li>
+<li>Comparison: Eの要因がないor 他の要因がある？</li>
+<li>Outcome:何に効果があるのか？</li>
+</ul>
+</section>
+<section id="臨床的疑問の定式化原因" class="slide level2">
+<h2>臨床的疑問の定式化：原因</h2>
+<ul>
+<li>Patients:一般成人</li>
+<li>Exposure:虐待経験あり</li>
+<li>Comparison:虐待経験なし</li>
+<li>Outcome:自傷行為</li>
+</ul>
+<p>→EとOをいれて，Pubmed検索をしたところ，系統的展望が検索に引っかかった(Angelakis et al.,2019, Psychological Medicine, 49, 1057–1078)。小児期の虐待経験（性的，身体的，情緒的）は，その後の自殺未遂のリスクを２〜３倍に増加させる。</p>
+</section>
+<section id="メインのアウトカム設定" class="slide level2">
+<h2>メインのアウトカム設定</h2>
+<ol type="1">
+<li>アウトカムは１つにしぼる</li>
+<li>患者（もしくは医療や社会）にとって切実なものを選ぶ（生化学的検査結果などは患者にとって切実だろうか？）</li>
+<li>測定可能，変容可能である</li>
+<li>アウトカムの測定時期を決める（治療直後？治療１年後？）</li>
+</ol>
+</section>
+<section id="良い研究テーマとは" class="slide level2">
+<h2>良い研究テーマとは？</h2>
+<ul>
+<li>FINER(Hulley et al., 2013)</li>
+<li>Feasible(実施可能性)：参加者数，コスト，専門性などを考慮して実行できるか？</li>
+<li>Interesting(科学的興味深さ)：科学的な真理の探求において興味深いか？</li>
+<li>Novel(新規性)：過去の知見の確認，否定，拡張につながるか？新しい知見を提供できるか？</li>
+<li>Ethical(倫理性)：倫理的に問題はないか？</li>
+<li>Relevant(必要性)：患者，医療，社会にとって実施する必要があるか？</li>
+</ul>
+</section>
+<section id="ワーク１" class="slide level2">
+<h2>ワーク１</h2>
+<ul>
+<li><p>今からご自身の普段の臨床実践の中で疑問に思っていることを振り返ってみましょう！</p></li>
+<li><p>その疑問を，PICOもしくはPECO形式で定式化してみましょう！</p></li>
+</ul>
+</section>
+<section id="ebmの実施方法-2" class="slide level2">
+<h2>EBMの実施方法</h2>
+<p>ステップ１：臨床上の問題の定式化 ステップ２：問題についての情報収集 ステップ３：<strong>得られた情報の批判的吟味</strong> ステップ４：得られた情報の患者への適用 ステップ５：これまでの実践の評価</p>
+</section>
+<section id="科学的根拠エビデンスの強さとは" class="slide level2">
+<h2>科学的根拠（エビデンス）の強さとは？</h2>
+<ul>
+<li>エビデンス強い≠PICO/PECOに基づいて検索して見つけた論文が有名な雑誌に掲載されている 科学的根拠の強さ</li>
+</ul>
+<p>→科学的根拠の内容についての確信度の強さ</p>
+<p>→因果関係における確信度の強さ</p>
+<ul>
+<li>因果関係における確信度の強さは，研究デザインのタイプ，個々の研究の質に依存する</li>
+</ul>
+</section>
+<section id="エビデンスの強さと研究デザイン" class="slide level2">
+<h2>エビデンスの強さと研究デザイン</h2>
+<ul>
+<li>研究デザインが因果関係における確信度の強さを左右するが，個々の研究の質が重要（RCTだから観察研究よりも確信度が強いとは限らない）</li>
+</ul>
+
+<img data-src="images/Screenshot%202023-07-28%20at%2014.20.01.png" class="r-stretch"></section>
+<section id="介入と結果の因果関係とは" class="slide level2">
+<h2>介入と結果の因果関係とは？</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>病気になったので，新しい薬を試したら治った</p></li>
+<li><p>薬(原因)のおかげで治癒（結果）した？</p></li>
+</ul>
+<p>→自然治癒かも？</p>
+<p>→もし薬を飲まなかったという場合の結果と比較しないといけない（これは現実には生じてない事象なので反事実という）</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="images/Screenshot%202023-07-28%20at%2014.20.37.png"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="平均因果効果" class="slide level2">
+<h2>平均因果効果</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>個人では事実と反事実の比較は不可能</p>
+<p>→集団レベルで平均因果効果を調べる。</p>
+<p>→事実と反事実が<strong>交換可能</strong>であることが平均因果効果の推定では重要</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-07-28%20at%2014.20.47.png"></p>
+</div>
+</div>
+</section>
+<section id="交換可能にするには" class="slide level2">
+<h2>交換可能にするには？</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>事実と反事実が<strong>交換可能</strong>であることが平均因果効果の推定では重要</p></li>
+<li><p>治療Aと治療Bの選択に影響する変数（選択バイアス）や治療と結果に影響する変数（交絡変数）があると交換可能ではなくなる。</p></li>
+<li><p>無作為化，交絡変数の調整などによって交換可能にする（研究デザインの理解が重要になる）。</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-07-28%20at%2014.20.59.png"></p>
+</div>
+</div>
+</section>
+<section id="無作為化比較試験randomized-controlled-trialrct" class="slide level2">
+<h2>無作為化比較試験(Randomized Controlled Trial：RCT)</h2>
+<ul>
+<li>RCTでは，交換可能性を担保するために，無作為割付をする。</li>
+</ul>
+<p>→対象者が来るたびに第三者がコンピュータを用いて割付を行うなど，真にランダムな割付を保証する必要がある。</p>
+
+<img data-src="images/Screenshot%202023-07-28%20at%2014.45.36.png" class="r-stretch"></section>
+<section id="無作為化比較試験の種類" class="slide level2">
+<h2>無作為化比較試験の種類</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>優越性試験(Superiority):介入群が統制群よりも優れていることを検証する試験</p></li>
+<li><p>非劣性試験(Non-inferiority):介入群が統制群よりも劣ってないことを検証する試験</p></li>
+<li><p>同等性試験(Equivalence):介入群が統制群と同等であることを検証する試験</p></li>
+</ul>
+<p>→非劣性・同等性試験は，統計学的に有意でないということではなく，劣ってない・同等であるマージン内に収まることを検証する</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-07-28%20at%2014.46.01.png"></p>
+</div>
+</div>
+</section>
+<section id="クロスセクショナル研究横断研究" class="slide level2">
+<h2>クロスセクショナル研究（横断研究）</h2>
+<ul>
+<li><p>同時点における暴露と症状（疾患）の有無との関連を検討する。同時点での調査のため，曝露と症状の因果関係についての確信度は低い。</p></li>
+<li><p>調査にかかるコストや負担が小さい。因果関係の検討が目的ではない有病調査や診断精度研究では有用な研究デザイン。</p></li>
+</ul>
+
+<img data-src="images/Screenshot%202023-07-28%20at%2014.46.13.png" class="r-stretch"></section>
+<section id="ケースコントロール研究症例対照研究" class="slide level2">
+<h2>ケースコントロール研究（症例対照研究）</h2>
+<ul>
+<li><p>現時点で症状の有る群と適切な対照群を対象に，過去の暴露経験を比較する。時間的な関係から因果関係について検討できるという利点がある。</p></li>
+<li><p>現在の状態から過去を振り返るという後ろ向きなデザインのため，暴露の有無の情報の信頼性や妥当性は低くなる。</p></li>
+</ul>
+
+<img data-src="images/Screenshot%202023-07-28%20at%2014.46.25.png" class="r-stretch"></section>
+<section id="コホート研究" class="slide level2">
+<h2>コホート研究</h2>
+<ul>
+<li><p>ある時点（現在）から一定期間にわたって追跡調査を行って，暴露(原因)と症状（結果）との関係を検討する。観察研究の中では暴露と症状との因果関係の確信度が最も高くなる研究デザイン。</p></li>
+<li><p>研究開始時点では発症するかどうかわからない対象者に調査を行う。→研究の規模が大きくなり，コストが高くなる。稀な疾患については研究が難しい。</p></li>
+</ul>
+
+<img data-src="images/Screenshot%202023-07-28%20at%2014.49.48.png" class="r-stretch"></section>
+<section id="交絡因子の調整" class="slide level2">
+<h2>交絡因子の調整</h2>
+<ul>
+<li><p>観察研究の場合，原因（or治療）の選択や原因と結果との関係に影響する交絡因子があるかもしれない（例. 治療Cに強い副作用がある場合，動機づけの高い患者のみが治療を受ける・継続するかもしれない。治療Cが他の治療よりも効果が高いのは，そのような動機づけの高い患者が多いからかも)</p></li>
+<li><p>マッチング（群の特性が同じようになるようにデータ収集)，層化（データから同じ特性の２群になるようにグループ化），多変量解析（交絡因子を共変量に投入）などによる交絡因子の調整が必要になる。</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+
+<img data-src="images/Screenshot%202023-07-28%20at%2014.46.44.png" class="r-stretch"></section>
+<section id="系統的展望メタ分析" class="slide level2">
+<h2>系統的展望・メタ分析</h2>
+<ul>
+<li>過去の研究を系統的に集めた上で，批判的に検討し，量的・統計的に統合する方法。</li>
+</ul>
+<p>実施手順は以下の通り。</p>
+<ul>
+<li><p>問題の定式化　</p></li>
+<li><p>文献検索</p></li>
+<li><p>研究の選択・データ抽出</p></li>
+<li><p>個々の研究のバイアス評価</p></li>
+<li><p>結果の統合</p></li>
+<li><p>バイアスの検討</p></li>
+</ul>
+</section>
+<section id="研究報告ガイドライン" class="slide level2">
+<h2>研究報告ガイドライン</h2>
+<p>研究デザインごとに論文での報告ガイドラインが整備されてきている（<a href="https://www.equator-network.org/" class="uri">https://www.equator-network.org/</a> ）。</p>
+<ul>
+<li><p>無作為化比較試験：CONSORT</p></li>
+<li><p>観察研究：STROBE</p></li>
+<li><p>系統的展望：PRISMA</p></li>
+<li><p>診断精度，予後予測研究： STARD, TRIPOD</p></li>
+<li><p>事例報告： CARE</p></li>
+</ul>
+</section>
+<section id="研究報告ガイドライン-1" class="slide level2">
+<h2>研究報告ガイドライン</h2>
+<ul>
+<li><p>研究報告ガイドラインは，日本語化されているものもある（ガイドライン名で検索ください）。</p></li>
+<li><p>『行動療法研究』特集号「研究報告に関するガイドライン」(2014年3号〜2015年2号)では，研究報告ガイドラインについて解説がされている。</p></li>
+<li><p>『認知行動療法研究』特集号「<a href="https://ytake2.github.io/CBT_research_methodology/home/">認知行動療法研究の新時代を切り開く研究法</a>」でも扱っている。</p></li>
+</ul>
+</section>
+<section id="ワーク" class="slide level2">
+<h2>ワーク</h2>
+<ul>
+<li><p>ワーク１で挙げたPICOとPECOを検討する上で適切な研究デザインはどれか考えてみましょう！</p></li>
+<li><p>実現可能性も考えて，検討してください。</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="無作為化比較試験の批判的吟味" class="title-slide slide level1 center">
+<h1>2.無作為化比較試験の批判的吟味</h1>
+
+</section>
+<section id="無作為化比較試験randomized-controlled-trialrct-1" class="slide level2">
+<h2>無作為化比較試験(Randomized Controlled Trial：RCT)</h2>
+<ul>
+<li>RCTでは，交換可能性を担保するために，無作為割付をする。</li>
+</ul>
+<p>→対象者が来るたびに第三者がコンピュータを用いて割付を行うなど，真にランダムな割付を保証する必要がある。</p>
+
+<img data-src="images/Screenshot%202023-07-28%20at%2017.54.29.png" class="r-stretch"></section>
+<section id="rctの批判的吟味のポイント" class="slide level2">
+<h2>RCTの批判的吟味のポイント</h2>
+<p>RCTの批判的吟味のポイントとしては，主に以下の４点がある（以下があると因果関係の確信度が下がる）</p>
+<ul>
+<li><p>割り付けの隠蔽がない（不適切な乱数生成）</p></li>
+<li><p>盲検化されていない</p></li>
+<li><p>患者やアウトカムイベントの検討が不完全</p></li>
+<li><p>選択的アウトカム報告バイアスがある</p></li>
+</ul>
+</section>
+<section id="割り付けの隠蔽がない不適切な乱数生成" class="slide level2">
+<h2>割り付けの隠蔽がない（不適切な乱数生成）</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>患者を研究に組み入れる担当者が，割付表などから次に組み入れる患者がどちらの群に割り振られるのか知っている</li>
+</ul>
+<p>→意識・無意識的に,割付表を意識した組み入れとなり,選択バイアスが生じる。</p>
+<ul>
+<li>割付けを曜日，誕生日，カルテ番号などの推測可能なものを使ってないかも重要（適切な乱数生成の推奨）。</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-07-28%20at%2017.55.36.png"></p>
+</div>
+</div>
+</section>
+<section id="論文の記載例" class="slide level2">
+<h2>論文の記載例</h2>
+<p>うつ病患者における職業機能改善のための電話認知行動療法の効果(Raymond et al., 2013,BJPsych,203,358-365)</p>
+<p><strong>[Methodの”Procedure”,“Randomization”,“Design”など]</strong></p>
+<p>＜ランダム化＞“A central computerised randomisation process was generated by an independent statistician, stratified for site and conducted in random blocks of 4 or 8. Concealment of allocation was accomplished using an automated online system that revealed the treatment allocation only after the unique participant number was entered”(患者のIDを登録してから、割り付けられる治療が明らかとなる自動オンラインシステムを利用).</p>
+</section>
+<section id="盲検化されていない" class="slide level2">
+<h2>盲検化されていない</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>患者，治療者，アウトカムの報告者，評価者，データ解析担当者が，患者がどの群に割り付けられたか分かった状態（盲検化していない）。</li>
+</ul>
+<p>→盲検化してないと，どの治療をうけたかの情報によって評価が変わる情報バイアスが生じる可能性がある。</p>
+<p>＊心理療法だと患者と治療者の盲検化が不可能。少なくともアウトカムの報告者・評価者の盲検化。</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-07-28%20at%2017.56.49.png"></p>
+</div>
+</div>
+</section>
+<section id="論文の記載例-1" class="slide level2">
+<h2>論文の記載例</h2>
+<p>セロトニン再取り込み阻害薬治療をうけている強迫性障害患者の増強療法（CBT vs リスペリドン）の効果(Simpson et al., 2013, JAMA Psychiatry, 70, 1190-1198)</p>
+<p><strong>[Methodの”Assessment”など]</strong></p>
+<p>“Independent evaluators, blind to treatment, evaluated patients at baseline (week 0), midway through treatment (week 4), and posttreatment (week 8).”</p>
+</section>
+<section id="患者やアウトカムイベントの不完全な検討" class="slide level2">
+<h2>患者やアウトカムイベントの不完全な検討</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>治療や追跡調査からの脱落者が報告されており，治療や追跡からの脱落に対して、Intention to treat (ITT)解析を行っていない。 →効いている患者のみが脱落しない可能性もあり，バイアスが生じる</li>
+</ul>
+<p>*ITT解析とは，割付けられた治療から逸脱or脱落に関わらず，当初割付けた群に基づいて解析を実施すること。</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-07-28%20at%2017.58.51.png"></p>
+</div>
+</div>
+</section>
+<section id="論文の記載例-2" class="slide level2">
+<h2>論文の記載例</h2>
+<p>子どもの強迫性障害に対するファミリーベースCBTの効果(vsリラクセーション)(Freeman et al., 2014, JAMA Psychiatry, 71, 689-698)</p>
+<p><strong>[Methodの”Statistical Analysis”やフローダイヤグラムなど]</strong></p>
+<p>＜欠測値を多重代入で補完＞ “As part of the study design, efforts were made to collect outcome data on all randomly assigned participants, even when treatment was prematurely stopped. Prior to analysis, we used multiple imputation to replace missing values.”</p>
+<p>＜分析におけるITTの原則＞“All randomly assigned participants were included in the analyses, in accordance with　intention-to-treat principles. A multivariate χ2 test was used to test for between-group differences in response rates at week 14.”</p>
+</section>
+<section id="選択的アウトカム報告バイアス" class="slide level2">
+<h2>選択的アウトカム報告バイアス</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>研究計画書には記載されているのに，論文内では選択的にアウトカムが報告されており，報告されていないアウトカムがある（プライマリーとセカンダリーが逆転もある）。広義の出版バイアス。</li>
+</ul>
+<p>→良い結果だけを報告しており，効果の確信度を低める</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-07-28%20at%2017.59.54.png"></p>
+</div>
+</div>
+</section>
+<section id="論文の記載例-3" class="slide level2">
+<h2>論文の記載例</h2>
+<p>神経性過食症・過食性障害に対する認知行動療法に基づくセルフヘルプとアプリ(Noom Monitor)の併用の効果(Hildebrandt et al., 2020, American Journal of Psychiatry, 177(2), 134–142)</p>
+<p><strong>[Methodの”Assessment”や”Results”など]</strong></p>
+<p><strong>“Primary Outcomes</strong>　&lt;略&gt;Participants in the CBT-GSH plus Noom Monitor group reported significantly greater change in objective binge days. &lt;略&gt;Compensatory behaviors &lt;略&gt; were reduced in the CBT-GSH plus Noom Monitor group.”</p>
+<p><strong>[事前登録ID（Method，抄録，本文最後に記載）]</strong></p>
+<p><a href="https://clinicaltrials.gov/ct2/show/NCT02555553" class="uri">https://clinicaltrials.gov/ct2/show/NCT02555553</a> では，Primary Outcome MeasuresにObjective Binge DaysとSum of Compensatory Episodesが記載さている。ただし，研究開始(2016年)前の2015年ではEating Disorder Examination ScaleがPrimary Outcomeになっている(2019に変更，EDESはSecondary Outcomesとして報告され有意)</p>
+</section>
+<section id="その他の批判的吟味のポイント" class="slide level2">
+<h2>その他の批判的吟味のポイント</h2>
+<ul>
+<li><p>利益があったとして試験を早期中止する</p></li>
+<li><p>患者にとって重要なアウトカムが妥当ではない</p></li>
+<li><p>クロスオーバー試験における持ち越し効果がある</p></li>
+<li><p>クラスターランダム化比較試験における組み入れバイアスがある。</p></li>
+</ul>
+</section>
+<section id="consort声明" class="slide level2">
+<h2>CONSORT声明</h2>
+<ul>
+<li><p>CONSORT声明は，無作為化比較試験において報告すべき最小限の事項（25項目）からなるチェックリスト</p></li>
+<li><p>CONSORT声明のチェックリストにおいて中心となるのは，方法と結果の報告である。CONSORT声明では，試験デザイン，適格基準，介入法，アウトカム，サンプルサイズ設計，無作為化の方法，割付の隠蔽，盲検化などを方法で報告する必要がある。</p></li>
+<li><p>ベースラインデータ，フローダイアグラムでまとめた参加の流れと解析対象人数，介入効果の推定と精度などについて結果で報告する必要がある。</p></li>
+</ul>
+</section>
+<section id="rctの批判的吟味" class="slide level2">
+<h2>RCTの批判的吟味</h2>
+<ul>
+<li>今から10分間ほどかけて，以下の論文についてRCTの批判的吟味をしてみましょう！以下のリンクからフリーで読めます。</li>
+</ul>
+<p>Rosner et al.&nbsp;(2019). Effect of Developmentally Adapted Cognitive Processing Therapy for Youth With Symptoms of Posttraumatic Stress Disorder After Childhood Sexual and Physical Abuse: A Randomized Clinical Trial. JAMA Psychiatry , 76(5), 484–491.</p>
+<p>[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6495346</p>
+<p>/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6495346</p>
+<p>/){.}</p>
+<ul>
+<li>臨床試験登録内容は以下にあります（ドイツ語ですが，英語も選択できます。内容としては，Primary OutcomeにCAPS-CAで測定したPTSD重症度と記載されています。時期は，前後，３ヶ月後，６ヶ月後）。</li>
+</ul>
+<p><a href="https://www.drks.de/drks_web/navigate.do?navigationId=trial.HTML&amp;TRIAL_ID=DRKS00004787" class="uri">https://www.drks.de/drks_web/navigate.do?navigationId=trial.HTML&amp;TRIAL_ID=DRKS00004787</a></p>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>[概要]</strong> Rosner et al.&nbsp;(2019). Effect of Developmentally Adapted Cognitive Processing Therapy for Youth With Symptoms of Posttraumatic Stress Disorder After Childhood Sexual and Physical Abuse: A Randomized Clinical Trial. JAMA Psychiatry , 76(5), 484–491.</p>
+<ul>
+<li><p>思春期のPTSD患者を対象に，発達に合った認知処理療法(D-CPT)の効果を待機群と比較した無作為化比較試験</p></li>
+<li><p>2013年7月から2015年6月にかけてドイツで実施。88名(女性75名，平均18.1歳)が試験に参加した。</p></li>
+<li><p>Intention-to-treat分析の結果，D-CPT群は待機群よりもPTSD症状の重症度(CAPS-CA)の改善が認められた。この効果は，フォローアップでも維持され，セカンダリーでも効果が確認された。</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-07-28%20at%2018.02.07.png"></p>
+</div>
+</div>
+</section>
+<section id="割り付けの隠蔽" class="slide level2">
+<h2>割り付けの隠蔽</h2>
+<p><strong>[MethodsのProcedure]</strong></p>
+<p>“For randomization, study coordinators received individual allocations per automated email to ensure allocation concealment (the randomization list was generated independently with SAS/STAT software [version 9.3; SAS Institute Inc] following a simple random design, stratified by study center).”</p>
+<ul>
+<li>研究コーディネーターが割付について自動化されたメールを受け取って無作為割付を実施した（割付表は独立に作成されている）。割付の隠蔽がなされている。</li>
+</ul>
+</section>
+<section id="盲検化" class="slide level2">
+<h2>盲検化</h2>
+<p><strong>[MethodsのAssessment]</strong></p>
+<p>“Interviewers blinded to treatment condition administered all measures at separate appointments, including a checklist concerning serious adverse events.”</p>
+<p><strong>[MethodsのStatistical Analysis]</strong></p>
+<p>“Before unblinding, the original analysis plan was adapted to more sophisticated missing value treatment.”</p>
+<ul>
+<li>プライマリーアウトカムの評価者の盲検化は行っている。データを見る前に，欠測値を処理するプランが決められている（解析者の盲検化はされていない）。</li>
+</ul>
+</section>
+<section id="患者やアウトカムイベントの不完全な検討-1" class="slide level2">
+<h2>患者やアウトカムイベントの不完全な検討</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>[MethodsのStatistical Analysis]</strong></p>
+<p>“Follow-up was completed by May 31, 2016, and data were analyzed according to the intention-to-treat approach.”</p>
+<ul>
+<li><p>介入群の脱落が多い。ITT解析が行われている</p></li>
+<li><p>Supplement 2で，LOCF (欠測前の値で補完)を予定していたが，脱落によるサンプリングバイアスを検討した上で，マルチレベル解析を実施(欠測のモデルなく推定が可能)。</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-07-28%20at%2018.03.17.png"></p>
+</div><p><br>
+</p>
+</div>
+</section>
+<section id="選択的アウトカム報告バイアス-1" class="slide level2">
+<h2>選択的アウトカム報告バイアス</h2>
+<ul>
+<li>試験前に登録されたプロトコルにおいて，Primary Outcomeは，CAPS-CAで測定したPTSD重症度とされている（前後，３ヶ月後，６ヶ月後）。</li>
+</ul>
+<p><strong>[MethodsのAssessment]</strong></p>
+<ul>
+<li><p>“Primary Outcome: Severity of PTSD was measured at each assessment point using the CAPS-CA. This structured clinical interview rates frequency and intensity of PTSD symptoms…”</p></li>
+<li><p>臨床試験登録におけるプライマリーアウトカムと論文のものは一致している。指標としても妥当と考えられる。</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="観察研究の批判的吟味" class="title-slide slide level1 center">
+<h1>3.観察研究の批判的吟味</h1>
+
+</section>
+<section id="観察研究の批判的吟味のポイント" class="slide level2">
+<h2>観察研究の批判的吟味のポイント</h2>
+<p>観察研究の批判的吟味のポイントとしては，主に以下の６点がある</p>
+<ul>
+<li><p>臨床的疑問は明確に定義されている？</p></li>
+<li><p>群が明確に定義されており，２つは類似している？</p></li>
+<li><p>アウトカムの測定は２つの群で同じで、公平に評価されている？</p></li>
+<li><p>交絡因子の検討・調整をしている？</p></li>
+<li><p>欠測値は適切に処理されている？</p></li>
+<li><p>因果関係を補強する情報はある？</p></li>
+</ul>
+</section>
+<section id="臨床的疑問は明確に定義されているか" class="slide level2">
+<h2>臨床的疑問は明確に定義されているか？</h2>
+<ul>
+<li><p>論文から容易にPECOが抽出できる程度に臨床的疑問が明確に書かれているか？</p></li>
+<li><p>観察研究の場合，すでにデータ収集済みのものや後ろ向き研究もあり（二次解析研究もある），解析した結果ありきの研究が行われている可能性もある。</p></li>
+</ul>
+<p>→解析した結果ありきの研究の場合，臨床的疑問があいまいだったり，切実なものとはいえない可能性がある</p>
+</section>
+<section id="研究デザインはなにか群が明確に定義されており２つは類似しているか" class="slide level2">
+<h2>研究デザインはなにか？群が明確に定義されており，２つは類似しているか？</h2>
+<ul>
+<li>観察研究の場合，治療や曝露の群設定において，選択バイアスがある可能性がある（医師が臨床的判断をすると重症度などに応じた治療選択をする可能性がある）。</li>
+</ul>
+<p>→考えられる選択バイアスが２群の交換可能性を下げていないか？</p>
+<ul>
+<li>コホート研究の場合は傾向スコアなどを用いたマッチング，ケースコントロール研究の場合は交絡因子の調整などの使用・検討をしているか？</li>
+</ul>
+</section>
+<section id="アウトカムの測定は２つの群で同じか公平に評価されているか" class="slide level2">
+<h2>アウトカムの測定は２つの群で同じか？公平に評価されているか？</h2>
+<ul>
+<li><p>治療によってアウトカムが違ってしまうと比較が難しい。</p></li>
+<li><p>情報バイアス（アウトカムの測定にバイアスがはいること。がん患者の方が曝露を思い出しやすい，糖尿病患者の方が眼科を受診しやすいので問題が発覚しやすい）はないか？</p></li>
+<li><p>測定方法に信頼性と妥当性はあるか？</p></li>
+</ul>
+</section>
+<section id="交絡因子の検討調整をしているか" class="slide level2">
+<h2>交絡因子の検討・調整をしているか？</h2>
+<ul>
+<li><p>原因にも結果にも影響するような第３の変数（交絡因子）は，実際にはない原因と結果の関係があるかのように見せてしまうことがある。</p></li>
+<li><p>データ収集前に起こりうる交絡因子を特定して測定し，交絡因子を調整した統計解析を行うことで交絡因子の影響を小さくすることができる。</p></li>
+<li><p>交絡因子の調整によってp-hackingされることもあるので，その調整の合理的根拠を示したり，変数選択がある場合はその過程の記載の検討が必要になる。</p></li>
+</ul>
+</section>
+<section id="欠測値は適切に処理されているか" class="slide level2">
+<h2>欠測値は適切に処理されているか？</h2>
+<ul>
+<li><p>観察研究は欠測値が生じることが多いので，適切に処理されているか確認する。</p></li>
+<li><p>欠測数が少ない場合は，欠測値を含んだデータを除外した完全データでの解析も可能。</p></li>
+<li><p>一方で，欠測数が多い場合は完全データではバイアス（症例減少バイアス）が生じる＆サンプルサイズが小さくなるので，適切な代入を検討する。</p></li>
+<li><p>欠測が完全にランダムに生じている場合は，多重代入法などの補完方法を使用できる。</p></li>
+</ul>
+</section>
+<section id="因果関係を補強する情報はあるか" class="slide level2">
+<h2>因果関係を補強する情報はあるか？</h2>
+<ul>
+<li><p>交絡因子に対して，マッチング，層化，多変量解析などを用いた調整がなされている。</p></li>
+<li><p>原因が結果に先行して生じている</p></li>
+<li><p>容量-反応関係がある（原因の強度の変化に応じて，アウトカムと変化する）</p></li>
+<li><p>中止・再開にともなったアウトカム変化が生じている。</p></li>
+<li><p>同様の因果関係が他の研究で示されている。</p></li>
+<li><p>生物学的もしくは理論的に因果関係を説明できる。</p></li>
+</ul>
+</section>
+<section id="strobe声明" class="slide level2">
+<h2>STROBE声明</h2>
+<p>STROBE声明は，観察研究において報告すべき最小限の事項として，22項目からなるチェックリストを作成している。</p>
+<p>STROBE声明では，方法において，研究デザイン，参加者の適格基準，変数の定義，バイアスへの対応，サンプルサイズ設計などを報告する必要がある。</p>
+<p>結果では，各段階での参加者数，交絡因子の調整前と調整後の推定値と精度などを報告する必要がある。</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="メタ分析の批判的吟味" class="title-slide slide level1 center">
+<h1>4.メタ分析の批判的吟味</h1>
+
+</section>
+<section id="系統的展望の批判的吟味のポイント" class="slide level2">
+<h2>系統的展望の批判的吟味のポイント</h2>
+<p>系統的展望の批判的吟味のポイントとしては，主に以下の５点がある</p>
+<ul>
+<li><p>事前に計画を作成しているか？</p></li>
+<li><p>包括的な文献検索を行っているか？</p></li>
+<li><p>再現可能な研究選択とデータ抽出を行っているか？</p></li>
+<li><p>バイアスへのリスクの評価をしているか？</p></li>
+<li><p>適切なデータ統合方法を用いているか？</p></li>
+</ul>
+</section>
+<section id="事前に計画を作成しているか" class="slide level2">
+<h2>事前に計画を作成しているか？</h2>
+<ul>
+<li><p>系統的展望は，すでにあるデータ（論文）に対して行う研究なので，事前に決めてから実施する必要がある。研究計画書では，関心のあるプライマリーアウトカムはなにか，どのようにアウトカムについての情報を検索して抽出するのか，データの量的統合に使う方法などについて記載する。</p></li>
+<li><p>系統的展望の事前登録先としてはPROSPERO(https://www.crd.york.ac.uk/prospero/)があるが，登録に時間がかかることがある。最近は，OSF(https://osf.io/)への登録も多い。<br>
+</p></li>
+</ul>
+</section>
+<section id="包括的な文献検索を行っているか" class="slide level2">
+<h2>包括的な文献検索を行っているか？</h2>
+<ul>
+<li><p>系統的展望では，包括的かつ再現可能な文献検索方法の作成と報告が非常に重要。少なくとも二つ以上の電子データベースを検索し，その検索時期と使用したデータベースを報告。介入研究の場合は，MEDLINE, CENTRAL, EMBASEを推奨。</p></li>
+<li><p>検索時の包括性を高めるために，どのようなキーワードを用いて検索を行ったのかなどの検索方略の適切さを評価する。データベース以外に，組入れた研究の引用文献の参照，学会発表抄録，領域の専門家への相談，雑誌のハンドサーチ，官公庁や企業などによる灰色文献などもいれているのが望ましい</p></li>
+</ul>
+</section>
+<section id="再現可能な研究選択とデータ抽出を行っているか" class="slide level2">
+<h2>再現可能な研究選択とデータ抽出を行っているか？</h2>
+<ul>
+<li><p>収集された論文のスクリーニングや適格性の評価などを行う選択過程,選択された論文からデータを抽出する過程は，再現可能な形で記載される必要がある。研究者の主観とミスを避けるために，どちらも２名の独立した評価者・抽出者がとりくむ（Edwards et al., 2002)。</p></li>
+<li><p>2名の間で意見が割れたときに，どのように議論し，一次研究の研究者に問い合わせたかなど，どのようにコンセンサスを得たかも記載する。</p></li>
+</ul>
+</section>
+<section id="バイアスへのリスクの評価をしているか" class="slide level2">
+<h2>バイアスへのリスクの評価をしているか？</h2>
+<ul>
+<li><p>組み入れた一次研究のバイアスへのリスクの大きさがメタ分析の結果の確信度に影響する。そのため，個々の研究のバイアスリスク(Risk of Bias)を評価する</p></li>
+<li><p>評価ツールとしては，コクラン共同計画のバイアスへのリスクアセスメントツール（Higgins et al., 2011）やACROBAT-NRSI（Sterne et al.,2014）がある。</p></li>
+<li><p>バイアスリスクの評価においても，2名以上の独立な評価者が実施する。評価者間で不一致が生じたときの解決法についても決めておく。</p></li>
+</ul>
+</section>
+<section id="適切なデータ統合方法を用いているか" class="slide level2">
+<h2>適切なデータ統合方法を用いているか？</h2>
+<ul>
+<li><p>一次研究のデータの処理方法や異質性を踏まえたうえでのデータ統合方法を選ぶ必要がある。 メタアナリシスをする場合は，効果量（相対リスクや平均値差），統計解析方法（逆分散重み付けなど），固定効果モデルか変量効果モデルか他の方法（ベ イズ統計など）を使用するかどうか選択し，その根拠を示す必要がある。</p></li>
+<li><p>追加的な分析（感度分析，サブグループ解析，メタ回帰分析）を行う場合も，その方法を記載する。これ らの追加的な分析も研究計画の段階から事前に決めて実施する必要がある。</p></li>
+</ul>
+</section>
+<section id="prisma声明" class="slide level2">
+<h2>PRISMA声明</h2>
+<ul>
+<li><p>PRISMA声明は，系統的展望において報告すべき最小限の事項として，27項目からなるチェックリストを作成している。</p></li>
+<li><p>PRISMA声明によると，方法と結果では，プロトコルの事前登録，文献検索の包括性，文献検索から情報を抽出する過程，個々の研究と全体のバイアスリスクの評価，メタ分析によるデータの統合方法の選択などについて報告する必要がある。</p></li>
+</ul>
+</section>
+<section id="系統的展望の批判的吟味" class="slide level2">
+<h2>系統的展望の批判的吟味</h2>
+<ul>
+<li>今から10分間ほどかけて，以下の系統的展望論文について批判的吟味をしてみましょう！以下のリンクからフリーで読めます。</li>
+</ul>
+<p>Cuijpers, P., Noma, H., Karyotaki, E., Cipriani, A., &amp; Furukawa, T. A. (2019). Effectiveness and Acceptability of Cognitive Behavior Therapy Delivery Formats in Adults With Depression: A Network Meta-analysis. JAMA Psychiatry , 76(7), 700–707.</p>
+<p>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6583673</p>
+<ul>
+<li>この研究は，以下のサイトに事前登録されています。</li>
+</ul>
+<p><a href="https://www.crd.york.ac.uk/PROSPERO/display_record.php?ID=CRD42017064442&amp;ID=CRD42017064442" class="uri">https://www.crd.york.ac.uk/PROSPERO/display_record.php?ID=CRD42017064442&amp;ID=CRD42017064442</a></p>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>[概要]</strong> Cuijpers et al.&nbsp;(2019). Effectiveness and Acceptability of Cognitive Behavior Therapy Delivery Formats in Adults With Depression: A Network Meta-analysis. JAMA Psychiatry , 76(7), 700–707.</p>
+<ul>
+<li>成人うつ病への認知行動療法の実施形態(個人，集団，電話，ガイド付きセルフヘルプ，ガイドなしセルフヘルプ)による効果と忍容性(どのていど副作用に耐えられるか，脱落率を使用）を検討</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>文献検索と選択の結果155試験(15191名）を対象にデータ抽出とネットワークメタ分析を実施</p></li>
+<li><p>効果は上位４形態に有意な差はない(通常治療や待機より有効)。</p></li>
+<li><p>忍容性は，ガイド付きセルフヘルプが低い。<br>
+</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-07-28%20at%2018.24.33.png"></p>
+</div>
+</div>
+</section>
+<section id="事前に計画を作成しているか-1" class="slide level2">
+<h2>事前に計画を作成しているか？</h2>
+<ul>
+<li>PROSPEROに計画が登録されており，登録されている計画と実施した内容に違いはない。<br>
+</li>
+</ul>
+</section>
+<section id="包括的な文献検索を行っているか-1" class="slide level2">
+<h2>包括的な文献検索を行っているか？</h2>
+<ul>
+<li><p>“The database is continuously updated and was developed through a comprehensive literature search from January 1, 1966, to January 1, 2018 by two of us (P.C. and E.K.), of PubMed, PsycINFO, Embase, and the Cochrane Library. The search used a combination of index and text words indicative of depression and psychotherapies and set filters for randomized clinical trials.”</p></li>
+<li><p>付録に使用した検索式を掲載している（長いので本文ではなく付録に掲載されている）。</p></li>
+</ul>
+</section>
+<section id="再現可能な研究選択とデータ抽出を行っているか-1" class="slide level2">
+<h2>再現可能な研究選択とデータ抽出を行っているか？</h2>
+<ul>
+<li><p>“All records were screened by 2 independent researchers (P.C. and E.K.), and all studies that could possibly meet the inclusion criteria according to one of the researchers were retrieved as full text. The decision to include or exclude a study was also made by 2 independent researchers (P.C. and E.K.). Disagreements were solved through discussion.”</p></li>
+<li><p>スクリーニングや適格性の評価は２名の独立した評価者がとりくむ。意見が割れたときは議論をおこなった(データ抽出はバイアスリスクの評価とともに行っている)。</p></li>
+</ul>
+</section>
+<section id="バイアスへのリスクの評価をしているか-1" class="slide level2">
+<h2>バイアスへのリスクの評価をしているか？</h2>
+<ul>
+<li><p>“Two independent researchers (P.C. and E.K.) assessed the validity of included studies using 4 criteria of the risk-of-bias assessment tool from the Cochrane Collaboration…Disagreements were solved through discussion.”</p></li>
+<li><p>RCTの批判的吟味で検討した点(割付の乱数生成，割付の隠蔽，評価者の盲検化，欠測に対するITT解析の有無)を２名が独立に評価した。不一致については，議論して解決した。</p></li>
+<li><p>eAppendix Cに155試験の個々のバイアスリスクの評価が記載されている。</p></li>
+</ul>
+<p><br>
+</p>
+</section>
+<section id="適切なデータ統合方法を用いているか-1" class="slide level2">
+<h2>適切なデータ統合方法を用いているか？</h2>
+<ul>
+<li><p>“We conducted a series of pairwise meta-analyses for all direct comparisons using a random-effects pooling model...The comparative effectiveness was evaluated using the network meta-analysis methodology of combining direct and indirect evidence for all relative treatment effects. First, we summarized the geometry of the network of evidence using network plots. Second, we conducted a network meta-analysis of the comparative efficacy or acceptability using the contrast-based network meta-analysis methods. Given the expected clinical and methodological heterogeneity of treatment effects among the studies, we adopted the random-effects model.”</p></li>
+<li><p>この研究は通常のメタ分析だけでなく，間接的な比較も可能にするネットワークメタ分析を実施している。ネットワークメタ分析に関わる詳細は省くが，サンプルや方法の異質性からランダム効果モデルを選択したり，ネットワーク分析に関して，一貫性の検証などを行っている。</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="患者報告式アウトカム尺度の批判的吟味" class="title-slide slide level1 center">
+<h1>5.患者報告式アウトカム尺度の批判的吟味</h1>
+
+</section>
+<section id="患者報告式アウトカム" class="slide level2">
+<h2>患者報告式アウトカム</h2>
+<ul>
+<li>患者報告式アウトカム(Patient-Reported Outcome: PRO)とは、患者さんから直接得られる患者さんの健康状態に関する報告のことである。</li>
+</ul>
+<p>→医療研究における質問紙作成は、患者報告式アウトカム尺度作成になる。</p>
+</section>
+<section id="患者報告式アウトカム-1" class="slide level2">
+<h2>患者報告式アウトカム</h2>
+<ul>
+<li>患者報告式アウトカムは、患者さんがケアの効果を実感できているか示す最も優れた指標になる（生理学的検査の結果は患者さんにとってあまり重要ではない）。</li>
+</ul>
+<p>→患者報告式アウトカムは目に見えないので、そのためのものさしを必要とする。</p>
+
+<img data-src="images/Screenshot%202023-07-30%20at%2016.27.39.png" class="r-stretch"></section>
+<section id="尺度構成とは" class="slide level2">
+<h2>尺度構成とは？</h2>
+<ul>
+<li><p>体重計で体重を測定すると、我々は「重さ」という「ものさし（尺度）」上で、比較することが可能になる。</p></li>
+<li><p>患者報告式アウトカム尺度を作成することは、患者さんが報告する健康情報について、比較可能なものさしを作成することになる。</p></li>
+</ul>
+<p>→患者さんの頭痛を得点化するとその重症度について比較できる。</p>
+</section>
+<section id="痛みの尺度を構成する" class="slide level2">
+<h2>痛みの尺度を構成する</h2>
+<ul>
+<li>患者さんの痛み自体は、直接観察することができない。様々な観察可能な事象を組み合わせることでしか測定できないのが痛みになる。</li>
+</ul>
+<p>→患者さんの「痛い」という訴え、訴えの頻度と表現と持続時間、痛みによる生活の支障などから、患者の痛みを把握する</p>
+<ul>
+<li>痛みのような、直接観察できず、観察可能な事象から構成される概念を構成概念(Construct)と呼ぶ。患者報告式アウトカム尺度の作成は、構成概念の定義からはじまる。</li>
+</ul>
+</section>
+<section id="尺度構成の流れ" class="slide level2">
+<h2>尺度構成の流れ</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>①測定したい構成概念を定義</p>
+<p>②項目の作成と反応方法を設定</p>
+<p>③尺度特性の検討</p>
+<ul>
+<li><p>信頼性（どのくらい安定してor一貫して構成概念を測定することができるか？）</p></li>
+<li><p>妥当性(どのくらいしっかり構成概念を測定できているか？)</p></li>
+<li><p>応答性（どのくらいしっかり変化をとらえられるか？）</p></li>
+<li><p>解釈可能性（どのように尺度得点を解釈できるか？）</p></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/Screenshot%202023-07-30%20at%2016.31.13.png"></p>
+</div>
+</div>
+</section>
+<section id="構成概念と観測データ" class="slide level2">
+<h2>構成概念と観測データ</h2>
+<p>構成概念は直接測定できないが、それは観測データに影響するので、観測データから推定することができる。</p>
+
+<img data-src="images/Screenshot%202023-08-01%20at%2021.40.40.png" class="r-stretch"></section>
+<section id="構成概念と観測データの関係" class="slide level2">
+<h2>構成概念と観測データの関係</h2>
+<ul>
+<li><p>構成概念と観測データ（項目）との関係には、ReflectiveモデルとFormativeモデルがある。</p>
+<p><img data-src="images/Screenshot%202023-08-04%20at%2023.16.10.png"></p></li>
+</ul>
+</section>
+<section id="構成概念の操作的定義" class="slide level2">
+<h2>構成概念の操作的定義</h2>
+<ul>
+<li><p>測定したい構成概念について、操作的定義を行う。操作的定義をすることで、あいまいな抽象概念を具体的に測定可能にする（例. 健康とは、身体機能、日常機能、痛み、活力などに問題がない状態など）。</p></li>
+<li><p>既存の文献を検索する。①すでに作成された質問紙はないか？②既存の質問紙の問題点があるとしたら何か？</p></li>
+</ul>
+</section>
+<section id="構成概念の階層性" class="slide level2">
+<h2>構成概念の階層性</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>構成概念は単一ではなく、下位領域にも分かれることも多い。</p></li>
+<li><p>既存の因子分析研究の知見なども考慮しつつ、構成概念の階層性まで考慮して操作的定義を行う。</p></li>
+<li><p>患者、構成概念や検査の専門家、臨床家、エンドユーザー、利害関係者が、質的な方法を用いて、構成概念の精査を行う。</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/Screenshot%202023-08-01%20at%2021.46.43.png"></p>
+</div>
+</div>
+</section>
+<section id="構成概念についての項目を収集作成する" class="slide level2">
+<h2>構成概念についての項目を収集＆作成する</h2>
+<ul>
+<li><p>構成概念について既存の研究がある場合は、その項目を収集＆改変を行う。</p></li>
+<li><p>項目作成にはいくつかルールがある（後述）。項目作成のルールに従って新規項目の作成、既存の項目の修正もしくは削除を行う。</p></li>
+<li><p>項目の作成・修正・削除の作業においては、構成概念との関連度、回答に必要とされる読み書き能力のレベルを検討し、認知的インタビューによって意図した理解をしているか？項目は明瞭か？を評価する。</p></li>
+</ul>
+</section>
+<section id="項目作成のルール" class="slide level2">
+<h2>項目作成のルール</h2>
+<p>＜簡潔性＞</p>
+<p>文章を短くし、意味が何通りにもならないようにする（２つ以上の疑問を含めない）。複数の解釈ができる語句を避け、用語は一貫性をもって使用する。二重否定を避ける。対象者が理解できる文にする（一般に12歳くらいが理解できる内容にする）。</p>
+<p>例）痛みや不安を感じますか？＜ダブルバーレル＞</p>
+<p>例）洗濯をよくしますか？（良く？頻繁に？）</p>
+<p>例）経験されたストレスは、一般の方が経験するライフイベントよりも強度が強いですか？</p>
+<p>例）薬を飲まないと仕事に行けないと思いますか？</p>
+</section>
+<section id="項目作成のルール-1" class="slide level2">
+<h2>項目作成のルール</h2>
+<p>＜中立性＞</p>
+<p>客観的・中立的な表現を用いる（回答を誘導しない）。主観的・断定的な表現を避ける。</p>
+<p>例)１日６時間のデスクワークは寿命を短くするといいますが、１日何時間デスクワークしますか？</p>
+<p>＜具体性＞</p>
+<p>具体的な表現を用いる（解釈が多様な表現、漠然とした表現、一般的すぎる表現は避ける）。特に期間や頻度には注意する</p>
+<p>例）あなたは、よく病院を受診されていますか？</p>
+<p>→あなたは、週に１回ぐらい病院を受診されていますか？</p>
+</section>
+<section id="項目作成のルール-2" class="slide level2">
+<h2>項目作成のルール</h2>
+<p>＜正確さ＞</p>
+<p>文法上の誤りを避けるのはもちろん、専門用語を避ける。</p>
+<p>例）あなたのストレスに対する認知的評価は・・・</p>
+<p>＜丁寧さ＞</p>
+<p>日本語の項目の場合は適切な敬語を使用する。過度に砕けた表現は避ける。</p>
+<p>例）腰痛がヤバイと感じるのは１日のうちの何時間くらいですか？</p>
+</section>
+<section id="回答形式を決定する" class="slide level2">
+<h2>回答形式を決定する</h2>
+<ul>
+<li><p>二項選択法（２つのうちのどちらかを選択）、リッカート・スケール法（１〜５などの複数の段階の中から最もあてはまるものを選択）が多い。</p></li>
+<li><p>決まりはないが、尺度内で一貫した形式を用いることが望ましい。</p></li>
+</ul>
+</section>
+<section id="cosmin" class="slide level2">
+<h2>COSMIN</h2>
+<ul>
+<li>尺度作成は多くの研究者が行っているが、その作成手続きはバラバラ（質の低い研究も多い）。</li>
+</ul>
+<p>→COSMIN (COnsensus-based Standards for the selection of health Measurement Instruments)：健康関連尺度の選択に関する合意に基づく指針</p>
+<p>→佐藤・土屋による日本語化（<a href="https://www.cosmin.nl/tools/guideline-conducting-systematic-review-outcome-measures/" class="uri">https://www.cosmin.nl/tools/guideline-conducting-systematic-review-outcome-measures/</a>）</p>
+</section>
+<section id="cosminバイアスリスクチェックリスト" class="slide level2">
+<h2>COSMINバイアスリスク・チェックリスト</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>患者報告式アウトカムの開発</p></li>
+<li><p>内容的妥当性</p></li>
+<li><p>構造的妥当性</p></li>
+<li><p>内的一貫性</p></li>
+<li><p>異文化間妥当性/測定不変性</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>信頼性</p></li>
+<li><p>測定誤差</p></li>
+<li><p>基準関連妥当性</p></li>
+<li><p>構成概念妥当性の仮説検証</p></li>
+<li><p>応答性</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="患者報告式アウトカムの開発" class="slide level2">
+<h2>患者報告式アウトカムの開発</h2>
+<ul>
+<li><p>測定する構成概念について明確に記述されているか（理論的枠組などはあるか）？</p></li>
+<li><p>標的集団や使用する文脈について記述があるか（開発サンプルは標的集団を代表？）？</p></li>
+<li><p>項目の特定に適切な質的研究法が用いられたか（フォーカスグループ，インタビューアーの熟練度，ガイドの使用，録音，適切なデータ分析方法，少なくとも２名が関与）？</p></li>
+<li><p>認知的インタビューがなされているか（項目のわかりやすさ，包括性）？それは，適切な方法で実施され（インタビューアーの熟練度，ガイドの使用，録音，適切なデータ分析，少なくとも２名が関与），適切な患者数で検討されているか（調査：≧50, 質的研究≧7）？</p></li>
+</ul>
+</section>
+<section id="内容的妥当性患者" class="slide level2">
+<h2>内容的妥当性：患者</h2>
+<ul>
+<li><p>(1)項目が健康状態の経験に関連するかどうか，(2)項目に包括性があるかどうか，(3)教示・項目・回答選択肢・想起期間がわかりやすいかどうかを調べる。</p></li>
+<li><p>各項目は適切な患者数で検討されているか？（質的研究：≧7,調査研究≧50）</p></li>
+<li><p>適切なグループミーティング・インタビューを実施しているか？（熟練したインタビューアー，ガイドの使用，録音）</p></li>
+<li><p>適切に分析をしており，少なくとも２名の研究者が関与してるか？</p></li>
+</ul>
+</section>
+<section id="内容的妥当性専門家" class="slide level2">
+<h2>内容的妥当性：専門家</h2>
+<ul>
+<li><p>項目が関心のある構成概念に関連するかどうか，項目に包括性があるかどうかを調べる。</p></li>
+<li><p>関連するすべての分野の専門家が含まれているか？</p></li>
+<li><p>各項目は適切な数の専門家で検討されているか？（質的研究：≧7,調査研究≧50）</p></li>
+<li><p>適切に分析をしており，少なくとも２名の研究者が関与してるか？</p></li>
+</ul>
+</section>
+<section id="構造的妥当性" class="slide level2">
+<h2>構造的妥当性</h2>
+<ul>
+<li><p>構造的妥当性は、尺度の得点が目的とした構成概念の次元を妥当に反映している程度のことである</p></li>
+<li><p>因子分析を行って、想定した構成概念の次元を確認することができるか検討する。</p></li>
+</ul>
+
+<img data-src="images/Screenshot%202023-08-04%20at%2023.13.14.png" class="r-stretch"></section>
+<section id="因子分析とは" class="slide level2">
+<h2>因子分析とは？</h2>
+
+<img data-src="images/Screenshot%202023-08-04%20at%2023.21.39.png" class="r-stretch"></section>
+<section id="探索的因子分析と確証的因子分析" class="slide level2">
+<h2>探索的因子分析と確証的因子分析</h2>
+
+<img data-src="images/Screenshot%202023-08-04%20at%2023.25.24.png" class="r-stretch"></section>
+<section id="確証的因子分析の適合度" class="slide level2">
+<h2>確証的因子分析の適合度</h2>
+<ul>
+<li><p>絶対的指標(absolute indices)：データとモデルの共分散行列の類似度</p></li>
+<li><p>増分的指標(incremental indices)：　独立モデルと比較して，分析モデルによってデータの適合が改善した度合い</p></li>
+<li><p>倹約的指標(parsimonious indices)：モデルの複雑さを考慮した，モデルのデータに対する近似度</p></li>
+</ul>
+<p><img data-src="images/Screenshot%202023-08-04%20at%2023.26.51.png"><br>
+</p>
+</section>
+<section id="探索的因子分析回転方法" class="slide level2">
+<h2>探索的因子分析：回転方法</h2>
+
+<img data-src="images/Screenshot%202023-08-04%20at%2023.27.42.png" class="r-stretch"></section>
+<section id="探索的因子分析因子数の決定" class="slide level2">
+<h2>探索的因子分析：因子数の決定</h2>
+<p>①平行分析 (parallel analysis)：実データの固有値&gt;乱数データの固有値となる最大因子数</p>
+<p>②最小平均偏相関 (Minimum average Partial Correlation: MAP)：主成分分析の第一成分を統制変数とし，観測変数間の偏相関行列，偏相関係数の平均平方を繰り返しも求め，平均平方が最小となる主成分を因子数にする　</p>
+<p>複数の因子数決定法を用いて因子数を判断すべき（e.g.平行分析＋MAP＋解釈可能性）</p>
+</section>
+<section id="構造的妥当性-1" class="slide level2">
+<h2>構造的妥当性</h2>
+<ul>
+<li><p>Reflectiveモデル(つまり因子分析)か？</p></li>
+<li><p>古典的テスト理論：探索的因子分析もしくは確認的因子分析を行っているか？</p></li>
+<li><p>項目反応理論(IRT)：選択したモデルは研究疑問にフィットしているか？</p></li>
+<li><p>サンプルサイズは十分か？（探索的因子分析：項目の７倍かつ≧100, IRTの1パラメータ：≧200, IRTの2パラメータ：≧1000）</p></li>
+</ul>
+</section>
+<section id="信頼性" class="slide level2">
+<h2>信頼性</h2>
+<ul>
+<li><p>古典的テスト理論において・・・</p>
+<p>測定値＝真値＋誤差</p></li>
+</ul>
+<p>→測定値は、真値から誤差の影響を受ける</p>
+<pre><code>信頼性＝真値の分散/測定値の分散</code></pre>
+<p>→信頼性とは、測定値の分散に占める真値の分散の割合</p>
+<p>→測定値の分散には、真値の分散と誤差の分散を含む</p>
+<p>→誤差の分散からどのくらい自由かどうかが信頼性</p>
+<ul>
+<li>COSMINの信頼性の検討では、①内的一貫性、②信頼性、③測定誤差の３つを検討する</li>
+</ul>
+</section>
+<section id="内的一貫性" class="slide level2">
+<h2>内的一貫性</h2>
+<ul>
+<li>それぞれの項目が構成概念を反映していれば，項目同士の相関は強くなるはずなので、項目同士の相互関連具合を信頼性の指標にする（内的一貫性、厳密には信頼性そのものではない）。</li>
+</ul>
+<p>→（連続変数）Cronbachのα係数、(２値変数) Cronbachのα係数かKR-20</p>
+</section>
+<section id="信頼性-1" class="slide level2">
+<h2>信頼性</h2>
+<ul>
+<li><p>変化しない時間間隔で測定を複数回行って、その一貫性を検討するのが再検査信頼性になる。</p></li>
+<li><p>個人の中で真値は変化しないと仮定すると・・・</p></li>
+</ul>
+<p><span class="math display">\[
+信頼性=\frac{参加者要因による分散}{参加者要因による分散＋誤差の分散}
+\]</span></p>
+<p>→再検査信頼性の仮定として、真値が変化しない時間間隔である必要があるので、それを担保した研究デザインでなくてはならない（測定間隔，その間の安定性，測定状況が同じであること）。</p>
+</section>
+<section id="信頼性-2" class="slide level2">
+<h2>信頼性</h2>
+<ul>
+<li>再検査信頼性においては、時点間のピアソンの積率相関係数を算出することが多かったが、繰り返し測定をモデル化できてない問題がある。</li>
+</ul>
+<p>→再検査信頼性においては、級内相関係数（IntraClass Correlation: ICC）を算出する（尺度が２値変数や名義変数ならKappa係数，順序変数なら重み付きKappa係数）。</p>
+<p><span class="math display">\[
+ICC = \frac{参加者の分散成分}{参加者の分散成分＋(時間の分散成分+誤差の分散成分)}
+\]</span></p>
+</section>
+<section id="測定誤差" class="slide level2">
+<h2>測定誤差</h2>
+<ul>
+<li><p>測定誤差とは、測定された構成概念の真の変化によらない，ある患者の得点の系統誤差および偶然誤差</p></li>
+<li><p>信頼性と逆の意味の概念だが、正反対ではない。そのため、信頼性と測定誤差の両方を報告することが望ましい。</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>系統誤差</strong></p>
+<ul>
+<li><p>測定者によるバイアス(血圧を低めに読む，面接が誘導的など）</p></li>
+<li><p>測定手段によるバイアス（体重計の調整が不良など）</p></li>
+<li><p>対象者によるバイアス（アルコールが原因と考えている乳がん患者がアルコール摂取量を多めに報告など）</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>偶然誤差</strong></p>
+<ul>
+<li><p>測定者による誤差（測定者の言葉づかい，機器の使用法など）</p></li>
+<li><p>測定手段による誤差(機械の老朽化，温度などの外的状況など）</p></li>
+<li><p>対象者バイアス（患者の気分状態，服薬からの時間など）</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="測定誤差-1" class="slide level2">
+<h2>測定誤差</h2>
+<p>測定誤差(Standard Error of Measurment:SEM)のために求められる研究デザインやサンプルサイズは信頼性と同じ（ICCで出てくるものからSEMは計算できる）。</p>
+<p><span class="math display">\[
+SEM=\sqrt{時間の分散成分＋誤差の分散成分}
+\]</span></p>
+</section>
+<section id="異文化間妥当性測定不変性" class="slide level2">
+<h2>異文化間妥当性/測定不変性</h2>
+<ul>
+<li>文化によって因子構造が違わないか確認する多母集団確証的因子分析や文化によって機能が異なる項目を調べる特異項目機能を検討する。</li>
+</ul>
+</section>
+<section id="基準関連妥当性" class="slide level2">
+<h2>基準関連妥当性</h2>
+<ul>
+<li><p>基準関連妥当性とは、尺度の得点が、ゴールドスタンダードを適切に反映している程度のこと。</p></li>
+<li><p>もし構成概念について外的なゴールドスタンダードとなる基準がある場合は、それとの関連を検討する。</p></li>
+<li><p>基準関連妥当性が使える状況としては，短縮版の作成がある。</p></li>
+</ul>
+</section>
+<section id="構成概念妥当性の仮説検証" class="slide level2">
+<h2>構成概念妥当性の仮説検証</h2>
+<ul>
+<li>構成概念妥当性の仮説検証では、尺度が目的とした構成概念を妥当に測定している前提から導かれる仮説と尺度の得点が一致している程度を検討する。</li>
+</ul>
+<!-- -->
+<ul>
+<li>収束的妥当性 (convergent validity)</li>
+</ul>
+<p>→理論的に関連の強い構成概念を測定する指標と相関が高い</p>
+<ul>
+<li>弁別的妥当性 (discriminant validity)</li>
+</ul>
+<p>→理論的に関連の弱い構成概念を測定する指標と相関が弱い。群間で測定指標の得点に差がある</p>
+</section>
+<section id="構成概念妥当性の仮説検証-1" class="slide level2">
+<h2>構成概念妥当性の仮説検証</h2>
+<ul>
+<li><p>仮説検証で用いる尺度が測定している概念は明確か，測定特性は十分か事前に検討する。</p></li>
+<li><p>仮説検証での仮説は，相関や平均値の値の方向性と大きさを明確にした上で研究実施前に事前に設定する。</p></li>
+<li><p>以下のような表の形式で事前に設定した仮説の期待値を記載し，実際の値を記載する。そして，仮説が認められたかどうかを最後に記載しておく（仮説のうち何％が受理されたかまとめる）。</p></li>
+</ul>
+</section>
+<section id="応答性" class="slide level2">
+<h2>応答性</h2>
+<ul>
+<li><p>応答性とは，測定された構成概念における時間による変化を検出する検査の能力</p></li>
+<li><p>反応性は妥当性と以下のように分けられる</p></li>
+</ul>
+<p>　　妥当性：１時点の得点における妥当性</p>
+<p>　　反応性：変化得点における妥当性</p>
+<p>→基本的に妥当性と同じ検討方法が使える</p>
+</section>
+<section id="応答性基準アプローチ" class="slide level2">
+<h2>応答性:基準アプローチ</h2>
+<ul>
+<li><p>尺度の変化がゴールドスタンダードの変化とどのくらい一致すれば反応性ありとするか事前に設定</p></li>
+<li><p>尺度もゴールドスタンダードも連続変数＝相関</p></li>
+<li><p>尺度が連続変数で，ゴールドスタンダードが二値変数＝ROC曲線下面積（Area under the ROC curve=AUC、0.7以上が望ましい)</p></li>
+<li><p>尺度もゴールドスタンダードも二値変数＝感度(Sensitivity)と特異度(Specificity)を算出</p></li>
+</ul>
+</section>
+<section id="応答性構成概念アプローチ" class="slide level2">
+<h2>応答性:構成概念アプローチ</h2>
+<ul>
+<li>ゴールドスタンダードがない場合，構成概念妥当性のように仮説検定によって反応性を確認</li>
+</ul>
+<p>反応性での仮説：</p>
+<p>①異なる集団における尺度の変化得点の平均値差</p>
+<p>②当該尺度の得点変化と反応性が十分に確認されている尺度の得点変化との相関</p>
+<p>※相対的相関関係の仮説：（A尺度を検討する時，B尺度はC尺度よりもAと構成概念が近い場合）尺度Aの得点変化と尺度Bの得点変化との相関は，尺度Cの得点変化との相関より強い</p>
+</section>
+<section id="cosminを用いた批判的吟味" class="slide level2">
+<h2>COSMINを用いた批判的吟味</h2>
+<ul>
+<li><p>患者報告式アウトカム尺度は日常臨床において重要なツールなので，しっかり批判的吟味を行う必要がある。</p></li>
+<li><p>関心のある尺度について，COSMINバイアスのリスクチェックリストを用いて批判的吟味をすることで，最も患者に利益のある尺度を選択できたり，まだ未検討な尺度特性の検討の研究につながる。</p></li>
+</ul>
+</section>
+<section id="研究不正" class="slide level2">
+<h2>研究不正</h2>
+<ul>
+<li><p><strong>捏造</strong>：実際には存在しないデータや研究結果を作成すること</p></li>
+<li><p><strong>改ざん</strong>：データや試料・資料などに変更を加えて，本来とは違う結果・結論に導くこと</p></li>
+</ul>
+<p>→例.オランダの心理学者のDiederik Stapelは，データ捏造・改ざんの告発を受け，既に58本の論文が取り下げになっている</p>
+<ul>
+<li><strong>盗用・剽窃</strong>：他の研究者のアイディア，方法，データなどを適切に引用せずに自分の成果であるように流用すること</li>
+</ul>
+</section>
+<section id="研究倫理指針とは" class="slide level2">
+<h2>研究倫理指針とは</h2>
+<ul>
+<li><p>第２次世界大戦中にドイツや日本などが非倫理的な臨床研究を実施した。</p></li>
+<li><p>ニュルンベルグ綱領(1947)，ジュネーブ宣言(1948)，ヘルシンキ宣言(1964, 1975, 1983, 1989, 1996, 2000, 2004, 2008, 2013)の発表</p></li>
+<li><p>「<a href="https://www.mhlw.go.jp/content/000909926.pdf">人を対象とする生命科学・医学系研究に関する倫理指針</a>」(文科省・厚労省・経産省，2022年3月10日改正)</p></li>
+<li><p>人を対象として研究を行う上では，各種倫理指針を確認した上で実施する。</p></li>
+</ul>
+</section>
+<section id="研究倫理原則" class="slide level2">
+<h2>研究倫理原則</h2>
+<p>&lt;参加者に対する倫理原則&gt;</p>
+<ul>
+<li><p>害は最小限にできるだけ利益を提供</p></li>
+<li><p>インフォームド・コンセントをとる</p></li>
+<li><p>個人情報を保護する</p></li>
+</ul>
+<p>＜研究の科学的合理性，信頼性＞</p>
+<ul>
+<li><p>科学的合理性のある</p></li>
+<li><p>利益相反を報告</p></li>
+</ul>
+</section>
+<section id="害は最小限にできるだけ利益を提供" class="slide level2">
+<h2>害は最小限にできるだけ利益を提供</h2>
+<p>「人を対象とする生命科学・医学系研究に関する倫理指針」</p>
+<p>“研究により得られる利益及び研究対象者への負担その他の不利益を比較考量すること”(第1章第1)</p>
+<p>“研究者等は、研究対象者の生命、健康及び人権を尊重して、研究を実施しなければならない。”(第2章第4)</p>
+</section>
+<section id="害は最小限にできるだけ利益を提供-1" class="slide level2">
+<h2>害は最小限にできるだけ利益を提供</h2>
+<ul>
+<li><p>研究参加者の害は最小化する必要がある。介入研究の場合は，介入することでの副作用（報告は多くないが心理療法の副作用もある），介入しないことでの不利益もあり得る。そこへの手当を準備しておく(有害事象発生時の対応など)</p></li>
+<li><p>参加者にとって利益が提供できるようにしておく（治療や金銭的報酬などの具体的・直接的な利益，知識の蓄積への貢献，知的好奇心を満たすなど）</p></li>
+</ul>
+</section>
+<section id="インフォームドコンセントをとる" class="slide level2">
+<h2>インフォームド・コンセントをとる</h2>
+<p>「人を対象とする生命科学・医学系研究に関する倫理指針」</p>
+<p>“研究対象者への事前の十分な説明を行うとともに、自由な意思に基づく同意を得ること”(第1章第1)</p>
+<p>“研究者等は、研究を実施するに当たっては、原則としてあらかじめインフォームド・コンセントを受けなければならない。”(第2章第4)</p>
+<p>→<strong>研究参加者の自律性や自己決定権を尊重する</strong>のが基本的姿勢になる。研究についての丁寧な説明をしたうえで，研究参加するかどうかは参加者に決めてもらう（参加拒否する権利，途中で参加を辞める権利，参加しないことで不利益がないこと）</p>
+</section>
+<section id="新たに試料情報を取得して研究する場合のic" class="slide level2">
+<h2>新たに試料・情報を取得して研究する場合のIC</h2>
+
+<img data-src="images/Screenshot%202023-07-29%20at%2015.49.17.png" class="r-stretch"></section>
+<section id="個人情報を保護する" class="slide level2">
+<h2>個人情報を保護する</h2>
+<p>「人を対象とする生命科学・医学系研究に関する倫理指針」</p>
+<ul>
+<li><p>“研究に利用する個人情報等を適切に管理すること”(第1章第1)</p></li>
+<li><p>“研究者等及び研究機関の長は、個人情報の不適正な取得及び利用の禁止、正確性の確保等、安全管理措置、漏えい等の報告、開示等請求への対応などを含め、個人情報等の取扱いに関して、この指針の規定のほか、個人情報保護法に規定する個人情報取扱事業者や行政機関等に適用される規律、条例等を遵守しなければならない。”(第９章第18)</p></li>
+</ul>
+</section>
+<section id="個人情報を保護する-1" class="slide level2">
+<h2>個人情報を保護する</h2>
+<ul>
+<li><p>個人情報とは，特定の個人が識別できる情報のことである。研究で収集した個人情報が流出すると，参加者に対する重大なプライバシーの侵害になる。</p></li>
+<li><p>個人情報には，以下の２種類がある</p></li>
+</ul>
+<ol type="1">
+<li><p>当該情報により特定の個人を識別できるもの（氏名，顔画像など。他の情報と容易に照合できて識別できるものも含む）</p></li>
+<li><p>個人識別符号（身体の一部の特徴を電子化したもの，ゲノム情報，指紋など）</p></li>
+</ol>
+<ul>
+<li>「人を対象とする生命科学・医学系研究に関する倫理指針」は個人情報保護法と整合的に運用される（2020-21年の個情法改正に合わせて22年に改正）</li>
+</ul>
+</section>
+<section id="個人情報を保護する要配慮個人情報" class="slide level2">
+<h2>個人情報を保護する（要配慮個人情報）</h2>
+<ul>
+<li><p>要配慮個人情報とは，本人の人種、信条、社会的身分、病歴、犯罪の経歴により害を被った事実その他本人に対する不当な差別、偏見その他の不利益が生じないようにその取扱いに特に配慮を要する記述等が含まれる個人情報</p></li>
+<li><p>要配慮個人情報の取得と第三者提供にあたっては，本人の同意が必要（インフォームド・コンセント参照）。</p></li>
+</ul>
+</section>
+<section id="仮名加工情報と匿名加工情報" class="slide level2">
+<h2>仮名加工情報と匿名加工情報</h2>
+<ul>
+<li><p>個人情報・仮名加工情報・匿名加工情報によって扱いが変わる。</p></li>
+<li><p>仮名加工情報：他の情報を照合しない限り，特定の個人を識別できない。対照表と照合すれば本人が分かる程度まで加工（個人が識別できる情報の削除など）</p></li>
+</ul>
+<p>→利用目的に制限。第三者提供は原則禁止</p>
+<ul>
+<li>匿名加工情報：特定の個人を識別することができず，復元することができない。本人が一切分からない程度まで加工（個人を識別できる情報の削除，連結にかかわる情報や特異な記述の削除）</li>
+</ul>
+<p>→利用目的に制限はない。第三者提供は可（公表義務有）</p>
+<p>※個情法にあわせて指針は「匿名化」という用語を用いなくなった</p>
+<p>※個人情報保護法ガイドラインも参照する</p>
+</section>
+<section id="科学的合理性のある研究を行う" class="slide level2">
+<h2>科学的合理性のある研究を行う</h2>
+<p>「人を対象とする生命科学・医学系研究に関する倫理指針」</p>
+<ul>
+<li><p>“研究分野の特性に応じた科学的合理性を確保すること”(第1章第1)</p></li>
+<li><p>“研究責任者は、&lt;略&gt;研究計画書の作成又は変更に当たっては、研究の倫理的妥当性及び科学的合理性が確保されるよう考慮しなければならない。また、研究対象者への 負担並びに予測されるリスク及び利益を総合的に評価するとともに、負担及びリス クを最小化する対策を講じなければならない。”(第３章第6)</p></li>
+</ul>
+</section>
+<section id="科学的合理性のある研究を行う-1" class="slide level2">
+<h2>科学的合理性のある研究を行う</h2>
+<ul>
+<li><p>参加者への倫理配慮だけでなく，研究が科学的に妥当なものかも検討する必要がある。</p></li>
+<li><p>科学的に妥当ではない（実施しても適切な結論を導けない）研究は，参加者が経験する不利益や苦痛，研究者の時間や研究費などの無駄になる。</p></li>
+<li><p>限られた資源を無駄にしないという意味でも，科学的に妥当な方法で研究することは倫理的になる。</p></li>
+</ul>
+</section>
+<section id="利益相反を報告する" class="slide level2">
+<h2>利益相反を報告する</h2>
+<p>「人を対象とする生命科学・医学系研究に関する倫理指針」第12章</p>
+<p>“(1) 研究者等は、研究を実施するときは、個人の収益等、当該研究に係る利益相反に関 する状況について、その状況を研究責任者に報告し、透明性を確保するよう適切に対 応しなければならない。</p>
+<p>(2) 研究責任者は、医薬品又は医療機器の有効性又は安全性に関する研究等、商業活動 に関連し得る研究を実施する場合には、当該研究に係る利益相反に関する状況を把握し、研究計画書に記載しなければならない。</p>
+<p>(3) 研究者等は、(2)の規定により研究計画書に記載された利益相反に関する状況を、第 8に規定するインフォームド・コンセントを受ける手続において研究対象者等に説明しなければならない。”</p>
+</section>
+<section id="利益相反conflict-of-interestを報告する" class="slide level2">
+<h2>利益相反(conflict of interest)を報告する</h2>
+<ul>
+<li><p>特定企業から得ている利益と医療・教育・研究にかかわる者としての社会的責任とが相反している状況のこと</p></li>
+<li><p>例.製薬会社Aから多額の研究費をもらっており，(a)データを改竄して論文を報告した，(b)セミナーでA社の商品を紹介する発表をした。</p></li>
+<li><p>利益相反が問題なのではない（産学連携は重要）。利益相反がある状況を研究者本人も社会（論文の読者，講演の聴衆，プレスリリースを読む一般の方）も認識してないことが問題</p></li>
+</ul>
+<p>→COIがある場合は，論文・講演スライド内に明記する</p>
+</section>
+<section id="事例研究事例検討における倫理的配慮" class="slide level2">
+<h2>事例研究・事例検討における倫理的配慮</h2>
+<ul>
+<li><p><strong>インフォームド・コンセント</strong>　発表・検討にあたり，Clに丁寧に説明をした上で書面による同意を得る。</p></li>
+<li><p><strong>個人情報の保護</strong>　個人を特定できないように発表する（氏名，学校名，地名などをアルファベットにする。年号の記載はX年にする。情報の組み合わせから特定できないように不要な情報は削除する。個人情報保護の結果，改ざんにならないように注意する）。資料の配布に注意し，個人情報がなくても特定可能な情報が含まれているものとみなして処理をする。</p></li>
+<li><p><strong>事例検討の参加者も個人情報の保護に十分に注意をする</strong>(担当者と同様に秘密保持する，回収資料を持ち帰らない，問題が生じたら担当者に連絡する)。</p></li>
+</ul>
+</section>
+<section id="臨床現場で臨床研究を" class="slide level2">
+<h2>臨床現場で臨床研究を！</h2>
+<ul>
+<li><p>臨床的な問題は臨床現場で生まれるもの!</p></li>
+<li><p>臨床現場で臨床研究を！</p></li>
+</ul>
+</section>
+<section id="ワーク-1" class="slide level2">
+<h2>ワーク</h2>
+<p>研究疑問を明確にして，論文検索を実施して，批判的吟味をしてみよう！</p>
+<div class="footer footer-default">
+
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="slide_day1_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="slide_day1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="slide_day1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="slide_day1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="slide_day1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="slide_day1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="slide_day1_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="slide_day1_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="slide_day1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="slide_day1_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
