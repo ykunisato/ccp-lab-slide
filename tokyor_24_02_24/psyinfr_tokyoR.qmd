@@ -1,0 +1,78 @@
+---
+title: "psyinfrでらくらく研究室運営(配布版)"
+author: "専修大学心理学科　国里愛彦"
+format:
+  revealjs: 
+    theme: solarized
+editor: visual
+---
+
+## psyinfr
+
+<!--# LTは5分 -->
+
+-   [psyinfr](https://github.com/ykunisato/psyinfr)は心理学のインフラツールとなることを目的としたRパッケージ（国里が丹精込めて作っている野良パッケージ）
+
+-   野良ゆえにGitHub経由でインストール
+
+```{r eval=FALSE, echo=TRUE}
+remotes::install_github("ykunisato/psyinfr")
+```
+
+# 再現性を考えるとフォルダ構造大事！
+
+ただ，それを研究室で統一・徹底させるのは難しい。
+
+## 再現可能性を意識したフォルダ準備
+
+-   `psyinfr::set_rc()`を実行すると，Marwick et al.(2018)を参考にした卒論・修論用Research Compendiumが用意される
+
+![](Screenshot%202024-02-23%20at%2015.58.45.png)
+
+# データ収集方法もRStudioで統一したい
+
+## オンライン調査用jsPsychテンプレ
+
+-   `psyinfr::set_cbat("mood","7.1.1")`を実行すると，フォルダを作成し，必要なjsPsych関連ファイルがダウンロードされる
+
+-   用意された中にあるtask.jsファイルに書き込むだけでjsPsych課題が作成できる
+
+# 卒論・修論のフォーマット調整や定型の指導は減らしたい
+
+## 卒論・修論用Rmarkdownテンプレ
+
+-   専修大学心理学科用（超絶限定的！）
+
+-   コメントに従って書くと卒論・修論PDFが出来上がる（様式チェック不要！）
+
+![](pdf.png)
+
+# うっすら「Word出力がいいな」という雰囲気も感じ取っていた...
+
+共著者とのやりとりもwordが便利だし，投稿時はPDFでも掲載時にword提出が求められることも...
+
+## 卒論・修論用Quartoテンプレ(Word用)
+
+-   QuartoでWordのテンプレートを使うと簡単に好みのフォーマットで出力される（昨日追加した）。
+
+-   Visualモードはかなり作業しやすい。
+
+![](word.png)
+
+# GitHubによる卒論・修論のバージョン管理
+
+絶対やったほうがいい，でも面倒くさくて絶対持続しない。
+
+## ラボノートとバージョン管理自動化
+
+-   研究を始めたら，`psyinfr::researchIn()`
+
+→ GitHubリポからプル＆ラボノート用Rmdを自動生成，適宜メモをとりながら研究を実施
+
+-   研究が一段落したら， `psyinfr::researchOut()`
+
+→ ラボノートをPDFにして保存＆自動でコミットしてGitHubにプッシュ
+
+# `researchIn()`で初めて，`researchOut()`で終わる。それだけ！
+
+# Enjoy!
