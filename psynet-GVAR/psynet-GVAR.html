@@ -8,9 +8,8 @@
 <link href="psynet-GVAR_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="psynet-GVAR_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="psynet-GVAR_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.3.450">
 
-  <meta name="author" content="専修大学　国里愛彦">
   <title>縦断データの心理ネットワーク分析</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -31,7 +30,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -98,7 +97,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -241,8 +239,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -414,11 +411,6 @@
   <h1 class="title">縦断データの心理ネットワーク分析</h1>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-専修大学　国里愛彦 
-</div>
-</div>
 </div>
 
 </section>
@@ -433,6 +425,7 @@
 </section>
 <section id="縦断デザインデータの種類" class="slide level2">
 <h2>縦断デザインデータの種類</h2>
+<p>縦断デザインデータの種類としては，以下がある。</p>
 <ul>
 <li>単一事例の時系列データ：対象＝個人，測定回数＝多い(経験サンプリング)</li>
 <li>パネルデータ：対象＝集団，測定回数＝数回</li>
@@ -444,56 +437,50 @@
 <ul>
 <li><p>個人内効果：「Aが高くなった時は，Bも高くなる」のような個人内の変動を扱う&lt;単一事例の時系列データ&gt;</p></li>
 <li><p>個人間効果：「平均的にAが高い人は，平均的にBも高い傾向がある」のように個人内の変動ではなく集団内での変動を扱っている（時間の情報を平均化）＜パネルデータ＞</p></li>
-<li><p>固定効果：「平均的な人の個人内効果」を扱う（集団を平均化）。メタ分析の固定効果と同じく，平均的な個人内効果に変動が含まれたのが個人のデータとする＜集団の時系列データ＞</p></li>
+<li><p>固定効果：「平均的な人の個人内効果」を扱う（集団を平均化）。メタ分析の固定効果と同じで，平均的な個人効果に変動が含まれたのが個人のデータとしている＜集団の時系列データ＞</p></li>
 </ul>
 </section>
 <section id="個人内効果個人間効果固定効果-1" class="slide level2">
 <h2>個人内効果，個人間効果，固定効果</h2>
-<ul>
-<li><p>心理学研究では個人内効果・個人間効果・固定効果を区別してないが，意味が違う。個人内ではタイピングを早くするほどミスが多くなるが，個人間ではタイピングが早い人ほどミスは少ないこともある<span class="citation" data-cites="epskamp2018">(<a href="#/引用文献" role="doc-biblioref" onclick="">Epskamp et al. 2018</a>)</span>。</p></li>
-<li><p>デザインと効果は完全に対応しないこともある（変数によって変わる）。</p></li>
-<li><p>横断データの分析では，個人内効果と個人間効果が混ざっている。心理ネットワーク分析では，個人内効果こそが心理学の関心であると考える。</p></li>
-</ul>
+<p>心理学研究では，あまり個人内効果，個人間効果，固定効果を区別してないが，分けて考える。個人内ではタイピングを早くするほどミスが多くなるが，個人間ではタイピングが早い人ほどミスは少ないこともある(Epskamp et al., 2018)。</p>
+<p>デザインと効果は完全に対応しないこともある（変数によって変わる）。</p>
+<p>特に，横断データの分析では，個人内効果と個人間効果が混ざってしまっている。心理ネットワーク分析領域では，個人内効果こそが心理学において関心のあるものではないかと考える。</p>
 </section>
-<section id="グラフィカルvarモデル" class="slide level2">
-<h2>グラフィカルVARモデル</h2>
-<ul>
-<li><p>時系列データでは，前の時点からの影響性を考慮したベクトル自己回帰(vector auto-regression:VAR)モデルが使われる(ネットワーク分析では，グラフィカルVAR)。</p></li>
-<li><p>GVARでは，以下のネットワークが描ける</p></li>
-</ul>
-<!-- -->
+<section id="経時的効果と同時性効果" class="slide level2">
+<h2>経時的効果と同時性効果</h2>
+<p>時系列データでは，前の時点からの影響性を考慮したベクトル自己回帰(vector auto-regression)モデルが使われる。ネットワーク分析では，グラフィカルVAR(graphical VAR)があり，以下のネットワークが描ける</p>
 <ul>
 <li><p>経時的ネットワーク(temporal network)：時点をまたいで生じる関連から作られた有向ネットワーク</p></li>
 <li><p>同時性ネットワーク(contemporaneous network)：同一時点で生じる関連から作られた無向ネットワーク</p></li>
 </ul>
 <p>N&gt;1なら安定的な平均的な関連を集団で検討した個人間ネットワーク(between-person network)も描ける。</p>
 </section>
-<section id="経時的同時性ネットワーク" class="slide level2">
-<h2>経時的・同時性ネットワーク</h2>
+<section id="経時的効果と同時性効果詳細" class="slide level2">
+<h2>経時的効果と同時性効果(詳細)</h2>
 <ul>
-<li><p>経時的ネットワーク（個人ごと）：ある個人の変数の平均値からの偏差が，次の時点における平均値からの偏差をどの程度うまく予測できるかで作られたネットワーク（自己ループ（自己回帰）とエッジ（交差遅延回帰）が含まれる）</p></li>
-<li><p>同時性ネットワーク（個人ごと）：経時的効果を統制したうえでの同一時点での変数間の関連からなるネットワーク（横断データのネットワークとは異なる）</p></li>
-<li><p>個人間ネットワーク（集団）：集団データをもちいて，平均的な人の推定値（固定効果）からなるネットワーク</p></li>
+<li><p>経時的ネットワーク（個人ごと）：ある個人の変数の平均値からの偏差が，次の時点における平均値からの偏差をどの程度うまく予測できる程度（ネットワークには，自己ループ（自己回帰）とエッジ（交差遅延回帰）が含まれる）</p></li>
+<li><p>同時性ネットワーク（個人ごと）：経時的効果を統制したうえでの同一時点での変数間の関連（横断データのネットワークとは異なる）</p></li>
+<li><p>個人間ネットワーク（集団）：集団データをもちいて，平均的な人の推定値（固定効果）を示す</p></li>
 </ul>
 </section>
 <section id="n1データ分析パッケージ" class="slide level2">
 <h2>N=1データ分析：パッケージ</h2>
 <ul>
-<li><p>GVARモデルを用いる。</p></li>
-<li><p>正則化推定をする場合は<code>graphicalVAR</code>を使う（最尤推定をする場合は<code>psychonetrics</code>を使う）</p></li>
+<li><p>GVARを用いる。現状では最尤推定に基づく方法がよく用いられる。</p></li>
+<li><p>正則化推定をする場合は<code>graphicalVAR</code>を使います（最尤推定をする場合は<code>psychonetrics</code>を使う）</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(graphicalVAR)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(graphicalVAR)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="n1データ分析データ" class="slide level2">
 <h2>N=1データ分析：データ</h2>
-<p><span class="citation" data-cites="epskamp2018">Epskamp et al. (<a href="#/引用文献" role="doc-biblioref" onclick="">2018</a>)</span> のデータを用いる。以下のURLからepskampsupplementary2_data.csvをダウンロードして，read.csvで読み込む。</p>
+<p><span class="citation" data-cites="epskamp2018">Epskamp et al. (<a href="#/引用文献" role="doc-biblioref" onclick="">2018</a>)</span> のデータを用いる。以下のURLからepskampsupplementary2_data.csvをダウンロードして，読み込み</p>
 <p><a href="https://journals.sagepub.com/doi/10.1177/2167702617744325#supplementary-materials" class="uri">https://journals.sagepub.com/doi/10.1177/2167702617744325#supplementary-materials</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>data1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"epskampsupplementary2_data.csv"</span>,<span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-2"><a href=""></a><span class="fu">head</span>(data1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"epskampsupplementary2_data.csv"</span>,<span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">head</span>(data1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  relaxed sad nervous concentration tired rumination bodily.discomfort
 1      NA  NA      NA            NA    NA         NA                NA
@@ -515,14 +502,14 @@
 <section id="n1データ分析時間の処理" class="slide level2">
 <h2>N=1データ分析:時間の処理</h2>
 <ul>
-<li><p>使う変数の指定（Vars1）</p></li>
+<li><p>使う変数の指定</p></li>
 <li><p>日付のデータをまずRでの日付データの型に変換してから，数値化する。日付の情報は抜けるが，１日経つと１つ増えるので経過の把握には使える。</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>Vars1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"relaxed"</span>,<span class="st">"sad"</span>,<span class="st">"nervous"</span>,<span class="st">"concentration"</span>,<span class="st">"tired"</span>,<span class="st">"rumination"</span>,<span class="st">"bodily.discomfort"</span>)</span>
-<span id="cb4-2"><a href=""></a>data1<span class="sc">$</span>time <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(data1<span class="sc">$</span>time)</span>
-<span id="cb4-3"><a href=""></a>data1<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.Date</span>(data1<span class="sc">$</span>time))</span>
-<span id="cb4-4"><a href=""></a><span class="fu">head</span>(data1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>Vars1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"relaxed"</span>,<span class="st">"sad"</span>,<span class="st">"nervous"</span>,<span class="st">"concentration"</span>,<span class="st">"tired"</span>,<span class="st">"rumination"</span>,<span class="st">"bodily.discomfort"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>data1<span class="sc">$</span>time <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(data1<span class="sc">$</span>time)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>data1<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.Date</span>(data1<span class="sc">$</span>time))</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">head</span>(data1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  relaxed sad nervous concentration tired rumination bodily.discomfort
 1      NA  NA      NA            NA    NA         NA                NA
@@ -543,30 +530,28 @@
 </section>
 <section id="n1データ分析トレンドの除去" class="slide level2">
 <h2>N=1データ分析:トレンドの除去</h2>
-<ul>
-<li>ネットワーク分析の常道手段ではないが，時間による変化（トレンド）がある場合は，それを除去する（デトレンド）方法もある（時間で回帰分析してその残差を使う）。</li>
-</ul>
+<p>ネットワーク分析の常道手段ではないが，時間による変化（トレンド）がある場合は，それを除去する（デトレンド）方法もある（時間で回帰分析してその残差を使う）。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="cf">for</span> (v <span class="cf">in</span> <span class="fu">seq_along</span>(Vars1)){</span>
-<span id="cb6-2"><a href=""></a>  ff <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="fu">paste0</span>(Vars1[[v]],<span class="st">" ~ time"</span>))</span>
-<span id="cb6-3"><a href=""></a>  fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(ff, <span class="at">data =</span> data1)</span>
-<span id="cb6-4"><a href=""></a>  <span class="cf">if</span> (<span class="fu">anova</span>(fit)<span class="sc">$</span>P[<span class="dv">1</span>] <span class="sc">&lt;</span> <span class="fl">0.05</span>){</span>
-<span id="cb6-5"><a href=""></a>    <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">"Detrending variable"</span>,v))</span>
-<span id="cb6-6"><a href=""></a>    data1[[Vars1[v]]][<span class="sc">!</span><span class="fu">is.na</span>(data1[[Vars1[[v]]]])] <span class="ot">&lt;-</span> <span class="fu">residuals</span>(fit)</span>
-<span id="cb6-7"><a href=""></a>  }</span>
-<span id="cb6-8"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="cf">for</span> (v <span class="cf">in</span> <span class="fu">seq_along</span>(Vars1)){</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  ff <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="fu">paste0</span>(Vars1[[v]],<span class="st">" ~ time"</span>))</span>
+<span id="cb6-3"><a href="#cb6-3"></a>  fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(ff, <span class="at">data =</span> data1)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="cf">if</span> (<span class="fu">anova</span>(fit)<span class="sc">$</span>P[<span class="dv">1</span>] <span class="sc">&lt;</span> <span class="fl">0.05</span>){</span>
+<span id="cb6-5"><a href="#cb6-5"></a>    <span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">"Detrending variable"</span>,v))</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    data1[[Vars1[v]]][<span class="sc">!</span><span class="fu">is.na</span>(data1[[Vars1[[v]]]])] <span class="ot">&lt;-</span> <span class="fu">residuals</span>(fit)</span>
+<span id="cb6-7"><a href="#cb6-7"></a>  }</span>
+<span id="cb6-8"><a href="#cb6-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="n1データ分析推定" class="slide level2">
 <h2>N=1データ分析:推定</h2>
 <ul>
-<li><code>graphicalVAR()</code>で推定をします。最初にデータを指定し，gammaでは，EBIC hyper-parameterを指定（0にすれば通常のBICを使います），varsでネットワークにいれる変数，dayvarで日付の情報をいれます。</li>
+<li><code>graphicalVAR()</code>で推定をします。</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>result1 <span class="ot">&lt;-</span> <span class="fu">graphicalVAR</span>(data1,</span>
-<span id="cb7-2"><a href=""></a>                    <span class="at">gamma =</span> <span class="dv">0</span>,</span>
-<span id="cb7-3"><a href=""></a>                    <span class="at">vars =</span> Vars1,</span>
-<span id="cb7-4"><a href=""></a>                    <span class="at">dayvar =</span> <span class="st">"date"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>result1 <span class="ot">&lt;-</span> <span class="fu">graphicalVAR</span>(data1,</span>
+<span id="cb7-2"><a href="#cb7-2"></a>                    <span class="at">gamma =</span> <span class="dv">0</span>,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>                    <span class="at">vars =</span> Vars1,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>                    <span class="at">dayvar =</span> <span class="st">"date"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   |                                                                            
@@ -917,10 +902,18 @@
 <section id="n1データ分析プロット" class="slide level2">
 <h2>N=1データ分析:プロット</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">plot</span>(result1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">plot</span>(result1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="psynet-GVAR_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="n1データ分析中心性指標" class="slide level2">
+<h2>N=1データ分析:中心性指標</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">library</span>(qgraph)</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">centralityPlot</span>(result1<span class="sc">$</span>PCC, <span class="at">include =</span> <span class="fu">c</span>(<span class="st">"Strength"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="psynet-GVAR_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
 <section id="n1データ分析" class="slide level2">
 <h2>N&gt;1データ分析</h2>
 <ul>
@@ -933,20 +926,20 @@
 <h2>N&gt;1データ分析での注意事項</h2>
 <ul>
 <li><p>推定が適切になされるために変数はできるだけ少数にする（10以下）</p></li>
-<li><p>欠測値には，カルマンフィルター代入法（<code>imputeTS</code>パッケージ），完全情報最尤推定法（<code>psychonetrics</code>パッケージ）を使える。</p></li>
+<li><p>欠測値には，カルマンフィルター代入法などを用いるか（<code>imputeTS</code>パッケージ），完全情報最尤推定法（<code>psychonetrics</code>パッケージ）を使える。</p></li>
 <li><p>GVARでは定常性（測定全体でネットワークが大きく変化しないこと）を仮定（デトレンドなども検討）</p></li>
 <li><p>GVARでは，測定間隔は等間隔が仮定されている（パッケージ上で指定）。</p></li>
 </ul>
 </section>
 <section id="n1データ分析データ-1" class="slide level2">
 <h2>N&gt;1データ分析:データ</h2>
-<p><span class="citation" data-cites="Bringmann2013">Bringmann et al. (<a href="#/引用文献" role="doc-biblioref" onclick="">2013</a>)</span> の以下のリンクのデータ「Data S1」をダウロードして使う(129名からESMの回答を得ている)。</p>
+<p><span class="citation" data-cites="correcti2014"><span>“A Network Approach to Psychopathology: New Insights into Clinical Longitudinal Data”</span> (<a href="#/引用文献" role="doc-biblioref" onclick="">2014</a>)</span> の以下のリンクのデータ「Data S1」をダウロードして使う(129名からESMの回答を得ている)。</p>
 <p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0060188#s5" class="uri">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0060188#s5</a></p>
 <p>6つ変数があるがオランダ語…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(mlVAR)</span>
-<span id="cb10-2"><a href=""></a>data2 <span class="ot">=</span> <span class="fu">read.table</span>(<span class="at">file=</span><span class="st">"pone.0060188.s004.txt"</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">","</span>)</span>
-<span id="cb10-3"><a href=""></a><span class="fu">head</span>(data2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">library</span>(mlVAR)</span>
+<span id="cb11-2"><a href="#cb11-2"></a>data2 <span class="ot">=</span> <span class="fu">read.table</span>(<span class="at">file=</span><span class="st">"pone.0060188.s004.txt"</span>,<span class="at">header=</span><span class="cn">TRUE</span>,<span class="at">sep=</span><span class="st">","</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">head</span>(data2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  subjno dayno beepno informat04 st_period opgewkt_ onplplez pieker angstig_
 1  10720     1      1         NA         0       NA       NA     NA       NA
@@ -969,29 +962,28 @@
 <h2>N&gt;1データ分析:前処理</h2>
 <p>オランダ語を英語に変換。その他はすでに解析しやすいように整っている。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>data2 <span class="ot">&lt;-</span> data2 <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href=""></a>  <span class="fu">rename</span>(</span>
-<span id="cb12-3"><a href=""></a>    <span class="at">cheerful =</span> opgewkt_,</span>
-<span id="cb12-4"><a href=""></a>    <span class="at">pleasantness =</span> onplplez,</span>
-<span id="cb12-5"><a href=""></a>    <span class="at">worry =</span> pieker,</span>
-<span id="cb12-6"><a href=""></a>    <span class="at">fearful =</span> angstig_,</span>
-<span id="cb12-7"><a href=""></a>    <span class="at">sad =</span> somber__,</span>
-<span id="cb12-8"><a href=""></a>    <span class="at">relaxed =</span> ontspann</span>
-<span id="cb12-9"><a href=""></a>  )</span>
-<span id="cb12-10"><a href=""></a>Vars2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"cheerful"</span>,<span class="st">"pleasantness"</span>,<span class="st">"worry"</span>,<span class="st">"fearful"</span>,<span class="st">"sad"</span>,<span class="st">"relaxed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>data2 <span class="ot">&lt;-</span> data2 <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">rename</span>(</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    <span class="at">cheerful =</span> opgewkt_,</span>
+<span id="cb13-4"><a href="#cb13-4"></a>    <span class="at">pleasantness =</span> onplplez,</span>
+<span id="cb13-5"><a href="#cb13-5"></a>    <span class="at">worry =</span> pieker,</span>
+<span id="cb13-6"><a href="#cb13-6"></a>    <span class="at">fearful =</span> angstig_,</span>
+<span id="cb13-7"><a href="#cb13-7"></a>    <span class="at">sad =</span> somber__,</span>
+<span id="cb13-8"><a href="#cb13-8"></a>    <span class="at">relaxed =</span> ontspann</span>
+<span id="cb13-9"><a href="#cb13-9"></a>  )</span>
+<span id="cb13-10"><a href="#cb13-10"></a>Vars2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"cheerful"</span>,<span class="st">"pleasantness"</span>,<span class="st">"worry"</span>,<span class="st">"fearful"</span>,<span class="st">"sad"</span>,<span class="st">"relaxed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="n1データ分析推定-1" class="slide level2">
 <h2>N&gt;1データ分析:推定</h2>
-<ul>
-<li>最初にデータを指定し，varsで変数，idvarで参加者ID情報，dayvarで日付情報，deepvarで経験サンプリングの回答番号を指定する。</li>
-</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>result2 <span class="ot">&lt;-</span> <span class="fu">mlVAR</span>(data2, </span>
-<span id="cb13-2"><a href=""></a>                 <span class="at">vars =</span> Vars2, </span>
-<span id="cb13-3"><a href=""></a>                 <span class="at">idvar =</span> <span class="st">"subjno"</span>,</span>
-<span id="cb13-4"><a href=""></a>                 <span class="at">dayvar =</span> <span class="st">"dayno"</span>,</span>
-<span id="cb13-5"><a href=""></a>                 <span class="at">beepvar =</span> <span class="st">"beepno"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>result2 <span class="ot">&lt;-</span> <span class="fu">mlVAR</span>(data2, </span>
+<span id="cb14-2"><a href="#cb14-2"></a>                 <span class="at">vars =</span> Vars2, </span>
+<span id="cb14-3"><a href="#cb14-3"></a>                 <span class="at">idvar =</span> <span class="st">"subjno"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4"></a>                 <span class="at">dayvar =</span> <span class="st">"dayno"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5"></a>                 <span class="at">beepvar =</span> <span class="st">"beepno"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6"></a>                 <span class="at">temporal =</span> <span class="st">"correlated"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7"></a>                 <span class="at">contemporaneous =</span> <span class="st">"correlated"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
   |                                                                            
@@ -1256,34 +1248,32 @@
 <section id="n1データ分析経時的ネットワーク" class="slide level2">
 <h2>N&gt;1データ分析:経時的ネットワーク</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">plot</span>(result2, <span class="st">"temporal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="psynet-GVAR_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
-<section id="n1データ分析同時性ネットワーク" class="slide level2">
-<h2>N&gt;1データ分析:同時性ネットワーク</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">plot</span>(result2, <span class="st">"contemporaneous"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">plot</span>(result2, <span class="st">"temporal"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="psynet-GVAR_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
-<section id="n1データ分析個人間ネットワーク" class="slide level2">
-<h2>N&gt;1データ分析:個人間ネットワーク</h2>
+<section id="n1データ分析同時性ネットワーク" class="slide level2">
+<h2>N&gt;1データ分析:同時性ネットワーク</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">plot</span>(result2, <span class="st">"between"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">plot</span>(result2, <span class="st">"contemporaneous"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="psynet-GVAR_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
+<section id="n1データ分析個人間ネットワーク" class="slide level2">
+<h2>N&gt;1データ分析:個人間ネットワーク</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">plot</span>(result2, <span class="st">"between"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="psynet-GVAR_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
 <section id="引用文献" class="slide level2 smaller scrollable">
 <h2>引用文献</h2>
-<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
-</div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-Bringmann2013" class="csl-entry" role="listitem">
-Bringmann, Laura F., Nathalie Vissers, Marieke Wichers, Nicole Geschwind, Peter Kuppens, Frenk Peeters, Denny Borsboom, and Francis Tuerlinckx. 2013. <span>“A Network Approach to Psychopathology: New Insights into Clinical Longitudinal Data.”</span> Edited by Gabriel Alejandro de Erausquin. <em>PLoS ONE</em> 8 (4): e60188. <a href="https://doi.org/10.1371/journal.pone.0060188">https://doi.org/10.1371/journal.pone.0060188</a>.
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-correcti2014" class="csl-entry" role="listitem">
+<span>“A Network Approach to Psychopathology: New Insights into Clinical Longitudinal Data.”</span> 2014. <em>PLoS ONE</em> 9 (4): e96588. <a href="https://doi.org/10.1371/journal.pone.0096588">https://doi.org/10.1371/journal.pone.0096588</a>.
 </div>
 <div id="ref-epskamp2018" class="csl-entry" role="listitem">
 Epskamp, Sacha, Claudia D. van Borkulo, Date C. van der Veen, Michelle N. Servaas, Adela-Maria Isvoranu, Harriëtte Riese, and Angélique O. J. Cramer. 2018. <span>“Personalized Network Modeling in Psychopathology: The Importance of Contemporaneous and Temporal Connections.”</span> <em>Clinical Psychological Science</em> 6 (3): 416–27. <a href="https://doi.org/10.1177/2167702617744325">https://doi.org/10.1177/2167702617744325</a>.
@@ -1316,6 +1306,7 @@ Epskamp, Sacha, Claudia D. van Borkulo, Date C. van der Veen, Michelle N. Servaa
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1614,27 +1605,10 @@ Epskamp, Sacha, Claudia D. van Borkulo, Date C. van der Veen, Michelle N. Servaa
         // clear code selection
         e.clearSelection();
       });
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1644,17 +1618,8 @@ Epskamp, Sacha, Claudia D. van Borkulo, Date C. van der Veen, Michelle N. Servaa
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1668,11 +1633,7 @@ Epskamp, Sacha, Claudia D. van Borkulo, Date C. van der Veen, Michelle N. Servaa
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {
