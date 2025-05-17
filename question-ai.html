@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>生成AIに関する質問紙調査</title>
+  <script src="https://unpkg.com/jspsych@8.2.1"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-survey-likert@2.1.0"></script>
+  <link href="https://unpkg.com/jspsych@8.2.1/css/jspsych.css" rel="stylesheet" type="text/css">
+  <style>
+    /* ページ全体のスタイル調整 */
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif; /* モダンなフォントに変更 */
+      line-height: 1.6;
+      background-color: #f4f4f4; /* 背景色を薄いグレーに */
+      color: #333; /* 基本の文字色 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .jspsych-content-wrapper {
+      background-color: #fff; /* コンテンツ部分の背景を白に */
+      padding: 30px;
+      border-radius: 8px; /* 角を丸くする */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 影をつける */
+      width: 90%; /* 幅を調整 */
+      max-width: 800px; /* 最大幅を設定 */
+      text-align: left; /* テキストを左揃えに */
+    }
+    /* 教示文や質問文のスタイル */
+    .jspsych-display-element p, .jspsych-survey-likert-preamble p, .jspsych-survey-likert-statement {
+      font-size: 18px; /* フォントサイズを少し大きめに */
+      margin-bottom: 15px;
+    }
+    /* 選択肢のラベルスタイル */
+    .jspsych-survey-likert-opts li {
+      font-size: 16px;
+    }
+    /* ボタンのスタイル */
+    .jspsych-btn {
+      font-size: 16px;
+      padding: 12px 25px;
+      background-color: #007bff; /* ボタンの色を青系に */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* ホバー時のトランジション */
+    }
+    .jspsych-btn:hover {
+      background-color: #0056b3; /* ホバー時の色を濃く */
+    }
+    /* 質問項目間のスペース */
+    .jspsych-survey-likert-statement-container {
+        margin-bottom: 25px;
+    }
+    /* ラジオボタンとラベルの配置調整 */
+    .jspsych-survey-likert-opts {
+        display: flex; /* 横並びにする */
+        justify-content: space-around; /* 均等に配置 */
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0 0;
+    }
+    .jspsych-survey-likert-opts li {
+        display: flex;
+        flex-direction: column; /* ラベルを下に配置 */
+        align-items: center;
+        text-align: center;
+    }
+    .jspsych-survey-likert-opts input[type="radio"] {
+        margin-bottom: 5px;
+    }
+
+  </style>
+</head>
+<body></body>
+<script>
+  // jsPsychの初期化
+  // Initialize jsPsych
+  const jsPsych = initJsPsych({
+    on_finish: function() {
+      // 調査終了時にデータをJSON形式で表示します
+      // This function is called when the experiment is finished.
+      // It displays the collected data in JSON format.
+      const dataContainer = document.createElement('div');
+      dataContainer.innerHTML = `
+        <h2>調査結果</h2>
+        <p>以下のデータが収集されました（通常はサーバーに送信されます）。</p>
+        <pre style="white-space: pre-wrap; word-wrap: break-word; background-color: #eee; padding: 10px; border-radius: 5px;">${jsPsych.data.get().json(true)}</pre>
+      `;
+      document.body.innerHTML = ''; // Clear the jsPsych display
+      document.body.appendChild(dataContainer); // Add the data display
+
+      // To save data as a CSV file locally, uncomment the following line:
+      // jsPsych.data.get().localSave('csv', 'survey_data.csv');
+    }
+  });
+
+  // タイムライン（実験の手続き）を格納する配列
+  // This array will hold the sequence of trials for the experiment.
+  const timeline = [];
+
+  // 教示画面 (Instructions screen)
+  const instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+      <div style="text-align: left; max-width: 700px; margin: auto;">
+        <h2 style="text-align: center;">調査へのご協力のお願い</h2>
+        <p>この調査は、生成AIに関するあなたの意識についてお伺いするものです。</p>
+        <p>各質問項目をよくお読みいただき、あなたのお考えに最も近いものを5つの選択肢の中から1つ選んでください。</p>
+        <p><strong>回答の選択肢：</strong></p>
+        <ul style="list-style-position: inside; padding-left: 20px;">
+          <li>1. とても当てはまる</li>
+          <li>2. やや当てはまる</li>
+          <li>3. どちらともいえない</li>
+          <li>4. あまり当てはまらない</li>
+          <li>5. 全く当てはまらない</li>
+        </ul>
+        <p>準備ができましたら、「調査を開始する」ボタンを押してください。</p>
+      </div>
+    `,
+    choices: ['調査を開始する'], // Button text
+    post_trial_gap: 200 // Brief pause after this trial
+  };
+  timeline.push(instructions);
+
+  // 5件法の選択肢ラベル
+  // Labels for the 5-point Likert scale
+  const likert_scale_labels = [
+    "1. とても<br>当てはまる", // Added <br> for better layout on narrow screens
+    "2. やや<br>当てはまる",
+    "3. どちらとも<br>いえない",
+    "4. あまり<br>当てはまらない",
+    "5. 全く<br>当てはまらない"
+  ];
+
+  // 質問項目 (Survey questions)
+  const survey_questions = [
+    {
+      prompt: "<strong>1. 生成AIに苦手意識を持っている。</strong>", // Question 1
+      name: 'GenerativeAI_NigateIshiki', // Name for data output
+      labels: likert_scale_labels,
+      required: true // Makes the question mandatory
+    },
+    {
+      prompt: "<strong>2. 生成AIを臨床や研究に活用したいと思っている。</strong>", // Question 2
+      name: 'GenerativeAI_KatsuyouShitai',
+      labels: likert_scale_labels,
+      required: true
+    },
+    {
+      prompt: "<strong>3. 生成AIは人類を滅ぼすと思っている。</strong>", // Question 3
+      name: 'GenerativeAI_JinruiHorobosu',
+      labels: likert_scale_labels,
+      required: true
+    }
+  ];
+
+  // 質問紙試行 (Survey trial)
+  const survey_trial = {
+    type: jsPsychSurveyLikert,
+    questions: survey_questions,
+    preamble: '<p style="font-size: 1.1em; text-align: left;">以下の各項目について、あなたの考えに最も近いものを選択してください。</p>',
+    scale_width: 'auto', // Adjust scale width automatically, or set a pixel value like 700
+    button_label: '回答を送信する', // Label for the submit button
+    randomize_question_order: false, // Set to true to randomize question order
+    post_trial_gap: 500 // Pause after submitting answers
+  };
+  timeline.push(survey_trial);
+
+  // 終了画面 (Debriefing screen)
+  const debrief_screen = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+      <div style="text-align: left; max-width: 700px; margin: auto;">
+        <h2 style="text-align: center;">調査終了</h2>
+        <p>調査へのご協力、誠にありがとうございました。</p>
+        <p>「終了する」ボタンを押すと、収集されたデータが画面に表示されます。<br>
+        （通常、このデータは研究目的でサーバーに安全に送信されたり、ファイルとして保存されたりします。）</p>
+      </div>
+    `,
+    choices: ['終了して結果を確認する'], // Button text
+    post_trial_gap: 200
+  };
+  timeline.push(debrief_screen);
+
+  // 実験の開始 (Start the experiment)
+  jsPsych.run(timeline);
+</script>
+</html>
