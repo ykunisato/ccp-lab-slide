@@ -1129,7 +1129,7 @@ margin-right: 0; }
 <section id="ペアワイズマルコフ確率場" class="slide level2">
 <h2>ペアワイズ・マルコフ確率場</h2>
 <ul>
-<li><p>無向ネットワークモデルの推定では，ペアワイズ・マルコフ確率場(pairwise Markov random field)がよく使われる(Epskamp, Haslbeck, Isvoranu,&amp; Van Borkulo, 2022)</p></li>
+<li><p>無向ネットワークモデルの推定では，ペアワイズ・マルコフ確率場(pairwise Markov random field)がよく使われる<span class="citation" data-cites="Epskamp2022-ae">(<a href="#/引用文献" role="doc-biblioref" onclick>Epskamp et al. 2022</a>)</span></p></li>
 <li><p>心理ネットワーク分析の主なペアワイズ・マルコフ確率場のモデルには、Gaussian graphical model (GGM)、Ising model、mixed graphical models (MGMs)がある。</p></li>
 </ul>
 </section>
@@ -1156,14 +1156,14 @@ margin-right: 0; }
 <ul>
 <li>GGMでは，分散共分散行列 <span class="math inline">\(\boldsymbol{\Sigma}\)</span>からその逆行列である精度行列 <span class="math inline">\(\boldsymbol{K}\)</span> を計算し( <span class="math inline">\(\boldsymbol{K}=\boldsymbol{\Sigma}^{-1}\)</span>)，精度行列 <span class="math inline">\(\boldsymbol{K}\)</span> から偏相関行列を計算する</li>
 <li>偏相関係数をエッジにしてネットワークをプロットする</li>
-<li>分散共分散行列から偏相関行列を求める方法については、 <a href="https://senshu-u.repo.nii.ac.jp/records/13467">国里他(2023)</a>を参照ください。</li>
+<li>分散共分散行列から偏相関行列を求める方法については、 <span class="citation" data-cites="国里愛彦2023横断データに対する心理ネットワーク分析のチュートリアル">国里愛彦 et al. (<a href="#/引用文献" role="doc-biblioref" onclick>2023</a>)</span> を参照ください。</li>
 </ul>
 </section>
 <section id="ising-モデル" class="slide level2">
 <h2>Ising モデル</h2>
 <ul>
 <li><p>元々は磁性体に関する統計力学的モデルだが，２値データのネットワークの記述に使える</p></li>
-<li><p>２値反応のペアの同時確率をモデル化(Epskamp et al., 2022)</p></li>
+<li><p>２値反応のペアの同時確率をモデル化<span class="citation" data-cites="Epskamp2022-ae">(<a href="#/引用文献" role="doc-biblioref" onclick>Epskamp et al. 2022</a>)</span></p></li>
 </ul>
 <p><span class="math display">\[\operatorname{Pr}(\boldsymbol{Y}=\boldsymbol{y})=\frac{1}{Z} \exp \left(\sum_{i} y_{i} \tau_{i}+\sum_{&lt;i, j&gt;} y_{i} y_{j} \omega_{i j}\right)%\]</span><br>
 </p>
@@ -1180,7 +1180,7 @@ margin-right: 0; }
 <section id="mixed-graphical-modelsmgms" class="slide level2">
 <h2>Mixed graphical models(MGMs)</h2>
 <ul>
-<li>2値・順序・連続変数が混ざったデータに適用できる(Epskamp et al., 2022)</li>
+<li>2値・順序・連続変数が混ざったデータに適用できる<span class="citation" data-cites="Epskamp2022-ae">(<a href="#/引用文献" role="doc-biblioref" onclick>Epskamp et al. 2022</a>)</span></li>
 <li>データのタイプに合わせてノードごとに確率分布が適用(指数分布族: 正規分布，ポアソン分布，指数分布，多項分布）</li>
 <li>ノードごとに一般化線形モデルによって推定し，推定されたパラメータが最終モデルで統合される</li>
 <li>MGMsは，ペアワイズである必要もなくて，高次の交互作用を含めたmoderated network modelも検討できる</li>
@@ -1189,7 +1189,7 @@ margin-right: 0; }
 <section id="モデル選択" class="slide level2">
 <h2>モデル選択</h2>
 <ul>
-<li>ネットワークは，エッジが１つもないものから全てのノード間にエッジがある飽和モデルの間に，可能性のあるネットワークが大量にある(Blanken, Isvoranu &amp; Epskamp, 2022)</li>
+<li>ネットワークは，エッジが１つもないものから全てのノード間にエッジがある飽和モデルの間に，可能性のあるネットワークが大量にある<span class="citation" data-cites="Blanken2022-tt">(<a href="#/引用文献" role="doc-biblioref" onclick>Blanken, Isvoranu, and Epskamp 2022</a>)</span></li>
 <li>オッカムの剃刀に従い，パフォーマンスを下げないようにして，シンプルなモデルを選ぶ</li>
 </ul>
 </section>
@@ -1240,12 +1240,12 @@ margin-right: 0; }
 <li>サンプルサイズが5000の場合，真のネットワークの探索には，モデル探索が好ましい</li>
 </ol>
 </section>
-<section id="isingモデルとmgmsでのモデル選択の推奨blanken-et-al-2022" class="slide level2">
-<h2>IsingモデルとMGMsでのモデル選択の推奨(Blanken et al, 2022)</h2>
+<section id="isingモデルとmgmsでのモデル選択の推奨blanken2022-tt" class="slide level2">
+<h2>IsingモデルとMGMsでのモデル選択の推奨<span class="citation" data-cites="Blanken2022-tt">(<a href="#/引用文献" role="doc-biblioref" onclick>Blanken, Isvoranu, and Epskamp 2022</a>)</span></h2>
 <p>Isingモデルの場合，小中サンプルサイズでは正則化手法が見やすく，大サンプルサイズでは非正則化手法も使える。現状，MGMsで使えるのは正則化手法のみ</p>
 </section>
-<section id="順序非正規変数での注意点blanken-isvoranu-epskamp-2022" class="slide level2">
-<h2>順序・非正規変数での注意点(Blanken, Isvoranu &amp; Epskamp, 2022)</h2>
+<section id="順序非正規変数での注意点blanken2022-tt" class="slide level2">
+<h2>順序・非正規変数での注意点<span class="citation" data-cites="Blanken2022-tt">(<a href="#/引用文献" role="doc-biblioref" onclick>Blanken, Isvoranu, and Epskamp 2022</a>)</span></h2>
 <ul>
 <li>順序変数ではポリコリック相関を使うが，小サンプルサイズでは不安定になる（psychonetricsパッケージの推定法やBGGMパッケージを使う）</li>
 <li>正規分布していないデータの場合は，スピアマンの順位相関係数を用いてGGMする</li>
@@ -1254,7 +1254,7 @@ margin-right: 0; }
 <section id="サンプルサイズと欠測処理" class="slide level2">
 <h2>サンプルサイズと欠測処理</h2>
 <ul>
-<li>ノードは３０より少ないのが望ましく，できるだけサンプルサイズが大きいほうが望ましい(Isvoranu &amp; Epskamp, 2021)</li>
+<li>ノードは３０より少ないのが望ましく，できるだけサンプルサイズが大きいほうが望ましい<span class="citation" data-cites="Isvoranu2021-as">(<a href="#/引用文献" role="doc-biblioref" onclick>Isvoranu and Epskamp 2021</a>)</span></li>
 <li>ネットワークの構造を調べるより，特定のエッジに焦点をしぼった方が大きなサンプルサイズが必要</li>
 <li>bootnetでは欠測値除去が必要だが，psychonetricsでは完全情報最尤推定法が使える(estimator = “FIML”)</li>
 </ul>
@@ -1279,7 +1279,7 @@ margin-right: 0; }
 <section id="エッジの正確度accuracy" class="slide level2">
 <h2>エッジの正確度(accuracy)</h2>
 <ul>
-<li>推定されたエッジはサンプルやサンプルサイズの影響をうけるのでエッジの正確度を検討(Epskamp, Borsboom,&amp; Fried, 2018)</li>
+<li>推定されたエッジはサンプルやサンプルサイズの影響をうけるのでエッジの正確度を検討<span class="citation" data-cites="Epskamp2018-fs">(<a href="#/引用文献" role="doc-biblioref" onclick>Epskamp, Borsboom, and Fried 2018</a>)</span></li>
 <li>ブートストラップ法による信頼区間をプロットすることでエッジの重みの正確度を検討する(有意性の検討には使わない)</li>
 </ul>
 </section>
@@ -1485,7 +1485,7 @@ margin-right: 0; }
 <li>心理ネットワーク解析は新しい方法だが，偏相関をエッジとしたネットワークを描く方法と考えると難しくない</li>
 <li>Rパッケージで実施が簡単になったが，モデル選択・エッジ・中心性指標の評価などは理論的な理解も必要</li>
 <li>新しい方法が日々開発されているので，アムステルダム大学の<a href="http://psychosystems.org/">Psych Systems</a>のサイトなどを要確認</li>
-<li>今回は横断データだが、心理ネットワークは縦断（特に経験サンプリング）データで本領発揮する。詳しくは、<a href="https://senshu-u.repo.nii.ac.jp/records/2001214">大水・国里(2025)</a>参照</li>
+<li>今回は横断データだが、心理ネットワークは縦断（特に経験サンプリング）データで本領発揮する。詳しくは、<span class="citation" data-cites="大水2025-omizu">大水拓海 and 国里愛彦 (<a href="#/引用文献" role="doc-biblioref" onclick>2025</a>)</span> 参照</li>
 </ul>
 </section>
 <section id="ワーク" class="slide level2">
@@ -1500,14 +1500,26 @@ margin-right: 0; }
 <h2>引用文献</h2>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Blanken2022-tt" class="csl-entry" role="listitem">
+Blanken, T. F., Adela-Maria. Isvoranu, and Sacha. Epskamp. 2022. <span>“Estimating Network Structures Using Model Selection.”</span> In <em>Network Psychometrics with r</em>, edited by Adela-Maria. Isvoranu, Sacha. Epskamp, L. J. Waldorp, and D. Borsboom, 111--132. London: Routledge.
+</div>
 <div id="ref-Epskamp2018-fs" class="csl-entry" role="listitem">
 Epskamp, Sacha, Denny Borsboom, and Eiko I Fried. 2018. <span>“Estimating Psychological Networks and Their Accuracy: A Tutorial Paper.”</span> <em>Behavior Research Methods</em> 50 (1): 195–212.
+</div>
+<div id="ref-Epskamp2022-ae" class="csl-entry" role="listitem">
+Epskamp, Sacha, Jonas M B Haslbeck, Adela-Maria. Isvoranu, and Claudia D van Borkulo. 2022. <span>“Pairwise Markov Random Fields.”</span> In <em>Network Psychometrics with r</em>, edited by Adela-Maria. Isvoranu, Sacha. Epskamp, L. J. Waldorp, and D. Borsboom, 93–110. London: Routledge.
 </div>
 <div id="ref-Isvoranu2021-as" class="csl-entry" role="listitem">
 Isvoranu, Adela-Maria, and Sacha Epskamp. 2021. <span>“Which Estimation Method to Choose in Network Psychometrics? Deriving Guidelines for Applied Researchers.”</span> <em>Psychological Methods</em>, November.
 </div>
 <div id="ref-Jordan2017-dg" class="csl-entry" role="listitem">
 Jordan, Pascal, Meike C Shedden-Mora, and Bernd Löwe. 2017. <span>“Psychometric Analysis of the Generalized Anxiety Disorder Scale (<span>GAD</span>-7) in Primary Care Using Modern Item Response Theory.”</span> <em>PloS One</em> 12 (8): e0182162.
+</div>
+<div id="ref-国里愛彦2023横断データに対する心理ネットワーク分析のチュートリアル" class="csl-entry" role="listitem">
+国里愛彦, 藁科佳奈, 隅田昌孝, 村口ゆら, and 大水拓海. 2023. <span>“横断データに対する心理ネットワーク分析のチュートリアル.”</span> <em>専修人間科学論集心理学篇</em> 13 (1): 51–67.
+</div>
+<div id="ref-大水2025-omizu" class="csl-entry" role="listitem">
+大水拓海, and 国里愛彦. 2025. <span>“単一事例研究への心理ネットワーク分析の適用 : graphicalVARを用いたチュートリアル.”</span> <em>専修人間科学論集心理学篇</em> 15 (1): 45–56.
 </div>
 </div>
 </section>
