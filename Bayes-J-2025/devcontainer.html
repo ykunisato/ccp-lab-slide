@@ -1052,7 +1052,7 @@ margin-right: 0; }
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section role="img" id="title-slide" data-background-image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwAQMAAAAEm3vRAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABq0lEQVRYhe2Ywa3EIAxE4UQZdBqSTlNGTvh7xoRF+7eAiRQLZdm8XCzbY0NKr72mYsXceqq7r3I2O7P50+2Ux/jZih18tfmeK96L44a31S68zRc3xfpTsDsG4IFJ8fcxmFHZuY5ffmtiJtMdlfibvnNNErOAHS/rX31L4mnuSXHdmcFI6hiOwZNODz2TGp7VN/p4h0u2M6UaQO0sY3U8+pPLPSo5jU+nY8KYWuM5ZHiCYUPpl8cQnR4tdsg99vsTcI4EKqOAY0TIc6yRxdhxION33EB98p1ryjiVEQOWQcRmJpMw9kiguVZjMvV06/71AMwdpzFKP6u3HkuuiWKOYp2jTEiP51NfNFUY04cS0yTCE11q5poy9qRHZ0UZpxmPWcC6mMnEhZPq71wTxnMg63fTOlbHVDGFEm5kHvMo9wiPPm7or8Z4QOgbfjhfiuMlMIlfAMQSx8thr13RbhEYW84lqhgObOOMzeuYIfoPwOM6xqaHZvYJiTxGPNhleSMzJ4MHYMhNDPGZd3kf0RTGiZPNOOPFFRhHBHk8cijbGNwRlfWALYtfe03B/gBpZN5w0TP1LgAAAABJRU5ErkJggg==" data-background-position="right 20% bottom 10%" data-background-size="30%" class="quarto-title-block center">
   <h1 class="title">devcontainer</h1>
 
 <div class="quarto-title-authors">
@@ -1121,7 +1121,7 @@ margin-right: 0; }
 <section id="dockerfileの例" class="slide level2">
 <h2>Dockerfileの例</h2>
 <ul>
-<li><p>ビルドが面倒なので、イメージをDocker Hubにアップしていて、それを使っている。</p></li>
+<li><p>ビルドが面倒なので、イメージをDocker Hubにアップして使っている(VScodeでRを使う際に便利なツールはすでに入っている)。</p></li>
 <li><p>追加でRパッケージをインストールする場合は、”install_r.r”にインストールコマンドを追加する。</p></li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource docker number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href></a>FROM ykunisato/dev-con-r</span>
@@ -1134,7 +1134,8 @@ margin-right: 0; }
 <section id="devcontainer-template-for-ccp-lab" class="slide level2">
 <h2>devcontainer template for CCP Lab</h2>
 <ul>
-<li>CCP Labとか書いているけど、私しか使ってないdevcontainerテンプレート（Macユーザーにつき、Arm64版のみ）</li>
+<li>CCP Labとか書いているけど、私しか使ってないdevcontainerテンプレート</li>
+<li>Macユーザーにつき、Arm64版のみ。Dockerfileを少し書き換えて、ローカルでビルドすればAmd64とかでも動くはず。</li>
 </ul>
 <p><a href="https://github.com/ykunisato/devcontainer-template-ccp-lab" class="uri">https://github.com/ykunisato/devcontainer-template-ccp-lab</a></p>
 </section>
