@@ -2364,18 +2364,18 @@ id1       id2  measure     lower      upper significant
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href></a>net_sim_01 <span class="ot">&lt;-</span> <span class="fu">simulate_treatment_network</span>(</span>
-<span id="cb39-2"><a href></a>  <span class="at">W_init =</span> weights,　<span class="co">#重み</span></span>
-<span id="cb39-3"><a href></a>  <span class="at">b_init =</span> thresholds,　<span class="co">#閾値</span></span>
-<span id="cb39-4"><a href></a>  <span class="at">target =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),　<span class="co">#anhedoniaの8番目を１に</span></span>
+<span id="cb39-2"><a href></a>  <span class="at">W_init =</span> weights, <span class="co">#重み</span></span>
+<span id="cb39-3"><a href></a>  <span class="at">b_init =</span> thresholds, <span class="co">#閾値</span></span>
+<span id="cb39-4"><a href></a>  <span class="at">target =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="co">#anhedoniaの8番目を１に</span></span>
 <span id="cb39-5"><a href></a>  <span class="at">connectivity =</span> <span class="fl">1.0</span>, <span class="co">#全体的な接続の強さ</span></span>
-<span id="cb39-6"><a href></a>  <span class="at">edge_between_TC =</span> <span class="dv">1</span>,　<span class="co">#TCノード間の接続の強さ</span></span>
-<span id="cb39-7"><a href></a>  <span class="at">weight_bias =</span> <span class="dv">1</span>,　<span class="co">#症状とTCノードの重みの強さ</span></span>
-<span id="cb39-8"><a href></a>  <span class="at">TB =</span> <span class="dv">1</span>,　<span class="co">#閾値の値の高さ</span></span>
-<span id="cb39-9"><a href></a>  <span class="at">trial =</span> <span class="dv">100</span>, <span class="co"># 繰り返し回数(複数回行って平均を取っている)</span></span>
-<span id="cb39-10"><a href></a>  <span class="at">baseline_iteration =</span> <span class="dv">500</span>, <span class="co"># ベースラインのステップ数</span></span>
-<span id="cb39-11"><a href></a>  <span class="at">num_TC =</span> <span class="dv">16</span>, <span class="co"># TCノードの数</span></span>
-<span id="cb39-12"><a href></a>  <span class="at">TC_iteration_per_component =</span> <span class="dv">20</span>, <span class="co"># 何ステップごとにTCを追加するか</span></span>
-<span id="cb39-13"><a href></a>  <span class="at">follow_up_iteration =</span> <span class="dv">500</span>, <span class="co"># TCを全て追加した後のフォローアップ期間</span></span>
+<span id="cb39-6"><a href></a>  <span class="at">edge_between_TC =</span> <span class="dv">1</span>, <span class="co">#TCノード間の接続の強さ</span></span>
+<span id="cb39-7"><a href></a>  <span class="at">weight_bias =</span> <span class="dv">1</span>, <span class="co">#症状とTCノードの重みの強さ</span></span>
+<span id="cb39-8"><a href></a>  <span class="at">TB =</span> <span class="dv">1</span>, <span class="co">#閾値の値の高さ</span></span>
+<span id="cb39-9"><a href></a>  <span class="at">trial =</span> <span class="dv">100</span>, <span class="co">#繰り返し回数(複数回行って平均を取っている)</span></span>
+<span id="cb39-10"><a href></a>  <span class="at">baseline_iteration =</span> <span class="dv">500</span>, <span class="co">#ベースラインのステップ数</span></span>
+<span id="cb39-11"><a href></a>  <span class="at">num_TC =</span> <span class="dv">16</span>, <span class="co">#TCノードの数</span></span>
+<span id="cb39-12"><a href></a>  <span class="at">TC_iteration_per_component =</span> <span class="dv">20</span>, <span class="co">#何ステップごとにTCを追加するか</span></span>
+<span id="cb39-13"><a href></a>  <span class="at">follow_up_iteration =</span> <span class="dv">500</span>, <span class="co">#TCを全て追加した後のフォローアップ期間</span></span>
 <span id="cb39-14"><a href></a>  <span class="at">symptom_name =</span> node_names_bi</span>
 <span id="cb39-15"><a href></a> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2394,18 +2394,18 @@ id1       id2  measure     lower      upper significant
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href></a>net_sim_02 <span class="ot">&lt;-</span> <span class="fu">simulate_treatment_network</span>(</span>
-<span id="cb40-2"><a href></a>  <span class="at">W_init =</span> weights,　<span class="co">#重み</span></span>
-<span id="cb40-3"><a href></a>  <span class="at">b_init =</span> thresholds,　<span class="co">#閾値</span></span>
-<span id="cb40-4"><a href></a>  <span class="at">target =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),　<span class="co">#３変数を１に</span></span>
+<span id="cb40-2"><a href></a>  <span class="at">W_init =</span> weights, <span class="co">#重み</span></span>
+<span id="cb40-3"><a href></a>  <span class="at">b_init =</span> thresholds, <span class="co">#閾値</span></span>
+<span id="cb40-4"><a href></a>  <span class="at">target =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="co">#３変数を１に</span></span>
 <span id="cb40-5"><a href></a>  <span class="at">connectivity =</span> <span class="fl">1.0</span>, <span class="co">#全体的な接続の強さ</span></span>
-<span id="cb40-6"><a href></a>  <span class="at">edge_between_TC =</span> <span class="dv">1</span>,　<span class="co">#TCノード間の接続の強さ</span></span>
-<span id="cb40-7"><a href></a>  <span class="at">weight_bias =</span> <span class="dv">1</span>,　<span class="co">#症状とTCノードの重みの強さ</span></span>
-<span id="cb40-8"><a href></a>  <span class="at">TB =</span> <span class="dv">1</span>,　<span class="co">#閾値の値の高さ</span></span>
-<span id="cb40-9"><a href></a>  <span class="at">trial =</span> <span class="dv">100</span>, <span class="co"># 繰り返し回数(複数回行って平均を取っている)</span></span>
-<span id="cb40-10"><a href></a>  <span class="at">baseline_iteration =</span> <span class="dv">500</span>, <span class="co"># ベースラインのステップ数</span></span>
-<span id="cb40-11"><a href></a>  <span class="at">num_TC =</span> <span class="dv">16</span>, <span class="co"># TCノードの数</span></span>
-<span id="cb40-12"><a href></a>  <span class="at">TC_iteration_per_component =</span> <span class="dv">20</span>, <span class="co"># 何ステップごとにTCを追加するか</span></span>
-<span id="cb40-13"><a href></a>  <span class="at">follow_up_iteration =</span> <span class="dv">500</span>, <span class="co"># TCを全て追加した後のフォローアップ期間</span></span>
+<span id="cb40-6"><a href></a>  <span class="at">edge_between_TC =</span> <span class="dv">1</span>, <span class="co">#TCノード間の接続の強さ</span></span>
+<span id="cb40-7"><a href></a>  <span class="at">weight_bias =</span> <span class="dv">1</span>, <span class="co">#症状とTCノードの重みの強さ</span></span>
+<span id="cb40-8"><a href></a>  <span class="at">TB =</span> <span class="dv">1</span>, <span class="co">#閾値の値の高さ</span></span>
+<span id="cb40-9"><a href></a>  <span class="at">trial =</span> <span class="dv">100</span>, <span class="co">#繰り返し回数(複数回行って平均を取っている)</span></span>
+<span id="cb40-10"><a href></a>  <span class="at">baseline_iteration =</span> <span class="dv">500</span>, <span class="co">#ベースラインのステップ数</span></span>
+<span id="cb40-11"><a href></a>  <span class="at">num_TC =</span> <span class="dv">16</span>, <span class="co">#TCノードの数</span></span>
+<span id="cb40-12"><a href></a>  <span class="at">TC_iteration_per_component =</span> <span class="dv">20</span>, <span class="co">#何ステップごとにTCを追加するか</span></span>
+<span id="cb40-13"><a href></a>  <span class="at">follow_up_iteration =</span> <span class="dv">500</span>, <span class="co">#TCを全て追加した後のフォローアップ期間</span></span>
 <span id="cb40-14"><a href></a>  <span class="at">symptom_name =</span> node_names_bi</span>
 <span id="cb40-15"><a href></a> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
