@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>海中サバイバルゲーム</title>
+    <style>
+        body {
+            background-color: #202020;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            font-family: sans-serif;
+            flex-direction: column;
+        }
+
+        canvas {
+            background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+            /* 海のグラデーション */
+            border: 4px solid #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .instructions {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="gameCanvas" width="800" height="450"></canvas>
+
+    <div class="instructions">
+        <p>矢印キー（↑ ↓ ← →）で泳いで、右端のゴール🚩を目指せ！</p>
+        <p>サメ🦈やカニ🦀に当たるとゲームオーバー。</p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // プレイヤー設定
+        const player = {
+            x: 50,
+            y: 200,
+            size: 30,
+            speed: 5,
+            emoji: "🏊"
+        };
+
+        // ゲームの状態
+        let isGameOver = false;
+        let isGameClear = false;
+
+        // キーボード入力の管理
+        const keys = {
+            ArrowUp: false,
+            ArrowDown: false,
+            ArrowLeft: false,
+            ArrowRight: false
+        };
+
+        // 敵キャラ（サメとカニ）の生成
+        const enemies = [];
+
+        // サメ（上の方を泳ぐ）
+        for (let i = 0; i < 5; i++) {
+            enemies.push({
+                x: 200 + i * 120,
+                y: 50 + Math.random() * 100, // 上の方
+                size: 40,
+                speed: 2 + Math.random() * 3,
+                type: "shark",
+                emoji: "🦈"
+            });
+        }
+
+        // カニ（底の方にいる）
+        for (let i = 0; i < 5; i++) {
+            enemies.push({
+                x: 250 + i * 110,
+                y: 350 + Math.random() * 50, // 下の方
+                size: 35,
+                speed: 1 + Math.random() * 2,
+                type: "crab",
+                emoji: "🦀"
+            });
+        }
+
+        // キーイベントのリスナー
+        window.addEventListener('keydown', (e) => {
+            if (keys.hasOwnProperty(e.key)) keys[e.key] = true;
+            // ゲームオーバー時のリスタート
+            if ((isGameOver || isGameClear) && e.key === 'Enter') {
+                document.location.reload();
+            }
+        });
+
+        window.addEventListener('keyup', (e) => {
+            if (keys.hasOwnProperty(e.key)) keys[e.key] = false;
+        });
+
+        function update() {
+            if (isGameOver || isGameClear) return;
+
+            // プレイヤーの移動
+            if (keys.ArrowUp && player.y > 0) player.y -= player.speed;
+            if (keys.ArrowDown && player.y < canvas.height - player.size) player.y += player.speed;
+            if (keys.ArrowLeft && player.x > 0) player.x -= player.speed;
+            if (keys.ArrowRight && player.x < canvas.width - player.size) player.x += player.speed;
+
+            // ゴール判定（右端に到達）
+            if (player.x > canvas.width - 50) {
+                isGameClear = true;
+            }
+
+            // 敵の動きと当たり判定
+            enemies.forEach(enemy => {
+                enemy.x -= enemy.speed;
+                // 画面左端に行ったら右端に戻す（ループ）
+                if (enemy.x < -50) {
+                    enemy.x = canvas.width + 50;
+                    // 高さを少しランダムに変える
+                    if (enemy.type === "shark") enemy.y = 50 + Math.random() * 100;
+                    else enemy.y = 350 + Math.random() * 50;
+                }
+
+                // 当たり判定（シンプルな矩形判定）
+                if (
+                    player.x < enemy.x + enemy.size - 10 &&
+                    player.x + player.size - 10 > enemy.x &&
+                    player.y < enemy.y + enemy.size - 10 &&
+                    player.y + player.size - 10 > enemy.y
+                ) {
+                    isGameOver = true;
+                }
+            });
+        }
+
+        function draw() {
+            // 画面クリア
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // ゴールエリア（右端）
+            ctx.fillStyle = "rgba(255, 255, 255, 0.2)";
+            ctx.fillRect(canvas.width - 60, 0, 60, canvas.height);
+            ctx.font = "40px Arial";
+            ctx.fillText("🚩", canvas.width - 50, canvas.height / 2);
+
+            // プレイヤー描画
+            ctx.font = "30px Arial";
+            ctx.fillText(player.emoji, player.x, player.y + player.size);
+
+            // 敵描画
+            enemies.forEach(enemy => {
+                ctx.font = `${enemy.size}px Arial`;
+                // 進行方向によって反転させる処理（簡易）
+                ctx.fillText(enemy.emoji, enemy.x, enemy.y + enemy.size);
+            });
+
+            // ゲームオーバー・クリア表示
+            if (isGameOver) {
+                ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "red";
+                ctx.font = "50px Arial";
+                ctx.textAlign = "center";
+                ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
+                ctx.fillStyle = "white";
+                ctx.font = "20px Arial";
+                ctx.fillText("Enterキーでリトライ", canvas.width / 2, canvas.height / 2 + 50);
+            }
+
+            if (isGameClear) {
+                ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "gold";
+                ctx.font = "50px Arial";
+                ctx.textAlign = "center";
+                ctx.fillText("GOAL!!! 🎉", canvas.width / 2, canvas.height / 2);
+                ctx.fillStyle = "white";
+                ctx.font = "20px Arial";
+                ctx.fillText("Enterキーでリトライ", canvas.width / 2, canvas.height / 2 + 50);
+            }
+        }
+
+        // ゲームループ
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+    </script>
+</body>
+
+</html>
