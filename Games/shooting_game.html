@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>現地調達シューティング</title>
+    <style>
+        body {
+            background-color: #222;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Courier New', sans-serif;
+        }
+        canvas {
+            background-color: #000;
+            border: 2px solid #555;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+        .instructions {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="800" height="450"></canvas>
+<div class="instructions">
+    <p>【操作】移動: 矢印キー | 攻撃: スペースキー（武器入手後）</p>
+    <p>最初は武器を持っていません！緑のアイテムを拾って装備してください。</p>
+</div>
+
+<script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // ゲームの状態
+    const STATE = { START: 0, PLAYING: 1, GAMEOVER: 2, CLEAR: 3 };
+    let currentState = STATE.START;
+
+    // ゲーム設定
+    const GOAL_DISTANCE = 4000; // ゴールまでの距離
+    let distanceTraveled = 0;
+    let score = 0;
+    let frameCount = 0;
+
+    // プレイヤー設定
+    const player = {
+        x: 50, y: 200, w: 30, h: 30, speed: 5,
+        color: '#0ff', hp: 1, weaponLevel: 0, // 0=なし, 1=シングル, 2=3way, 3=5way
+        invincible: 0
+    };
+
+    // オブジェクト管理
+    let bullets = [];
+    let enemyBullets = [];
+    let enemies = [];
+    let items = [];
+    let particles = [];
+
+    // キー入力管理
+    const keys = {};
+    document.addEventListener('keydown', e => keys[e.code] = true);
+    document.addEventListener('keyup', e => keys[e.code] = false);
+
+    // 初期化
+    function resetGame() {
+        player.x = 50; player.y = 200; player.hp = 1; player.weaponLevel = 0; player.invincible = 0;
+        distanceTraveled = 0; score = 0; frameCount = 0;
+        bullets = []; enemyBullets = []; enemies = []; items = []; particles = [];
+        currentState = STATE.PLAYING;
+    }
+
+    // メインループ
+    function gameLoop() {
+        update();
+        draw();
+        requestAnimationFrame(gameLoop);
+    }
+
+    function update() {
+        if (currentState !== STATE.PLAYING) {
+            if (keys['Space'] && currentState !== STATE.PLAYING) resetGame();
+            return;
+        }
+
+        frameCount++;
+        distanceTraveled += 2; // 強制スクロール速度
+
+        // --- プレイヤー移動 ---
+        if (keys['ArrowUp'] && player.y > 0) player.y -= player.speed;
+        if (keys['ArrowDown'] && player.y < canvas.height - player.h) player.y += player.speed;
+        if (keys['ArrowLeft'] && player.x > 0) player.x -= player.speed;
+        if (keys['ArrowRight'] && player.x < canvas.width - player.h) player.x += player.speed;
+
+        // --- プレイヤー攻撃 ---
+        if (keys['Space'] && frameCount % 10 === 0 && player.weaponLevel > 0) {
+            shootPlayerBullet();
+        }
+
+        // --- 敵の出現 ---
+        if (distanceTraveled < GOAL_DISTANCE && Math.random() < 0.03) {
+            spawnEnemy();
+        }
+
+        // --- アイテムの出現 (定期的に、または距離に応じて) ---
+        // 武器がない時は高確率、ある程度進むと強化アイテムが出る
+        if (frameCount % 600 === 0 && distanceTraveled < GOAL_DISTANCE) {
+            items.push({ x: canvas.width, y: Math.random() * (canvas.height - 30), w: 30, h: 30, active: true });
+        }
+
+        // --- 更新処理 ---
+        updateBullets();
+        updateEnemies();
+        updateItems();
+        updateParticles();
+
+        // --- ゴール判定 ---
+        if (distanceTraveled >= GOAL_DISTANCE + 600) { // ゴールラインを過ぎたら
+             currentState = STATE.CLEAR;
+        }
+    }
+
+    function shootPlayerBullet() {
+        const speed = 10;
+        if (player.weaponLevel === 1) {
+            bullets.push({ x: player.x + player.w, y: player.y + player.h/2, vx: speed, vy: 0 });
+        } else if (player.weaponLevel === 2) {
+            bullets.push({ x: player.x + player.w, y: player.y + player.h/2, vx: speed, vy: 0 });
+            bullets.push({ x: player.x + player.w, y: player.y + player.h/2, vx: speed, vy: 2 });
+            bullets.push({ x: player.x + player.w, y: player.y + player.h/2, vx: speed, vy: -2 });
+        } else if (player.weaponLevel >= 3) {
+            bullets.push({ x: player.x + player.w, y: player.y + player.h/2, vx: speed + 2, vy: 0 });
+            bullets.push({ x: player.x + player.w, y: player.y + player.h/2, vx: speed, vy: 3 });
+            bullets.push({ x: player.x + player.w, y: player.y + player.h/2, vx: speed, vy: -3 });
+            bullets.push({ x: player.x + player.w, y: player.y + player.h/2, vx: speed, vy: 6 });
+            bullets.push({ x: player.x + player.w, y: player.y + player.h/2, vx: speed, vy: -6 });
+        }
+    }
+
+    function spawnEnemy() {
+        const types = ['basic', 'shooter', 'charger'];
+        // 距離に応じて敵が強くなる
+        let type = types[0];
+        if (distanceTraveled > 1000) type = Math.random() < 0.5 ? 'shooter' : 'basic';
+        if (distanceTraveled > 2500) type = Math.random() < 0.5 ? 'charger' : 'shooter';
+
+        enemies.push({
+            x: canvas.width,
+            y: Math.random() * (canvas.height - 40),
+            w: 40, h: 40,
+            hp: type === 'basic' ? 1 : 3,
+            type: type,
+            timer: 0
+        });
+    }
+
+    function updateBullets() {
+        // プレイヤーの弾
+        bullets.forEach((b, i) => {
+            b.x += b.vx;
+            b.y += b.vy;
+            // 画面外削除
+            if (b.x > canvas.width) bullets.splice(i, 1);
+        });
+
+        // 敵の弾
+        enemyBullets.forEach((b, i) => {
+            b.x += b.vx;
+            b.y += b.vy;
+            if (b.x < 0 || b.y < 0 || b.y > canvas.height) enemyBullets.splice(i, 1);
+
+            // プレイヤーとの当たり判定
+            if (checkRectCollision(player, {x: b.x, y: b.y, w: 8, h: 8})) {
+                gameOver();
+            }
+        });
+    }
+
+    function updateEnemies() {
+        enemies.forEach((e, i) => {
+            e.x -= 3; // スクロール移動
+            e.timer++;
+
+            // 敵の攻撃ロジック
+            if (e.type === 'shooter' && e.timer % 100 === 0) {
+                // 自機狙い弾
+                let angle = Math.atan2(player.y - e.y, player.x - e.x);
+                enemyBullets.push({ x: e.x, y: e.y + e.h/2, vx: Math.cos(angle)*4, vy: Math.sin(angle)*4 });
+            }
+
+            // 画面外削除
+            if (e.x + e.w < 0) enemies.splice(i, 1);
+
+            // プレイヤーとの衝突
+            if (checkRectCollision(player, e)) {
+                gameOver();
+            }
+
+            // プレイヤーの弾との衝突判定
+            bullets.forEach((b, bi) => {
+                if (checkRectCollision({x:b.x, y:b.y, w:10, h:4}, e)) {
+                    createParticles(e.x, e.y, '#f00');
+                    bullets.splice(bi, 1);
+                    e.hp--;
+                    if (e.hp <= 0) {
+                        enemies.splice(i, 1);
+                        score += 100;
+                        createParticles(e.x, e.y, '#ffaa00', 10);
+                    }
+                }
+            });
+        });
+    }
+
+    function updateItems() {
+        items.forEach((item, i) => {
+            item.x -= 2; // ゆっくり流れてくる
+            if (item.x + item.w < 0) items.splice(i, 1);
+
+            if (checkRectCollision(player, item)) {
+                player.weaponLevel++;
+                if(player.weaponLevel > 3) player.weaponLevel = 3; // 最大レベル
+                score += 500;
+                items.splice(i, 1);
+                createParticles(player.x, player.y, '#0f0', 20);
+            }
+        });
+    }
+
+    function updateParticles() {
+        particles.forEach((p, i) => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.life--;
+            if (p.life <= 0) particles.splice(i, 1);
+        });
+    }
+
+    function createParticles(x, y, color, count=5) {
+        for(let i=0; i<count; i++) {
+            particles.push({
+                x: x, y: y,
+                vx: (Math.random() - 0.5) * 10,
+                vy: (Math.random() - 0.5) * 10,
+                life: 20,
+                color: color
+            });
+        }
+    }
+
+    function checkRectCollision(rect1, rect2) {
+        return (rect1.x < rect2.x + rect2.w &&
+                rect1.x + rect1.w > rect2.x &&
+                rect1.y < rect2.y + rect2.h &&
+                rect1.y + rect1.h > rect2.y);
+    }
+
+    function gameOver() {
+        currentState = STATE.GAMEOVER;
+    }
+
+    function draw() {
+        // 背景クリア
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // 星（背景）
+        ctx.fillStyle = '#555';
+        for(let i=0; i<20; i++) {
+            ctx.fillRect((frameCount * 0.5 + i * 100) % canvas.width, (i * 73) % canvas.height, 2, 2);
+        }
+
+        if (currentState === STATE.START) {
+            ctx.fillStyle = 'white';
+            ctx.font = '30px Courier New';
+            ctx.textAlign = 'center';
+            ctx.fillText("WEAPON SCAVENGER", canvas.width/2, canvas.height/2 - 20);
+            ctx.font = '20px Courier New';
+            ctx.fillText("Press SPACE to Start", canvas.width/2, canvas.height/2 + 30);
+            return;
+        }
+
+        // プレイヤー描画
+        ctx.fillStyle = player.color;
+        ctx.fillRect(player.x, player.y, player.w, player.h);
+        // 武器レベル表示
+        if(player.weaponLevel === 0) {
+            ctx.fillStyle = 'red';
+            ctx.font = '12px Arial';
+            ctx.fillText("NO WEAPON", player.x, player.y - 10);
+        }
+
+        // 敵描画
+        enemies.forEach(e => {
+            ctx.fillStyle = e.type === 'shooter' ? '#ff5555' : (e.type === 'charger' ? '#aa0000' : '#d65');
+            ctx.fillRect(e.x, e.y, e.w, e.h);
+        });
+
+        // アイテム描画
+        items.forEach(item => {
+            ctx.fillStyle = '#0f0';
+            ctx.fillRect(item.x, item.y, item.w, item.h);
+            ctx.fillStyle = 'black';
+            ctx.font = '20px Arial';
+            ctx.fillText("W", item.x + 7, item.y + 22);
+            
+            // 取得ガイド
+            ctx.fillStyle = 'white';
+            ctx.font = '12px Arial';
+            ctx.fillText("GET!", item.x, item.y - 5);
+        });
+
+        // 弾描画
+        ctx.fillStyle = '#ff0';
+        bullets.forEach(b => ctx.fillRect(b.x, b.y, 10, 4));
+        
+        ctx.fillStyle = '#f88';
+        enemyBullets.forEach(b => {
+            ctx.beginPath();
+            ctx.arc(b.x, b.y, 5, 0, Math.PI*2);
+            ctx.fill();
+        });
+
+        // パーティクル描画
+        particles.forEach(p => {
+            ctx.fillStyle = p.color;
+            ctx.fillRect(p.x, p.y, 4, 4);
+        });
+
+        // ゴールライン
+        const goalScreenX = GOAL_DISTANCE - distanceTraveled + 600; // 画面上のX座標
+        if (goalScreenX < canvas.width) {
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(goalScreenX, 0, 50, canvas.height);
+            ctx.fillStyle = '#000';
+            ctx.font = '30px Arial';
+            ctx.fillText("GOAL", goalScreenX + 5, canvas.height/2);
+        }
+
+        // UI表示
+        ctx.fillStyle = 'white';
+        ctx.font = '20px Courier New';
+        ctx.textAlign = 'left';
+        ctx.fillText(`SCORE: ${score}`, 20, 30);
+        
+        // 進行度バー
+        let progress = Math.min(distanceTraveled / GOAL_DISTANCE, 1);
+        ctx.strokeStyle = 'white';
+        ctx.strokeRect(200, 15, 400, 10);
+        ctx.fillStyle = 'white';
+        ctx.fillRect(200, 15, 400 * progress, 10);
+        ctx.fillText("GOAL", 610, 25);
+
+        // ゲームオーバー・クリア表示
+        if (currentState === STATE.GAMEOVER) {
+            ctx.fillStyle = 'rgba(0,0,0,0.7)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'red';
+            ctx.font = '40px Courier New';
+            ctx.textAlign = 'center';
+            ctx.fillText("GAME OVER", canvas.width/2, canvas.height/2);
+            ctx.font = '20px Courier New';
+            ctx.fillText("Press SPACE to Retry", canvas.width/2, canvas.height/2 + 50);
+        } else if (currentState === STATE.CLEAR) {
+            ctx.fillStyle = 'rgba(0,0,0,0.7)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'cyan';
+            ctx.font = '40px Courier New';
+            ctx.textAlign = 'center';
+            ctx.fillText("MISSION COMPLETE!", canvas.width/2, canvas.height/2);
+            ctx.fillText(`Final Score: ${score}`, canvas.width/2, canvas.height/2 + 50);
+            ctx.font = '20px Courier New';
+            ctx.fillText("Press SPACE to Play Again", canvas.width/2, canvas.height/2 + 100);
+        }
+    }
+
+    requestAnimationFrame(gameLoop);
+</script>
+</body>
+</html>
