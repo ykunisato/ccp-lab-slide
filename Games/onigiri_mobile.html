@@ -12,11 +12,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* 上寄せに変更 */
+            justify-content: flex-start;
             height: 100vh;
             margin: 0;
-            overflow: hidden; /* スクロール禁止 */
-            touch-action: none; /* ダブルタップ拡大禁止 */
+            overflow: hidden;
+            touch-action: none;
         }
         h1 { 
             margin: 10px 0; 
@@ -28,15 +28,14 @@
             box-shadow: 0 5px 10px rgba(0,0,0,0.2);
             border-radius: 8px;
             overflow: hidden;
-            /* スマホ画面幅に合わせる */
             width: 95vw;
             max-width: 600px;
             background: #dcedc8;
         }
         canvas {
             display: block;
-            width: 100%; /* コンテナ幅に合わせる */
-            height: auto; /* アスペクト比維持 */
+            width: 100%;
+            height: auto;
             background-image: 
                 linear-gradient(#c5e1a5 2px, transparent 2px),
                 linear-gradient(90deg, #c5e1a5 2px, transparent 2px);
@@ -48,8 +47,6 @@
             font-weight: bold;
             margin-top: 5px;
         }
-
-        /* --- スマホ用コントローラー --- */
         #mobileControls {
             display: flex;
             justify-content: space-between;
@@ -59,8 +56,6 @@
             margin-top: 15px;
             padding-bottom: 20px;
         }
-        
-        /* 十字キーエリア */
         .d-pad {
             display: grid;
             grid-template-columns: 60px 60px 60px;
@@ -69,7 +64,6 @@
             justify-items: center;
             align-items: center;
         }
-        /* ボタン共通スタイル */
         .ctrl-btn {
             width: 55px;
             height: 55px;
@@ -80,7 +74,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            user-select: none; /* 文字選択禁止 */
+            user-select: none;
             cursor: pointer;
             touch-action: manipulation;
         }
@@ -88,14 +82,10 @@
             background: #81c784;
             transform: scale(0.95);
         }
-        
-        /* 配置調整 */
         #btnUp { grid-column: 2; grid-row: 1; }
         #btnLeft { grid-column: 1; grid-row: 2; }
         #btnDown { grid-column: 2; grid-row: 2; }
         #btnRight { grid-column: 3; grid-row: 2; }
-
-        /* アクションボタン（吸い込み） */
         #actionArea {
             display: flex;
             align-items: center;
@@ -115,8 +105,6 @@
             box-shadow: 0 0 0 #d84315;
             transform: translateY(4px);
         }
-
-        /* リトライボタン（ゲームオーバー時のみ表示） */
         #retryBtn {
             display: none;
             position: absolute;
@@ -169,8 +157,8 @@
     let gameState = 'playing';
     let score = 0;
     let frameCount = 0;
+    let animationId; // アニメーションIDを管理する変数を追加
 
-    // プレイヤー設定
     const player = {
         x: 300,
         y: 200,
@@ -180,15 +168,12 @@
         vacuuming: false
     };
 
-    // 敵設定
     let enemies = [];
-    const enemySpeed = 1.5;
+    const baseEnemySpeed = 1.5; // 基本スピード
     const spawnRate = 60;
 
-    // キー入力管理
     const keys = {};
 
-    // PC用キーボードイベント
     window.addEventListener('keydown', (e) => {
         keys[e.key] = true;
         if (gameState === 'gameover' && e.key === 'Enter') {
@@ -199,45 +184,51 @@
         keys[e.key] = false;
     });
 
-    // スマホ用タッチイベント登録関数
     function addTouchControl(id, keyName) {
         const elem = document.getElementById(id);
-        
-        // タッチ開始
         elem.addEventListener('touchstart', (e) => {
-            e.preventDefault(); // スクロール防止
+            e.preventDefault();
             keys[keyName] = true;
             elem.classList.add('pressed');
         }, { passive: false });
-
-        // タッチ終了
         elem.addEventListener('touchend', (e) => {
             e.preventDefault();
             keys[keyName] = false;
             elem.classList.remove('pressed');
         }, { passive: false });
-
-        // PCのマウス操作も一応対応（デバッグ用）
+        
+        // PC用マウス操作（デバッグ用）
         elem.addEventListener('mousedown', () => { keys[keyName] = true; elem.classList.add('pressed'); });
         elem.addEventListener('mouseup', () => { keys[keyName] = false; elem.classList.remove('pressed'); });
         elem.addEventListener('mouseleave', () => { keys[keyName] = false; elem.classList.remove('pressed'); });
     }
 
-    // ボタンに機能を割り当て
     addTouchControl('btnUp', 'ArrowUp');
     addTouchControl('btnDown', 'ArrowDown');
     addTouchControl('btnLeft', 'ArrowLeft');
     addTouchControl('btnRight', 'ArrowRight');
-    addTouchControl('btnAction', ' '); // スペースキーと同じ扱い
+    addTouchControl('btnAction', ' ');
 
     function resetGame() {
+        // 前のループが動いていたら停止させる（これで倍速化を防ぐ）
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+        }
+
+        // プレイヤー位置リセット
         player.x = canvas.width / 2;
         player.y = canvas.height / 2;
+        
+        // 敵とスコアのリセット
         enemies = [];
         score = 0;
+        frameCount = 0;
+        
         gameState = 'playing';
         scoreText.innerText = `Score: ${score}`;
-        retryBtn.style.display = 'none'; // リトライボタン消す
+        retryBtn.style.display = 'none';
+        
+        // 新しくループを開始
         loop();
     }
 
@@ -258,7 +249,7 @@
 
         frameCount++;
 
-        // --- 移動 ---
+        // 移動
         let moved = false;
         if (keys['ArrowUp']) { player.y -= player.speed; player.direction = 'up'; moved = true; }
         if (keys['ArrowDown']) { player.y += player.speed; player.direction = 'down'; moved = true; }
@@ -268,10 +259,10 @@
         player.x = Math.max(player.size/2, Math.min(canvas.width - player.size/2, player.x));
         player.y = Math.max(player.size/2, Math.min(canvas.height - player.size/2, player.y));
 
-        // --- アクション ---
+        // アクション
         player.vacuuming = keys[' '];
 
-        // --- 敵処理 ---
+        // 敵出現
         if (frameCount % spawnRate === 0) {
             spawnEnemy();
         }
@@ -283,13 +274,14 @@
             let dist = Math.sqrt(dx*dx + dy*dy);
             
             if (dist > 0) {
-                e.x += (dx / dist) * enemySpeed;
-                e.y += (dy / dist) * enemySpeed;
+                // スピードは常に baseEnemySpeed を使うので加速しない
+                e.x += (dx / dist) * baseEnemySpeed;
+                e.y += (dy / dist) * baseEnemySpeed;
             }
 
             if (dist < (player.size/2 + e.size/2 - 5)) {
                 gameState = 'gameover';
-                retryBtn.style.display = 'block'; // リトライボタン表示
+                retryBtn.style.display = 'block';
             }
 
             if (player.vacuuming) {
@@ -315,7 +307,7 @@
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // 吸い込みエフェクト
+        // エフェクト
         if (gameState === 'playing' && player.vacuuming) {
             ctx.fillStyle = 'rgba(200, 230, 255, 0.4)';
             ctx.beginPath();
@@ -361,7 +353,6 @@
             ctx.fillStyle = 'white';
             ctx.font = '20px Arial';
             ctx.fillText(`食べた数: ${score}個`, canvas.width/2, canvas.height/2 + 20);
-            // スマホ用には「Enterでリトライ」の文字は消してボタンで誘導
         }
     }
 
@@ -369,11 +360,13 @@
         update();
         draw();
         if (gameState === 'playing' || gameState === 'gameover') {
-            requestAnimationFrame(loop);
+            // ループIDを保存
+            animationId = requestAnimationFrame(loop);
         }
     }
 
-    loop();
+    // 初回スタート
+    resetGame();
 
 </script>
 </body>
