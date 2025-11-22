@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ころころオニギリキャッチ</title>
+    <style>
+        body {
+            background-color: #87CEEB; /* 空の色 */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            touch-action: none; /* スマホでのズーム等防止 */
+        }
+        #gameContainer {
+            position: relative;
+            width: 100%;
+            max-width: 500px; /* スマホで見やすい幅 */
+            height: 100vh;
+            background: linear-gradient(to bottom, #87CEEB 0%, #e0f7fa 50%, #81c784 100%); /* 山の麓イメージ */
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        /* UIオーバーレイ */
+        #uiLayer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* キャンバスへのタッチを邪魔しない */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 0 #388e3c;
+        }
+        .center-msg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            pointer-events: auto; /* ボタンは押せるように */
+        }
+        h1 { margin: 0; font-size: 30px; color: #fff; text-shadow: 2px 2px 0 #fbc02d; }
+        button {
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 20px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 5px 0 #e65100;
+            cursor: pointer;
+        }
+        button:active { transform: translateY(5px); box-shadow: none; }
+        
+        /* スマホ用操作エリアガイド（視覚のみ） */
+        .touch-guide {
+            display: flex;
+            width: 100%;
+            height: 20%;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+        .side-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        .left-area { border-right: 1px dashed rgba(255,255,255,0.5); }
+    </style>
+</head>
+<body>
+
+<div id="gameContainer">
+    <canvas id="gameCanvas"></canvas>
+    
+    <div id="uiLayer">
+        <div class="header">
+            <div id="scoreDisplay">🍙: 0</div>
+            <div id="lifeDisplay">❤️❤️❤️</div>
+        </div>
+        
+        <div id="messageScreen" class="center-msg">
+            <h1>🍙 ころころ<br>キャッチ！</h1>
+            <p>左キー または 画面左タップ<br>右キー または 画面右タップ</p>
+            <button onclick="startGame()">スタート</button>
+        </div>
+
+        <div class="touch-guide" id="touchGuide" style="display:none;">
+            <div class="side-btn left-area">👈 左手</div>
+            <div class="side-btn right-area">右手 👉</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const lifeDisplay = document.getElementById('lifeDisplay');
+    const messageScreen = document.getElementById('messageScreen');
+    const touchGuide = document.getElementById('touchGuide');
+
+    // 画面サイズ調整
+    function resize() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // --- ゲーム変数 ---
+    let gameState = 'title'; // title, playing, gameover
+    let score = 0;
+    let lives = 3;
+    let level = 1;
+    let animationId;
+    let frameCount = 0;
+
+    // プレイヤー（クマさん）
+    const player = {
+        size: 60,
+        x: 0, // resizeで中央設定
+        y: 0, // resizeで下部設定
+        leftHand: false,
+        rightHand: false
+    };
+
+    // オニギリ配列
+    let onigiris = [];
+
+    // 操作フラグ
+    const input = {
+        left: false,
+        right: false
+    };
+
+    // --- イベントリスナー ---
+    
+    // キーボード
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') input.left = true;
+        if (e.key === 'ArrowRight') input.right = true;
+    });
+    window.addEventListener('keyup', (e) => {
+        if (e.key === 'ArrowLeft') input.left = false;
+        if (e.key === 'ArrowRight') input.right = false;
+    });
+
+    // スマホタッチ（画面の左半分・右半分判定）
+    canvas.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        for (let i = 0; i < e.touches.length; i++) {
+            const touchX = e.touches[i].clientX;
+            const halfWidth = window.innerWidth / 2;
+            if (touchX < halfWidth) input.left = true;
+            else input.right = true;
+        }
+    }, {passive: false});
+
+    canvas.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        // 全指離したとみなす簡易実装（マルチタッチの細かい制御は省略）
+        if (e.touches.length === 0) {
+            input.left = false;
+            input.right = false;
+        } else {
+            // まだ指が残っている場合、残っている指の位置で再判定
+            input.left = false;
+            input.right = false;
+            for (let i = 0; i < e.touches.length; i++) {
+                const touchX = e.touches[i].clientX;
+                const halfWidth = window.innerWidth / 2;
+                if (touchX < halfWidth) input.left = true;
+                else input.right = true;
+            }
+        }
+    }, {passive: false});
+
+
+    // --- ゲームロジック ---
+
+    function startGame() {
+        if (animationId) cancelAnimationFrame(animationId);
+        
+        score = 0;
+        lives = 3;
+        level = 1;
+        frameCount = 0;
+        onigiris = [];
+        input.left = false;
+        input.right = false;
+        
+        gameState = 'playing';
+        messageScreen.style.display = 'none';
+        touchGuide.style.display = 'flex';
+        
+        updateUI();
+        resize(); // 座標リセットのため
+        loop();
+    }
+
+    function updateUI() {
+        scoreDisplay.innerText = `🍙: ${score} (Lv.${level})`;
+        let lifeStr = '';
+        for(let i=0; i<lives; i++) lifeStr += '❤️';
+        lifeDisplay.innerText = lifeStr;
+    }
+
+    function gameOver() {
+        gameState = 'gameover';
+        touchGuide.style.display = 'none';
+        messageScreen.style.display = 'block';
+        messageScreen.innerHTML = `
+            <h1 style="color:#ff5252">GAME OVER</h1>
+            <p>スコア: ${score}個</p>
+            <button onclick="startGame()">もう一回！</button>
+        `;
+    }
+
+    function spawnOnigiri() {
+        // レベルに応じて出現頻度アップ（最小20フレーム間隔）
+        const spawnRate = Math.max(20, 80 - (level * 5));
+        
+        if (frameCount % spawnRate === 0) {
+            const side = Math.random() < 0.5 ? 'left' : 'right';
+            // 画面中央から左右にオフセットした位置から落とす
+            const centerX = canvas.width / 2;
+            const offset = canvas.width * 0.25; // 画面幅の1/4の位置
+            const x = side === 'left' ? centerX - offset : centerX + offset;
+            
+            // レベルに応じてスピードアップ
+            const speed = 3 + (level * 0.5);
+            
+            onigiris.push({
+                x: x,
+                y: -50,
+                side: side,
+                speed: speed,
+                angle: 0,
+                rotSpeed: (Math.random() * 0.1 + 0.05) * (Math.random()<0.5?-1:1),
+                caught: false
+            });
+        }
+    }
+
+    function update() {
+        if (gameState !== 'playing') return;
+        
+        frameCount++;
+        // スコアに応じてレベルアップ（10個ごとにLvUP）
+        level = Math.floor(score / 10) + 1;
+
+        // プレイヤー位置更新（常に画面下中央）
+        player.x = canvas.width / 2;
+        player.y = canvas.height - 100;
+        player.leftHand = input.left;
+        player.rightHand = input.right;
+
+        // オニギリ出現
+        spawnOnigiri();
+
+        // オニギリ更新
+        for (let i = onigiris.length - 1; i >= 0; i--) {
+            let o = onigiris[i];
+            o.y += o.speed;
+            o.angle += o.rotSpeed;
+
+            // --- 当たり判定 ---
+            // プレイヤーの手に届く範囲（Y座標）
+            const catchZoneY = player.y - 30; 
+            const catchRange = 60; // 判定の厚み
+
+            // 画面外に出た（ミス）
+            if (o.y > canvas.height) {
+                lives--;
+                updateUI();
+                onigiris.splice(i, 1);
+                if (lives <= 0) gameOver();
+                continue;
+            }
+
+            // キャッチ判定
+            if (!o.caught && Math.abs(o.y - catchZoneY) < catchRange) {
+                if (o.side === 'left' && player.leftHand) {
+                    // 左でキャッチ
+                    catchOnigiri(i);
+                } else if (o.side === 'right' && player.rightHand) {
+                    // 右でキャッチ
+                    catchOnigiri(i);
+                }
+            }
+        }
+    }
+
+    function catchOnigiri(index) {
+        score++;
+        updateUI();
+        // キャッチエフェクト（簡易的）：配列から削除
+        onigiris.splice(index, 1);
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // --- 背景（山） ---
+        ctx.fillStyle = '#a5d6a7'; // 遠くの山
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height);
+        ctx.lineTo(canvas.width/2, canvas.height * 0.4);
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.fill();
+
+        // --- レーンガイド（うっすら） ---
+        ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([10, 10]);
+        ctx.beginPath();
+        ctx.moveTo(canvas.width/2, 0);
+        ctx.lineTo(canvas.width/2, canvas.height);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // --- プレイヤー（クマ🐻） ---
+        const px = player.x;
+        const py = player.y;
+        
+        // 体
+        ctx.font = "60px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("🐻", px, py);
+
+        // 左手（伸びる！）
+        if (player.leftHand) {
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = "#795548"; // 茶色い腕
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            ctx.moveTo(px - 20, py + 10); // 肩あたり
+            ctx.lineTo(px - 80, py - 20); // 斜め上に伸ばす
+            ctx.stroke();
+            
+            ctx.font = "40px Arial";
+            ctx.fillText("🤚", px - 90, py - 30); // 手のひら
+        }
+
+        // 右手（伸びる！）
+        if (player.rightHand) {
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = "#795548";
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            ctx.moveTo(px + 20, py + 10);
+            ctx.lineTo(px + 80, py - 20);
+            ctx.stroke();
+
+            ctx.font = "40px Arial";
+            ctx.fillText("🤚", px + 90, py - 30);
+        }
+
+        // --- オニギリ ---
+        for (let o of onigiris) {
+            ctx.save();
+            ctx.translate(o.x, o.y);
+            ctx.rotate(o.angle);
+            ctx.font = "40px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("🍙", 0, 0);
+            ctx.restore();
+        }
+    }
+
+    function loop() {
+        update();
+        draw();
+        if (gameState !== 'gameover') { // ゲームオーバー画面で止めるため
+            animationId = requestAnimationFrame(loop);
+        }
+    }
+
+    // 初期描画
+    resize();
+    draw();
+
+</script>
+</body>
+</html>
