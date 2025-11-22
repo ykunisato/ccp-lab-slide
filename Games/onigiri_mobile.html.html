@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>スマホ対応：オニギリ吸い取りゲーム</title>
+    <style>
+        body {
+            background-color: #aed581;
+            color: #1b5e20;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* 上寄せに変更 */
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* スクロール禁止 */
+            touch-action: none; /* ダブルタップ拡大禁止 */
+        }
+        h1 { 
+            margin: 10px 0; 
+            font-size: 20px; 
+            text-shadow: 1px 1px 0px white; 
+        }
+        #gameContainer {
+            position: relative;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            /* スマホ画面幅に合わせる */
+            width: 95vw;
+            max-width: 600px;
+            background: #dcedc8;
+        }
+        canvas {
+            display: block;
+            width: 100%; /* コンテナ幅に合わせる */
+            height: auto; /* アスペクト比維持 */
+            background-image: 
+                linear-gradient(#c5e1a5 2px, transparent 2px),
+                linear-gradient(90deg, #c5e1a5 2px, transparent 2px);
+            background-size: 40px 40px; 
+            border: 2px solid #558b2f;
+        }
+        #ui {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* --- スマホ用コントローラー --- */
+        #mobileControls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 95vw;
+            max-width: 600px;
+            margin-top: 15px;
+            padding-bottom: 20px;
+        }
+        
+        /* 十字キーエリア */
+        .d-pad {
+            display: grid;
+            grid-template-columns: 60px 60px 60px;
+            grid-template-rows: 60px 60px;
+            gap: 5px;
+            justify-items: center;
+            align-items: center;
+        }
+        /* ボタン共通スタイル */
+        .ctrl-btn {
+            width: 55px;
+            height: 55px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 2px solid #558b2f;
+            border-radius: 10px;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none; /* 文字選択禁止 */
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        .ctrl-btn:active, .ctrl-btn.pressed {
+            background: #81c784;
+            transform: scale(0.95);
+        }
+        
+        /* 配置調整 */
+        #btnUp { grid-column: 2; grid-row: 1; }
+        #btnLeft { grid-column: 1; grid-row: 2; }
+        #btnDown { grid-column: 2; grid-row: 2; }
+        #btnRight { grid-column: 3; grid-row: 2; }
+
+        /* アクションボタン（吸い込み） */
+        #actionArea {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #btnAction {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #ff7043;
+            border: 3px solid #d84315;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 4px 0 #d84315;
+        }
+        #btnAction:active, #btnAction.pressed {
+            box-shadow: 0 0 0 #d84315;
+            transform: translateY(4px);
+        }
+
+        /* リトライボタン（ゲームオーバー時のみ表示） */
+        #retryBtn {
+            display: none;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            background: #4caf50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🍙 Onigiri Sweeper</h1>
+    
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="600" height="400"></canvas>
+        <button id="retryBtn" onclick="resetGame()">もう一回遊ぶ</button>
+    </div>
+    
+    <div id="ui">
+        <span id="scoreText">Score: 0</span>
+    </div>
+
+    <div id="mobileControls">
+        <div class="d-pad">
+            <div class="ctrl-btn" id="btnUp">⬆️</div>
+            <div class="ctrl-btn" id="btnLeft">⬅️</div>
+            <div class="ctrl-btn" id="btnDown">⬇️</div>
+            <div class="ctrl-btn" id="btnRight">➡️</div>
+        </div>
+        <div id="actionArea">
+            <div class="ctrl-btn" id="btnAction" style="width:80px; height:80px;">🌪️</div>
+        </div>
+    </div>
+
+<script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const scoreText = document.getElementById('scoreText');
+    const retryBtn = document.getElementById('retryBtn');
+
+    // ゲームの状態
+    let gameState = 'playing';
+    let score = 0;
+    let frameCount = 0;
+
+    // プレイヤー設定
+    const player = {
+        x: 300,
+        y: 200,
+        size: 30,
+        speed: 4,
+        direction: 'down',
+        vacuuming: false
+    };
+
+    // 敵設定
+    let enemies = [];
+    const enemySpeed = 1.5;
+    const spawnRate = 60;
+
+    // キー入力管理
+    const keys = {};
+
+    // PC用キーボードイベント
+    window.addEventListener('keydown', (e) => {
+        keys[e.key] = true;
+        if (gameState === 'gameover' && e.key === 'Enter') {
+            resetGame();
+        }
+    });
+    window.addEventListener('keyup', (e) => {
+        keys[e.key] = false;
+    });
+
+    // スマホ用タッチイベント登録関数
+    function addTouchControl(id, keyName) {
+        const elem = document.getElementById(id);
+        
+        // タッチ開始
+        elem.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // スクロール防止
+            keys[keyName] = true;
+            elem.classList.add('pressed');
+        }, { passive: false });
+
+        // タッチ終了
+        elem.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            keys[keyName] = false;
+            elem.classList.remove('pressed');
+        }, { passive: false });
+
+        // PCのマウス操作も一応対応（デバッグ用）
+        elem.addEventListener('mousedown', () => { keys[keyName] = true; elem.classList.add('pressed'); });
+        elem.addEventListener('mouseup', () => { keys[keyName] = false; elem.classList.remove('pressed'); });
+        elem.addEventListener('mouseleave', () => { keys[keyName] = false; elem.classList.remove('pressed'); });
+    }
+
+    // ボタンに機能を割り当て
+    addTouchControl('btnUp', 'ArrowUp');
+    addTouchControl('btnDown', 'ArrowDown');
+    addTouchControl('btnLeft', 'ArrowLeft');
+    addTouchControl('btnRight', 'ArrowRight');
+    addTouchControl('btnAction', ' '); // スペースキーと同じ扱い
+
+    function resetGame() {
+        player.x = canvas.width / 2;
+        player.y = canvas.height / 2;
+        enemies = [];
+        score = 0;
+        gameState = 'playing';
+        scoreText.innerText = `Score: ${score}`;
+        retryBtn.style.display = 'none'; // リトライボタン消す
+        loop();
+    }
+
+    function spawnEnemy() {
+        let ex, ey;
+        if (Math.random() < 0.5) {
+            ex = Math.random() < 0.5 ? -30 : canvas.width + 30;
+            ey = Math.random() * canvas.height;
+        } else {
+            ex = Math.random() * canvas.width;
+            ey = Math.random() < 0.5 ? -30 : canvas.height + 30;
+        }
+        enemies.push({ x: ex, y: ey, size: 28, alive: true });
+    }
+
+    function update() {
+        if (gameState !== 'playing') return;
+
+        frameCount++;
+
+        // --- 移動 ---
+        let moved = false;
+        if (keys['ArrowUp']) { player.y -= player.speed; player.direction = 'up'; moved = true; }
+        if (keys['ArrowDown']) { player.y += player.speed; player.direction = 'down'; moved = true; }
+        if (keys['ArrowLeft']) { player.x -= player.speed; player.direction = 'left'; moved = true; }
+        if (keys['ArrowRight']) { player.x += player.speed; player.direction = 'right'; moved = true; }
+
+        player.x = Math.max(player.size/2, Math.min(canvas.width - player.size/2, player.x));
+        player.y = Math.max(player.size/2, Math.min(canvas.height - player.size/2, player.y));
+
+        // --- アクション ---
+        player.vacuuming = keys[' '];
+
+        // --- 敵処理 ---
+        if (frameCount % spawnRate === 0) {
+            spawnEnemy();
+        }
+
+        for (let i = enemies.length - 1; i >= 0; i--) {
+            let e = enemies[i];
+            let dx = player.x - e.x;
+            let dy = player.y - e.y;
+            let dist = Math.sqrt(dx*dx + dy*dy);
+            
+            if (dist > 0) {
+                e.x += (dx / dist) * enemySpeed;
+                e.y += (dy / dist) * enemySpeed;
+            }
+
+            if (dist < (player.size/2 + e.size/2 - 5)) {
+                gameState = 'gameover';
+                retryBtn.style.display = 'block'; // リトライボタン表示
+            }
+
+            if (player.vacuuming) {
+                let vacuumRange = 100;
+                let inRange = dist < vacuumRange;
+                let inAngle = false;
+
+                if (player.direction === 'up' && e.y < player.y && Math.abs(dx) < dist * 0.7) inAngle = true;
+                if (player.direction === 'down' && e.y > player.y && Math.abs(dx) < dist * 0.7) inAngle = true;
+                if (player.direction === 'left' && e.x < player.x && Math.abs(dy) < dist * 0.7) inAngle = true;
+                if (player.direction === 'right' && e.x > player.x && Math.abs(dy) < dist * 0.7) inAngle = true;
+
+                if (inRange && inAngle) {
+                    enemies.splice(i, 1);
+                    score += 1;
+                    scoreText.innerText = `Score: ${score}`;
+                    continue; 
+                }
+            }
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 吸い込みエフェクト
+        if (gameState === 'playing' && player.vacuuming) {
+            ctx.fillStyle = 'rgba(200, 230, 255, 0.4)';
+            ctx.beginPath();
+            ctx.moveTo(player.x, player.y);
+            let range = 100;
+            let spread = 40; 
+            if (player.direction === 'up') {
+                ctx.lineTo(player.x - spread, player.y - range);
+                ctx.lineTo(player.x + spread, player.y - range);
+            } else if (player.direction === 'down') {
+                ctx.lineTo(player.x - spread, player.y + range);
+                ctx.lineTo(player.x + spread, player.y + range);
+            } else if (player.direction === 'left') {
+                ctx.lineTo(player.x - range, player.y - spread);
+                ctx.lineTo(player.x - range, player.y + spread);
+            } else if (player.direction === 'right') {
+                ctx.lineTo(player.x + range, player.y - spread);
+                ctx.lineTo(player.x + range, player.y + spread);
+            }
+            ctx.fill();
+        }
+
+        // プレイヤー
+        ctx.font = "30px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("👦", player.x, player.y);
+
+        // オニギリ
+        for (let e of enemies) {
+            ctx.fillText("🍙", e.x, e.y);
+        }
+
+        // ゲームオーバー
+        if (gameState === 'gameover') {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#ffeb3b';
+            ctx.font = 'bold 40px Arial';
+            ctx.fillText("満腹...", canvas.width/2, canvas.height/2 - 30);
+            
+            ctx.fillStyle = 'white';
+            ctx.font = '20px Arial';
+            ctx.fillText(`食べた数: ${score}個`, canvas.width/2, canvas.height/2 + 20);
+            // スマホ用には「Enterでリトライ」の文字は消してボタンで誘導
+        }
+    }
+
+    function loop() {
+        update();
+        draw();
+        if (gameState === 'playing' || gameState === 'gameover') {
+            requestAnimationFrame(loop);
+        }
+    }
+
+    loop();
+
+</script>
+</body>
+</html>
