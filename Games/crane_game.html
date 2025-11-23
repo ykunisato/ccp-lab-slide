@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ふわふわバードキャッチャー</title>
+    <style>
+        /* 全体のスタイル: 可愛いパステルカラーと丸みのあるフォント */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* 薄い水色 */
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ゲーム画面のコンテナ */
+        #game-container {
+            position: relative;
+            width: 95%;
+            max-width: 480px; /* スマホ想定の最大幅 */
+            aspect-ratio: 3 / 4; /* 縦長のアスペクト比 */
+            background-color: #e6f2ff; /* 少し濃い水色 */
+            border-radius: 25px;
+            border: 6px solid #b3d9ff;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* キャンバス */
+        canvas {
+            display: block;
+            width: 100%;
+            height: 80%;
+            touch-action: none; /* スクロールなどを防止 */
+            border-bottom: 4px solid #b3d9ff; /* お好みで：画面とボタンエリアの境界線を入れると可愛いです */
+            border-radius: 20px 20px 0 0; /* お好みで：上の角だけ丸くする */
+        }
+
+        /* スコアなどのUI */
+        .ui-container {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            color: #0066cc; /* 濃い青文字 */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            pointer-events: none; /* UIが操作を邪魔しないように */
+        }
+
+        /* キャッチボタン */
+        #catch-button {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 18px 40px;
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            background-color: #ff99cc; /* ピンク色 */
+            border: none;
+            border-radius: 35px;
+            box-shadow: 0 6px 12px rgba(255, 153, 204, 0.5);
+            cursor: pointer;
+            outline: none;
+            transition: transform 0.1s ease, background-color 0.1s ease;
+            -webkit-tap-highlight-color: transparent; /* タップ時のハイライトを消す */
+        }
+
+        #catch-button:active {
+            transform: translateX(-50%) scale(0.96);
+            background-color: #ff66b2;
+        }
+
+        #catch-button:disabled {
+            background-color: #ccc;
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+
+        /* ゲーム終了時のモーダル */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s linear;
+        }
+
+        .modal.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 5px solid #ff99cc;
+        }
+
+        .modal-content h2 {
+            color: #ff99cc;
+            margin-bottom: 25px;
+            font-size: 32px;
+        }
+
+        .modal-content p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .modal-content button {
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background-color: #0066cc;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .modal-content button:hover {
+            background-color: #0055aa;
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div class="ui-container">
+            <div id="score">スコア: 0</div>
+            <div id="attempts">残り: 10回</div>
+        </div>
+        <button id="catch-button">キャッチ！</button>
+    </div>
+
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <h2>✨ ゲーム終了 ✨</h2>
+            <p>あなたのスコアは <span id="final-score" style="color: #ff99cc; font-weight: bold;"></span> 点です！</p>
+            <button onclick="resetGame()">もう一度遊ぶ</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreDisplay = document.getElementById('score');
+        const attemptsDisplay = document.getElementById('attempts');
+        const catchButton = document.getElementById('catch-button');
+        const resultModal = document.getElementById('result-modal');
+        const finalScoreDisplay = document.getElementById('final-score');
+
+        // 画像の読み込み管理
+        const birdImages = {};
+        const loadImages = (callback) => {
+            let loadedCount = 0;
+            const totalImages = 2;
+            const checkAllLoaded = () => {
+                loadedCount++;
+                if (loadedCount === totalImages) callback();
+            };
+
+            birdImages.white = new Image();
+            // ユーザーがアップロードした画像ファイル名に置き換えてください
+            birdImages.white.src = 'img/m1.png'; 
+            birdImages.white.onload = checkAllLoaded;
+
+            birdImages.blue = new Image();
+            // ユーザーがアップロードした画像ファイル名に置き換えてください
+            birdImages.blue.src = 'img/m2.png';
+            birdImages.blue.onload = checkAllLoaded;
+        };
+
+        // ゲームの状態変数
+        let score = 0;
+        let attempts = 10;
+        let gameState = 'playing'; // playing, catching, returning, ended
+
+        // キャンバスサイズの調整（レスポンシブ対応）
+        const resizeCanvas = () => {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        };
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // 鳥クラス
+        class Bird {
+            constructor(type, image) {
+                this.type = type;
+                this.image = image;
+                this.width = canvas.width * 0.15; // 画面幅の15%
+                this.height = this.width; // 正方形と仮定
+                this.x = Math.random() * (canvas.width - this.width);
+                this.y = canvas.height - this.height - (canvas.height * 0.05); // 床の上に配置
+                this.dx = (Math.random() - 0.5) * (canvas.width * 0.005); // ゆっくりとした横移動速度
+                this.isCaught = false;
+            }
+
+            update() {
+                if (!this.isCaught) {
+                    this.x += this.dx;
+
+                    // 画面端での跳ね返り
+                    if (this.x < 0 || this.x + this.width > canvas.width) {
+                        this.dx *= -1;
+                    }
+                }
+            }
+
+            draw() {
+                if (!this.isCaught) {
+                    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+                }
+            }
+        }
+
+        let birds = [];
+        const createBirds = () => {
+            birds = [];
+            // 白い鳥と青い鳥をそれぞれ3羽ずつ作成
+            for (let i = 0; i < 3; i++) birds.push(new Bird('white', birdImages.white));
+            for (let i = 0; i < 3; i++) birds.push(new Bird('blue', birdImages.blue));
+        };
+
+        // クレーンクラス
+        class Crane {
+            constructor() {
+                this.x = canvas.width / 2;
+                this.baseY = canvas.height * 0.1; // アームの初期高さ
+                this.y = this.baseY;
+                this.width = canvas.width * 0.12; // アームの幅
+                this.height = canvas.height * 0.05; // アーム本体の高さ
+                this.clawHeight = canvas.height * 0.08; // 爪の高さ
+                this.clawOpen = true;
+                this.speed = canvas.height * 0.01; // 昇降速度
+                this.caughtBird = null;
+            }
+
+            update() {
+                if (gameState === 'catching') {
+                    this.y += this.speed;
+                    // 床付近まで降下したらつかみ動作へ
+                    if (this.y >= canvas.height - this.height - this.clawHeight - (canvas.height * 0.05)) {
+                        this.clawOpen = false;
+                        this.checkCatch();
+                        gameState = 'returning';
+                    }
+                } else if (gameState === 'returning') {
+                    this.y -= this.speed;
+                    // 元の位置に戻ったら
+                    if (this.y <= this.baseY) {
+                        this.y = this.baseY;
+                        gameState = 'playing';
+                        if (this.caughtBird) {
+                            score += 100;
+                            scoreDisplay.textContent = `スコア: ${score}`;
+                            // ここで獲得時の可愛いエフェクトなどを入れると良い
+                            this.caughtBird = null; // 鳥を消す（実際は配列から削除しないが表示しなくなる）
+                        }
+                        this.clawOpen = true;
+                        checkGameOver();
+                    }
+                }
+
+                // つかんでいる鳥の位置を更新
+                if (this.caughtBird) {
+                    this.caughtBird.x = this.x - this.caughtBird.width / 2;
+                    this.caughtBird.y = this.y + this.height + this.clawHeight * 0.2;
+                }
+            }
+
+            draw() {
+                // アームの紐
+                ctx.beginPath();
+                ctx.moveTo(this.x, 0);
+                ctx.lineTo(this.x, this.y);
+                ctx.strokeStyle = '#99ccff'; // 紐の色
+                ctx.lineWidth = canvas.width * 0.01;
+                ctx.stroke();
+
+                // アーム本体
+                ctx.fillStyle = '#ff99cc'; // ピンク色
+                ctx.fillRect(this.x - this.width / 2, this.y, this.width, this.height);
+
+                // 爪（可愛い感じに描画）
+                ctx.strokeStyle = '#ff66b2'; // 濃いピンク
+                ctx.lineWidth = canvas.width * 0.015;
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                const clawTopY = this.y + this.height;
+                const clawBottomY = clawTopY + this.clawHeight;
+                const clawOpenOffset = this.clawOpen ? this.width * 0.3 : this.width * 0.1;
+
+                // 左の爪
+                ctx.moveTo(this.x - this.width / 2 + 5, clawTopY);
+                ctx.quadraticCurveTo(this.x - this.width / 2 - clawOpenOffset, clawBottomY - this.clawHeight/2, this.x - clawOpenOffset, clawBottomY);
+                
+                // 右の爪
+                ctx.moveTo(this.x + this.width / 2 - 5, clawTopY);
+                ctx.quadraticCurveTo(this.x + this.width / 2 + clawOpenOffset, clawBottomY - this.clawHeight/2, this.x + clawOpenOffset, clawBottomY);
+                
+                ctx.stroke();
+            }
+
+            checkCatch() {
+                const clawX = this.x;
+                const clawY = this.y + this.height + this.clawHeight * 0.8; // 爪の先端付近
+
+                for (const bird of birds) {
+                    if (!bird.isCaught &&
+                        clawX > bird.x && clawX < bird.x + bird.width &&
+                        clawY > bird.y && clawY < bird.y + bird.height) {
+                        bird.isCaught = true;
+                        this.caughtBird = bird;
+                        break; // 1つだけつかむ
+                    }
+                }
+            }
+        }
+
+        let crane;
+
+        // ゲームループ
+        const gameLoop = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 背景（床）
+            ctx.fillStyle = '#cce6ff';
+            ctx.fillRect(0, canvas.height - (canvas.height * 0.05), canvas.width, canvas.height * 0.05);
+
+            for (const bird of birds) {
+                bird.update();
+                bird.draw();
+            }
+
+            crane.update();
+            crane.draw();
+
+            requestAnimationFrame(gameLoop);
+        };
+
+        // 操作イベント（スマホ・PC両対応）
+        let isDragging = false;
+
+        const handleStart = (clientX) => {
+            if (gameState !== 'playing') return;
+            isDragging = true;
+            updateCranePosition(clientX);
+        };
+
+        const handleMove = (clientX) => {
+            if (!isDragging || gameState !== 'playing') return;
+            updateCranePosition(clientX);
+        };
+
+        const handleEnd = () => {
+            isDragging = false;
+        };
+
+        canvas.addEventListener('touchstart', (e) => handleStart(e.touches[0].clientX), { passive: false });
+        canvas.addEventListener('touchmove', (e) => {
+            handleMove(e.touches[0].clientX);
+            e.preventDefault(); // スクロール防止
+        }, { passive: false });
+        canvas.addEventListener('touchend', handleEnd);
+
+        canvas.addEventListener('mousedown', (e) => handleStart(e.clientX));
+        canvas.addEventListener('mousemove', (e) => handleMove(e.clientX));
+        canvas.addEventListener('mouseup', handleEnd);
+        canvas.addEventListener('mouseleave', handleEnd);
+
+
+        const updateCranePosition = (clientX) => {
+            const rect = canvas.getBoundingClientRect();
+            let x = clientX - rect.left;
+            // クレーンの移動範囲制限
+            x = Math.max(crane.width / 2, Math.min(canvas.width - crane.width / 2, x));
+            crane.x = x;
+        };
+
+        catchButton.addEventListener('click', () => {
+            if (gameState === 'playing' && attempts > 0) {
+                attempts--;
+                attemptsDisplay.textContent = `残り: ${attempts}回`;
+                gameState = 'catching';
+                catchButton.disabled = true;
+            }
+        });
+
+        // ゲーム終了判定
+        const checkGameOver = () => {
+            if (attempts === 0) {
+                gameState = 'ended';
+                finalScoreDisplay.textContent = score;
+                resultModal.classList.add('show');
+            } else {
+                catchButton.disabled = false;
+            }
+        };
+
+        // ゲームリセット
+        window.resetGame = () => {
+            score = 0;
+            attempts = 10;
+            scoreDisplay.textContent = `スコア: ${score}`;
+            attemptsDisplay.textContent = `残り: ${attempts}回`;
+            resultModal.classList.remove('show');
+            gameState = 'playing';
+            catchButton.disabled = false;
+            createBirds();
+            crane = new Crane();
+        };
+
+        // ゲーム開始
+        loadImages(() => {
+            createBirds();
+            crane = new Crane();
+            gameLoop();
+        });
+
+    </script>
+</body>
+</html>
