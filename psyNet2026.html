@@ -1287,7 +1287,7 @@ margin-right: 0; }
 <section id="モデル選択-1" class="slide level2 scrollable">
 <h2>モデル選択</h2>
 <ul>
-<li>心理ネットワーク分析のモデル選択には以下の４つがある</li>
+<li>横断データの心理ネットワーク分析のモデル選択には以下の４つがある</li>
 </ul>
 <ol type="1">
 <li>しきい値(Thresholding)</li>
@@ -1346,7 +1346,7 @@ margin-right: 0; }
 <section id="順序非正規変数での注意点" class="slide level2">
 <h2>順序・非正規変数での注意点</h2>
 <ul>
-<li>順序変数ではポリコリック相関を使うが、小サンプルサイズでは不安定になる（psychonetricsパッケージの推定法やBGGMパッケージを使う）<span class="citation" data-cites="Blanken2022-tt">(<a href="#/引用文献" role="doc-biblioref" onclick>Blanken et al., 2022</a>)</span></li>
+<li>順序変数ではポリコリック相関を使うが、小サンプルサイズでは不安定になる（psychonetricsパッケージの推定法やベイズ推定をするBGGMパッケージを使う）<span class="citation" data-cites="Blanken2022-tt">(<a href="#/引用文献" role="doc-biblioref" onclick>Blanken et al., 2022</a>)</span></li>
 <li>正規分布していないデータの場合は、スピアマンの順位相関係数をGGMで用いる<span class="citation" data-cites="Blanken2022-tt">(<a href="#/引用文献" role="doc-biblioref" onclick>Blanken et al., 2022</a>)</span></li>
 </ul>
 </section>
@@ -1383,9 +1383,9 @@ margin-right: 0; }
 </ul>
 </section>
 <section id="中心性指標の安定性stability" class="slide level2">
-<h2>中心性指標の安定性(Stability)</h2>
+<h2>中心性指標の安定性(stability)</h2>
 <ul>
-<li>推定されたエッジはサンプルやサンプルサイズの影響をうけるので中心性指標の安定性(Stability)を検討<span class="citation" data-cites="Epskamp2018-fs">(<a href="#/引用文献" role="doc-biblioref" onclick>Epskamp, Borsboom, et al., 2018</a>)</span></li>
+<li>推定されたエッジはサンプルやサンプルサイズの影響をうけるので中心性指標の安定性(stability)を検討<span class="citation" data-cites="Epskamp2018-fs">(<a href="#/引用文献" role="doc-biblioref" onclick>Epskamp, Borsboom, et al., 2018</a>)</span></li>
 <li>データのサブセットを用いた場合の中心性指標の安定性を検討 (サンプルサイズを小さくしても安定するか検討、CS係数が0.25未満は不適切であり0.5を超えている必要があるという基準がある。ただ、絶対的な基準ではない)</li>
 </ul>
 </section>
@@ -1411,9 +1411,28 @@ margin-right: 0; }
 <h2>用いるRパッケージ</h2>
 <ul>
 <li><a href="https://cran.r-project.org/web/packages/networktools/index.html" target="_blank">networktools</a>: EI (Expected Influence) やブリッジ中心性を計算する</li>
+<li><a href="https://cran.r-project.org/web/packages/NetworkComparisonTest/index.html" target="_blank">NetworkComparisonTest</a>: ネットワークを比較する検定を行う</li>
 <li><a href="https://cran.r-project.org/web/packages/IsingFit/index.html" target="_blank">IsingFit</a>:2値データの心理ネットワーク分析</li>
 <li><a href="https://cran.r-project.org/web/packages/MPsychoR/index.html" target="_blank">MPsychoR</a> :書籍 “Modern Psychometrics with R” のサプリメント・パッケージ。今回はRogersデータセット</li>
 <li><a href="https://cran.r-project.org/web/packages/mgm/index.html" target="_blank">mgm</a>:ネットワーク推定(MGMs)２値・順序・連続変数の混ざったデータに適用できる</li>
+</ul>
+</section>
+<section id="用いるrパッケージ-2" class="slide level2">
+<h2>用いるRパッケージ</h2>
+<ul>
+<li><a href="https://github.com/JasperNaberman/nodeIdentifyR" target="_blank">nodeIdentifyR</a>: 介入対象となるノードを探索するシミュレーション(NIRA)を行う</li>
+<li><a href="https://github.com/TakumiOmizu/psynetsim" target="_blank">psynetsim</a>: 心理ネットワークの介入シミュレーションを行う。</li>
+<li><a href="https://cran.r-project.org/web/packages/magick/index.html" target="_blank">magick</a>: ImageMagickのR実装。画像処理やアニメーション(GIF)の作成ができる(psynetsimで使う)</li>
+<li><a href="https://cran.r-project.org/web/packages/remotes/index.html" target="_blank">remotes</a>: GitHubなどCRAN以外のリポジトリからRパッケージをインストールする</li>
+</ul>
+</section>
+<section id="用いるrパッケージ-3" class="slide level2">
+<h2>用いるRパッケージ</h2>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/graphicalVAR/index.html" target="_blank">graphicalVAR</a>: 1人の時系列データからグラフィカルVAR(時間的ネットワークと同時性ネットワーク)を推定</li>
+<li><a href="https://cran.r-project.org/web/packages/mlVAR/index.html" target="_blank">mlVAR</a>: 複数人の時系列データからマルチレベルVAR(時間的・同時性・個人間ネットワーク)を推定</li>
+<li><a href="https://cran.r-project.org/web/packages/openesm/index.html" target="_blank">openesm</a>: 公開・整備された経験サンプリング法(ESM)のデータセット集(openESMデータベース)にRから直接アクセスできる</li>
+<li><a href="https://github.com/jmbh/PanicModel" target="_blank">PanicModel</a>: <span class="citation" data-cites="Robinaugh2024-oo">Robinaugh et al. (<a href="#/引用文献" role="doc-biblioref" onclick>2024</a>)</span> のパニック症の計算モデルのシミュレーションを行う</li>
 </ul>
 </section>
 <section id="rパッケージのインストール" class="slide level2">
@@ -1423,22 +1442,21 @@ margin-right: 0; }
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-2"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;bootnet&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-3"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;qgraph&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-2"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;qgraph&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-3"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;bootnet&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-4"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;psychonetrics&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-5"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;networktools&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-6"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;NetworkComparisonTest&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-7"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;MPsychoR&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-8"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;IsingFit&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-7"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;IsingFit&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-8"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;MPsychoR&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-9"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;graphicalVAR&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-10"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;mlVAR&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-11"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;openesm&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-12"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;magick&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-13"><a href></a><span class="co"># GitHub経由でインストール</span></span>
-<span id="cb1-14"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;psynetsim&quot;</span>, <span class="at">repos =</span> <span class="fu">c</span>(<span class="st">&quot;https://ykunisato.r-universe.dev&quot;</span>, <span class="st">&quot;https://cran.r-project.org&quot;</span>))</span>
-<span id="cb1-15"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;PanicModel&quot;</span>, <span class="at">repos =</span> <span class="fu">c</span>(<span class="st">&quot;https://ykunisato.r-universe.dev&quot;</span>, <span class="st">&quot;https://cran.r-project.org&quot;</span>))</span>
-<span id="cb1-16"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-17"><a href></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;JasperNaberman/nodeIdentifyR&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;psynetsim&quot;</span>, <span class="at">repos =</span> <span class="fu">c</span>(<span class="st">&quot;https://ykunisato.r-universe.dev&quot;</span>, <span class="st">&quot;https://cran.r-project.org&quot;</span>))</span>
+<span id="cb1-14"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;PanicModel&quot;</span>, <span class="at">repos =</span> <span class="fu">c</span>(<span class="st">&quot;https://ykunisato.r-universe.dev&quot;</span>, <span class="st">&quot;https://cran.r-project.org&quot;</span>))</span>
+<span id="cb1-15"><a href></a><span class="fu">install.packages</span>(<span class="st">&quot;remotes&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-16"><a href></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;JasperNaberman/nodeIdentifyR&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="rstudioでのrの実行方法" class="slide level2 scrollable">
