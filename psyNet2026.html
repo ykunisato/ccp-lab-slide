@@ -1300,21 +1300,21 @@ margin-right: 0; }
 <li>横断データの心理ネットワーク分析のモデル選択には以下の４つがある</li>
 </ul>
 <ol type="1">
-<li>しきい値(Thresholding)</li>
-<li>刈り込み(Pruning)</li>
+<li>しきい値(thresholding)</li>
+<li>刈り込み(pruning)</li>
 <li>モデル探索(model search)</li>
 <li>正則化(regularization)</li>
 </ol>
 </section>
 <section id="しきい値thresholding" class="slide level2">
-<h2>しきい値(Thresholding)</h2>
+<h2>しきい値(thresholding)</h2>
 <ul>
 <li>しきい値では、ある基準（p値, FDR(false discovery rate), 信用区間、ベイズファクター）に基づいて、エッジを除去する（エッジを0に設定）</li>
 <li>基準以下のエッジを見せていないだけで影響は残る</li>
 </ul>
 </section>
 <section id="刈り込みpruning" class="slide level2">
-<h2>刈り込み(Pruning)</h2>
+<h2>刈り込み(pruning)</h2>
 <ul>
 <li><p>刈り込みでは、ある基準（p値, FDR(false discovery rate), 信用区間、ベイズファクター）に基づいて、除去した上で（エッジを0に設定）、<strong>再推定</strong>する</p></li>
 <li><p>再推定するので、基準以下のエッジを0としたときのネットワークが推定される</p></li>
