@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; カオスと予測不可能性 – Complex Systems Research in Psychology</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch3.html" rel="next">
+<link href="./ch1.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1e13a3099a05037a1437c813e2312cdf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">カオスと予測不可能性</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./sfi_cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Complex Systems Research in Psychology</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://www.sfipress.org/books/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-book"></i></a>
+    <a href="https://a.co/d/aXyHRoK" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-cart"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-filetype-pdf"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Complex-systems-research-in-Psychology.pdf">
+            Download PDF
+            </a>
+          </li>
+      </ul>
+    </div>
+    <a href="https://github.com/SantaFeInstitute/ComplexPsych/tree/master" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">プロローグ</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">カオスと予測不可能性</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">複雑系における転移</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch4n.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">力学系モデルの構築</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch5n.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">自己組織化</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">心理学的ネットワークモデル</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">社会物理学</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">エピローグ</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-Introduction-ch2" id="toc-sec-Introduction-ch2" class="nav-link active" data-scroll-target="#sec-Introduction-ch2"><span class="header-section-number">2.1</span> はじめに</a></li>
+  <li><a href="#sec-The-population-growth-of-rabbits" id="toc-sec-The-population-growth-of-rabbits" class="nav-link" data-scroll-target="#sec-The-population-growth-of-rabbits"><span class="header-section-number">2.2</span> ウサギの個体群成長</a></li>
+  <li><a href="#sec-Stable-and-unstable-fixed-points" id="toc-sec-Stable-and-unstable-fixed-points" class="nav-link" data-scroll-target="#sec-Stable-and-unstable-fixed-points"><span class="header-section-number">2.3</span> 安定な固定点と不安定な固定点</a></li>
+  <li><a href="#sec-Limit-cycles" id="toc-sec-Limit-cycles" class="nav-link" data-scroll-target="#sec-Limit-cycles"><span class="header-section-number">2.4</span> リミットサイクル</a></li>
+  <li><a href="#sec-Chaos" id="toc-sec-Chaos" class="nav-link" data-scroll-target="#sec-Chaos"><span class="header-section-number">2.5</span> カオス</a></li>
+  <li><a href="#sec-Phase-plot-and-bifurcation-diagrams" id="toc-sec-Phase-plot-and-bifurcation-diagrams" class="nav-link" data-scroll-target="#sec-Phase-plot-and-bifurcation-diagrams"><span class="header-section-number">2.6</span> 位相プロットと分岐図</a></li>
+  <li><a href="#sec-What-did-we-learn" id="toc-sec-What-did-we-learn" class="nav-link" data-scroll-target="#sec-What-did-we-learn"><span class="header-section-number">2.7</span> 何を学んだか</a></li>
+  <li><a href="#sec-Other-maps-and-fractals" id="toc-sec-Other-maps-and-fractals" class="nav-link" data-scroll-target="#sec-Other-maps-and-fractals"><span class="header-section-number">2.8</span> 他の写像とフラクタル</a></li>
+  <li><a href="#sec-Detecting-chaos-in-psychophysiological-data" id="toc-sec-Detecting-chaos-in-psychophysiological-data" class="nav-link" data-scroll-target="#sec-Detecting-chaos-in-psychophysiological-data"><span class="header-section-number">2.9</span> 精神生理学的データにおけるカオスの検出</a></li>
+  <li><a href="#sec-Exercises-ch2" id="toc-sec-Exercises-ch2" class="nav-link" data-scroll-target="#sec-Exercises-ch2"><span class="header-section-number">2.10</span> 演習問題</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch2" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">カオスと予測不可能性</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-Introduction-ch2" class="level2 page-columns page-full" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-Introduction-ch2"><span class="header-section-number">2.1</span> はじめに</h2>
+<div class="page-columns page-full"><p>数百万人の参加者についての膨大な量の遺伝学的、生物学的、心理学的データと、関係するすべての環境要因の知識をもっているとしよう。さらに、これらの膨大なデータが素晴らしい品質のものだとしよう。最先端の機械学習モデルと強力な計算資源を用いれば、すべての変数の主効果と高次の交互作用効果を含み、非線形変換すら組み込んだ高度な統計モデルを構築できるだろう。それでもなお、予測は不可能かもしれない。なぜか。<em>決定論的カオス</em>と呼ばれる現象のためである。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">決定論的カオスとは、初期条件に対して非常に敏感な複雑系の振る舞いを指し、決定論的な法則に支配されているにもかかわらず、予測不可能で一見ランダムな結果をもたらす。</span></div></div>
+<p>カオスは複雑系における最も目覚ましい現象の一つであり、心理学者として私たちはカオス理論の基本的な結果を知っておくべきである。カオスについて学ぶことは大いに楽しくもあり、また後の章で必要となる多くの鍵概念を導入することもできる。</p>
+<div class="page-columns page-full"><p>私見では、カオス理論の心理学や社会科学への直接的な適用可能性はいくぶん限られている。長い間、研究者たちは精神生理学的測定の時系列にカオスを示そうと試みてきたが、これは難しいようである。この研究については本章の終わりで簡単に概観する。カオス理論の意義は、その適用にではなく、予測に対するその根本的な含意にあるのかもしれない。カオス理論が基本的に示すのは、非常に正確なモデルとデータをもつという最良の状況においてすら、長期予測が不可能でありうる、ということである。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">これはバタフライ効果として知られている <span class="citation" data-cites="lorenzDeterministicNonperiodicFlow1963">(<a href="#ref-lorenzDeterministicNonperiodicFlow1963" role="doc-biblioref">Lorenz 1963</a>)</span>。すなわち、蝶がインドで羽ばたくと、そのわずかな気圧の変化が、やがてアイオワで竜巻を引き起こしうる、というものである。</span></div></div>
+</section>
+<section id="sec-The-population-growth-of-rabbits" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-The-population-growth-of-rabbits"><span class="header-section-number">2.2</span> ウサギの個体群成長</h2>
+<p>カオス理論は多くの深遠な数学的結果から成るが、カオスの基本を理解することはそれほど難しくない。以下では、差分方程式におけるカオスを、数学とプログラミングの非常に基本的なレベルで説明する。初歩的な例は有名なロジスティック写像であり、通常はたとえばウサギの個体群成長のモデルとして導入される。ある島にウサギがいて、増え始めるとしよう。そのような過程の数学的モデルはどのようなものになるだろうか。</p>
+<div class="page-columns page-full"><p> 一般に、力学系においては、ある変数（たとえば <span class="math inline">\(X\)</span>）の変化や成長は、現在の状態といくつかのパラメータに依存する。時間は非常に特別な役割を果たす。私たちは離散的な時間ステップも連続的な時間ステップも用いることができる。前者の場合——これが本章の焦点である——には差分方程式を用い、後者の場合には微分方程式を用いる。ロジスティック写像においては、時間は離散的である（個体群成長は世代ごとに起こる）。ウサギの個体群成長の最も単純な力学モデルは次のとおりである。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">個体群成長は力学系の典型例である。というのも、それは変化のモデルだからである。</span></div></div>
+<p><span id="eq-ch2-1"><span class="math display">\[
+X_{t + 1} = rX_{t}. \tag{2.1}\]</span></span></p>
+<p>これは、<span class="math inline">\(X\)</span> の新しい値が、<span class="math inline">\(X\)</span> の以前の値に <span class="math inline">\(r\)</span> を掛けたものによって決まる、ということを述べている。この方程式において <span class="math inline">\(r\)</span> は成長率である。<span class="math inline">\(r\)</span> の値、たとえば <span class="math inline">\(r=2\)</span> を選ぶことで、このモデルをシミュレートできる。初期値も必要であり、たとえば <span class="math inline">\(X_{0} = 1\)</span> とする。これがまったく初めてであれば、いくつかの値を繰り返し入力してみよ。指数関数的成長が見られるだろう（<span class="math inline">\(X_{1} = 2,\ X_{2} = 4,X_{3} = 8,X_{4} = 16,\ etc.)\)</span>。R では for ループを用いてこれをシミュレートできる（結果は <a href="#fig-ch2-img1" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch2-img1</span></a> に示す）。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># initial state X0 = 1 and thus X1 = 2</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>)) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  x[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> r <span class="sc">*</span> x[i]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">'b'</span>, <span class="at">xlab =</span> <span class="st">'time'</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-ch2-img1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch2-img1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch2/fig-ch2-img1.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch2-img1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: 指数関数的成長。
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p>for ループで行うようにモデルを反復することで、<span class="math inline">\(X_{0}\)</span> が与えられれば任意の <span class="math inline">\(X_{t}\)</span> を求められることに注意しよう。<span class="math inline">\(X_{t}\)</span> は解と呼ばれる。この場合、シミュレーションはやや奇妙である。解は解析的に計算できる。それは <span class="math inline">\(X_{t} = X_{0}r^{t}\)</span> である。したがって <span class="math inline">\(X_{15} = 1 \times 2^{15} = 32768\)</span> となる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">より複雑なモデルでは、解析解はしばしば得られず、シミュレーション（数値解）を用いなければならない。</span></div></div>
+<p>指数関数モデルは、個体群成長が資源によって制限されるという事実を無視していることに注意しよう。ある時点で食料が乏しくなる。1838年にフェルフルスト（Verhulst）によって導入された、モデルをより現実的にする一つの方法は、成長を制限する項を加えることである。</p>
+<p><span id="eq-ch2-2"><span class="math display">\[
+X_{t + 1} = f\left( X_{t} \right) = rX_{t}\left( 1 - \frac{X_{t}}{K} \right). \tag{2.2}\]</span></span></p>
+<p>方程式へのこの追加はどのような効果をもつだろうか。<span class="math inline">\(X\)</span> が資源 <span class="math inline">\(K\)</span> よりもはるかに小さければ、第二項 <span class="math inline">\(\left( 1 - {X_{t}}/{K} \right)\)</span> は 1 に近く、指数関数的成長が見られる。しかし <span class="math inline">\(X\)</span> が <span class="math inline">\(K\)</span> に近づくにつれ、この項は非常に小さくなり、指数関数的成長の効果を減じる。<span class="math inline">\(X\)</span> は実際には <span class="math inline">\(K\)</span> まで成長するのではなく、収束するとしても、より低い値まで成長する。これはすぐに見ることになる。また、<span class="math inline">\(K\)</span> の実際の値は関心の対象ではないことも判明する。<span class="math inline">\(K\)</span> を変えても質的な振る舞いは変わらない。したがって、<span class="math inline">\(K\)</span> は通常 1 に設定され、個体群 <span class="math inline">\(X\)</span> を 0 と 1 の間にスケーリングする。残る唯一のパラメータは <span class="math inline">\(r\)</span> である。しかし、<span class="math inline">\(r\)</span> を変えると、いくつもの驚くべき振る舞いが生じる。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</section>
+<section id="sec-Stable-and-unstable-fixed-points" class="level2 page-columns page-full" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sec-Stable-and-unstable-fixed-points"><span class="header-section-number">2.3</span> 安定な固定点と不安定な固定点</h2>
+<p>まず「退屈な」場合、<span class="math inline">\(r = 2\)</span> を調べてみよう（<a href="#fig-ch2-img2" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch2-img2</span></a>）。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="ot">&lt;-</span> .<span class="dv">01</span> <span class="co"># initial state</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>)) {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  x[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> r <span class="sc">*</span> x[i] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> x[i])</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">'b'</span>, <span class="at">xlab =</span> <span class="st">'time'</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-ch2-img2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch2-img2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch2/fig-ch2-img2.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch2-img2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: <span class="math inline">\(r=2\)</span> の場合。個体群は <span class="math inline">\(X=0.5\)</span> の安定状態に収束する。
+</figcaption>
+</figure>
+</div>
+<p>これは単純な場合である。個体群は初め指数関数的に発展するが、その後平坦になり、<span class="math inline">\(X = .5\)</span> で安定状態に達する。これについてもう少し理解する必要がある。ここで見て取れるのは、不安定な初期状態から安定な状態、すなわち点アトラクタへと移行した、ということである。次のコードは、この点アトラクタが広い範囲の初期値から引き寄せるが、すべての初期値からではないことを示している。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">30</span>; r <span class="ot">&lt;-</span> <span class="dv">2</span>; x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,n)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (init <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">0</span>, .<span class="dv">7</span>, <span class="at">by =</span> .<span class="dv">01</span>)){</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># start from different initial values</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  x[<span class="dv">1</span>] <span class="ot">&lt;-</span> init</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>)){</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    x[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> r <span class="sc">*</span> x[i] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> x[i])</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x[i] <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(x,<span class="at">type =</span> <span class="st">'l'</span>,<span class="at">xlab =</span> <span class="st">'time'</span>,<span class="at">bty =</span> <span class="st">'n'</span>,<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">8</span>),<span class="at">col =</span> <span class="st">'red'</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lines</span>(x)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="page-columns page-full"><p>ちょうど 0 から始めれば、<span class="math inline">\(X\)</span> は 0 のままである。したがって 0 もまた平衡状態であるが、特別なものである。それは不安定な固定点である。小さな摂動が加われば、<span class="math inline">\(X\)</span> は安定な固定点である .5 へと移動する。0 のごく近くにあるすべての初期値は 0 から離れていく（反発する）が、<span class="math inline">\(X\)</span> がちょうど 0 であれば、それは永遠に 0 のままである。したがって、<span class="math inline">\(X = 0\)</span> は固定点であるが不安定である（<a href="#fig-ch2-img1" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch2-img1</span></a>）。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">固定点は安定でも不安定でもありうる。</span></div></div>
+<div id="fig-ch2-img3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch2-img3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch2/fig-ch2-img3.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch2-img3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: 安定な固定点と不安定な固定点の例示。多くの初期値にとって、<span class="math inline">\(X = .5\)</span> はアトラクタである。<span class="math inline">\(X = 0\)</span> は不安定な固定点である。ちょうど 0 から始めた場合にのみ、そこにとどまる。
+</figcaption>
+</figure>
+</div>
+<p>安定または不安定な平衡状態というこの概念は、後の章にとって決定的に重要である。次章の要点は、制御パラメータ——ここでは <span class="math inline">\(r\)</span>——を変え、平衡状態のパターン（平衡状態のランドスケープ）がどのように変化するかを研究することにある。1 のわずかに下と上の <span class="math inline">\(r\)</span> の値でシミュレーションを再実行することで、これを自分で容易に行える。<span class="math inline">\(r &lt; 1\)</span> の場合、安定なアトラクタは一つ（0）だけである。</p>
+<p>これをシミュレートすることは実は必要ではない。<span class="math inline">\(X_{t + 1} = X_{t} = X^{*}\)</span> となるときに固定点（<span class="math inline">\(X^{*}\)</span>）が見出される、ということに気づかねばならない。次を自分で確かめよ。</p>
+<p><span class="math display">\[
+\begin{gathered}
+X_{t + 1} = X_{t} = X^{*} \\
+X^{*} = rX^{*}( 1 - X^{*}) \\
+X^{*} = 0\ or\ 1 = r - rX^{*} \\
+X^{*} = 0\ or\ X^{*} = \frac{r - 1}{r}. \\
+\end{gathered}
+\]</span></p>
+<p>したがって 0 と <span class="math inline">\((r - 1)/r\)</span> が固定点である。実際、<span class="math inline">\(r = 2\)</span> について、0 と .5 が平衡状態であり、一方が不安定、他方が安定であることを見てきた。固定点が安定かどうかを判定するには、関数の導関数 <span class="math inline">\(f^{'}(x)\)</span> を見る。これは容易に確かめられるように <span class="math inline">\(r - 2rX\)</span> である。</p>
+<p>固定点は、その固定点の値における導関数の絶対値が 1 より小さければ安定である。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <span class="math inline">\(r = 2\)</span> の場合、固定点は 0 と .5 である。<span class="math inline">\(\left| f^{'}\left( X^{*} = 0 \right) \right| = |2 - 0| = 2\)</span> であり、これは 1 より大きいので <span class="math inline">\(X^{*} = 0\)</span> は不安定である。<span class="math inline">\(\left| f^{'}\left( X^{*} = .5 \right) \right| = |2 - 2 \times 2 \times .5| = 0\)</span> であり、これは 1 より小さいので <span class="math inline">\(X^{*} = .5\)</span> は安定である。<span class="math inline">\(X^{*}=(r - 1)/r\)</span> が <span class="math inline">\(1 &lt; r &lt; 3\)</span> で安定であることを、R のコードでも導関数の絶対値でも、自分で確かめられる。</p>
+</section>
+<section id="sec-Limit-cycles" class="level2 page-columns page-full" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec-Limit-cycles"><span class="header-section-number">2.4</span> リミットサイクル</h2>
+<p>こうして <span class="math inline">\(r = 3\)</span> で <span class="math inline">\((r - 1)/r\)</span> の固定点は不安定になる。いくつかの場合を調べてみよう。<a href="#fig-ch2-img4" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch2-img4</span></a> のプロットは <a href="#fig-ch2-img2" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch2-img2</span></a> のコードで作成したものである。</p>
+<div id="fig-ch2-img4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch2-img4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch2/fig-ch2-img4.jpg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch2-img4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: 異なる <span class="math inline">\(r\)</span> の値に対するロジスティック写像の質的に異なる振る舞い。
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p><span class="math inline">\(r = 2.9\)</span> について、系列が固定点 <span class="math inline">\(\frac{1.9}{2.9} = .66\)</span> に収束するが、それはオーバーシュートとアンダーシュートを繰り返す過程を経てである、ということが見て取れる。<span class="math inline">\(r = 3.1\)</span> と <span class="math inline">\(r = 3.3\)</span> の間で、周期 2 のリミットサイクルが生じる。 <span class="math inline">\(r = 3.5\)</span> についてこれはさらに顕著になり、周期 4 のリミットサイクルが見られる。少し大きい値については、より高い周期のサイクルが得られうる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">周期 2 のリミットサイクルでは、個体群は二つの値の間で振動する。</span></div></div>
+<p>これらのリミットサイクルは実際の個体群動態で生じると主張されてきた <span class="citation" data-cites="hassellPatternsDynamicalBehaviour1976">(<a href="#ref-hassellPatternsDynamicalBehaviour1976" role="doc-biblioref">Hassell, Lawton, and May 1976</a>)</span>。直観的には、これはオーバーシュートとアンダーシュートの過程として理解でき、それは 3 より少し下の <span class="math inline">\(r\)</span> については減衰するが、<span class="math inline">\(r &gt; 3\)</span> については減衰しない。</p>
+</section>
+<section id="sec-Chaos" class="level2 page-columns page-full" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="sec-Chaos"><span class="header-section-number">2.5</span> カオス</h2>
+<p><span class="math inline">\(r\)</span> をさらに大きくすると、周期の倍化はさらに奇妙な振る舞いへと変わる。<a href="#fig-ch2-img4" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch2-img4</span></a> は <span class="math inline">\(r = 4\)</span> について時系列がどのようになるかを示している。</p>
+<div id="fig-ch2-img5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch2-img5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch2/fig-ch2-img5.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch2-img5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: <span class="math inline">\(r = 4\)</span> に対するカオス。
+</figcaption>
+</figure>
+</div>
+<p>規則性はないように見える。これが決定論的カオスと呼ばれるものである。方程式を知っており、システムが決定論的であるにもかかわらず、この時系列は予測不可能である。これによって正確には何を意味するのか。例示してみよう。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">4</span>;  n <span class="ot">&lt;-</span> <span class="dv">50</span>; x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,n)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="ot">&lt;-</span> .<span class="dv">001</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>)){</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  x[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> r <span class="sc">*</span> x[i] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> x[i])</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">xlab =</span> <span class="st">'time'</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># restart with sightly different initial state:</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="ot">&lt;-</span> .<span class="dv">0010001</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n <span class="sc">-</span> <span class="dv">1</span>)){</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  x[i <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> r <span class="sc">*</span> x[i] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> x[i])</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, <span class="at">col =</span> <span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-ch2-img6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch2-img6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch2/fig-ch2-img6.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch2-img6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.6: バタフライ効果——初期状態のわずかな違いが、長期的には発散を引き起こす。
+</figcaption>
+</figure>
+</div>
+<p>わずかに異なる初期値での実行は、初めは同じ経路をたどるが、その後鋭く発散することが見て取れる（<a href="#fig-ch2-img6" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch2-img6</span></a>）。ごく小さな摂動（蝶の羽ばたき）がシステムを通じて伝播し、システムの長期的な進路を劇的に変えてしまう。</p>
+<div class="page-columns page-full"><p> 初期状態の正確な値についてある程度の不確実性が常に避けられないことに注意しよう。天気システムにおける温度についてロジスティック写像のような方程式があり、この方程式がそのシステムを完璧に記述するとしよう。予測を行うには、現在の温度をコンピュータに入力する必要がある。しかし私たちは温度を無限の精度で測定できない。そしてたとえできたとしても、無限桁の数を扱えるコンピュータをもってはいない。したがって、初期状態の設定で小さな誤差が生じ、これが長期予報を常に台無しにする。天気はカオス的なシステムであることが判明している。初期条件への敏感性は、決定論的カオスの必要条件であり、おそらく十分条件でもある。カオスの定義についての議論は <span class="citation" data-cites="banksDevaneyDefinitionChaos1992">Banks et al. (<a href="#ref-banksDevaneyDefinitionChaos1992" role="doc-biblioref">1992</a>)</span> と <span class="citation" data-cites="broer2010">Broer and Takens (<a href="#ref-broer2010" role="doc-biblioref">2010</a>)</span> を参照されたい。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">これこそが、はるかに精密な数学的モデルを開発し、より集中的でより正確な測定を行い、より強力なコンピュータを用いたとしても、長期の天気予報が決して可能にならない理由である。</span></div></div>
+<div class="page-columns page-full"><p> リャプノフ係数の考えは、<span class="math inline">\(\varepsilon\)</span> の差をもつ非常に近い二つの初期条件を取ることにある。次の反復では、この差はより小さくなるか、同じか、より大きくなるかもしれない。最後の場合、時系列は発散し、これはカオスに典型的である。リャプノフ係数は次のように定義される。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">リャプノフ係数はカオスを定量化する。</span></div></div>
+<p><span id="eq-ch2-3"><span class="math display">\[
+{\lambda_{L} = \lim_{n \rightarrow \infty}}{\frac{1}{n}}{\sum_{i}^{n}{\ln\left| f^{'}\left( X_{i} \right) \right|}}. \tag{2.3}\]</span></span></p>
+<p>ここでロジスティック写像については <span class="math inline">\(f^{'}\left( X_{i} \right) = r - 2rX_{i}\)</span> であり、<span class="math inline">\(\lambda_{L} &gt; 0\)</span> はカオスを示す。<span class="math inline">\(r = 4\)</span> について <span class="math inline">\(\lambda_{L} &gt; 0\)</span> であること、すなわちカオスを示すことを、シミュレーションで確かめてみるとよい。</p>
+</section>
+<section id="sec-Phase-plot-and-bifurcation-diagrams" class="level2 page-columns page-full" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="sec-Phase-plot-and-bifurcation-diagrams"><span class="header-section-number">2.6</span> 位相プロットと分岐図</h2>
+<div class="page-columns page-full"><p><a href="#eq-ch2-2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-ch2-2</span></a> は非常に単純である。それはたった一つの方程式、<span class="math inline">\(X_{t + 1}\)</span> が <span class="math inline">\(X_{t}\)</span> にどのように依存するかを指定する決定論的な差分方程式にすぎないが、その振る舞いの多様さは驚くべきものである。その振る舞いをよりよく理解する一つの方法は位相プロットを用いることである。 一次元系では <span class="math inline">\(X_{t}\)</span> に対して <span class="math inline">\(X_{t + 1}\)</span> をプロットする（<a href="#fig-ch2-img7" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch2-img7</span></a> を参照）。この図のコードは次のとおりである。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">位相プロットとは、時間とともに変化する二つ以上の変数の間の関係を図的に表現したものである。</span></div></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">3.3</span>; n <span class="ot">&lt;-</span> <span class="dv">200</span>; x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>,n)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="ot">&lt;-</span> .<span class="dv">001</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n<span class="dv">-1</span>)) x[i<span class="sc">+</span><span class="dv">1</span>] <span class="ot">=</span> r<span class="sc">*</span>x[i]<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>x[i])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">100</span>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">xlab =</span> <span class="st">'time'</span>, <span class="at">bty =</span> <span class="st">'n'</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">'r = '</span>, r),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">cex.main =</span> <span class="dv">2</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x[<span class="sc">-</span><span class="fu">length</span>(x)], x[<span class="sc">-</span><span class="dv">1</span>],</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">ylim=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">xlab=</span><span class="st">'Xt'</span>, <span class="at">ylab=</span><span class="st">'Xt+1'</span>, <span class="at">bty=</span><span class="st">'n'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="dv">4</span>; x[<span class="dv">1</span>] <span class="ot">&lt;-</span> .<span class="dv">001</span>;</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n<span class="dv">-1</span>)) x[i<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> r <span class="sc">*</span> x[i] <span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>x[i])</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">100</span>]</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">xlab =</span> <span class="st">'time'</span>, <span class="at">bty =</span> <span class="st">'n'</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">'r = '</span>,r), <span class="at">cex.main =</span> <span class="dv">2</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x[<span class="sc">-</span><span class="fu">length</span>(x)], x[<span class="sc">-</span><span class="dv">1</span>], <span class="at">xlim =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">ylim =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">'Xt'</span>, <span class="at">ylab =</span> <span class="st">'Xt+1'</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">200</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">100</span>]</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">xlab =</span> <span class="st">'time'</span>, <span class="at">bty =</span> <span class="st">'n'</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">'random noise'</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.main =</span> <span class="dv">2</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x[<span class="sc">-</span><span class="fu">length</span>(x)],x[<span class="sc">-</span><span class="dv">1</span>], <span class="at">xlim =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">ylim =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">'Xt'</span>, <span class="at">ylab =</span> <span class="st">'Xt+1'</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-ch2-img7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch2-img7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch2/fig-ch2-img7.jpg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch2-img7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.7: 三つの場合についての時間プロット（上）と位相プロット（下）。位相プロットを用いれば、カオスとランダムノイズを区別できる。
+</figcaption>
+</figure>
+</div>
+<p>上の図は時間プロット、下の図は位相プロットである。第一列は周期 2 のリミットサイクル、第二列は決定論的カオス、第三列は一様分布から生成したノイズを示す。第二と第三の場合の時系列は似て見えるが、位相図はカオス時系列に隠れた構造を明らかにする。位相プロットは、カオスをノイズから区別するのに役立つ。</p>
+<div class="page-columns page-full"><p>第二の有用なグラフは分岐グラフである。 ロジスティック写像の場合、それは異なる <span class="math inline">\(r\)</span> の値に対する平衡状態の振る舞いを一つの図に要約する。その考えは、x 軸上の一定範囲の <span class="math inline">\(r\)</span> の値について、平衡状態を y 値としてプロットすることである。これは、低い <span class="math inline">\(r\)</span> の値（<span class="math inline">\(r &lt; 1\)</span>）を取れば、<span class="math inline">\(X^{*} = 0\)</span> だけが安定な固定点であるから、0 だけをプロットすることを意味する。1 と 3 の間では、<span class="math inline">\((r - 1)/r\)</span> に等しい一つの固定点も見られる。<span class="math inline">\(r = 3.3\)</span> については、アトラクタが周期 2 のリミットサイクルであるから、二つの点が見られると予想される。より高い <span class="math inline">\(r\)</span> についてはカオスが得られる。これらはどのように見えるだろうか。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">分岐グラフとは、システムのパラメータの一つが変化するときに、たとえば安定からカオスへと、システムの質的な振る舞いがどのように変化するかを示す図である。</span></div></div>
+<p>これを自分でプログラムすることは、実によい挑戦である。コツは、一定範囲の <span class="math inline">\(r\)</span> の値について時系列を作成し、この系列の最初の部分を削除し（平衡状態の振る舞いだけがほしい）、これらを y 値としてプロットすることである。したがって、ロジスティック写像が周期 2 をもつ（<span class="math inline">\(r = 3.3\)</span>）場合、二つの点だけを繰り返しプロットする。<span class="math inline">\(r = 4\)</span> についてはカオスの帯全体が得られる。</p>
+<p>これを行う巧妙な方法は、R の <code>sapply</code> 関数を用いることである。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="dv">1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(r, x, n, m){</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">rep</span>(x,n)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n<span class="dv">-1</span>)) x[i<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> r <span class="sc">*</span> x[i] <span class="sc">*</span> (<span class="dv">1</span><span class="sc">-</span>x[i])</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  x[<span class="fu">c</span>((n<span class="sc">-</span>m)<span class="sc">:</span>n)] <span class="co"># only return last m iterations</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>r.range <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fl">2.5</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>r.range <span class="ot">&lt;-</span> <span class="fu">c</span>(r.range,<span class="fu">seq</span>(<span class="fl">2.5</span>, <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.001</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">200</span>; m <span class="ot">&lt;-</span><span class="dv">100</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>equilibria <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">sapply</span>(r.range, f,  <span class="at">x =</span> <span class="fl">0.1</span>, <span class="at">n =</span> n, <span class="at">m =</span> m<span class="dv">-1</span>))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">rep</span>(r.range, m))</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(equilibria <span class="sc">~</span> r, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">cex =</span> .<span class="dv">01</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>これは <a href="#fig-ch2-img8" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch2-img8</span></a> をもたらす。実際に、<span class="math inline">\(r &lt; 3\)</span> について安定な固定点、<span class="math inline">\(r &gt; 3\)</span> についてリミットサイクルの周期倍化、そしてそれに続くカオスが見られる。</p>
+<div id="fig-ch2-img8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch2-img8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch2/fig-ch2-img8.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch2-img8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.8: ロジスティック写像の分岐図。
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p>フラクタルは多くのカオス写像で繰り返し現れる現象である。 <span class="math inline">\(r\)</span> が 3.83 と 3.86 の間の区間を拡大することで、ロジスティック写像のフラクタル的な性質を見ることができる（演習 2 を参照）。リミットサイクルの三つの平衡状態が再び周期倍化サイクルへと分裂する。これは、<span class="math inline">\(r\)</span> が 3 と 3.5 の間の全体プロットで見たとおりである。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">フラクタルとは、図を拡大するとある種のパターンが再び現れ、さらに拡大するとこれが何度も何度も起こる、そのような図形である。</span></div></div>
+<p>このカオスへの周期倍化の道筋に関する有名な一つの結果がファイゲンバウム定数である。連続する周期倍化点の間の距離の比（たとえば、第一と第二の間の距離を第二と第三の点の間の距離で割ったもの）は、約 4.6692 の値に収束する。驚くべきことは、この定数が任意の単峰写像について同じである、ということである。</p>
+</section>
+<section id="sec-What-did-we-learn" class="level2 page-columns page-full" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="sec-What-did-we-learn"><span class="header-section-number">2.7</span> 何を学んだか</h2>
+<p>私はこれらの結果を見事だと思う。生成する関数は見かけによらず単純だが、その振る舞いは全く複雑で美しい、ということを改めて指摘しておく。数学者たちはこれらのプロットのあらゆる細部を研究してきたが、その大半は私の理解を超えている。ロジスティック写像に関するウィキペディアは、さらに進んだ概念のいくつかを紹介してくれるが、私たちの目的には現在の入門で十分である。</p>
+<p>すでに学んだ概念を振り返ろう。第一は平衡状態の概念である。力学系の状態はある値に収束する傾向がある。これらのうち最も単純なものが固定点である。固定点は安定でも不安定でもありうる（これについては次章で詳述する）。システムをちょうどその不安定な固定点で始めれば（そしてシステムにノイズがなければ）、それはそこにとどまる。しかし、どんな小さな摂動でも、それは逃れて安定な固定点へと移動する。</p>
+<p>分岐図はこの振る舞いを要約し、また制御パラメータが変化するときに平衡状態がどのように変化するかを示す。たとえば、<span class="math inline">\(r = 1\)</span> でロジスティック写像における分岐が見られる。初め 0 が安定な固定点で <span class="math inline">\((r - 1)/r\)</span> が不安定であった。<span class="math inline">\(r = 1\)</span> でこれが逆転する。<span class="math inline">\(r = 3\)</span> でリミットサイクルが現れるとき、別の分岐が見られる。</p>
+<p>私たちは、あらゆる種類の平衡状態が存在することを学んだ。最も奇妙なものはストレンジアトラクタと呼ばれ、決定論的カオスと結び付いている。位相図を作ることでそれを見ることができる。他の有名な写像の位相図はしばしば見事である。最も有名なものはマンデルブロ集合である（インターネットで見よ）。マンデルブロ集合についての R ブログがある。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> シミュレーションは理解を助ける！</p>
+<p>私たちが学んだ最後のことは、たとえ私たちの世界が決定論的であり（そうではない！）、運動のすべての法則（たとえばロジスティック写像）を知っており、初期状態を莫大な精度で知っていたとしても、世界は依然として予測不可能であろう、ということである。</p>
+<div class="page-columns page-full"><p>この主張にはいくらかのニュアンスが必要である。天気がカオス的で予測不可能でありうることはすでに述べた。しかし天気は常にそれほど予測不可能であるわけではない。時にはより長期の予報も可能である。しかしたとえば 10 日を超える予報は手が届かないように思われる。ロジスティック写像でも、<span class="math inline">\(r\)</span> が 4 に近いとき予報はバタフライ効果に悩まされるが、<span class="math inline">\(r = 2\)</span> については時間経過は非常に予測可能であり、多くの線形系よりもさらに予測可能であることが見て取れる。これは、安定な固定点が一つ（.5）しかないためである。初期状態は問題にならない。私たちは常に .5 に行き着く！ </p><div class="no-row-height column-margin column-container"><span class="margin-aside">ロジスティック写像は、<span class="math inline">\(r\)</span> の値に応じて、極めて予測可能であるか、極めて予測不可能であるかのいずれかである。</span></div></div>
+</section>
+<section id="sec-Other-maps-and-fractals" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="sec-Other-maps-and-fractals"><span class="header-section-number">2.8</span> 他の写像とフラクタル</h2>
+<p>カオス理論についてはアクセスしやすい資料が多くある。いつものように、ウィキペディアは優れた資料である。私にとって大いに役立つのは、実際に物事を行うこと、すなわちコンピュータ・シミュレーションを行うことである。一例はエノン写像であり、これは二つの結合した差分方程式から成る。</p>
+<p><span id="eq-ch2-4"><span class="math display">\[
+\begin{gathered}
+X_{t + 1} = 1 - aX_{t}^{2} + Y_{t}, \\
+Y_{t + 1} = bX_{t}.
+\end{gathered}
+\tag{2.4}\]</span></span></p>
+<p>ロジスティック写像のコード例を用いれば、このモデルについて時系列と位相図を生成できるはずである。エノン写像に関するウィキペディアのページの最初の画像を再現してみよ。驚くべき三次元の分岐図はより難しいかもしれない。</p>
+<p>フラクタルはさらなる研究のためのもう一つの話題である。もう一度ウィキペディアを見ることを勧める。R で自分自身のフラクタルを作ることは、Martin <span class="citation" data-cites="stefanRPubsFractals2020">Stefan (<a href="#ref-stefanRPubsFractals2020" role="doc-biblioref">2020</a>)</span> による R ブログによって容易になっている。</p>
+</section>
+<section id="sec-Detecting-chaos-in-psychophysiological-data" class="level2 page-columns page-full" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="sec-Detecting-chaos-in-psychophysiological-data"><span class="header-section-number">2.9</span> 精神生理学的データにおけるカオスの検出</h2>
+<p>カオス理論とロジスティック写像は約五十年前に一般に広まり、それ以来、研究者たちはあらゆる種類の時系列にカオスを探してきた <span class="citation" data-cites="ayersApplicationChaosTheory1997 robertsonChaosTheoryPsychology2014 schiepek2017">(<a href="#ref-ayersApplicationChaosTheory1997" role="doc-biblioref">Ayers 1997</a>; <a href="#ref-robertsonChaosTheoryPsychology2014" role="doc-biblioref">Robertson and Combs 2014</a>; <a href="#ref-schiepek2017" role="doc-biblioref">Schiepek et al. 2017</a>)</span>。この研究の背後にある一つの考えは、カオスが健全 <span class="citation" data-cites="poolItHealthyBe1989">(<a href="#ref-poolItHealthyBe1989" role="doc-biblioref">Pool 1989</a>)</span> あるいは有益でありうる、という仮説である。それは、ニューラルネットワークのような学習アルゴリズムにおいて、局所最小値にはまり込むのを防ぐのに有益であろう <span class="citation" data-cites="bertschingerRealTimeComputationEdge2004">(<a href="#ref-bertschingerRealTimeComputationEdge2004" role="doc-biblioref">Bertschinger and Natschläger 2004</a>)</span>。私の最初の出版物は、ニューラルネットワークにおけるカオスについてのものであった <span class="citation" data-cites="vandermaasNoteChaoticBehavior1990">(<a href="#ref-vandermaasNoteChaoticBehavior1990" role="doc-biblioref">van der Maas, Verschure, and Molenaar 1990</a>)</span>。</p>
+<div class="page-columns page-full"><p>時系列におけるカオス検出には多くの技法がある。しかし、これらの経験的信号は不可避的にノイズで汚染される <span class="citation" data-cites="rosso2007">(<a href="#ref-rosso2007" role="doc-biblioref">Rosso et al. 2007</a>)</span>。一例はリャプノフ指数の計算であり、これは初期条件のわずかな差が時間とともにどのように展開するかを定量化する。正のリャプノフ指数はカオスを示し、軌道の指数関数的発散を意味する。これはカオス系の特徴である。この方法は、時系列データから位相空間を再構成し、軌道の分離の平均的な指数関数的速度を計算することを含む。DChaos パッケージの Lyapunov 関数を用いれば、ロジスティック写像で生成した時系列についてリャプノフ係数を計算できる。<span class="math inline">\(r = 4\)</span> について、先に導関数で計算したリャプノフ係数が得られることを確かめられる。 R にはいくつかのパッケージが利用可能であり、機械学習技法に基づく新たな方法も含まれる <span class="citation" data-cites="sandubeteDChaosPackageChaotic2021 tokerSimpleMethodDetecting2020">(<a href="#ref-sandubeteDChaosPackageChaotic2021" role="doc-biblioref">Sandubete and Escot 2021</a>; <a href="#ref-tokerSimpleMethodDetecting2020" role="doc-biblioref">Toker, Sommer, and D’Esposito 2020</a>)</span>。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">カオス検出は活発な研究領域であり、新たな方法が定期的に提案されている <span class="citation" data-cites="zanin2022">(<a href="#ref-zanin2022" role="doc-biblioref">Zanin 2022</a>)</span>。</span></div></div>
+<p>これらの方法は一般に長い時系列を必要とする。精神生理学的データにおけるカオスの検出について多くの出版物が現れた。例は脳波（EEG）<span class="citation" data-cites="pritchardMeasuringChaosBrain1992">(<a href="#ref-pritchardMeasuringChaosBrain1992" role="doc-biblioref">Pritchard and Duke 1992</a>)</span>、心拍 <span class="citation" data-cites="freitasIdentifyingChaosHeart2009">(<a href="#ref-freitasIdentifyingChaosHeart2009" role="doc-biblioref">Freitas et al. 2009</a>)</span>、筋電図（EMG）<span class="citation" data-cites="leiDetectingNonlinearityAction2001">(<a href="#ref-leiDetectingNonlinearityAction2001" role="doc-biblioref">Lei, Wang, and Feng 2001</a>)</span>、そして眼球運動 <span class="citation" data-cites="harezlak2018">(<a href="#ref-harezlak2018" role="doc-biblioref">Harezlak and Kasprowski 2018</a>)</span> である。これらの研究系譜のレビューは <span class="citation" data-cites="stam2005">Stam (<a href="#ref-stam2005" role="doc-biblioref">2005</a>)</span>、<span class="citation" data-cites="kargarnovin2023">Kargarnovin et al. (<a href="#ref-kargarnovin2023" role="doc-biblioref">2023</a>)</span>、<span class="citation" data-cites="garc2015">Garc and Pe (<a href="#ref-garc2015" role="doc-biblioref">2015</a>)</span> によって提供されている。</p>
+</section>
+<section id="sec-Exercises-ch2" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="sec-Exercises-ch2"><span class="header-section-number">2.10</span> 演習問題</h2>
+<ol type="1">
+<li><p><span class="math inline">\(r=3.5\)</span> について、ロジスティック写像は四つの点の間を反復する。どの値でそれは 8 点の間を反復するか。(*)</p></li>
+<li><p><a href="#sec-Phase-plot-and-bifurcation-diagrams" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Phase-plot-and-bifurcation-diagrams</span></a> は分岐プロットを作るコードを示している。まず、このコードを実行して分岐プロットを見よ。このプロットでは、x 軸上の <span class="math inline">\(r\)</span> の間の区間を変えることで拡大もできる。<code>r.range</code> を <code>seq(3.4, 4, by=0.0001)</code> に変えてコードを調整し、また <code>cex = 0.01</code> をより低い値に変えよ。<span class="math inline">\(r\)</span> が 3.83 と 3.86 の間の区間を拡大せよ。この区間ではカオスが突然消え、周期 3 のリミットサイクルが現れる。特定の <span class="math inline">\(r\)</span> の値について時系列プロットでこれを確認せよ。(*)</p></li>
+<li><p>エノン写像のウィキペディアのページの最初の画像を再現せよ。R コードと図を提示せよ。(*)</p></li>
+<li><p>リッカー・モデル（ウィキペディアを参照）の分岐図を作れ。R コードと図を提示せよ。なぜこのモデルはロジスティック写像よりも個体群成長のより現実的な表現とみなされるのか。(*)</p></li>
+<li><p>エノン写像の三次元の分岐図も再現せよ。(**)</p></li>
+<li><p><a href="#sec-Chaos" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Chaos</span></a> のリャプノフ係数の定義を見よ。R の Dchaos パッケージを用いて、<span class="math inline">\(r = 4\)</span> のロジスティック写像についてこのリャプノフ係数を計算せよ。この係数は導関数を用いて手計算することもできる（<a href="#eq-ch2-3" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch2-3</span></a>）。これを行い、両方の係数がほぼ等しいことを確認せよ。(**)</p></li>
+<li><p>Rmusic ライブラリ（<br>
+<code>devtools::install_github("keithmcnulty/Rmusic", build_vignettes = TRUE)</code> でインストール）を用いて、カオスのサウンドマシンを作れ。ホワイトノイズについても一つ作れ。違いが聞き取れるか。(**)</p></li>
+<li><p>心理学または精神生理学におけるカオス検出に関する論文を一つ見つけ、300〜400語で要約せよ。(*)</p></li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ayersApplicationChaosTheory1997" class="csl-entry" role="listitem">
+Ayers, Susan. 1997. <span>“The <span>Application</span> of <span>Chaos Theory</span> to <span>Psychology</span>.”</span> <em>Theory &amp; Psychology</em> 7 (June): 373. <a href="https://doi.org/10.1177/0959354397073005">https://doi.org/10.1177/0959354397073005</a>.
+</div>
+<div id="ref-banksDevaneyDefinitionChaos1992" class="csl-entry" role="listitem">
+Banks, J., J. Brooks, G. Cairns, G. Davis, and P. Stacey. 1992. <span>“On <span>Devaney</span>’s <span>Definition</span> of <span>Chaos</span>.”</span> <em>The American Mathematical Monthly</em> 99 (4): 332–34. <a href="https://doi.org/10.1080/00029890.1992.11995856">https://doi.org/10.1080/00029890.1992.11995856</a>.
+</div>
+<div id="ref-bertschingerRealTimeComputationEdge2004" class="csl-entry" role="listitem">
+Bertschinger, Nils, and Thomas Natschläger. 2004. <span>“Real-<span>Time Computation</span> at the <span>Edge</span> of <span>Chaos</span> in <span>Recurrent Neural Networks</span>.”</span> <em>Neural Computation</em> 16 (7): 1413–36. <a href="https://doi.org/10.1162/089976604323057443">https://doi.org/10.1162/089976604323057443</a>.
+</div>
+<div id="ref-broer2010" class="csl-entry" role="listitem">
+Broer, Henk, and Floris Takens. 2010. <em>Dynamical Systems and Chaos</em>. 2011th edition. New York: Springer.
+</div>
+<div id="ref-freitasIdentifyingChaosHeart2009" class="csl-entry" role="listitem">
+Freitas, Ubiratan, Elise Roulin, Jean-François Muir, and Christophe Letellier. 2009. <span>“Identifying Chaos from Heart Rate: <span>The</span> Right Task?”</span> <em>Chaos: An Interdisciplinary Journal of Nonlinear Science</em> 19 (2): 028505. <a href="https://doi.org/10.1063/1.3139116">https://doi.org/10.1063/1.3139116</a>.
+</div>
+<div id="ref-garc2015" class="csl-entry" role="listitem">
+Garc, P., and Callegari Pe. 2015. <span>“Analysis of EEG Signals Using Nonlinear Dynamics and Chaos: A Review.”</span> In. <a href="https://www.semanticscholar.org/paper/Analysis-of-EEG-Signals-using-Nonlinear-Dynamics-A-Garc-Pe/7c7bae15b868a68049d017edd27031c2746e20e4">https://www.semanticscholar.org/paper/Analysis-of-EEG-Signals-using-Nonlinear-Dynamics-A-Garc-Pe/7c7bae15b868a68049d017edd27031c2746e20e4</a>.
+</div>
+<div id="ref-harezlak2018" class="csl-entry" role="listitem">
+Harezlak, Katarzyna, and Pawel Kasprowski. 2018. <span>“Searching for Chaos Evidence in Eye Movement Signals.”</span> <em>Entropy</em> 20 (1): 32. <a href="https://doi.org/10.3390/e20010032">https://doi.org/10.3390/e20010032</a>.
+</div>
+<div id="ref-hassellPatternsDynamicalBehaviour1976" class="csl-entry" role="listitem">
+Hassell, M. P., J. H. Lawton, and R. M. May. 1976. <span>“Patterns of <span>Dynamical Behaviour</span> in <span>Single-Species Populations</span>.”</span> <em>Journal of Animal Ecology</em> 45 (2): 471–86. <a href="https://doi.org/10.2307/3886">https://doi.org/10.2307/3886</a>.
+</div>
+<div id="ref-kargarnovin2023" class="csl-entry" role="listitem">
+Kargarnovin, Shaida, Christopher Hernandez, Farzad V. Farahani, and Waldemar Karwowski. 2023. <span>“Evidence of Chaos in Electroencephalogram Signatures of Human Performance: A Systematic Review.”</span> <em>Brain Sciences</em> 13 (5): 813. <a href="https://doi.org/10.3390/brainsci13050813">https://doi.org/10.3390/brainsci13050813</a>.
+</div>
+<div id="ref-leiDetectingNonlinearityAction2001" class="csl-entry" role="listitem">
+Lei, Min, Zhizhong Wang, and Zhengjin Feng. 2001. <span>“Detecting Nonlinearity of Action Surface <span>EMG</span> Signal.”</span> <em>Physics Letters A</em> 290 (5): 297–303. <a href="https://doi.org/10.1016/S0375-9601(01)00668-5">https://doi.org/10.1016/S0375-9601(01)00668-5</a>.
+</div>
+<div id="ref-lorenzDeterministicNonperiodicFlow1963" class="csl-entry" role="listitem">
+Lorenz, Edward N. 1963. <span>“Deterministic <span>Nonperiodic Flow</span>.”</span> <em>Journal of the Atmospheric Sciences</em> 20 (2): 130–41. <a href="https://doi.org/10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2">https://doi.org/10.1175/1520-0469(1963)020&lt;0130:DNF&gt;2.0.CO;2</a>.
+</div>
+<div id="ref-poolItHealthyBe1989" class="csl-entry" role="listitem">
+Pool, Robert. 1989. <span>“Is <span>It Healthy</span> to <span>Be Chaotic</span>?”</span> <em>Science</em> 243 (4891): 604–7. <a href="https://doi.org/10.1126/science.2916117">https://doi.org/10.1126/science.2916117</a>.
+</div>
+<div id="ref-pritchardMeasuringChaosBrain1992" class="csl-entry" role="listitem">
+Pritchard, Walter s., and Dennis w. Duke. 1992. <span>“Measuring <span>Chaos</span> in the <span>Brain</span>: <span>A Tutorial Review</span> of <span>Nonlinear Dynamical Eeg Analysis</span>.”</span> <em>International Journal of Neuroscience</em> 67 (1-4): 31–80. <a href="https://doi.org/10.3109/00207459208994774">https://doi.org/10.3109/00207459208994774</a>.
+</div>
+<div id="ref-robertsonChaosTheoryPsychology2014" class="csl-entry" role="listitem">
+Robertson, Robin, and Allan Combs, eds. 2014. <em>Chaos Theory in <span>Psychology</span> and the <span>Life Sciences</span></em>. <span>New York</span>: <span>Psychology Press</span>. <a href="https://doi.org/10.4324/9781315806280">https://doi.org/10.4324/9781315806280</a>.
+</div>
+<div id="ref-rosso2007" class="csl-entry" role="listitem">
+Rosso, O. A., H. A. Larrondo, M. T. Martin, A. Plastino, and M. A. Fuentes. 2007. <span>“Distinguishing Noise from Chaos.”</span> <em>Physical Review Letters</em> 99 (15): 154102. <a href="https://doi.org/10.1103/PhysRevLett.99.154102">https://doi.org/10.1103/PhysRevLett.99.154102</a>.
+</div>
+<div id="ref-sandubeteDChaosPackageChaotic2021" class="csl-entry" role="listitem">
+Sandubete, Julio, E., and Lorenzo Escot. 2021. <span>“<span>DChaos</span>: <span>An R Package</span> for <span>Chaotic Time Series Analysis</span>.”</span> <em>The R Journal</em> 13 (1): 232. <a href="https://doi.org/10.32614/RJ-2021-036">https://doi.org/10.32614/RJ-2021-036</a>.
+</div>
+<div id="ref-schiepek2017" class="csl-entry" role="listitem">
+Schiepek, Günter K., Kathrin Viol, Wolfgang Aichhorn, Marc-Thorsten Hütt, Katharina Sungler, David Pincus, and Helmut J. Schöller. 2017. <span>“Psychotherapy Is Chaotic<span></span>(not Only) in a Computational World.”</span> <em>Frontiers in Psychology</em> 8. <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2017.00379">https://www.frontiersin.org/articles/10.3389/fpsyg.2017.00379</a>.
+</div>
+<div id="ref-stam2005" class="csl-entry" role="listitem">
+Stam, C. J. 2005. <span>“Nonlinear dynamical analysis of EEG and MEG: review of an emerging field.”</span> <em>Clinical Neurophysiology: Official Journal of the International Federation of Clinical Neurophysiology</em> 116 (10): 2266–2301. <a href="https://doi.org/10.1016/j.clinph.2005.06.011">https://doi.org/10.1016/j.clinph.2005.06.011</a>.
+</div>
+<div id="ref-stefanRPubsFractals2020" class="csl-entry" role="listitem">
+Stefan, Martin. 2020. <span>“<span>RPubs</span> - <span>Fractals</span> with <span>R</span>.”</span> https://rpubs.com/mstefan-rpubs/fractals.
+</div>
+<div id="ref-tokerSimpleMethodDetecting2020" class="csl-entry" role="listitem">
+Toker, Daniel, Friedrich T. Sommer, and Mark D’Esposito. 2020. <span>“A Simple Method for Detecting Chaos in Nature.”</span> <em>Communications Biology</em> 3 (1): 1–13. <a href="https://doi.org/10.1038/s42003-019-0715-9">https://doi.org/10.1038/s42003-019-0715-9</a>.
+</div>
+<div id="ref-vandermaasNoteChaoticBehavior1990" class="csl-entry" role="listitem">
+van der Maas, Han L. J., Paul F. M. J. Verschure, and Peter C. M. Molenaar. 1990. <span>“A Note on Chaotic Behavior in Simple Neural Networks.”</span> <em>Neural Networks</em> 3 (1): 119–22. <a href="https://doi.org/10.1016/0893-6080(90)90050-U">https://doi.org/10.1016/0893-6080(90)90050-U</a>.
+</div>
+<div id="ref-zanin2022" class="csl-entry" role="listitem">
+Zanin, Massimiliano. 2022. <span>“Can Deep Learning Distinguish Chaos from Noise? Numerical Experiments and General Considerations.”</span> <em>Communications in Nonlinear Science and Numerical Simulation</em> 114 (November): 106708. <a href="https://doi.org/10.1016/j.cnsns.2022.106708">https://doi.org/10.1016/j.cnsns.2022.106708</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>フェルフルストはこのモデルを連続時間の微分方程式の形で提案した。この種のモデルについては <a href="#sec-ch4n" class="quarto-xref"><span class="quarto-unresolved-ref">sec-ch4n</span></a> で論じる。連続時間では特に目覚ましいことは何も起こらず、<a href="#fig-ch2-img2" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch2-img2</span></a> に示すような種類の振る舞いしか見られない。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>なぜこうなるのかを理解することはそれほど難しくない。「fixed points of difference equations」で Google 検索すれば、すぐに stackexchange.com にたどり着き、そこでいくつかの洞察に富む説明が与えられている。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://www.r-bloggers.com/2017/06/the-mandelbrot-set-in-r-2/" class="uri">https://www.r-bloggers.com/2017/06/the-mandelbrot-set-in-r-2/</a>。Shiny アプリも必ず確認せよ。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch1.html" class="pagination-link" aria-label="はじめに">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch3.html" class="pagination-link" aria-label="複雑系における転移">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">複雑系における転移</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://www.sfipress.org/"><img src="csrp-online-press-logo.png" alt="Santa Fe Institute press" style="height:45px;"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p>© Han L. J. van der Maas, 2024</p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank">CC BY-SA 4.0</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

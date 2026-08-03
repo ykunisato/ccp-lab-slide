@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; 社会物理学 – Complex Systems Research in Psychology</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch8.html" rel="next">
+<link href="./ch6.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1e13a3099a05037a1437c813e2312cdf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch7.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">社会物理学</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./sfi_cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Complex Systems Research in Psychology</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://www.sfipress.org/books/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-book"></i></a>
+    <a href="https://a.co/d/aXyHRoK" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-cart"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-filetype-pdf"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Complex-systems-research-in-Psychology.pdf">
+            Download PDF
+            </a>
+          </li>
+      </ul>
+    </div>
+    <a href="https://github.com/SantaFeInstitute/ComplexPsych/tree/master" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">プロローグ</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">カオスと予測不可能性</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">複雑系における転移</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch4n.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">力学系モデルの構築</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch5n.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">自己組織化</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">心理学的ネットワークモデル</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch7.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">社会物理学</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">エピローグ</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-Introduction-ch7" id="toc-sec-Introduction-ch7" class="nav-link active" data-scroll-target="#sec-Introduction-ch7"><span class="header-section-number">7.1</span> はじめに</a></li>
+  <li><a href="#sec-Some-famous-examples" id="toc-sec-Some-famous-examples" class="nav-link" data-scroll-target="#sec-Some-famous-examples"><span class="header-section-number">7.2</span> いくつかの有名な例</a>
+  <ul>
+  <li><a href="#sec-Segregation" id="toc-sec-Segregation" class="nav-link" data-scroll-target="#sec-Segregation"><span class="header-section-number">7.2.1</span> 分離</a></li>
+  <li><a href="#sec-The-evolution-of-language-The-naming-game" id="toc-sec-The-evolution-of-language-The-naming-game" class="nav-link" data-scroll-target="#sec-The-evolution-of-language-The-naming-game"><span class="header-section-number">7.2.2</span> 言語の進化——ネーミングゲーム</a></li>
+  <li><a href="#sec-Cultural-dynamics-The-Axelrod-model" id="toc-sec-Cultural-dynamics-The-Axelrod-model" class="nav-link" data-scroll-target="#sec-Cultural-dynamics-The-Axelrod-model"><span class="header-section-number">7.2.3</span> 文化のダイナミクス——アクセルロッドモデル</a></li>
+  </ul></li>
+  <li><a href="#sec-Dynamics-of-opinions" id="toc-sec-Dynamics-of-opinions" class="nav-link" data-scroll-target="#sec-Dynamics-of-opinions"><span class="header-section-number">7.3</span> 意見のダイナミクス</a>
+  <ul>
+  <li><a href="#sec-Discrete-opinion-models" id="toc-sec-Discrete-opinion-models" class="nav-link" data-scroll-target="#sec-Discrete-opinion-models"><span class="header-section-number">7.3.1</span> 離散意見モデル</a>
+  <ul>
+  <li><a href="#sec-Voter-models" id="toc-sec-Voter-models" class="nav-link" data-scroll-target="#sec-Voter-models"><span class="header-section-number">7.3.1.1</span> 投票者モデル</a></li>
+  <li><a href="#sec-More-discrete-opinion-models-majority-type-models" id="toc-sec-More-discrete-opinion-models-majority-type-models" class="nav-link" data-scroll-target="#sec-More-discrete-opinion-models-majority-type-models"><span class="header-section-number">7.3.1.2</span> さらなる離散意見モデル——多数決型モデル</a></li>
+  <li><a href="#sec-Social-Impact-theory" id="toc-sec-Social-Impact-theory" class="nav-link" data-scroll-target="#sec-Social-Impact-theory"><span class="header-section-number">7.3.1.3</span> 社会的インパクト理論</a></li>
+  </ul></li>
+  <li><a href="#sec-Continuous-opinion-models" id="toc-sec-Continuous-opinion-models" class="nav-link" data-scroll-target="#sec-Continuous-opinion-models"><span class="header-section-number">7.3.2</span> 連続意見モデル</a>
+  <ul>
+  <li><a href="#sec-Classic-models" id="toc-sec-Classic-models" class="nav-link" data-scroll-target="#sec-Classic-models"><span class="header-section-number">7.3.2.1</span> 古典的モデル</a></li>
+  <li><a href="#sec-Bounded-confidence" id="toc-sec-Bounded-confidence" class="nav-link" data-scroll-target="#sec-Bounded-confidence"><span class="header-section-number">7.3.2.2</span> 有界信頼</a></li>
+  </ul></li>
+  <li><a href="#sec-Empirical-verification" id="toc-sec-Empirical-verification" class="nav-link" data-scroll-target="#sec-Empirical-verification"><span class="header-section-number">7.3.3</span> 経験的な検証</a></li>
+  </ul></li>
+  <li><a href="#sec-Psychosocial-models" id="toc-sec-Psychosocial-models" class="nav-link" data-scroll-target="#sec-Psychosocial-models"><span class="header-section-number">7.4</span> 心理社会モデル</a>
+  <ul>
+  <li><a href="#sec-Networks-of-attitude-networks" id="toc-sec-Networks-of-attitude-networks" class="nav-link" data-scroll-target="#sec-Networks-of-attitude-networks"><span class="header-section-number">7.4.1</span> 態度ネットワークのネットワーク</a>
+  <ul>
+  <li><a href="#sec-The-HIOM-model" id="toc-sec-The-HIOM-model" class="nav-link" data-scroll-target="#sec-The-HIOM-model"><span class="header-section-number">7.4.1.1</span> HIOM</a></li>
+  <li><a href="#sec-Agent-interactions-information-and-attention" id="toc-sec-Agent-interactions-information-and-attention" class="nav-link" data-scroll-target="#sec-Agent-interactions-information-and-attention"><span class="header-section-number">7.4.1.2</span> エージェントの相互作用——情報と注意</a></li>
+  <li><a href="#sec-Algorithm" id="toc-sec-Algorithm" class="nav-link" data-scroll-target="#sec-Algorithm"><span class="header-section-number">7.4.1.3</span> アルゴリズム</a></li>
+  <li><a href="#sec-The-persuasion-paradox" id="toc-sec-The-persuasion-paradox" class="nav-link" data-scroll-target="#sec-The-persuasion-paradox"><span class="header-section-number">7.4.1.4</span> 説得のパラドックス</a></li>
+  <li><a href="#sec-A-counterintuitive-prediction" id="toc-sec-A-counterintuitive-prediction" class="nav-link" data-scroll-target="#sec-A-counterintuitive-prediction"><span class="header-section-number">7.4.1.5</span> 反直観的な予測</a></li>
+  <li><a href="#sec-Variants-of-the-HIOM" id="toc-sec-Variants-of-the-HIOM" class="nav-link" data-scroll-target="#sec-Variants-of-the-HIOM"><span class="header-section-number">7.4.1.6</span> HIOM の変種</a></li>
+  </ul></li>
+  <li><a href="#sec-Cascading-transitions-in-other-psychosocial-systems" id="toc-sec-Cascading-transitions-in-other-psychosocial-systems" class="nav-link" data-scroll-target="#sec-Cascading-transitions-in-other-psychosocial-systems"><span class="header-section-number">7.4.2</span> 他の心理社会システムにおけるカスケード転移</a></li>
+  </ul></li>
+  <li><a href="#sec-Psychosociophysics" id="toc-sec-Psychosociophysics" class="nav-link" data-scroll-target="#sec-Psychosociophysics"><span class="header-section-number">7.5</span> 精神社会物理学</a></li>
+  <li><a href="#sec-Exercises-ch7" id="toc-sec-Exercises-ch7" class="nav-link" data-scroll-target="#sec-Exercises-ch7"><span class="header-section-number">7.6</span> 演習問題</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch7" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">社会物理学</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-Introduction-ch7" class="level2 page-columns page-full" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-Introduction-ch7"><span class="header-section-number">7.1</span> はじめに</h2>
+<div class="page-columns page-full"><p>この最終章は人々の間のダイナミクスに充てられる。社会的相互作用のネットワークは疑いなく複雑系の基準を満たし、しばしば予測不可能性、突然の変化、そして自己組織化を示す。人々の間のダイナミクスのモデルは、社会学者のような社会科学者の領域だが、統計物理学の背景をもつ科学者の領域でもある。ここでも単純化が必要であり、この場合の犠牲者は心理学である。 これらのモデルのエージェントにもう少し心理学を加え、これらのモデルを研究するには複雑すぎるものにすることなく、より多くの現象を説明できるようにすることは、一つの課題である。その一線を越えるのは非常に容易である。本章の第二の部分は、私が<em>心理社会モデル</em>と呼ぶものを扱う。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">ほとんどの社会物理学モデルでは、人々は二値のノード、すなわちオンかオフ、賛成か反対、あるいは一つの連続的な属性のみをもつシステムに還元される。</span></div></div>
+<p>私は、いくぶん論争的な<em>社会物理学（sociophysics）</em>という用語を、多くの異なる科学に根をもつこの非常に多様な研究分野の呼び名として用いる。それは、心理学で一般に受け入れられている<em>精神物理学（psychophysics）</em>という用語と同じくらい（不）正確である。私がそれを気に入っているのは、それが、社会過程の形式化され数学的に述べられた理論に至るという意図を強調するからである。それはしばしば物理学で最初に開発された形式論に基づく。代替的な呼び名は<em>社会物理学（social physics）</em>、<em>計算社会科学</em>、そして<em>エージェントベースモデリング</em>である <span class="citation" data-cites="goldstoneComputationalModelsCollective2005">(<a href="#ref-goldstoneComputationalModelsCollective2005" role="doc-biblioref">Goldstone and Janssen 2005</a>)</span>。</p>
+<p>私の社会物理学の広い定義では、それは多くの異なるシステムと過程を扱う。すでに論じた例は、二者システムにおける脚の振りや、建物の火災から逃げる群衆における、運動の同期である。ダンスする群衆に加わることのグラノヴェッターの閾値モデルはもう一つの例である。多くの論文は意見、流行、噂などの広がりを扱う。これが本章の主たる話題となる。しかしこの分野はまた、分離、協力、犯罪、経済システムなどに関する仕事も含む。私はいくつかの鍵となる例を提示し、それから意見の社会的ダイナミクスのモデルに移る。</p>
+<p>読むべき重要なフォローアップの本には、社会的振る舞いのモデリングに関する <span class="citation" data-cites="smaldino2023">Smaldino (<a href="#ref-smaldino2023" role="doc-biblioref">2023</a>)</span>、協力と利他行動に関する <span class="citation" data-cites="bowlesCooperativeSpeciesHuman2011">Bowles and Gintis (<a href="#ref-bowlesCooperativeSpeciesHuman2011" role="doc-biblioref">2011</a>)</span>、社会経済のモデリングに関する <span class="citation" data-cites="durlaufSocialDynamics2001">Durlauf and Young (<a href="#ref-durlaufSocialDynamics2001" role="doc-biblioref">2001</a>)</span>、人工社会の構築に関する <span class="citation" data-cites="epsteinGrowingArtificialSocieties1996">Epstein and Axtell (<a href="#ref-epsteinGrowingArtificialSocieties1996" role="doc-biblioref">1996</a>)</span>、<span class="citation" data-cites="epsteinGenerativeSocialScience2006">Epstein (<a href="#ref-epsteinGenerativeSocialScience2006" role="doc-biblioref">2006</a>)</span>、<span class="citation" data-cites="epsteinAgentZeroNeurocognitive2014">Epstein (<a href="#ref-epsteinAgentZeroNeurocognitive2014" role="doc-biblioref">2014</a>)</span>、そして社会生活の計算モデルに関する <span class="citation" data-cites="millerComplexAdaptiveSystems2007">Miller and Page (<a href="#ref-millerComplexAdaptiveSystems2007" role="doc-biblioref">2007</a>)</span> がある。この研究領域に関する優れたレビュー論文もいくつかある <span class="citation" data-cites="castellanoStatisticalPhysicsSocial2009 noorazarRecentAdvancesOpinion2020 proskurnikovTutorialModelingAnalysis2017 jusup2022">(<a href="#ref-castellanoStatisticalPhysicsSocial2009" role="doc-biblioref">Castellano, Fortunato, and Loreto 2009</a>; <a href="#ref-noorazarRecentAdvancesOpinion2020" role="doc-biblioref">Noorazar 2020</a>; <a href="#ref-proskurnikovTutorialModelingAnalysis2017" role="doc-biblioref">Proskurnikov and Tempo 2017</a>; <a href="#ref-jusup2022" role="doc-biblioref">Jusup et al. 2022</a>)</span>。あまり数学に焦点を当てないレビューが <span class="citation" data-cites="flacheModelsSocialInfluence2017">Flache et al. (<a href="#ref-flacheModelsSocialInfluence2017" role="doc-biblioref">2017</a>)</span> によって提供されている。</p>
+</section>
+<section id="sec-Some-famous-examples" class="level2 page-columns page-full" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sec-Some-famous-examples"><span class="header-section-number">7.2</span> いくつかの有名な例</h2>
+<section id="sec-Segregation" class="level3 page-columns page-full" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="sec-Segregation"><span class="header-section-number">7.2.1</span> 分離</h3>
+<div class="page-columns page-full"><p>分離を研究する最も有名な計算モデルはシェリングのモデルである <span class="citation" data-cites="schellingDynamicModelsSegregation1971">(<a href="#ref-schellingDynamicModelsSegregation1971" role="doc-biblioref">Schelling 1971</a>)</span>。このモデルの単純化された版は、二次元空間、すなわち NetLogo におけるようなセルオートマトンを仮定し、そこでは各位置すなわちセルが二つのタイプのエージェントの一方に占められているか、空である。密度パラメータが、いくつの位置が占められているかを決める。エージェントは、その八つの近傍のある割合 <span class="math inline">\(B\)</span> が自分と同じタイプであれば、その位置にとどまる。したがって、<span class="math inline">\(B = 0\%\)</span> なら、誰も動かない。B が 100% に近い値については、誰もが常に動く。シェリングが彼のモデルで示したのは、30% 近くという低い不寛容の水準でさえ分離をもたらす、ということであった。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">人々が最大 70% の「よそ者」の近傍を受け入れられるとしても、分離は依然として生じる。</span></div></div>
+<p>NetLogo モデル Segregation（社会科学のサンプルモデル）はこのモデルを実演する。とりわけ高密度では、分離していない状態、分離した状態、そしてエージェントが動き続ける混合状態の間の転移が見られる <span class="citation" data-cites="gauvinPhaseDiagramSchelling2009">(<a href="#ref-gauvinPhaseDiagramSchelling2009" role="doc-biblioref">Gauvin, Vannimenus, and Nadal 2009</a>)</span>。スライダーで遊ぶ代わりに、BehavioralSpace オプションを用いることもできる。<a href="#fig-ch7-img1-old-89" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img1-old-89</span></a> は、このオプションの設定、R コード、そして結果を示している。可視化なしには NetLogo はかなり速いことに注意しよう。</p>
+<div class="page-columns page-full"><p>第5章 <a href="#sec-Motor-action" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Motor-action</span></a> で、ハーケンの仕事の文脈で見た一つの概念は秩序パラメータの概念であった。秩序パラメータは文字どおりシステムにおける秩序を測る。 私たちは、突然の変化やヒステリシスといった、モデルにおける質的な現象を捉える秩序パラメータを探す。NetLogo のシミュレーションでは、私は似た近傍の割合を用いた。<span class="citation" data-cites="gauvinPhaseDiagramSchelling2009">Gauvin, Vannimenus, and Nadal (<a href="#ref-gauvinPhaseDiagramSchelling2009" role="doc-biblioref">2009</a>)</span> は、おそらくより良い二つの秩序パラメータを提案している。すなわち、クラスターの同定を必要とする分離係数と、システムの三つの状態をよりよく区別する望まれない位置の密度である。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">適切な秩序パラメータを見つけることは常に容易ではなく、しばしば複数の定義が可能である。</span></div></div>
+<div id="fig-ch7-img1-old-89" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img1-old-89-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/ch7-1-june14.jpg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img1-old-89-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: 不寛容が分離に及ぼす効果を可視化するための BehaviorSpace の設定と R コード。
+</figcaption>
+</figure>
+</div>
+<p>明らかに、これは多くの仕方で拡張できる初期のモデルにすぎず、そのいくつかはシェリングの元の論文ですでに探求されている。この研究の系譜の興味深い歴史的なスケッチについては、<span class="citation" data-cites="hegselmannThomasSchellingJames2017">Hegselmann (<a href="#ref-hegselmannThomasSchellingJames2017" role="doc-biblioref">2017</a>)</span> を参照。シェリングの研究に着想を得たもう一つの NetLogo モデルは Party と呼ばれる。このモデルでは、パーティ参加者は、現在のグループが異性の個人を不釣り合いな数だけ含む場合、不快を経験してグループを変える。都市のダイナミクスに焦点を当てた最近のレビューが <span class="citation" data-cites="jusup2022">Jusup et al. (<a href="#ref-jusup2022" role="doc-biblioref">2022</a>)</span> に見出される。</p>
+</section>
+<section id="sec-The-evolution-of-language-The-naming-game" class="level3 page-columns page-full" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="sec-The-evolution-of-language-The-naming-game"><span class="header-section-number">7.2.2</span> 言語の進化——ネーミングゲーム</h3>
+<p>言語は、自己組織化する文化的過程で創発する複雑系である <span class="citation" data-cites="steelsSelfOrganizingSpatialVocabulary1995">(<a href="#ref-steelsSelfOrganizingSpatialVocabulary1995" role="doc-biblioref">Steels 1995</a>)</span>。スティールズは言語の進化を研究するためにネーミングゲーム（<a href="#fig-ch7-img2-old-90" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img2-old-90</span></a>）を開発した。レビューについては <span class="citation" data-cites="chenNamingGameModels2019">Chen and Lou (<a href="#ref-chenNamingGameModels2019" role="doc-biblioref">2019</a>)</span> を参照されたい。<span class="citation" data-cites="castellanoStatisticalPhysicsSocial2009">Castellano, Fortunato, and Loreto (<a href="#ref-castellanoStatisticalPhysicsSocial2009" role="doc-biblioref">2009</a>)</span> は簡単なレビューを提供している。</p>
+<div id="fig-ch7-img2-old-90" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img2-old-90-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/ch7-2-may31.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img2-old-90-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: ネーミングゲーム。話し手は強調された単語を選ぶ。聞き手がその単語を知らなければ（失敗）、彼女はそれを自分の在庫に加える。成功の場合、両方のエージェントは自分の在庫を削除し、話された単語だけを保持する。（Castellano et al., 2009 より改変）
+</figcaption>
+</figure>
+</div>
+<p>ゲームはすべてのエージェントについて空白のリストで始まる。第一のラウンドで、話し手は、可能性が無限であると仮定して、新たな一意の単語を発明する。私たちは、名付けるべき対象が一つだけであり、社会ネットワークが完全に結合していると仮定する。集団から二つのエージェントがランダムに選ばれる。一方は「話し手」、他方は「聞き手」である。話し手は対象について自分の語彙から単語を選ぶ。聞き手がその単語になじみがなければ、彼女はそれを自分の語彙に取り入れる。彼女がその単語を認識すれば、両方が語彙を消去し、話された単語だけを保持する。</p>
+<p>この過程をシミュレートする R コードは次のとおりである。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>resample <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) x[<span class="fu">sample.int</span>(<span class="fu">length</span>(x), ...)]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span>; iter <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"list"</span>, n)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>n_possible_words <span class="ot">&lt;-</span> <span class="dv">1000000</span> <span class="co"># should be very high</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>total_words <span class="ot">&lt;-</span> total_unique_words <span class="ot">&lt;-</span> <span class="fu">numeric</span>(iter)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iter){</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  j <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="dv">1</span>) <span class="co"># speaker</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="fu">sample</span>((<span class="dv">1</span><span class="sc">:</span>n)[<span class="sc">-</span>i], <span class="dv">1</span>) <span class="co"># hearer</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># if speaker has no words, make one up (actually just number)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">length</span>(x[[j]]) <span class="sc">==</span> <span class="dv">0</span>) x[[j]][<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n_possible_words, <span class="dv">1</span>) <span class="cf">else</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    spoken_word <span class="ot">&lt;-</span> <span class="fu">resample</span>(x[[j]], <span class="dv">1</span>) <span class="co"># choose a word (actually just number)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">any</span>(x[[k]]<span class="sc">%in%</span>spoken_word)) <span class="co"># hearer knows the word</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      x[[j]] <span class="ot">&lt;-</span> spoken_word <span class="co"># erase list except spoken_word</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      x[[k]] <span class="ot">&lt;-</span> spoken_word <span class="co"># erase list except spoken_word</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="co"># hearer does not know the word</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>      x[[k]] <span class="ot">&lt;-</span> <span class="fu">c</span>(x[[k]], spoken_word)  <span class="co"># add word to list</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  total_words[i] <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unlist</span>(x))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  total_unique_words[i] <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(<span class="fu">unlist</span>(x)))</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(total_words, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">xlab =</span> <span class="st">'time'</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(total_unique_words, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">xlab =</span> <span class="st">'time'</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(<span class="fu">unlist</span>(x)) <span class="co"># winning word</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>これは <a href="#fig-ch7-img3-old-91" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img3-old-91</span></a> をもたらす。</p>
+<div id="fig-ch7-img3-old-91" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img3-old-91-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/fig-ch7-img3-old-91.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img3-old-91-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.3: 秩序パラメータ、すなわち一意の単語の総数は、誰もが対象について同じ単語を用いる状態への相転移を経る（Castellano et al., 2009 の図2と比較）。
+</figcaption>
+</figure>
+</div>
+<p>エージェントが多くの異なる単語を用いる相の後、たった一つの単語から成る言語が突然創発する。単純化は、エージェントが単語 A、単語 B、あるいは単語 A と B の両方のいずれかで始まる場合であろう。したがって新たな単語は発明されない。この場合、時間発展を三つの微分方程式で書ける。</p>
+<p><span id="eq-ch7-1-old-50"><span class="math display">\[
+\begin{gathered}
+{\frac{{dX}_{A}}{dt} = {- X}_{B}X_{A} + {\frac{1}{2}}X_{AB}X_{AB} + X_{A}X_{AB}}, \\
+{\frac{{dX}_{B}}{dt} = {- X}_{A}X_{B} + {\frac{1}{2}}X_{AB}X_{AB} + X_{B}X_{AB}}, \\
+\frac{{dX}_{AB}}{dt} = {2X}_{A}X_{B} - X_{AB}X_{AB} - (X_{A}+ X_{B})X_{AB}.
+\end{gathered}
+\tag{7.1}\]</span></span></p>
+<div class="page-columns page-full"><p>第一の方程式は次のように理解できる。聞き手 A に話す話し手 B は、聞き手 A を AB エージェントに変える。A エージェントの喪失は <span class="math inline">\({- X}_{B}X_{A}\)</span> である。AB エージェントに話す AB エージェントは、話し手の A か B のランダムな選択に応じて、A か B エージェントになる（<span class="math inline">\({X}_{AB}X_{AB}/2\)</span>）。話し手 A が AB エージェントに話せば、後者は A エージェントになる（<span class="math inline">\(X_{A}X_{AB}\)</span>）。これら三つの項が一緒になって <span class="math inline">\(X_{A}\)</span> の変化を定義する。他の方程式も同じ論理に従う。これを Grind に実装するのは容易である。三つの可能な結果がある。すなわち、(1) A の初期割合が B より大きければ A が勝つ。(2) B の初期割合が A より大きければ B が勝つ。そして (3) これらの割合がちょうど等しければ、三つの選択肢 A、B、AB がすべて共存するが、この平衡は不安定である。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">極めて単純化されているものの、ネーミングゲームは、完全に結合したネットワークでは言語の共存が難しいことを例示する。</span></div></div>
+</section>
+<section id="sec-Cultural-dynamics-The-Axelrod-model" class="level3 page-columns page-full" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="sec-Cultural-dynamics-The-Axelrod-model"><span class="header-section-number">7.2.3</span> 文化のダイナミクス——アクセルロッドモデル</h3>
+<div class="page-columns page-full"><p>ロバート・<span class="citation" data-cites="axelrodDisseminationCultureModel1997">Axelrod (<a href="#ref-axelrodDisseminationCultureModel1997" role="doc-biblioref">1997</a>)</span> は、社会的相互作用とホモフィリーの効果に基づく、影響力のある文化拡散のモデルを導入した。 アクセルロッドのモデルでは、個人は相互作用を通じてより似たものになる——ただし、すでにいくつかの文化的特徴を共有している場合に限る。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">ホモフィリーとは、個人が自分と似た他者と交わったり結び付いたりする傾向ないし選好を指す。</span></div></div>
+<p>このモデルでは、エージェントは <span class="math inline">\(F\)</span> 個の文化的特徴（たとえば信念、習慣）をもち、その各々が <span class="math inline">\(Q\)</span> 個の可能な名義値をもつ。エージェントは、たとえば完全に結合したものといった、何らかのネットワークに組織される。各時間ステップで、二つのエージェントがランダムに選ばれる。共有される特徴、すなわち同じ値をもつ特徴の数を数える。この数を <span class="math inline">\(F\)</span> で割ったものが、二つのエージェントの一方の不一致な特徴の一つが他方のそれに等しく設定される確率を与える。したがって、すべての特徴で異なれば、何も起こらない。特徴の 50% が同じ値をもてば、不一致な特徴の一つが一方のエージェントについて確率 0.5 で変わる。</p>
+<p>相互作用とホモフィリーの組み合わせは、しばしば単一の文化への大域的な収束をもたらす自己強化的なダイナミクスを作り出す。しかし、<span class="math inline">\(F\)</span> と <span class="math inline">\(Q\)</span> のある種の選択については、モデルは多様性の状態に収束する。以下のシミュレーションでは、単純な秩序パラメータとして残る文化の数を用いる。<span class="citation" data-cites="castellanoNonequilibriumPhaseTransition2000">Castellano, Marsili, and Vespignani (<a href="#ref-castellanoNonequilibriumPhaseTransition2000" role="doc-biblioref">2000</a>)</span> は、より高度な秩序パラメータを用いて、このモデルにおける相転移の詳しい分析を提示している。想像がつくように、このモデルは多くの仕方で拡張できる。たとえば名義的な状態の代わりに順序的な状態を導入することによってである <span class="citation" data-cites="macyWhatSustainsStable2006">(<a href="#ref-macyWhatSustainsStable2006" role="doc-biblioref">Macy, Flache, and Takacs 2006</a>)</span>。</p>
+<p>このモデルの以下の R コードは <a href="#fig-ch7-img4-old-92" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img4-old-92</span></a> の第一のプロットを生成する。値で遊んで異なる場合を見られる。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>resample <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) x[<span class="fu">sample.int</span>(<span class="fu">length</span>(x), ...)]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span>; iter <span class="ot">&lt;-</span> <span class="dv">50000</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>F <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="co"># features</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Q <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="co"># nominal levels per feature</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>uniques <span class="ot">&lt;-</span> <span class="fu">numeric</span>(iter)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>Q, <span class="at">replace =</span> <span class="cn">TRUE</span>, n <span class="sc">*</span> F), n, F)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iter){</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  j <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="dv">1</span>)       <span class="co"># agent 1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="fu">sample</span>((<span class="dv">1</span><span class="sc">:</span>n)[<span class="sc">-</span>j], <span class="dv">1</span>) <span class="co"># agent 2</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  w <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[j,] <span class="sc">==</span> x[k,])<span class="sc">/</span>F <span class="co"># agreement</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(w <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="fu">runif</span>(<span class="dv">1</span>) <span class="sc">&lt;</span> w) {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># which (unequal) feature to update:</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    f <span class="ot">&lt;-</span> <span class="fu">resample</span>(<span class="fu">which</span>(x[j,] <span class="sc">!=</span> x[k,]), <span class="dv">1</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    x[j,f] <span class="ot">&lt;-</span> x[k,f] <span class="co"># update</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  uniques[i] <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">unique</span>(x))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(uniques[<span class="dv">1</span><span class="sc">:</span>i], <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">xlab =</span> <span class="st">'time'</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">'# unique cultures'</span>, <span class="at">bty =</span> <span class="st">'n'</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste0</span>(<span class="st">'Axelrod model with F = '</span>, F, <span class="st">', Q = '</span>, Q))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-ch7-img4-old-92" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img4-old-92-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/fig-ch7-img4-old-92.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img4-old-92-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.4: アクセルロッドのモデルの二つの実行。四つの可能な値をもつ四つの特徴については、一つの文化だけが残る。第二の場合（<span class="math inline">\(F = 2, Q = 10\)</span>）では、すべての特徴で異なる複数の一意の文化が創発する。
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p>アクセルロッドモデルについて私が魅力的だと思うのは、その多次元性である。 多くの人は、オランダよりも米国における分極化をより懸念している。米国では、生活のすべての側面が相互接続されているように思われ、ジーンズの選択や好きなスポーツといった一見無関係な要因すら政治的信念と相関する。これは脱分極化の可能性を大いに制限する。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">ある種の次元で他の人々と共通のいくつかの特性ないし性質をもつ限り、社会には希望がある。</span></div></div>
+</section>
+</section>
+<section id="sec-Dynamics-of-opinions" class="level2 page-columns page-full" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-Dynamics-of-opinions"><span class="header-section-number">7.3</span> 意見のダイナミクス</h2>
+<p>同じ有名な論文で、アクセルロッドは重要な問いを尋ねた。「人々が相互作用するとき、信念、態度、行動においてより似たものになる傾向があるなら、なぜそのようなすべての違いが最終的に消えないのか」。</p>
+<div class="page-columns page-full"><p>アクセルロッドの問いへの答えは、通常、エージェント間の限られた相互作用という観点で提起される。たとえばアクセルロッドのモデルでは、それはエージェント間の選択的な相互作用によるものであった。連続意見モデルでは、それは有界信頼（bounded confidence）によるもの、すなわち違いが大きすぎるエージェントは相互作用を拒む。あるモデルでは、ネットワーク内の下位集団の間に単に結合がない。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">有界信頼とは、個人が、他者の意見が自分の意見のある範囲内にあるときにのみ、その意見に影響される、という概念を指す。</span></div></div>
+<div class="page-columns page-full"><p>意見拡散モデルの数を数えるのは難しいが、すべての変種を数えれば、容易に数百に上りうる。それらはすべていくつかの構成要素を共有する。第一に、社会ネットワークに何らかの位相構造がなければならない。モデル構築者はここで異なる選択をする。しばしば、解析的（平均場）アプローチを許すので完全に結合したネットワークが仮定される。他の人はランダムネットワーク、格子、スモールワールドネットワークなどを用いる。問題は、実際の社会ネットワークがどう機能するかを、それが信じがたいほど複雑であること <span class="citation" data-cites="newmanWhySocialNetworks2003">(<a href="#ref-newmanWhySocialNetworks2003" role="doc-biblioref">Newman and Park 2003</a>)</span> を除いて、私たちが本当には知らない、ということである。第二に、いくつかの相互作用の規則を定義する必要がある。たとえば、二つのエージェントが議論の後に中間に行き着くかもしれないし、一方のエージェントが他方の状態を模倣するかもしれないし、一方のエージェントがその局所的な近傍における多数決を採用するかもしれない。最後に、意見を定義しなければならない。 まずいくつかの離散意見モデルを論じる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">社会的伝染モデルにおける大きな区分は、意見が離散的として定義されるか連続的として定義されるかである。</span></div></div>
+<section id="sec-Discrete-opinion-models" class="level3 page-columns page-full" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="sec-Discrete-opinion-models"><span class="header-section-number">7.3.1</span> 離散意見モデル</h3>
+<section id="sec-Voter-models" class="level4 page-columns page-full" data-number="7.3.1.1">
+<h4 data-number="7.3.1.1" class="anchored" data-anchor-id="sec-Voter-models"><span class="header-section-number">7.3.1.1</span> 投票者モデル</h4>
+<div class="page-columns page-full"><p>可能な限り最も単純なモデルは投票者モデルであるように思われる。その基本形では、二つの可能な意見（<span class="math inline">\(-1, 1\)</span>）のみをもち、結合した二つのエージェント A と B が出会い、A は単に B の意見を模倣する。この単純なシステムで何が起こるかは、ネットワークの位相構造、すなわちその次元（<span class="math inline">\(d = 1\)</span>（線上）、<span class="math inline">\(d = 2\)</span>（格子）、または <span class="math inline">\(d &gt; 2\)</span> のいずれか）とその大きさ <span class="math inline">\(N\)</span> に依存する。二次元より多く無限の大きさでは、投票者システムは収束しないが、他の場合には、すべての意見が一致する状態（すべて <span class="math inline">\(-1\)</span> かすべて <span class="math inline">\(1\)</span>）に収束する <span class="citation" data-cites="castellanoStatisticalPhysicsSocial2009 rednerRealityinspiredVoterModels2019">(<a href="#ref-castellanoStatisticalPhysicsSocial2009" role="doc-biblioref">Castellano, Fortunato, and Loreto 2009</a>; <a href="#ref-rednerRealityinspiredVoterModels2019" role="doc-biblioref">Redner 2019</a>)</span>。 収束にどれだけ時間がかかるかも解析的に導ける。収束時間は、線上の投票者（<span class="math inline">\(d = 1\)</span>）については <span class="math inline">\(N^{2}\)</span> に比例し、<span class="math inline">\(d = 2\)</span> については <span class="math inline">\(NlnN\)</span> に、<span class="math inline">\(d &gt; 2\)</span> については <span class="math inline">\(N\)</span> に比例する。したがって、収束はエージェントが線状に結合しているとき最も遅い。</p><div class="no-row-height column-margin column-container"><span class="margin-aside"><span class="math inline">\(+1\)</span> の状態に行き着く確率は、<span class="math inline">\(+1\)</span> の初期確率に等しい。</span></div></div>
+<div class="page-columns page-full"><p>異質投票者モデルでは、各エージェント A は、ある確率 <span class="math inline">\(r_{i}\)</span> でエージェント B の意見を模倣する。このようにして、頑固な投票者（低い <span class="math inline">\(r_{i}\)</span> をもつ）の効果を研究できる。頑固な個人（時に熱狂者と呼ばれる）の小集団が多数意見を打ち負かしうることが判明する。投票者に記憶とノイズを加えるなど、他の多くの変種が分析されてきた <span class="citation" data-cites="castellanoStatisticalPhysicsSocial2009">(<a href="#ref-castellanoStatisticalPhysicsSocial2009" role="doc-biblioref">Castellano, Fortunato, and Loreto 2009</a>)</span>。左派、中道、右派という三つの集団を考え、左派と右派が相互作用しない場合を考えることも可能である。この場合、初期割合に応じて、一つの状態で完全な合意に達するか、中道なしの過激派の混合に行き着く <span class="citation" data-cites="rednerRealityinspiredVoterModels2019">(<a href="#ref-rednerRealityinspiredVoterModels2019" role="doc-biblioref">Redner 2019</a>)</span>。最後に、社会ネットワークの位相構造が役割を果たす。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">一般に、広い次数分布をもつスケールフリーネットワークでは合意に達しやすい。</span></div></div>
+<p>もう一つのアプローチが <span class="citation" data-cites="martinsContinuousOpinionsDiscrete2008">Martins (<a href="#ref-martinsContinuousOpinionsDiscrete2008" role="doc-biblioref">2008</a>)</span> によって提案されている。連続意見と離散行動（CODA）モデルは、意見ダイナミクスの離散的な側面と連続的な側面を組み合わせる。エージェントは離散的に行動するが、他のエージェントの離散的な行動の観察に基づいて自分の連続的な意見を更新する。</p>
+<p>CODA では、二つの選択肢 A と B があり、エージェント <span class="math inline">\(i\)</span> は、A が最良の選択肢であるという何らかの主観確率 <span class="math inline">\(p_{i}\)</span> をもち、B については <span class="math inline">\({1 - p}_{i}\)</span> をもつ。実際の選択は <span class="math inline">\(sgn\left( p_{i} - .5 \right)\)</span> に従ってなされるので、<span class="math inline">\(p_{i} &gt; .5\)</span> のとき A が選ばれる。次に、エージェントは他のエージェントを観察する。エージェントは、他のエージェントが合理的な選択をする、すなわち A が最良の選択肢のとき .5 より大きい確率 <span class="math inline">\(a\)</span> で A を選ぶ、と仮定する。モデルを実行する際には、確率の対数オッズ <span class="math inline">\(v_{i} = ln({p_{i}}/({1 - p_{i}}))\)</span> を用いると便利である。ベイズの定理を用いて、エージェント j が A を選ぶとき <span class="math inline">\(v_{i}\)</span> を <span class="math inline">\(v_{i} + a\)</span> に、選択が B であれば <span class="math inline">\(v_{i} - a\)</span> に更新できる。<span class="citation" data-cites="martinsContinuousOpinionsDiscrete2008">Martins (<a href="#ref-martinsContinuousOpinionsDiscrete2008" role="doc-biblioref">2008</a>)</span> は、これらの決定規則を投票者モデルと統合し、極端な形の分極化、すなわち意見の強く双峰的な分布を示している。</p>
+</section>
+<section id="sec-More-discrete-opinion-models-majority-type-models" class="level4" data-number="7.3.1.2">
+<h4 data-number="7.3.1.2" class="anchored" data-anchor-id="sec-More-discrete-opinion-models-majority-type-models"><span class="header-section-number">7.3.1.2</span> さらなる離散意見モデル——多数決型モデル</h4>
+<p>投票者モデルとアクセルロッドモデルでは、相互作用は二つのエージェントに限られる。複数の近傍が各エージェントに影響するとき、多くの新たな選択肢が生じる。一つの選択肢はイジングモデルである <span class="citation" data-cites="galamSociophysicsNewApproach1982">(<a href="#ref-galamSociophysicsNewApproach1982" role="doc-biblioref">Galam, Gefen, and Shapir 1982</a>)</span>。エージェントは、その近傍の状態に依存する確率で立場を切り替える。イジングモデルの温度変数は、モデルにおけるランダムさに翻訳される。外部場は今や外部の社会的な場として解釈される。このようにして、意見ダイナミクスにおける相転移とヒステリシスを説明できる。</p>
+<p>もう一つの深く分析された選択肢は多数決モデルである <span class="citation" data-cites="galamSociophysicsReviewGalam2008 rednerRealityinspiredVoterModels2019">(<a href="#ref-galamSociophysicsReviewGalam2008" role="doc-biblioref">Galam 2008</a>; <a href="#ref-rednerRealityinspiredVoterModels2019" role="doc-biblioref">Redner 2019</a>)</span>。ここでは、投票者のランダムな集団が選ばれ、この集団のすべての投票者が局所的な多数意見を採用する。この過程は、一つの意見への収束に達するまで繰り返せる（有限の集団では常にそうなる）。<span class="citation" data-cites="galamSociophysicsReviewGalam2008">Galam (<a href="#ref-galamSociophysicsReviewGalam2008" role="doc-biblioref">2008</a>)</span> はこの過程を階層的な仕方で立てている（<a href="#fig-ch7-img5-old-93" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img5-old-93</span></a> を参照）。あるいは、一人の投票者だけがその近傍における多数決によって影響されうる。これは温度 0 のイジングモデルに対応する。</p>
+<div id="fig-ch7-img5-old-93" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img5-old-93-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/ch7-5__figure95.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img5-old-93-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.5: ガラムモデルにおける階層的システムのボトムアップ投票。
+</figcaption>
+</figure>
+</div>
+<p>もう一つの場合は <span class="math inline">\(q\)</span>-投票者モデルである <span class="citation" data-cites="castellanoNonlinearVoterModel2009 jedrzejewskiStatisticalPhysicsOpinion2019">(<a href="#ref-castellanoNonlinearVoterModel2009" role="doc-biblioref">Castellano, Muñoz, and Pastor-Satorras 2009</a>; <a href="#ref-jedrzejewskiStatisticalPhysicsOpinion2019" role="doc-biblioref">Jędrzejewski and Sznajd-Weron 2019</a>)</span>。ここでは、エージェントは、近傍から選ばれた <span class="math inline">\(q\)</span> 人の投票者すべてが他方の意見で一致する場合にのみ、自分の意見を変える。<span class="math inline">\(q = 1\)</span> のとき、これは標準的な投票者モデルに帰着する。<span class="math inline">\(q\)</span>-投票者モデルは一般に、基本的な投票者モデルと比べてより高い度合いの意見の多様性を許す。<span class="math inline">\(q\)</span>-投票者モデルは NetLogo に実装されている（ユーザーコミュニティモデルの「qvoter_WS」）。</p>
+<p>基本的なシュナイダー（Sznajd）モデルでは、エージェントは線上に置かれ、同じ意見をもつ二つの近傍がこの意見を自分の近傍に広める。それらが一致しなければ、その不一致を近傍に強制する。したがって（<span class="math inline">\(?,1,1,?\)</span>）は（<span class="math inline">\(1,1,1,1\)</span>）になり、（<span class="math inline">\(?,-1,1,?\)</span>）は（<span class="math inline">\(1,-1,1,-1\)</span>）になる。これは、すべて <span class="math inline">\(1\)</span> の状態、すべて <span class="math inline">\(-1\)</span> の状態、あるいは <span class="math inline">\(1\)</span> と <span class="math inline">\(-1\)</span> の対の列に収束しうる。後者の状態は確率 <span class="math inline">\(.5\)</span> で達成される。このモデルも、選挙過程を加えるなど、多くの仕方で拡張されてきた <span class="citation" data-cites="sznajd-weronReviewSznajdModel2021">(<a href="#ref-sznajd-weronReviewSznajdModel2021" role="doc-biblioref">Sznajd-Weron, Sznajd, and Weron 2021</a>)</span>。</p>
+</section>
+<section id="sec-Social-Impact-theory" class="level4 page-columns page-full" data-number="7.3.1.3">
+<h4 data-number="7.3.1.3" class="anchored" data-anchor-id="sec-Social-Impact-theory"><span class="header-section-number">7.3.1.3</span> 社会的インパクト理論</h4>
+<p>ここで言及する最後の離散モデルは社会的インパクトモデルであり、これはビブ・ラタネの <span class="citation" data-cites="latanePsychologySocialImpact1981">(<a href="#ref-latanePsychologySocialImpact1981" role="doc-biblioref">1981</a>)</span> 社会的インパクトの心理学的理論に基づく。ラタネは複雑系理論から多くの考えと概念を社会心理学に導入した。彼の心理学的理論は社会心理学にしっかりと根ざしており、あらゆる種類の証拠によって支持されている <span class="citation" data-cites="karauSocialLoafingMetaanalytic1993">(<a href="#ref-karauSocialLoafingMetaanalytic1993" role="doc-biblioref">Karau and Williams 1993</a>)</span>。</p>
+<p>この理論では、意見の変化は社会的インパクト <span class="math inline">\(I\)</span> に依存する。意見 <span class="math inline">\(X\)</span> は <span class="math inline">\(-1\)</span> か <span class="math inline">\(1\)</span> である。社会的インパクトは、反対者（反対の意見をもつ結合したエージェント）の説得力（<span class="math inline">\(p_{i}\)</span>）、支持者（同じ意見をもつ者）の支持性（<span class="math inline">\(s_{i}\)</span>）、そしてこれらのエージェントへの距離（<span class="math inline">\(d_{ij}\)</span>）の関数である。距離の効果は <span class="math inline">\(\alpha\)</span> で修正できる。<span class="math inline">\(\alpha\)</span> の値が増加すると、より遠くに位置するエージェントの影響が減じる。これらのパラメータはすべて正のランダム値である。インパクト <span class="math inline">\(I\)</span> は次のように定義される。</p>
+<p><span id="eq-ch7-SI-a"><span class="math display">\[I_{i} = I_{i}^{P} - I_{i}^{S} = \left\lbrack \sum_{j = 1}^{N}{\frac{p_{j}}{d_{ij}^{\alpha}}\left( 1 - X_{i}X_{j} \right)} \right\rbrack - \left\lbrack \sum_{j = 1}^{N}{\frac{s_{j}}{d_{ij}^{\alpha}}\left( 1 + X_{i}X_{j} \right)} \right\rbrack. \tag{7.2}\]</span></span></p>
+<p><span class="math inline">\(j\)</span> でエージェント <span class="math inline">\(i\)</span> の近傍にわたって和を取る。<span class="math inline">\(X_{i} = X_{j}\)</span> のとき、<span class="math inline">\(1 - X_{i}X_{j}\)</span> の項のために <span class="math inline">\(I^{P} = 0\)</span> であり、<span class="math inline">\(X_{i} \neq X_{j}\)</span> のときの <span class="math inline">\(I^{S}\)</span> についても同じことが当てはまることに注意しよう。説得力と支持性の効果は、エージェント間の距離が増すにつれて減じる。<span class="math inline">\(\alpha\)</span> を 1 より大きい値に設定すると、遠い近傍の効果が減じる。これらの力に加えて、この理論は、イジングモデルにおけるような外部場 <span class="math inline">\(H\)</span> を仮定する。意見のダイナミクスは次のとおりである。</p>
+<p><span id="eq-ch7-SI-b"><span class="math display">\[X_{i}(t + 1) = - sgn\lbrack X(t)I_{i}(t) + H\rbrack. \tag{7.3}\]</span></span></p>
+<p>したがって、<span class="math inline">\(X(t)I_{i}(t) + H\)</span> が正であればエージェントの意見は <span class="math inline">\(-1\)</span> になり、その逆も然りである。<span class="citation" data-cites="lewensteinStatisticalMechanicsSocial1992">Lewenstein, Nowak, and Latané (<a href="#ref-lewensteinStatisticalMechanicsSocial1992" role="doc-biblioref">1992</a>)</span> は、完全に結合したネットワークについての解析的な平均場解を提示している。個々の場がなければ、モデルは無限の数の定常な意見状態に行き着き、そのうちの一つが通常支配的である。</p>
+<div class="page-columns page-full"><p>個々の場が存在する場合、いくつかの少数意見が準安定になりうる。 これらのより小さな少数派クラスターも、再び縮む前に長い間持続しうるし、その過程が繰り返されて、いわゆる階段状の振る舞いをもたらす（<a href="#fig-ch7-img6-old-94" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img6-old-94</span></a>）。そのようなモデルは、なぜ小さな少数派集団（地球平面説の信念など）が、あらゆる予想に反して、しばしば長い間持続するのかを説明できる <span class="citation" data-cites="douglasPsychologyConspiracyTheories2017">(<a href="#ref-douglasPsychologyConspiracyTheories2017" role="doc-biblioref">Douglas, Sutton, and Cichocka 2017</a>)</span>。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">準安定な意見はしばらくの間持続しうるが、最終的に、ノイズや他の要因のために、突然より小さなクラスターに縮む。</span></div></div>
+<div id="fig-ch7-img6-old-94" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img6-old-94-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/fig-ch7-img6-old-94.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img6-old-94-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.6: <span class="math inline">\(\alpha = 5\)</span>、0 と 100 の間の一様分布からサンプリングした <span class="math inline">\(p\)</span>、<span class="math inline">\(s\)</span>、<span class="math inline">\(H\)</span>、そして 10×10 の格子をもつ社会的インパクトモデルの五つの実行。たとえば、一番上の線は時間 320 付近と時系列の終わりで階段状の振る舞いを示す。社会的インパクトモデルはオンラインの NetLogo モデルと本書のソフトウェアリポジトリに見出される。
+</figcaption>
+</figure>
+</div>
+<p>このモデルの拡張には、学習、指導、外部の影響、そしてアイデンティティの効果が含まれる <span class="citation" data-cites="holystSocialImpactModels2001">(レビューについては <a href="#ref-holystSocialImpactModels2001" role="doc-biblioref">Holyst, Kacperski, and Schweitzer 2001</a> を参照)</span>。</p>
+</section>
+</section>
+<section id="sec-Continuous-opinion-models" class="level3 page-columns page-full" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="sec-Continuous-opinion-models"><span class="header-section-number">7.3.2</span> 連続意見モデル</h3>
+<section id="sec-Classic-models" class="level4" data-number="7.3.2.1">
+<h4 data-number="7.3.2.1" class="anchored" data-anchor-id="sec-Classic-models"><span class="header-section-number">7.3.2.1</span> 古典的モデル</h4>
+<p>独自の歴史をもつもう一つの研究の系譜は、意見が連続変数であるという仮定から出発する <span class="citation" data-cites="noorazarRecentAdvancesOpinion2020">(レビューについては <a href="#ref-noorazarRecentAdvancesOpinion2020" role="doc-biblioref">Noorazar 2020</a> を参照)</span>。それらはたとえば 0 と 1 の間の値をもつ。古典的なモデルはドグルート（DeGroot）モデルであり、そこではエージェントが重み付きネットワークに結合される。各反復で、あるエージェントの意見はネットワーク内のすべての結合したエージェントの重み付き平均に等しく設定される。このようにして、意見は収束する傾向がある（<a href="#fig-ch7-img7-old-95" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img7-old-95</span></a>）。フリードキン–ジョンソン（Friedkin—Johnson）モデル <span class="citation" data-cites="friedkinSocialInfluenceOpinions1990">(<a href="#ref-friedkinSocialInfluenceOpinions1990" role="doc-biblioref">Friedkin and Johnsen 1990</a>)</span> は、各エージェントの確信の水準を含む拡張である。このエージェントの自分自身の意見への確信は、他者の効果を減じる。これらの線形モデルにおけるクラスタリングないし分極化は、ネットワークの一部が結合していない場合にのみ生じうる。フリードキン–ジョンソンモデルは Grind で（<code>method='euler'</code> オプションを用いて）次のように効率的にシミュレートできる。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FJ <span class="ot">&lt;-</span> <span class="cf">function</span>(t, state, parms){</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)),{</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    X <span class="ot">&lt;-</span> state[<span class="dv">1</span><span class="sc">:</span>n]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    M <span class="ot">&lt;-</span> M <span class="sc">/</span> <span class="fu">apply</span>(M, <span class="dv">1</span>, sum) <span class="co"># weights sum to 1</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    dX <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">-</span> g) <span class="sc">*</span> M <span class="sc">%*%</span> X  <span class="sc">+</span> g <span class="sc">*</span> X <span class="sc">-</span> X</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(dX))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">runif</span>(n<span class="sc">^</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>), n, n)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> .<span class="dv">95</span> <span class="co"># if g  = 0 =&gt; DeGroot model</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>x0 <span class="ot">&lt;-</span> <span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> x0; p <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">run</span>(<span class="at">odes =</span> FJ, <span class="at">method =</span> <span class="st">'euler'</span>, <span class="at">tmax =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-ch7-img7-old-95" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img7-old-95-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/fig-ch7-img7-old-95.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img7-old-95-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.7: エージェントの結合したネットワークにおけるフリードキン–ジョンソンモデルでの意見の収束。
+</figcaption>
+</figure>
+</div>
+<p>追加のバイアスのメカニズム——そこでは確証する証拠が反証する証拠に対してより重く重み付けされる——を伴えば、結合したネットワークでも分極化が生じうる <span class="citation" data-cites="dandekarBiasedAssimilationHomophily2013">(<a href="#ref-dandekarBiasedAssimilationHomophily2013" role="doc-biblioref">Dandekar, Goel, and Lee 2013</a>)</span>。</p>
+</section>
+<section id="sec-Bounded-confidence" class="level4 page-columns page-full" data-number="7.3.2.2">
+<h4 data-number="7.3.2.2" class="anchored" data-anchor-id="sec-Bounded-confidence"><span class="header-section-number">7.3.2.2</span> 有界信頼</h4>
+<p>有界信頼のメカニズムは、連続意見モデルで意見のダイバージェンスを生み出す最も効果的な方法として広く研究されてきた。それは、個人が自分のものと異なる意見を受け入れ考慮する意欲に限りがあり、類似のある範囲すなわち「境界」内にある場合にのみ自分の意見を更新する、と仮定する。</p>
+<p>単純だが非常に興味深いモデルはデファント（Deffuant）モデルである <span class="citation" data-cites="deffuantMixingBeliefsInteracting2000">(<a href="#ref-deffuantMixingBeliefsInteracting2000" role="doc-biblioref">Deffuant et al. 2000</a>)</span>。<em>n</em> 人のエージェントの初期の意見は 0 と 1 の間の値にランダムに設定される。各ステップで、二つのエージェント <span class="math inline">\(i\)</span> と <span class="math inline">\(j\)</span> が出会う。<span class="math inline">\(\left\lceil X_{i}(t) - X_{j}(t) \right\rceil &gt; \epsilon\)</span> であれば、意見の差が境界 <span class="math inline">\(\epsilon\)</span> を超えるので何も起こらない。そうでなければ、彼らは次に従って意見を交換する。</p>
+<p><span id="eq-ch7-2-old-51"><span class="math display">\[
+\begin{gathered}
+X_{i}(t + 1) = X_{i}(t) + \mu(X_{j}(t) - X_{i}(t)),\\
+X_{j}(t + 1) = X_{j}(t) + \mu\left( X_{i}(t) - X_{j}(t) \right).
+\end{gathered}
+\tag{7.4}\]</span></span></p>
+<p>したがって、<span class="math inline">\(\mu = .5\)</span> であれば、彼らは中間で互いを見出す。<span class="math inline">\(\mu = 1\)</span> であれば、投票者モデルにおけるように互いの立場を取る。<span class="math inline">\(\mu\)</span> の値は大した違いを生まないが、モデルは <span class="math inline">\(\mu = .5\)</span> で最も速く収束する。しかし、境界 <span class="math inline">\(\epsilon\)</span> の選択は大きな違いを生む。<span class="math inline">\(\epsilon = 0\)</span> については、すべてのエージェントが自分の立場に固執する。<span class="math inline">\(\epsilon &gt; .5\)</span> については、彼らはすべて <span class="math inline">\(X = .5\)</span> に収束する。中間の値については、異なる形のクラスタリングが生じる（<a href="#fig-ch7-img8-old-96" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img8-old-96</span></a>）。ネットワークの位相構造は大した違いを生まないことが示されている <span class="citation" data-cites="fortunatoUniversalityThresholdComplete2004">(<a href="#ref-fortunatoUniversalityThresholdComplete2004" role="doc-biblioref">Fortunato 2004</a>)</span>。このモデルの欠点は、収束が遅いことである。このモデルをシミュレートする、速いが完全には正確でないコードは次のとおりである。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">20</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>iter <span class="ot">&lt;-</span> <span class="dv">50</span>; mu <span class="ot">&lt;-</span> .<span class="dv">5</span>; n <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (bound <span class="cf">in</span> <span class="fu">c</span>(.<span class="dv">1</span>, .<span class="dv">2</span>, .<span class="dv">3</span>, .<span class="dv">5</span>)){</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  dat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, iter, n)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iter){</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, n, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># find an partner for every agent</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">abs</span>(x <span class="sc">-</span> y) <span class="sc">&lt;</span> bound, x <span class="sc">+</span> mu <span class="sc">*</span> (y <span class="sc">-</span> x), x)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    dat[i, ] <span class="ot">&lt;-</span> x</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matplot</span>(dat, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="dv">1</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">'n'</span>, <span class="at">xlab =</span> <span class="st">''</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">ylab =</span> <span class="st">'opinion'</span>, <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">'bound = '</span>,bound))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-ch7-img8-old-96" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img8-old-96-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/fig-ch7-img8-old-96-new.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img8-old-96-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.8: 四つの異なる境界をもつデファントモデルの四つの例の実行。より低い信頼の境界は分極化をもたらす。
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p>このコードで多くのシナリオと変種を探求できる。一つの興味深い選択肢は、異なる境界をもつエージェントをもつことである <span class="citation" data-cites="weisbuchMeetDiscussSegregate2002">(<a href="#ref-weisbuchMeetDiscussSegregate2002" role="doc-biblioref">Weisbuch et al. 2002</a>)</span>。 また、各時間ステップで <span class="math inline">\(X\)</span> にいくらかのノイズを加えると分極化が減じる <span class="citation" data-cites="zhangRobustConsensusNoisy2018">(<a href="#ref-zhangRobustConsensusNoisy2018" role="doc-biblioref">Zhang and Zhao 2018</a>)</span>。相互作用の数とともに境界を下げることもできる。これは分極化を増大させる <span class="citation" data-cites="weisbuchMeetDiscussSegregate2002">(<a href="#ref-weisbuchMeetDiscussSegregate2002" role="doc-biblioref">Weisbuch et al. 2002</a>)</span>。私が興味深いと思う一つの場合は、低い境界について分極化が現れた後に境界を増大させることである。これはヒステリシスを与える。.5 の境界は分極化を減じるのに時に不十分である。<span class="citation" data-cites="castellanoStatisticalPhysicsSocial2009">Castellano, Fortunato, and Loreto (<a href="#ref-castellanoStatisticalPhysicsSocial2009" role="doc-biblioref">2009</a>)</span> は、いくつかの他の拡張（たとえばプロパガンダの役割）をレビューしている。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">いくらかの開かれた心をもつエージェントを加えることが分極化を防ぐのに役立つことが判明する。</span></div></div>
+<p>もう一つのよく知られたモデルはヘーゲルマン–クラウゼ（Hegselmann—Krause）モデルである <span class="citation" data-cites="rainerOpinionDynamicsBounded2002">(<a href="#ref-rainerOpinionDynamicsBounded2002" role="doc-biblioref">Rainer and Krause 2002</a>)</span>。このモデルはデファントモデルと非常に似ているが、一人の他のエージェントとやり取りする代わりに、すべての結合したエージェントとやり取りする。ただし、これらのエージェントとの意見の差が十分に小さい場合に限る。したがって、エージェントは、意見の差が境界より小さいすべての結合したエージェントの意見を平均する。このモデルはドグルートモデルの拡張であり、フリードキン–ジョンソンのコードに二行を加えることでシミュレートできる。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>accepted <span class="ot">&lt;-</span> <span class="fu">abs</span>(<span class="fu">outer</span>(X, X, <span class="st">'-'</span>)) <span class="sc">&lt;</span> bound <span class="co"># acceptable neighbors</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> accepted <span class="sc">*</span> M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>これを <code>X &lt;- state[1:n]</code> の行の後に加え、bound = .1 を加える（<a href="#fig-ch7-img9-old-97" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img9-old-97</span></a>）。</p>
+<div id="fig-ch7-img9-old-97" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img9-old-97-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/fig-ch7-img9-old-97.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img9-old-97-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.9: ヘーゲルマン–クラウゼモデルにおけるクラスタリング。
+</figcaption>
+</figure>
+</div>
+<p>再び、多くの拡張が研究されてきた。最近の論文は、ネットワークの位相構造が意見における認知的不協和の関数である場合を研究している <span class="citation" data-cites="liOpinionDynamicsModel2020">(<a href="#ref-liOpinionDynamicsModel2020" role="doc-biblioref">Li et al. 2020</a>)</span>。<span class="citation" data-cites="baumannModelingEchoChambers2020">Baumann et al. (<a href="#ref-baumannModelingEchoChambers2020" role="doc-biblioref">2020</a>)</span> はエコーチェンバーの連続意見モデルを提示している。特に関心の対象は多次元の場合である <span class="citation" data-cites="lorenzContinuousOpinionDynamics2007">(<a href="#ref-lorenzContinuousOpinionDynamics2007" role="doc-biblioref">Lorenz 2007</a>)</span>。エージェントが一つの次元に沿った最小距離に基づいて相互作用を受け入れるとき、合意により容易に達しうる。有界信頼という考えは、社会的判断理論 <span class="citation" data-cites="sherifSocialJudgmentAssimilation1961">(<a href="#ref-sherifSocialJudgmentAssimilation1961" role="doc-biblioref">Sherif and Hovland 1961</a>)</span> で提案された受容の幅（latitude of acceptance）という概念と結び付けられてきた。この理論はまた拒絶の幅を提案する。二つの境界、すなわち下界と上界がある。下界の下では、エージェントはその違いを減じる。境界の間では、彼らは互いを無視する。そして上界より多く異なれば、彼らはその違いを増大させる。このシナリオは <span class="citation" data-cites="jagerUniformityBipolarizationPluriformity2005">Jager and Amblard (<a href="#ref-jagerUniformityBipolarizationPluriformity2005" role="doc-biblioref">2005</a>)</span> で調べられている。</p>
+<p>NetLogo のオンラインライブラリに、標準的なデファントモデルとヘーゲルマン–クラウゼモデルの両方をシミュレートするモデル「BC」が見つかる。</p>
+</section>
+</section>
+<section id="sec-Empirical-verification" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="sec-Empirical-verification"><span class="header-section-number">7.3.3</span> 経験的な検証</h3>
+<p><span class="citation" data-cites="castellanoStatisticalPhysicsSocial2009">Castellano, Fortunato, and Loreto (<a href="#ref-castellanoStatisticalPhysicsSocial2009" role="doc-biblioref">2009</a>)</span> は、経験的証拠と理論的モデルの間の、後者に有利な際立った不均衡に注意している。意見のダイナミクスについて経験的データがないわけではない。データは、投票行動、多国パネル調査、ソーシャルメディア、そして実験室の研究からのものである <span class="citation" data-cites="peraltaOpinionDynamicsSocial2022">(レビューについては <a href="#ref-peraltaOpinionDynamicsSocial2022" role="doc-biblioref">Peralta, Kertész, and Iñiguez 2022</a> を参照)</span>。問題は、これらのデータがモデルを区別しない、ということにあるように思われる。データのほとんどはすべての意見モデルに当てはまり、一般的なモデリングのアプローチは支持するが、特定のモデルは支持しない。これは、現在の意見モデルが特異性を欠き柔軟すぎるために反証しにくい、という点に関係する。<span class="citation" data-cites="flacheModelsSocialInfluence2017">Flache et al. (<a href="#ref-flacheModelsSocialInfluence2017" role="doc-biblioref">2017</a>)</span> は、この分野が競合するモデルの体系的な比較の欠如に悩まされている、と論じている。<span class="citation" data-cites="borsboomTheoryConstructionMethodology2021">Borsboom et al. (<a href="#ref-borsboomTheoryConstructionMethodology2021" role="doc-biblioref">2021</a>)</span> が概説した理論構築のアプローチがここで役立つかもしれない。私たちには、すべてのモデルが説明すると想定される、一般に合意された現象のリストが必要である。</p>
+<p>しかし、もう一つの視点も考慮に値する。物理学では、モデルは精確な量的予測を行う能力によって区別できる。対照的に、他の分野ではしばしば、同じ現象をおおむね説明する複数のモデルがあり、これは有利でありうる。たとえば、シェリングの分離モデルとそのさまざまな反復は、個人が異なる集団に対して寛容であっても分離が生じることを一貫して予測し、頑健な予測を実演する。同様に、交通渋滞の異なるモデルは同じ鍵となる現象を予測する傾向がある。加えて、意見モデルは、用いられる特定のモデルにかかわらず、熱狂者が分極化を増大させることを一貫して示す。異なるモデル間のこの収束が、これらの領域で達成できる最も信頼できる形の予測かもしれない。</p>
+</section>
+</section>
+<section id="sec-Psychosocial-models" class="level2 page-columns page-full" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="sec-Psychosocial-models"><span class="header-section-number">7.4</span> 心理社会モデル</h2>
+<p>本章のはじめに、心理学が社会物理学モデルを開発するのに必要な単純化の犠牲者である、と述べた。本節では、これらのモデルをもう少し心理学的に現実的にする仕方を探求する。いくつかの既存のモデルはすでに追加の心理学的変数を含んでいる <span class="citation" data-cites="jagerEnhancingRealismSimulation2017">(<a href="#ref-jagerEnhancingRealismSimulation2017" role="doc-biblioref">Jager 2017</a>)</span>。社会的インパクトモデルは良い例である。というのも、それは意見の変化を決めるためにエージェントの説得力と支持性を組み込んでいるからである。このモデルはまた社会心理学のよく知られた理論に基づいている。他のモデルは、頑固さ、認知的不協和、そして確信を含む <span class="citation" data-cites="castellanoStatisticalPhysicsSocial2009">(<a href="#ref-castellanoStatisticalPhysicsSocial2009" role="doc-biblioref">Castellano, Fortunato, and Loreto 2009</a>)</span>。これらのパラメータはすべてエージェント間の相互作用を修正するのに用いられる。</p>
+<p>ここでは、<span class="citation" data-cites="vandermaas2020">van der Maas, Dalege, and Waldorp (<a href="#ref-vandermaas2020" role="doc-biblioref">2020</a>)</span> で提案されたモデルを論じる。これは、エージェントを記述するのに三つの動的変数、すなわち情報、関与、そして意見を用いる。個々のエージェントは <a href="#fig-ch3-img13-old-25" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img13-old-25</span></a> に示されるようにカスプ・カタストロフィによって記述される。これは <span class="citation" data-cites="sobkowiczDiscreteModelOpinion2012">Sobkowicz (<a href="#ref-sobkowiczDiscreteModelOpinion2012" role="doc-biblioref">2012</a>)</span> の仕事にいくぶん似ている。彼は情動と情報を動的な制御変数として用いて、個々のエージェントにカスプモデルを用いた。私たちのモデルと同様、エージェント間の相互作用は意見と制御変数の両方を変える。たとえば、動揺がエージェントにわたって広がる。しかし、彼の意見モデルでは、ソプコヴィッチはカスプのダイナミクスを、意見が <span class="math inline">\(-1\)</span>、<span class="math inline">\(0\)</span>、<span class="math inline">\(1\)</span> のいずれかである三状態システムに還元する。私たちはこの単純化を採用しない。というのも、興味深いダイナミクス（エージェント内のヒステリシス）の多くが失われるからである。</p>
+<section id="sec-Networks-of-attitude-networks" class="level3 page-columns page-full" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="sec-Networks-of-attitude-networks"><span class="header-section-number">7.4.1</span> 態度ネットワークのネットワーク</h3>
+<p>私たちの出発点は、第6章 <a href="#sec-Ising-attitude-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Ising-attitude-model</span></a> で説明したイジング態度モデルである。このモデルでは、態度ないし意見は、ある争点についての感情、行動、そして信念のネットワークとして概念化される。この態度の新たな見方は文献でよく受け入れられ、いくつもの態度に応用されてきた <span class="citation" data-cites="chambonUnderstandingChangeCOVID192022 turner-zwinkelsBeliefSystemNetworks2022 zwickerApplyingAttitudeNetwork2020">(たとえば <a href="#ref-chambonUnderstandingChangeCOVID192022" role="doc-biblioref">Chambon et al. 2022</a>; <a href="#ref-turner-zwinkelsBeliefSystemNetworks2022" role="doc-biblioref">Turner-Zwinkels and Brandt 2022</a>; <a href="#ref-zwickerApplyingAttitudeNetwork2020" role="doc-biblioref">Zwicker et al. 2020</a>)</span>。その考えは、この態度ネットワークモデルを個々のエージェントのモデルとして用いることである。</p>
+<p>得られるモデルは非常に複雑になる——それはネットワークのネットワークのモデルである。これは新しい考えではない。多層ニューラルネットワーク <span class="citation" data-cites="treur2019">(<a href="#ref-treur2019" role="doc-biblioref">Treur 2019</a>)</span> や多層投票者モデル <span class="citation" data-cites="masudaVoterModelTwoclique2014">(<a href="#ref-masudaVoterModelTwoclique2014" role="doc-biblioref">Masuda 2014</a>)</span> といった階層的ないし多層のネットワークモデルは、多くの領域で応用されてきた <span class="citation" data-cites="boccalettiStructureDynamicsMultilayer2014">(レビューについては <a href="#ref-boccalettiStructureDynamicsMultilayer2014" role="doc-biblioref">Boccaletti et al. 2014</a> を参照)</span>。しかし、そのようなモデルは莫大な数のパラメータを含み、研究するのが難しい。私たちはより単純なアプローチを取る。</p>
+<p><a href="#sec-Ising-attitude-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Ising-attitude-model</span></a> で論じたように、イジングモデルにおけるスピンの平均的な振る舞い（平均場）はカスプ・カタストロフィとして表せる。これは複雑性を莫大に減じる。というのも、カスプ態度モデルは三つの変数をもつたった一つの方程式しか含まないからである。すなわち、意見（磁化）、情報（外部場）、そして注意ないし関与（温度の逆数）である。私たちのモデル、階層的イジング意見モデル（HIOM）は、各エージェントがカスプであるイジング型の社会ネットワークである。相互作用が情報と注意に影響し、意見の変化をもたらす。<a href="#sec-Interacting-cusps" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Interacting-cusps</span></a> で相互作用するカスプのネットワークを見た。HIOM はこのモデルの拡張された形である。</p>
+<p>HIOM モデルはオンラインの NetLogo モデル（HIOM.nlogo）と本書のオンラインソフトウェアリポジトリに見出される。NetLogo では、主にシミュレーションを速めるために、方程式とアルゴリズムが元の論文とわずかに異なる。ここでの方程式は NetLogo モデルで用いられているものである。</p>
+<section id="sec-The-HIOM-model" class="level4 page-columns page-full" data-number="7.4.1.1">
+<h4 data-number="7.4.1.1" class="anchored" data-anchor-id="sec-The-HIOM-model"><span class="header-section-number">7.4.1.1</span> HIOM</h4>
+<p>他の意見モデルと同様、HIOM は (a) ネットワークの位相構造、(b) エージェント間の相互作用、そして (c) 意見の定義について仮定を置く。</p>
+<p>HIOM の質的な結果は社会ネットワークの位相構造に依存しない。<span class="citation" data-cites="vandermaas2020">van der Maas, Dalege, and Waldorp (<a href="#ref-vandermaas2020" role="doc-biblioref">2020</a>)</span> で、結果は異なる位相構造（たとえば2次元格子、確率的ブロックモデル）について再現されている。しかし、他の意見モデルと同様、より繊細な結果（たとえば収束速度）はネットワークの位相構造に依存する可能性が高い。(b)、すなわちエージェント間の相互作用については、特定の仮定が置かれ、それは次節で説明する。</p>
+<div class="page-columns page-full"><p>(c)、すなわち意見の定義については、HIOM は特別である。意見はカスプとして定義される。意見モデルのレビューで、離散意見モデルと連続意見モデルを区別した。興味深いことに、カスプは分裂変数の低い値については連続的に振る舞い、高い値については離散的に振る舞う。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>  このようにして、HIOM はこれら二つのモデリングの伝統の橋渡しをする。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">意見が離散的に振る舞うか連続的に振る舞うかは、別の連続変数（注意）に依存する。</span></div></div>
+<p>HIOM がイジング態度モデルから仮定を継承していることに気づくことが重要である。第一に、HIOM は態度ノード（態度対象に対する感情、信念、行動を表す）が二値（<span class="math inline">\(-1,1\)</span>）であると仮定する。これは明らかに議論の余地がある。ノードは、(0,1) ノード、(-1,0,1) ノード、あるいは XY モデルにおけるような連続値のノードとして定義したほうがよいかもしれない <span class="citation" data-cites="kosterlitzCriticalPropertiesTwodimensional1974">(<a href="#ref-kosterlitzCriticalPropertiesTwodimensional1974" role="doc-biblioref">Kosterlitz 1974</a>)</span>。第二に、私たちはノード間の無向の対ごとの相互作用を仮定するが、有向の効果には多くの利点がある。第三に、態度ネットワークは合理的に均衡しているべきである（<a href="#sec-The-stability-of-attitudes-and-entropy-measures" class="quarto-xref"><span class="quarto-unresolved-ref">sec-The-stability-of-attitudes-and-entropy-measures</span></a> を参照）。ある程度まで、これらの仮定はカスプへの結び付きを壊すことなく緩められる <span class="citation" data-cites="vandermaas2020">(<a href="#ref-vandermaas2020" role="doc-biblioref">van der Maas, Dalege, and Waldorp 2020</a> の付録を参照)</span>。</p>
+<p>HIOM では、情報と注意はエージェント間の相互作用に基づいて更新される。情報と注意はカスプにおける二つの直交する軸である。情報は、カスプの正規軸に沿って作用するすべての変数と影響を要約する。その中立値は 0 であり、負と正の値は負と正の意見と結び付いている。注意は非負の実数値をもつ。時間 <span class="math inline">\(t\)</span> におけるエージェント <span class="math inline">\(i\)</span> の意見は、情報と注意を制御変数とするカスプ方程式に従って変化する。NetLogo での実装のために、私は方程式を確率差分方程式として書く。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p><span id="eq-ch7-3-old-52"><span class="math display">\[\begin{array}{r}
+O_{i,t+1}=O_{i,t}-\left(O_{i,t}^3-{(A}_{i,t}+A^{min})O_{i,t}-I_{i,t}\right)t_s+\epsilon_{i,t+1}
+\end{array}. \tag{7.5}\]</span></span></p>
+<p><span class="math inline">\(\epsilon\)</span> の項は正規分布 <span class="math inline">\(N(0, s_{O})\)</span> からサンプリングされたホワイトノイズを表す。この方程式における時間ステップ <span class="math inline">\(t_{s}\)</span> は、振動とカオス的な振る舞いを防ぐために低い値（.01）に設定される。</p>
+</section>
+<section id="sec-Agent-interactions-information-and-attention" class="level4" data-number="7.4.1.2">
+<h4 data-number="7.4.1.2" class="anchored" data-anchor-id="sec-Agent-interactions-information-and-attention"><span class="header-section-number">7.4.1.2</span> エージェントの相互作用——情報と注意</h4>
+<p>HIOM は相互作用について三つの仮定を置く。第一に、エージェントがその関与に基づいて相互作用を開始する、と仮定する。その考えは単に、話題に興味がなければ、その話題——たとえば遺伝子組換え食品——についての議論を始める可能性が低い、というものである。相互作用を開始する確率は注意に等しい。</p>
+<p><span id="eq-ch7-4-old-53"><span class="math display">\[\begin{array}{r}
+P_{i,t}(initiates\ interaction) = A_{i,t}.
+\end{array} \tag{7.6}\]</span></span></p>
+<p>第二に、注意ないし関与が時間とともにゆっくりと減少する、と仮定する。注意ないし関与は限られた資源である。常にすべてに関与することはできない。新たな興味や話題が絶えず創発するので、より古い話題への注意は薄れる傾向がある。</p>
+<p>第三に、注意は社会的相互作用を通じて再び増加する。誰かが遺伝子組換え食品についての会話を始めれば、その話題への私の興味は増加する可能性が高い。これを実装する単純な方法は次のとおりである。</p>
+<p><span id="eq-ch7-5-old-54"><span class="math display">\[\begin{array}{r}
+A_{i,t+1}={decay}_A(A_{i,t}+{d_Au}_{i,t}).
+\end{array} \tag{7.7}\]</span></span></p>
+<p>エージェントが相互作用に関与しているとき、<span class="math inline">\(u_{i} = 1\)</span> とする。そうでなければ <span class="math inline">\(u_{i} = 0\)</span> である。パラメータ <span class="math inline">\(d_{A}\)</span> は相互作用による <span class="math inline">\(A\)</span> の変化率を決める。注意の減衰 <span class="math inline">\({decay}_A\)</span> はすべてのエージェントに適用される。</p>
+<p>第四の仮定は情報についてである。情報の交換が注意によって重み付けされた平均化の過程である、と仮定する。エージェント <span class="math inline">\(i\)</span> がエージェント <span class="math inline">\(j\)</span> よりも態度対象に注意を向けていなければ、エージェント <span class="math inline">\(i\)</span> は、<span class="math inline">\(j\)</span> が <span class="math inline">\(i\)</span> の情報の立場へ動くよりも多く、<span class="math inline">\(j\)</span> の情報の立場へ動く。</p>
+<p>これは次によって形式化される。 <span id="eq-ch7-6-old-55"><span class="math display">\[\begin{array}{r}
+I_{i,t+1}=r_{t}I_{i,t}+(1-r_{t}) I_{j,t},\\
+\\[0.2em]
+where\ r_{t} = r_{\min} + \frac{1 - r_{\min}}{1 + e^{- p\left( A_{i,t} - A_{j,t} \right)}}. \\
+\end{array} \tag{7.8}\]</span></span></p>
+<p><span class="math inline">\(I_{i}\)</span> と <span class="math inline">\(I_{j}\)</span> は、相互作用に関与するエージェント <span class="math inline">\(i\)</span> と <span class="math inline">\(j\)</span> の情報を表す。抵抗 <span class="math inline">\(r\)</span>（[0,1] 内）は、エージェント <span class="math inline">\(j\)</span> のエージェント <span class="math inline">\(i\)</span> への相対的な影響を決める。抵抗ないし頑固さは、エージェント間の注意の差のロジスティック関数である。したがって、<span class="math inline">\(A_{i} \ll A_{j}\)</span> であれば、<span class="math inline">\(r\)</span> は 0 に近く、エージェント <span class="math inline">\(i\)</span> の情報はエージェント <span class="math inline">\(j\)</span> の情報の値に変わる。この効果の強さ、すなわち説得は、ロジスティック関数の急峻さ <span class="math inline">\(p\)</span> によって決まる。パラメータ <span class="math inline">\(r_{\min}\)</span> は <span class="math inline">\(r\)</span> の最小値を決める。<span class="math inline">\(r_{\min}\)</span> が高ければ、<span class="math inline">\(r\)</span> は高く、エージェントは自分の情報の状態に固執する。</p>
+<p>あるシナリオでは、とりわけ正規分布 <span class="math inline">\(N(m_{I},S_{I})\)</span> のノイズ項 <span class="math inline">\(\epsilon\)</span> との組み合わせで、情報の減衰を許すことが関心の対象となる。情報の更新の完全な方程式は次のとおりである。</p>
+<p><span id="eq-ch7-6-old-55b"><span class="math display">\[\begin{array}{r}
+I_{i,t+1}=decay{_I} \left((1-u_{i,t} )I_{i,t}+u_{i,t} (r_{t}I_{i,t}+(1-r_{t}) I_{j,t})+\epsilon_{i,t+1}\right),\\
+\\[0.2em]
+where\ r_{t} = r_{\min} + \frac{1 - r_{\min}}{1 + e^{- p\left( A_{i,t} - A_{j,t} \right)}}. \\
+\end{array} \tag{7.9}\]</span></span></p>
+<p><span class="math inline">\(m_{I} \neq 0\)</span> かつ <span class="math inline">\(s_{I} = 0\)</span> であれば、一定の外部場が作用している。<span class="math inline">\(decay_I &lt; 1\)</span> であれば、情報は徐々に 0 に縮む。</p>
+</section>
+<section id="sec-Algorithm" class="level4" data-number="7.4.1.3">
+<h4 data-number="7.4.1.3" class="anchored" data-anchor-id="sec-Algorithm"><span class="header-section-number">7.4.1.3</span> アルゴリズム</h4>
+<p>モデルは今や整い、以下の段階に従うことでシミュレートできる。</p>
+<ul>
+<li><p>ネットワークの位相構造を選ぶ。</p></li>
+<li><p>モデルパラメータ <span class="math inline">\(t_{s}\)</span>（.01）、<span class="math inline">\(A_{\min}\)</span>（-.5）、<span class="math inline">\(s_{O}\)</span>（.01）、<span class="math inline">\(m_{i}\)</span>（0）、<span class="math inline">\(s_{i}\)</span>、<span class="math inline">\(d_{A}\)</span>、<span class="math inline">\(p\)</span>、<span class="math inline">\(r_{\min}\)</span> を設定する。括弧内の値は既定値である。</p></li>
+<li><p>エージェントを初期化し、<span class="math inline">\(I_{init}\)</span>、<span class="math inline">\(A_{init}\)</span>、<span class="math inline">\(O_{init}\)</span> を設定する。</p></li>
+<li><p>反復する。</p>
+<ul>
+<li><p>注意 <span class="math inline">\(A\)</span> で重み付けして、エージェントの集合をランダムに選ぶ（<a href="#eq-ch7-4-old-53" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch7-4-old-53</span></a>）。</p></li>
+<li><p>この「活動的な」エージェントの集合（<span class="math inline">\(u_{i} = 1\)</span>）にわたって反復する。</p>
+<ul>
+<li><p>各エージェントについて、相互作用のパートナーとして近傍をランダムに選ぶ。</p></li>
+<li><p>両方のエージェントに注意を加える（<a href="#eq-ch7-5-old-54" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch7-5-old-54</span></a>、<span class="math inline">\(+ d_{A}u_{i}\)</span>）。</p></li>
+<li><p>情報を交換する（<a href="#eq-ch7-6-old-55" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch7-6-old-55</span></a>）。</p></li>
+</ul></li>
+<li><p>すべてのエージェントに <span class="math inline">\(A\)</span> の減衰を適用する（<a href="#eq-ch7-5-old-54" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch7-5-old-54</span></a>、<span class="math inline">\({decay}_{A}A_{i}\)</span>）。</p></li>
+<li><p>すべてのエージェントにノイズを加え <span class="math inline">\(I\)</span> の減衰を適用する（<a href="#eq-ch7-6-old-55b" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch7-6-old-55b</span></a>、<span class="math inline">\({decay_{I}\ (I}_{i} + Ν(0,s_{I})\)</span>）。</p></li>
+<li><p>すべてのエージェントで意見 <span class="math inline">\(O\)</span> を更新する（<a href="#eq-ch7-3-old-52" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch7-3-old-52</span></a>）。</p></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\({decay}_{A}\)</span> は HIOM の現在の実装で特別な役割をもつ。固定される代わりに、それは「活動的な」集合におけるエージェントの割合と、望ましい活動的なエージェントの割合（<span class="math inline">\(\%active\_agents\)</span>）の差に依存する。後者は NetLogo モデルのスライダーの一つによって制御される（<a href="#fig-ch7-img10-old-98" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img10-old-98</span></a>）。これにより、意見対象への一般的な興味（注意）を操作できる。</p>
+<p>明白な停止基準はないが、実際には時間とともに何らかのタイプの収束が起こる。</p>
+<div id="fig-ch7-img10-old-98" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img10-old-98-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/image10.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img10-old-98-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.10: HIOM の NetLogo モデルのインターフェース。すべてのモデルパラメータはスライダーで調整できる。<code>add-activists</code> と <code>perturbate-activists</code> で、HIOM の鍵となる効果を再現できる。右のグラフは、意見、注意、情報の分布と、これらの変数の平均の変化を示す。
+</figcaption>
+</figure>
+</div>
+<p>標準的な設定では、高い注意（<code>%active-agent</code> を高く設定）が分極化をもたらすことが見て取れる。情報の差を減らす（<code>decay_I</code> を .5 に設定）と、基礎となる情報の差が 0 であっても分極化が残る。注意も減らす（<code>%active-agents</code> を低く設定）場合にのみ、分極化が消える。これは <span class="citation" data-cites="vandermaas2020">van der Maas, Dalege, and Waldorp (<a href="#ref-vandermaas2020" role="doc-biblioref">2020</a>)</span> で記述された第一のシミュレーションである。第二と第三のシミュレーションは次の二つの節で記述する。</p>
+</section>
+<section id="sec-The-persuasion-paradox" class="level4 page-columns page-full" data-number="7.4.1.4">
+<h4 data-number="7.4.1.4" class="anchored" data-anchor-id="sec-The-persuasion-paradox"><span class="header-section-number">7.4.1.4</span> 説得のパラドックス</h4>
+<p>保守的だが注意の低いエージェントのネットワークがあり、そこに反対の情報と意見をもつ高度に注意を向けた少数の活動家を加えるとしよう。一見すると、活動家の意見が急速に広がると予想するだろう。彼らはすべての相互作用を開始し（<a href="#eq-ch7-4-old-53" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch7-4-old-53</span></a> に従って）、その逆よりもはるかに大きな影響を相互作用のパートナーに及ぼす（<a href="#eq-ch7-6-old-55" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch7-6-old-55</span></a>）。しかし、これは起こることではない。このシナリオは分極化をもたらす。一部の保守派の注意があまりに素早く高められ、人々は活動家に反対する強い意見をもつ。<a href="#fig-ch7-img11-old-99" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img11-old-99</span></a> はこの効果を示している。これはもちろん、いくつかのパラメータ設定に依存する。注意がよりゆっくりと増加すれば、活動主義がよりよく広がるかもしれない。このシナリオは NetLogo モデルで <code>setup-black-pete</code> と <code>add-activists</code> を選ぶことで検証できる。今や世界の中でクリックすることで活動家を加えられる。異なる効果を見るために説得 <span class="math inline">\(p\)</span> と <span class="math inline">\(d_{A}\)</span>（da）を変えよ。</p>
+<div class="page-columns page-full"><p>このモデルで何が新しいのか。それは分極化の新たなメカニズム、すなわちエージェント内のヒステリシスを示し、これが説得のパラドックスをもたらす。 個々の意見ダイナミクスにカスプがなければ、この形の分極化は生じないだろう。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">説得のパラドックスは、説得の努力がいかに裏目に出て、相手が元の立場にさらに固執するようになりうるかを記述する。これは、社会的相互作用の注意への効果によるものである。</span></div></div>
+<div id="fig-ch7-img11-old-99" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img11-old-99-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/ch7-11-june14.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img11-old-99-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.11: 説得のパラドックスの可視化。活動主義は初め急速に広がるが、保守的なエージェントの注意も増加させる（第二と第三のパネルを参照）。時間とともに、意見は分極化する。赤いノードは活動家、青いノードは保守派である。ノードの大きさは注意を表す。最後のパネルは、なぜ一部の保守派自身が（反）活動家になるかを説明する。（許可を得て <span class="citation" data-cites="vandermaas2020">van der Maas, Dalege, and Waldorp (<a href="#ref-vandermaas2020" role="doc-biblioref">2020</a>)</span> より転載）
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-A-counterintuitive-prediction" class="level4" data-number="7.4.1.5">
+<h4 data-number="7.4.1.5" class="anchored" data-anchor-id="sec-A-counterintuitive-prediction"><span class="header-section-number">7.4.1.5</span> 反直観的な予測</h4>
+<p>連続意見モデルでは、分極化の主たる理由は有界信頼である。これを HIOM に容易に加えられる。すなわち、<span class="math inline">\(\left| O_{i} - O_{j} \right| &gt; \epsilon\)</span> のとき、相互作用がない（注意の増加も情報の交換もない）。これは HIOM における分極化をさらに増大させるだろう。しかし、意見と情報はヒステリシスのために反対の符号をもちうるので、出口がある。一例は、肉を食べる菜食主義者、すなわち菜食主義の観点をもちながら実際には肉を食べる人であろう。私は自分がそのような菜食主義者だと主張するが、この立場は私の身近な環境では一般に受け入れられていない。</p>
+<p><span class="citation" data-cites="vandermaas2020">van der Maas, Dalege, and Waldorp (<a href="#ref-vandermaas2020" role="doc-biblioref">2020</a>)</span> でシミュレートされたシナリオは、関与の低い肉食者の多数派と、深く関与した菜食主義者から成る。肉食者は有界信頼のために菜食主義者と話すことを拒み、分極化の増大をもたらす。</p>
+<p>さて、一部の注意を向けた菜食主義者が肉食の立場へと摂動される。これは準安定状態である。この状態はいくぶん安定だが、彼らは数回の反復の後に飛び戻るかもしれない。しかし、菜食主義者がこの準安定な肉食の状態にある間、彼らはより関与の少ない肉食者とやり取りし、菜食主義の情報を広められる。これは効果的であることが判明する（<a href="#fig-ch7-img12-old-100" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img12-old-100</span></a> を参照）。このシナリオも NetLogo モデルに実装されている。</p>
+<div id="fig-ch7-img12-old-100" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch7-img12-old-100-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch7/ch7-12-june14.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch7-img12-old-100-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.12: 肉を食べる菜食主義者。左のパネルは等しい初期状態を示す。上のパネルでは、有界信頼が菜食主義者（赤）と肉食者（青）の相互作用を妨げる。これは分極化をもたらす。下のパネルでは、一部の菜食主義者が肉食へと摂動される。これらの摂動されたエージェントは <span class="math inline">\(I &lt; 0\)</span> かつ <span class="math inline">\(O &gt; 0\)</span> をもつ。これは <span class="math inline">\(A &gt; 0\)</span>（ヒステリシス）ゆえに可能である。<span class="math inline">\(O &gt; 0\)</span> なので、これらのエージェントは肉食者と情報を交換でき、菜食主義の広がりをもたらす。（許可を得て <span class="citation" data-cites="vandermaas2020">van der Maas, Dalege, and Waldorp (<a href="#ref-vandermaas2020" role="doc-biblioref">2020</a>)</span> より転載）
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-Variants-of-the-HIOM" class="level4 page-columns page-full" data-number="7.4.1.6">
+<h4 data-number="7.4.1.6" class="anchored" data-anchor-id="sec-Variants-of-the-HIOM"><span class="header-section-number">7.4.1.6</span> HIOM の変種</h4>
+<p>HIOM について私に訴えるのは、より高い度合いの心理学的洞察を意見ダイナミクスのモデルに組み込む能力であり、その結果、個人内のヒステリシスに帰される分極化の新規な説明が得られる。HIOM の強みは、意見の定義がイジング態度モデル、すなわちいくつもの論文で開発され支持されてきた態度と意見の心理学的ネットワークモデルに基づいていることである（<a href="#sec-Ising-attitude-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Ising-attitude-model</span></a> を参照）。さらに、それはさらなる調査に値する、検証されていない反直観的な予測を提示する。</p>
+<div class="page-columns page-full"><p>このモデルについてもう一つ独自なのは、注意／関与の役割である。それは、この変数の低すぎる値と高すぎる値のリスクを示す。高すぎる値は、エージェントに極端なヒステリシス効果をもたらし、意見の変化を不可能にする。これは明らかに活動家にとってのジレンマである。しかし、関与が少なすぎることもリスクを伴う。 そのようなエージェントに影響を与えるのをやめた瞬間、態度ノードは再びランダムに振る舞い始め、彼らはカスプの後方にある中立的な意見に戻る。説得のパラドックスと関与のジレンマはさらなる研究を必要とするが、それらは重要であるように思われる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">関与が非常に低い人と話すことは、正の短期的効果をもちうるが、長期的効果はもたない。</span></div></div>
+<p>私があまり気に入らないのは、HIOM がおそらく複雑すぎ、それがその振る舞いを研究するのを難しくしている、ということである。一つの考えは、注意をネットワークパラメータにすることである。注意を向けたエージェントは単に他のエージェントへの多くの結合をもつ。注意が減少するにつれ、これはより少ない結合に翻訳される。</p>
+<p>注意／関与の考えを依然として用いる、より急進的な単純化は、制約された三状態投票者モデルにおけるような、三つの投票（左派、中道、右派）をもつ投票者モデルである <span class="citation" data-cites="rednerRealityinspiredVoterModels2019">(<a href="#ref-rednerRealityinspiredVoterModels2019" role="doc-biblioref">Redner 2019</a>)</span>。左派と右派は互いに話さない（有界信頼）が、中道とは話す。このモデルに加えられるのは注意である。過激派（左と右）は高い注意をもち、一方、中道は低い注意をもつ。HIOM におけるように、より注意を向けたエージェントはより説得的なので、中道は相互作用のためにより過激になる傾向がある。他方で、注意にはコストがかかり、過激派が自発的に中道の立場に減衰する確率がある。そのようなモデルは解析的に研究できる。この投票者型のモデルは個人内のヒステリシスをもたず、あまり興味深くない振る舞いを示すだろう。</p>
+<p>私がまたあまり気に入らないのは、HIOM が十分に複雑でない、ということである。莫大な単純化は、私たちが複数の態度をもつという事実を除外したことである。私たちは数百、おそらく数千の態度をもつ。これらは独立でないので、これらの態度が下位クラスターと中心的（ハブ）態度をもつ複雑ネットワークを形成する、と言って差し支えない。より良いモデルは、（態度要素の）ネットワークの（態度の）ネットワークの（社会的）ネットワークであろう。私たちの現在の仕事では、個人内態度ネットワークのレベルが十分に探求されていない。最後に、意見形成の多くの決定的な側面が欠けている。たとえば、（ソーシャル）メディアの役割、確証バイアス、社会における集団への同一化、政治システムなどである。</p>
+<p>私が本当に気に入らないのは、態度がカスプに従って振る舞うイジング態度モデルが、関与すると常に過激化をもたらす、ということである。せいぜい、アンビバレンスの一形態として、極端な状態の間を不規則に飛び移れる（<a href="#fig-ch4n-img2-old-50" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch4n-img2-old-50</span></a> におけるように）にすぎない。しかし、私たちの社会には、たとえば裁判官のような、関与し注意を向けながら、同時に中立を保つ人々が必要である。これはイジング態度モデルでは、したがって HIOM では不可能である。</p>
+<p>一つの可能な出口は、三重臨界イジングないしブルーメ–カペルモデル（<a href="#sec-Tricriticality" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Tricriticality</span></a> を参照）から出発することである。そこでは態度ノードは二つではなく三つの状態（<span class="math inline">\(-1, 0, 1\)</span>）をもつ。得られる動的方程式は蝶カタストロフィであり、これは二つではなく四つの制御変数をもつ。これを HIOM に組み込むことは一つの課題となるだろう。ブルーメ–カペルモデルは個人間の意見モデルとしても提案されている <span class="citation" data-cites="barbaroTerritorialDevelopmentsBased2013 ferriEquilibriumDynamicsThreestate2022">(<a href="#ref-barbaroTerritorialDevelopmentsBased2013" role="doc-biblioref">Barbaro, Chayes, and D’Orsogna 2013</a>; <a href="#ref-ferriEquilibriumDynamicsThreestate2022" role="doc-biblioref">Ferri, Dı́az-Guilera, and Palassini 2022</a>)</span>。</p>
+</section>
+</section>
+<section id="sec-Cascading-transitions-in-other-psychosocial-systems" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="sec-Cascading-transitions-in-other-psychosocial-systems"><span class="header-section-number">7.4.2</span> 他の心理社会システムにおけるカスケード転移</h3>
+<p>私たちは今や、カスケード転移の二つの心理学的モデルを見た。第一は多図形多安定知覚のモデル（<a href="#sec-Cascading-transitions-in-multifigure-multistable-perception" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Cascading-transitions-in-multifigure-multistable-perception</span></a>）であった。これは個人内モデルであった。第二は HIOM である。しかし、心理社会システムにおける他の多くの過程が思い浮かぶ。一例は嗜癖である。心理学的なレベルでは、嗜癖のダイナミクスはしばしば突然である（たとえば中止と再発）。一方、社会的なレベルでは、物質乱用の突然の大発生がある（たとえばヘロインの流行）。</p>
+<p>このカスケード的な過程をモデル化するために、HIOM と同じアプローチに従えるだろう。カスプの代わりに、トウヒノシントメハマキモデルを個々の物質使用のモデルとして用いられるだろう。ネットワークにおける相互作用がパラメータ <span class="math inline">\(r_{b}, K, A, B\)</span> に影響する（<span class="citation" data-cites="bootIntegratingDualProcessInpreparation">Boot et al. (<a href="#ref-bootIntegratingDualProcessInpreparation" role="doc-biblioref">submitted for publication</a>)</span>）。同様のアプローチがパニックモデル（<a href="#sec-The-panic-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-The-panic-model</span></a>）でも可能である。今後の仕事では、このモデルを集団的な学習過程にも応用する。</p>
+</section>
+</section>
+<section id="sec-Psychosociophysics" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="sec-Psychosociophysics"><span class="header-section-number">7.5</span> 精神社会物理学</h2>
+<p>複雑な心理過程をモデル化しようとする際に社会的世界を無視すると、不正確な結果をもたらしうる <span class="citation" data-cites="sobkowiczWhitherNowOpinion2020">(<a href="#ref-sobkowiczWhitherNowOpinion2020" role="doc-biblioref">Sobkowicz 2020</a>)</span>。モデリングに従事する心理学者が、著名な社会物理学のモデリング技法になじむことは決定的に重要である。本章の目的は、これらのモデルの包括的な概観を提供することであったが、このレビューが網羅的でないことに注意することが重要である。新たなモデルが創発し続けるにつれて、ここで提供した基礎的な知識が、願わくは、読者が情報を得続け、その心理学的探求への適用可能性を評価することを可能にするだろう。</p>
+<p>同様に、社会的世界をモデル化する際に心理学的要因を除外することは逆効果でありうる。両方の側面を統合する心理社会モデル、さらには精神社会物理モデルの必要性を強調することが不可欠である。社会的インパクトモデルはそのようなアプローチの一例である。私たち自身のモデル、HIOM は本章で詳しく述べた。HIOM は精神社会物理学モデルの方向への重要な一歩である。カスケード転移という概念は、他の適用可能な事例にも明らかに関係し、この分野にはさらなる探求の十分な機会がある。</p>
+</section>
+<section id="sec-Exercises-ch7" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="sec-Exercises-ch7"><span class="header-section-number">7.6</span> 演習問題</h2>
+<ol type="1">
+<li><p>シェリングのシミュレーション（<a href="#fig-ch7-img1-old-89" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img1-old-89</span></a>）を、密度 97 の代わりに 50 で再実行せよ。結果は実質的に異なるか。プロットを提出せよ。(*)</p></li>
+<li><p>単純なネーミングゲームの方程式（<a href="#eq-ch7-1-old-50" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch7-1-old-50</span></a>）を Grind に実装せよ。三つの選択肢 A、B、AB がすべて共存する場合が不安定な固定点であることを示せ。(**)</p></li>
+<li><p><span class="math inline">\(F = 10\)</span> かつ <span class="math inline">\(Q = 1\)</span> のとき、アクセルロッドモデル（<a href="#sec-Cultural-dynamics-The-Axelrod-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Cultural-dynamics-The-Axelrod-model</span></a>）で何が起こるか。なぜか。(*)</p></li>
+<li><p>1次元投票者モデル（<a href="#sec-Voter-models" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Voter-models</span></a>）を R または NetLogo（データ分析には BehaviorSpace と R を用いる）に実装せよ。ある状態への収束の確率がその初期割合に等しいことを確認せよ。それから、この時間の平方根を <span class="math inline">\(N\)</span> に対してプロットすることで、収束時間が <span class="math inline">\(N\)</span> の二次関数であることを確認せよ。少なくとも 20 回の実行についてこれらの時間の平均を取れ。(**)</p></li>
+<li><p>社会的インパクトモデル（<a href="#sec-Social-Impact-theory" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Social-Impact-theory</span></a>）で、階段状の振る舞いは max-h パラメータに依存するか。(*)</p></li>
+<li><p>デファントモデル（<a href="#sec-Bounded-confidence" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Bounded-confidence</span></a>）では、.5 の境界はほとんど常に意見の収束をもたらす。境界が 1,000 回の反復にわたって 0 から .5 まで成長するように、デファントモデルの R コードを調整せよ。一つか二つのクラスターに行き着く。反復の数を増やしても、なぜ二つのクラスターに行き着くのか。(**)</p></li>
+<li><p>HIOM の NetLogo モデル（<a href="#sec-The-HIOM-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-The-HIOM-model</span></a>）を実行せよ。<code>mean-init-information</code> を .5、<code>mean-init-attention</code> を 1、<code>bound</code> を .2、<code>%active-agents</code> を 90 に設定せよ。実行させ、<code>add-activists</code> と <code>pertubate activists</code> を用いよ。なぜこれは変化をもたらさないのか。(*)</p></li>
+<li><p>メディアの効果を HIOM に加える単純な方法を考えよ。実装し、結果を提示せよ。(**)</p></li>
+<li><p>優先的選択ネットワークに HIOM を実装せよ。「Preferential Attachment NetLogo」モデルを用いよ。(**)</p></li>
+<li><p>「肉を食べる菜食主義者」の予測（<a href="#sec-A-counterintuitive-prediction" class="quarto-xref"><span class="quarto-unresolved-ref">sec-A-counterintuitive-prediction</span></a>）を検証する経験的研究を計画せよ。</p></li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-axelrodDisseminationCultureModel1997" class="csl-entry" role="listitem">
+Axelrod, Robert. 1997. <span>“The <span>Dissemination</span> of <span>Culture</span>: <span>A Model</span> with <span>Local Convergence</span> and <span>Global Polarization</span>.”</span> <em>Journal of Conflict Resolution</em> 41 (2): 203–26. <a href="https://doi.org/10.1177/0022002797041002001">https://doi.org/10.1177/0022002797041002001</a>.
+</div>
+<div id="ref-barbaroTerritorialDevelopmentsBased2013" class="csl-entry" role="listitem">
+Barbaro, Alethea B. T., Lincoln Chayes, and Maria R. D’Orsogna. 2013. <span>“Territorial Developments Based on Graffiti: <span>A</span> Statistical Mechanics Approach.”</span> <em>Physica A: Statistical Mechanics and Its Applications</em> 392 (1): 252–70. <a href="https://doi.org/10.1016/j.physa.2012.08.001">https://doi.org/10.1016/j.physa.2012.08.001</a>.
+</div>
+<div id="ref-baumannModelingEchoChambers2020" class="csl-entry" role="listitem">
+Baumann, Fabian, Philipp Lorenz-Spreen, Igor M. Sokolov, and Michele Starnini. 2020. <span>“Modeling <span>Echo Chambers</span> and <span>Polarization Dynamics</span> in <span>Social Networks</span>.”</span> <em>Physical Review Letters</em> 124 (4). <a href="https://doi.org/10.1103/PhysRevLett.124.048301">https://doi.org/10.1103/PhysRevLett.124.048301</a>.
+</div>
+<div id="ref-boccalettiStructureDynamicsMultilayer2014" class="csl-entry" role="listitem">
+Boccaletti, S., G. Bianconi, R. Criado, C. I. del Genio, J. Gómez-Gardeñes, M. Romance, I. Sendiña-Nadal, Z. Wang, and M. Zanin. 2014. <span>“The Structure and Dynamics of Multilayer Networks.”</span> <em>Physics Reports</em>, The structure and dynamics of multilayer networks, 544 (1): 1–122. <a href="https://doi.org/10.1016/j.physrep.2014.07.001">https://doi.org/10.1016/j.physrep.2014.07.001</a>.
+</div>
+<div id="ref-bootIntegratingDualProcessInpreparation" class="csl-entry" role="listitem">
+Boot, Jesse, Maarten van der Ende, Reinout W. Wiers, Mike Lees, and Han L. J. Van der Maas. submitted for publication. <span>“Integrating <span>Dual Process Decision-Making</span> and <span>Social Dynamics</span>: <span>A Formal Modeling Framework</span> for <span>Addiction</span>,”</span> submitted for publication.
+</div>
+<div id="ref-borsboomTheoryConstructionMethodology2021" class="csl-entry" role="listitem">
+Borsboom, Denny, Han L. J. van der Maas, Jonas Dalege, Rogier A Kievit, and Brian D Haig. 2021. <span>“Theory <span>Construction Methodology</span>: <span>A Practical Framework</span> for <span>Building Theories</span> in <span>Psychology</span>.”</span> <em>Perspectives on Psychological Science</em> 16 (4): 756–66. <a href="https://doi.org/10.1177/1745691620969647">https://doi.org/10.1177/1745691620969647</a>.
+</div>
+<div id="ref-bowlesCooperativeSpeciesHuman2011" class="csl-entry" role="listitem">
+Bowles, Samuel, and Herbert Gintis. 2011. <em>A Cooperative Species: Human Reciprocity and Its Evolution</em>. <span>Princeton</span>: <span>Princeton University Press</span>.
+</div>
+<div id="ref-castellanoStatisticalPhysicsSocial2009" class="csl-entry" role="listitem">
+Castellano, Claudio, Santo Fortunato, and Vittorio Loreto. 2009. <span>“Statistical Physics of Social Dynamics.”</span> <em>Reviews of Modern Physics</em> 81 (2): 591–646. <a href="https://doi.org/10.1103/RevModPhys.81.591">https://doi.org/10.1103/RevModPhys.81.591</a>.
+</div>
+<div id="ref-castellanoNonequilibriumPhaseTransition2000" class="csl-entry" role="listitem">
+Castellano, Claudio, Matteo Marsili, and Alessandro Vespignani. 2000. <span>“Nonequilibrium <span>Phase Transition</span> in a <span>Model</span> for <span>Social Influence</span>.”</span> <em>Physical Review Letters</em> 85 (16): 3536–39. <a href="https://doi.org/10.1103/PhysRevLett.85.3536">https://doi.org/10.1103/PhysRevLett.85.3536</a>.
+</div>
+<div id="ref-castellanoNonlinearVoterModel2009" class="csl-entry" role="listitem">
+Castellano, Claudio, Miguel A. Muñoz, and Romualdo Pastor-Satorras. 2009. <span>“Nonlinear $q$-Voter Model.”</span> <em>Physical Review E</em> 80 (4): 041129. <a href="https://doi.org/10.1103/PhysRevE.80.041129">https://doi.org/10.1103/PhysRevE.80.041129</a>.
+</div>
+<div id="ref-chambonUnderstandingChangeCOVID192022" class="csl-entry" role="listitem">
+Chambon, Monique, Wesley G. Kammeraad, Frenk van Harreveld, Jonas Dalege, Janneke E. Elberse, and Han L. J. van der Maas. 2022. <span>“Understanding Change in <span>COVID-19</span> Vaccination Intention with Network Analysis of Longitudinal Data from <span>Dutch</span> Adults.”</span> <em>Npj Vaccines</em> 7 (1): 1–10. <a href="https://doi.org/10.1038/s41541-022-00533-6">https://doi.org/10.1038/s41541-022-00533-6</a>.
+</div>
+<div id="ref-chenNamingGameModels2019" class="csl-entry" role="listitem">
+Chen, Guanrong, and Yang Lou. 2019. <em>Naming <span>Game</span>: <span>Models</span>, <span>Simulations</span> and <span>Analysis</span></em>. Vol. 34. Emergence, <span>Complexity</span> and <span>Computation</span>. <span>Cham</span>: <span>Springer International Publishing</span>. <a href="https://doi.org/10.1007/978-3-030-05243-0">https://doi.org/10.1007/978-3-030-05243-0</a>.
+</div>
+<div id="ref-dandekarBiasedAssimilationHomophily2013" class="csl-entry" role="listitem">
+Dandekar, Pranav, Ashish Goel, and David T. Lee. 2013. <span>“Biased Assimilation, Homophily, and the Dynamics of Polarization.”</span> <em>Proceedings of the National Academy of Sciences</em> 110 (15): 5791–96. <a href="https://doi.org/10.1073/pnas.1217220110">https://doi.org/10.1073/pnas.1217220110</a>.
+</div>
+<div id="ref-deffuantMixingBeliefsInteracting2000" class="csl-entry" role="listitem">
+Deffuant, Guillaume, David Neau, Frederic Amblard, and Gérard Weisbuch. 2000. <span>“Mixing Beliefs Among Interacting Agents.”</span> <em>Advances in Complex Systems (ACS)</em> 03 (01n04): 87–98. <a href="https://doi.org/10.1142/S0219525900000078">https://doi.org/10.1142/S0219525900000078</a>.
+</div>
+<div id="ref-douglasPsychologyConspiracyTheories2017" class="csl-entry" role="listitem">
+Douglas, Karen M., Robbie M. Sutton, and Aleksandra Cichocka. 2017. <span>“The Psychology of Conspiracy Theories.”</span> <em>Current Directions in Psychological Science</em> 26: 538–42. <a href="https://doi.org/10.1177/0963721417718261">https://doi.org/10.1177/0963721417718261</a>.
+</div>
+<div id="ref-durlaufSocialDynamics2001" class="csl-entry" role="listitem">
+Durlauf, Steven N., and H. Peyton Young. 2001. <em>Social <span>Dynamics</span></em>. <span>MIT Press</span>.
+</div>
+<div id="ref-epsteinGenerativeSocialScience2006" class="csl-entry" role="listitem">
+Epstein, Joshua M. 2006. <em>Generative <span>Social Science</span>: <span>Studies</span> in <span>Agent-Based Computational Modeling</span></em>. <span>Princeton University Press</span>.
+</div>
+<div id="ref-epsteinAgentZeroNeurocognitive2014" class="csl-entry" role="listitem">
+———. 2014. <em>Agent_<span>Zero</span>: <span>Toward Neurocognitive Foundations</span> for <span>Generative Social Science</span></em>. <span>Princeton University Press</span>.
+</div>
+<div id="ref-epsteinGrowingArtificialSocieties1996" class="csl-entry" role="listitem">
+Epstein, Joshua M., and Robert Axtell. 1996. <em>Growing Artificial Societies: <span>Social</span> Science from the Bottom up</em>. Growing Artificial Societies: <span>Social</span> Science from the Bottom Up. <span>Cambridge, MA, US</span>: <span>The MIT Press</span>.
+</div>
+<div id="ref-ferriEquilibriumDynamicsThreestate2022" class="csl-entry" role="listitem">
+Ferri, Irene, Albert Dı́az-Guilera, and Matteo Palassini. 2022. <span>“Equilibrium and Dynamics of a Three-State Opinion Model.”</span> <span>arXiv</span>. <a href="https://doi.org/10.48550/arXiv.2210.03054">https://doi.org/10.48550/arXiv.2210.03054</a>.
+</div>
+<div id="ref-flacheModelsSocialInfluence2017" class="csl-entry" role="listitem">
+Flache, Andreas, Michael Mäs, Thomas Feliciani, Edmund Chattoe-Brown, Guillaume Deffuant, Sylvie Huet, and Jan Lorenz. 2017. <span>“Models of <span>Social Influence</span>: <span>Towards</span> the <span>Next Frontiers</span>.”</span> <em>Journal of Artificial Societies and Social Simulation</em> 20 (4): 2. <a href="https://doi.org/10.18564/jasss.3521">https://doi.org/10.18564/jasss.3521</a>.
+</div>
+<div id="ref-fortunatoUniversalityThresholdComplete2004" class="csl-entry" role="listitem">
+Fortunato, Santo. 2004. <span>“Universality of the <span>Threshold</span> for <span>Complete Consensus</span> for the <span>Opinion Dynamics</span> of <span>Deffuant</span> Et Al.”</span> <em>International Journal of Modern Physics C</em> 15 (January): 1301–7. <a href="https://doi.org/10.1142/S0129183104006728">https://doi.org/10.1142/S0129183104006728</a>.
+</div>
+<div id="ref-friedkinSocialInfluenceOpinions1990" class="csl-entry" role="listitem">
+Friedkin, Noah E., and Eugene C. Johnsen. 1990. <span>“Social Influence and Opinions.”</span> <em>The Journal of Mathematical Sociology</em> 15 (3-4): 193–206. <a href="https://doi.org/10.1080/0022250X.1990.9990069">https://doi.org/10.1080/0022250X.1990.9990069</a>.
+</div>
+<div id="ref-galamSociophysicsReviewGalam2008" class="csl-entry" role="listitem">
+Galam, Serge. 2008. <span>“Sociophysics: A Review of Galam Models.”</span> <em>International Journal of Modern Physics C</em> 19 (03): 409–40. <a href="https://doi.org/10.1142/S0129183108012297">https://doi.org/10.1142/S0129183108012297</a>.
+</div>
+<div id="ref-galamSociophysicsNewApproach1982" class="csl-entry" role="listitem">
+Galam, Serge, Yuval Gefen, and Yonathan Shapir. 1982. <span>“Sociophysics: <span>A</span> New Approach of Sociological Collective Behaviour. <span>I</span>. Mean-Behaviour Description of a Strike.”</span> <em>The Journal of Mathematical Sociology</em> 9 (1): 1–13. <a href="https://doi.org/10.1080/0022250X.1982.9989929">https://doi.org/10.1080/0022250X.1982.9989929</a>.
+</div>
+<div id="ref-gauvinPhaseDiagramSchelling2009" class="csl-entry" role="listitem">
+Gauvin, L., J. Vannimenus, and J.-P. Nadal. 2009. <span>“Phase Diagram of a <span>Schelling</span> Segregation Model.”</span> <em>The European Physical Journal B</em> 70 (2): 293–304. <a href="https://doi.org/10.1140/epjb/e2009-00234-0">https://doi.org/10.1140/epjb/e2009-00234-0</a>.
+</div>
+<div id="ref-goldstoneComputationalModelsCollective2005" class="csl-entry" role="listitem">
+Goldstone, Robert L., and Marco A. Janssen. 2005. <span>“Computational Models of Collective Behavior.”</span> <em>Trends in Cognitive Sciences</em> 9 (9): 424–30. <a href="https://doi.org/10.1016/j.tics.2005.07.009">https://doi.org/10.1016/j.tics.2005.07.009</a>.
+</div>
+<div id="ref-hegselmannThomasSchellingJames2017" class="csl-entry" role="listitem">
+Hegselmann, Rainer. 2017. <span>“Thomas <span>C</span>. <span>Schelling</span> and <span>James M</span>. <span>Sakoda</span>: <span>The Intellectual</span>, <span>Technical</span>, and <span>Social History</span> of a <span>Model</span>.”</span> <em>Journal of Artificial Societies and Social Simulation</em> 20 (3): 15. <a href="https://doi.org/10.18564/jasss.3511">https://doi.org/10.18564/jasss.3511</a>.
+</div>
+<div id="ref-holystSocialImpactModels2001" class="csl-entry" role="listitem">
+Holyst, Janusz A., Krzysztof Kacperski, and Frank Schweitzer. 2001. <span>“Social Impact Models of Opinion Dynamics.”</span> In <em>Annual <span>Reviews</span> of <span>Computational Physics IX</span></em>, Volume 9:253–73. Annual <span>Reviews</span> of <span>Computational Physics</span>. <span>WORLD SCIENTIFIC</span>. <a href="https://doi.org/10.1142/9789812811578_0005">https://doi.org/10.1142/9789812811578_0005</a>.
+</div>
+<div id="ref-jagerEnhancingRealismSimulation2017" class="csl-entry" role="listitem">
+Jager, Wander. 2017. <span>“Enhancing the <span>Realism</span> of <span>Simulation</span> (<span>EROS</span>): <span>On Implementing</span> and <span>Developing Psychological Theory</span> in <span>Social Simulation</span>.”</span> <em>Journal of Artificial Societies and Social Simulation</em> 20 (3): 1–14. <a href="https://doi.org/10.18564/jasss.3522">https://doi.org/10.18564/jasss.3522</a>.
+</div>
+<div id="ref-jagerUniformityBipolarizationPluriformity2005" class="csl-entry" role="listitem">
+Jager, Wander, and Frédéric Amblard. 2005. <span>“Uniformity, <span>Bipolarization</span> and <span>Pluriformity Captured</span> as <span>Generic Stylized Behavior</span> with an <span>Agent-Based Simulation Model</span> of <span>Attitude Change</span>.”</span> <em>Computational &amp; Mathematical Organization Theory</em> 10 (4): 295–303. <a href="https://doi.org/10.1007/s10588-005-6282-2">https://doi.org/10.1007/s10588-005-6282-2</a>.
+</div>
+<div id="ref-jedrzejewskiStatisticalPhysicsOpinion2019" class="csl-entry" role="listitem">
+Jędrzejewski, Arkadiusz, and Katarzyna Sznajd-Weron. 2019. <span>“Statistical <span>Physics Of Opinion Formation</span>: <span>Is</span> It a <span>SPOOF</span>?”</span> <em>Comptes Rendus Physique</em> 20 (4): 244–61. <a href="https://doi.org/10.1016/j.crhy.2019.05.002">https://doi.org/10.1016/j.crhy.2019.05.002</a>.
+</div>
+<div id="ref-jusup2022" class="csl-entry" role="listitem">
+Jusup, Marko, Petter Holme, Kiyoshi Kanazawa, Misako Takayasu, Ivan Romić, Zhen Wang, Sunčana Geček, et al. 2022. <span>“Social Physics.”</span> <em>Physics Reports</em>, Social physics, 948 (February): 1–148. <a href="https://doi.org/10.1016/j.physrep.2021.10.005">https://doi.org/10.1016/j.physrep.2021.10.005</a>.
+</div>
+<div id="ref-karauSocialLoafingMetaanalytic1993" class="csl-entry" role="listitem">
+Karau, Steven J., and Kipling D. Williams. 1993. <span>“Social Loafing: <span>A</span> Meta-Analytic Review and Theoretical Integration.”</span> <em>Journal of Personality and Social Psychology</em> 65: 681–706. <a href="https://doi.org/10.1037/0022-3514.65.4.681">https://doi.org/10.1037/0022-3514.65.4.681</a>.
+</div>
+<div id="ref-kosterlitzCriticalPropertiesTwodimensional1974" class="csl-entry" role="listitem">
+Kosterlitz, J. M. 1974. <span>“The Critical Properties of the Two-Dimensional Xy Model.”</span> <em>Journal of Physics C: Solid State Physics</em> 7 (6): 1046. <a href="https://doi.org/10.1088/0022-3719/7/6/005">https://doi.org/10.1088/0022-3719/7/6/005</a>.
+</div>
+<div id="ref-latanePsychologySocialImpact1981" class="csl-entry" role="listitem">
+Latané, Bibb. 1981. <span>“The Psychology of Social Impact.”</span> <em>American Psychologist</em> 36: 343–56. <a href="https://doi.org/10.1037/0003-066X.36.4.343">https://doi.org/10.1037/0003-066X.36.4.343</a>.
+</div>
+<div id="ref-lewensteinStatisticalMechanicsSocial1992" class="csl-entry" role="listitem">
+Lewenstein, Maciej, Andrzej Nowak, and Bibb Latané. 1992. <span>“Statistical Mechanics of Social Impact.”</span> <em>Physical Review A</em> 45 (2): 763–76. <a href="https://doi.org/10.1103/PhysRevA.45.763">https://doi.org/10.1103/PhysRevA.45.763</a>.
+</div>
+<div id="ref-liOpinionDynamicsModel2020" class="csl-entry" role="listitem">
+Li, Ke, Haiming Liang, Gang Kou, and Yucheng Dong. 2020. <span>“Opinion Dynamics Model Based on the Cognitive Dissonance: <span>An</span> Agent-Based Simulation.”</span> <em>Information Fusion</em> 56 (April): 1–14. <a href="https://doi.org/10.1016/j.inffus.2019.09.006">https://doi.org/10.1016/j.inffus.2019.09.006</a>.
+</div>
+<div id="ref-lorenzContinuousOpinionDynamics2007" class="csl-entry" role="listitem">
+Lorenz, Jan. 2007. <span>“Continuous Opinion Dynamics Under Bounded Confidence: A Survey.”</span> <em>International Journal of Modern Physics C</em> 18 (12): 1819–38. <a href="https://doi.org/10.1142/S0129183107011789">https://doi.org/10.1142/S0129183107011789</a>.
+</div>
+<div id="ref-macyWhatSustainsStable2006" class="csl-entry" role="listitem">
+Macy, M. W., A. Flache, and K. Takacs. 2006. <span>“What <span>Sustains Stable Cultural Diversity</span> and <span>What Undermines It</span>? <span>Axelrod</span> and Beyond. <span>Peer</span> Review.”</span> In <em>Advancing <span>Social Simulation</span>: <span>Proceedings</span> of the <span>First World Congress</span> on <span>Social Simulation</span></em>, edited by null S. Takahashi, 9–16. <span>Kyoto, Japan</span>: <span>Springer</span>.
+</div>
+<div id="ref-martinsContinuousOpinionsDiscrete2008" class="csl-entry" role="listitem">
+Martins, André C. R. 2008. <span>“Continuous Opinions and Discrete Actions in Opinion Dynamics Problems.”</span> <em>International Journal of Modern Physics C</em> 19 (04): 617–24. <a href="https://doi.org/10.1142/S0129183108012339">https://doi.org/10.1142/S0129183108012339</a>.
+</div>
+<div id="ref-masudaVoterModelTwoclique2014" class="csl-entry" role="listitem">
+Masuda, Naoki. 2014. <span>“Voter Model on the Two-Clique Graph.”</span> <em>Physical Review E</em> 90 (1): 012802. <a href="https://doi.org/10.1103/PhysRevE.90.012802">https://doi.org/10.1103/PhysRevE.90.012802</a>.
+</div>
+<div id="ref-millerComplexAdaptiveSystems2007" class="csl-entry" role="listitem">
+Miller, John H., and Scott E. Page. 2007. <em>Complex Adaptive Systems: <span>An</span> Introduction to Computational Models of Social Life</em>. Complex Adaptive Systems: <span>An</span> Introduction to Computational Models of Social Life. <span>Princeton, NJ, US</span>: <span>Princeton University Press</span>.
+</div>
+<div id="ref-newmanWhySocialNetworks2003" class="csl-entry" role="listitem">
+Newman, M. E. J., and Juyong Park. 2003. <span>“Why Social Networks Are Different from Other Types of Networks.”</span> <em>Physical Review E</em> 68 (3): 036122. <a href="https://doi.org/10.1103/PhysRevE.68.036122">https://doi.org/10.1103/PhysRevE.68.036122</a>.
+</div>
+<div id="ref-noorazarRecentAdvancesOpinion2020" class="csl-entry" role="listitem">
+Noorazar, Hossein. 2020. <span>“Recent Advances in Opinion Propagation Dynamics: A 2020 Survey.”</span> <em>The European Physical Journal Plus</em> 135 (6): 521. <a href="https://doi.org/10.1140/epjp/s13360-020-00541-2">https://doi.org/10.1140/epjp/s13360-020-00541-2</a>.
+</div>
+<div id="ref-peraltaOpinionDynamicsSocial2022" class="csl-entry" role="listitem">
+Peralta, Antonio F., János Kertész, and Gerardo Iñiguez. 2022. <span>“Opinion Dynamics in Social Networks: <span>From</span> Models to Data.”</span> <span>arXiv</span>. <a href="https://doi.org/10.48550/arXiv.2201.01322">https://doi.org/10.48550/arXiv.2201.01322</a>.
+</div>
+<div id="ref-proskurnikovTutorialModelingAnalysis2017" class="csl-entry" role="listitem">
+Proskurnikov, Anton V., and Roberto Tempo. 2017. <span>“A Tutorial on Modeling and Analysis of Dynamic Social Networks. <span>Part I</span>.”</span> <em>Annual Reviews in Control</em> 43 (January): 65–79. <a href="https://doi.org/10.1016/j.arcontrol.2017.03.002">https://doi.org/10.1016/j.arcontrol.2017.03.002</a>.
+</div>
+<div id="ref-rainerOpinionDynamicsBounded2002" class="csl-entry" role="listitem">
+Rainer, Hegselmann, and Ulrich Krause. 2002. <span>“Opinion <span>Dynamics</span> and <span>Bounded Confidence</span>: <span>Models</span>, <span>Analysis</span> and <span>Simulation</span>.”</span> <em>Journal of Artificial Societies and Social Simulation</em> 5 (3).
+</div>
+<div id="ref-rednerRealityinspiredVoterModels2019" class="csl-entry" role="listitem">
+Redner, Sidney. 2019. <span>“Reality-Inspired Voter Models: <span>A</span> Mini-Review.”</span> <em>Comptes Rendus Physique</em> 20 (4): 275–92. <a href="https://doi.org/10.1016/j.crhy.2019.05.004">https://doi.org/10.1016/j.crhy.2019.05.004</a>.
+</div>
+<div id="ref-schellingDynamicModelsSegregation1971" class="csl-entry" role="listitem">
+Schelling, Thomas C. 1971. <span>“Dynamic Models of Segregation.”</span> <em>The Journal of Mathematical Sociology</em> 1 (2): 143–86. <a href="https://doi.org/10.1080/0022250X.1971.9989794">https://doi.org/10.1080/0022250X.1971.9989794</a>.
+</div>
+<div id="ref-sherifSocialJudgmentAssimilation1961" class="csl-entry" role="listitem">
+Sherif, Muzafer, and Carl I. Hovland. 1961. <em>Social Judgment: <span>Assimilation</span> and Contrast Effects in Communication and Attitude Change</em>. Social Judgment: <span>Assimilation</span> and Contrast Effects in Communication and Attitude Change. <span>Oxford, England</span>: <span>Yale Univer. Press</span>.
+</div>
+<div id="ref-smaldino2023" class="csl-entry" role="listitem">
+Smaldino, Paul. 2023. <em>Modeling Social Behavior: Mathematical and Agent-Based Models of Social Dynamics and Cultural Evolution</em>. Princeton University Press.
+</div>
+<div id="ref-sobkowiczDiscreteModelOpinion2012" class="csl-entry" role="listitem">
+Sobkowicz, Pawel. 2012. <span>“Discrete <span>Model</span> of <span>Opinion Changes Using Knowledge</span> and <span>Emotions</span> as <span>Control Variables</span>.”</span> <em>PLOS ONE</em> 7 (9): e44489. <a href="https://doi.org/10.1371/journal.pone.0044489">https://doi.org/10.1371/journal.pone.0044489</a>.
+</div>
+<div id="ref-sobkowiczWhitherNowOpinion2020" class="csl-entry" role="listitem">
+———. 2020. <span>“Whither <span>Now</span>, <span>Opinion Modelers</span>?”</span> <em>Frontiers in Physics</em> 8. <a href="https://doi.org/10.3389/fphy.2020.587009">https://doi.org/10.3389/fphy.2020.587009</a>.
+</div>
+<div id="ref-steelsSelfOrganizingSpatialVocabulary1995" class="csl-entry" role="listitem">
+Steels, Luc. 1995. <span>“A <span>Self-Organizing Spatial Vocabulary</span>.”</span> <em>Artificial Life</em> 2 (3): 319–32. <a href="https://doi.org/10.1162/artl.1995.2.3.319">https://doi.org/10.1162/artl.1995.2.3.319</a>.
+</div>
+<div id="ref-sznajd-weronReviewSznajdModel2021" class="csl-entry" role="listitem">
+Sznajd-Weron, Katarzyna, Józef Sznajd, and Tomasz Weron. 2021. <span>“A Review on the <span>Sznajd</span> Model 20 Years After.”</span> <em>Physica A: Statistical Mechanics and Its Applications</em> 565 (March): 125537. <a href="https://doi.org/10.1016/j.physa.2020.125537">https://doi.org/10.1016/j.physa.2020.125537</a>.
+</div>
+<div id="ref-treur2019" class="csl-entry" role="listitem">
+Treur, Jan. 2019. <em>Network-Oriented Modeling for Adaptive Networks: Designing Higher-Order Adaptive Biological, Mental and Social Network Models</em>. 1st ed. 2020 edition. Springer.
+</div>
+<div id="ref-turner-zwinkelsBeliefSystemNetworks2022" class="csl-entry" role="listitem">
+Turner-Zwinkels, Felicity M., and Mark J. Brandt. 2022. <span>“Belief System Networks Can Be Used to Predict Where to Expect Dynamic Constraint.”</span> <em>Journal of Experimental Social Psychology</em> 100 (May): 104279. <a href="https://doi.org/10.1016/j.jesp.2021.104279">https://doi.org/10.1016/j.jesp.2021.104279</a>.
+</div>
+<div id="ref-vandermaas2020" class="csl-entry" role="listitem">
+van der Maas, Han L. J., Jonas Dalege, and Lourens J. Waldorp. 2020. <span>“The Polarization Within and Across Individuals: The Hierarchical Ising Opinion Model.”</span> <em>Journal of Complex Networks</em> 8 (2): cnaa010. <a href="https://doi.org/10.1093/comnet/cnaa010">https://doi.org/10.1093/comnet/cnaa010</a>.
+</div>
+<div id="ref-weisbuchMeetDiscussSegregate2002" class="csl-entry" role="listitem">
+Weisbuch, Gérard, Guillaume Deffuant, Frédéric Amblard, and Jean-Pierre Nadal. 2002. <span>“Meet, Discuss, and Segregate!”</span> <em>Complexity</em> 7 (3): 55–63. <a href="https://doi.org/10.1002/cplx.10031">https://doi.org/10.1002/cplx.10031</a>.
+</div>
+<div id="ref-zhangRobustConsensusNoisy2018" class="csl-entry" role="listitem">
+Zhang, Jiangbo, and Yiyi Zhao. 2018. <span>“The <span>Robust Consensus</span> of a <span>Noisy Deffuant-Weisbuch Model</span>.”</span> <em>Mathematical Problems in Engineering</em> 2018 (December): e1065451. <a href="https://doi.org/10.1155/2018/1065451">https://doi.org/10.1155/2018/1065451</a>.
+</div>
+<div id="ref-zwickerApplyingAttitudeNetwork2020" class="csl-entry" role="listitem">
+Zwicker, Maria V., Hannah U. Nohlen, Jonas Dalege, Gert-Jan M. Gruter, and Frenk van Harreveld. 2020. <span>“Applying an Attitude Network Approach to Consumer Behaviour Towards Plastic.”</span> <em>Journal of Environmental Psychology</em> 69 (June): 101433. <a href="https://doi.org/10.1016/j.jenvp.2020.101433">https://doi.org/10.1016/j.jenvp.2020.101433</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>二つの方程式のうちの第二のものは実装されていない。私の知る限り、これは異なる結果をもたらさない。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>これは、タイプと連続体についての心理学における議論、すなわち心理学的特性がタイプ的な構成体なのか連続的な構成体なのか（Borsboom, et al., 2016）に大いに関係する。それらは両方でありうる！<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><span class="math inline">\(I\)</span> の関数としての <span class="math inline">\(O\)</span> のほぼ線形な変化を組み込むために、<span class="math inline">\(A + A^{\min}\)</span> を用いる。ここで <span class="math inline">\(A^{\min} = -.5\)</span>、<span class="math inline">\(A ≥ 0\)</span> である。説明については元の論文を参照。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch6.html" class="pagination-link" aria-label="心理学的ネットワークモデル">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">心理学的ネットワークモデル</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch8.html" class="pagination-link" aria-label="エピローグ">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">エピローグ</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://www.sfipress.org/"><img src="csrp-online-press-logo.png" alt="Santa Fe Institute press" style="height:45px;"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p>© Han L. J. van der Maas, 2024</p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank">CC BY-SA 4.0</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

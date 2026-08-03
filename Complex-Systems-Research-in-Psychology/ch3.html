@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; 複雑系における転移 – Complex Systems Research in Psychology</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch4n.html" rel="next">
+<link href="./ch2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1e13a3099a05037a1437c813e2312cdf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">複雑系における転移</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./sfi_cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Complex Systems Research in Psychology</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://www.sfipress.org/books/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-book"></i></a>
+    <a href="https://a.co/d/aXyHRoK" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-cart"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-filetype-pdf"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Complex-systems-research-in-Psychology.pdf">
+            Download PDF
+            </a>
+          </li>
+      </ul>
+    </div>
+    <a href="https://github.com/SantaFeInstitute/ComplexPsych/tree/master" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">プロローグ</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">カオスと予測不可能性</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">複雑系における転移</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch4n.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">力学系モデルの構築</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch5n.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">自己組織化</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">心理学的ネットワークモデル</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">社会物理学</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">エピローグ</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-Introduction-ch3" id="toc-sec-Introduction-ch3" class="nav-link active" data-scroll-target="#sec-Introduction-ch3"><span class="header-section-number">3.1</span> はじめに</a></li>
+  <li><a href="#sec-Examples-of-transitions" id="toc-sec-Examples-of-transitions" class="nav-link" data-scroll-target="#sec-Examples-of-transitions"><span class="header-section-number">3.2</span> 転移の例</a></li>
+  <li><a href="#sec-Bifurcation-and-Catastrophe-theory" id="toc-sec-Bifurcation-and-Catastrophe-theory" class="nav-link" data-scroll-target="#sec-Bifurcation-and-Catastrophe-theory"><span class="header-section-number">3.3</span> 分岐理論とカタストロフィ理論</a>
+  <ul>
+  <li><a href="#sec-The-quadratic-case" id="toc-sec-The-quadratic-case" class="nav-link" data-scroll-target="#sec-The-quadratic-case"><span class="header-section-number">3.3.1</span> 二次の場合</a></li>
+  <li><a href="#sec-The-fold-catastrophe" id="toc-sec-The-fold-catastrophe" class="nav-link" data-scroll-target="#sec-The-fold-catastrophe"><span class="header-section-number">3.3.2</span> 折り目カタストロフィ</a></li>
+  <li><a href="#sec-The-cusp-catastrophe" id="toc-sec-The-cusp-catastrophe" class="nav-link" data-scroll-target="#sec-The-cusp-catastrophe"><span class="header-section-number">3.3.3</span> カスプ・カタストロフィ</a></li>
+  <li><a href="#sec-Examples-of-cusp-models" id="toc-sec-Examples-of-cusp-models" class="nav-link" data-scroll-target="#sec-Examples-of-cusp-models"><span class="header-section-number">3.3.4</span> カスプモデルの例</a></li>
+  <li><a href="#sec-Higher-order-catastrophes" id="toc-sec-Higher-order-catastrophes" class="nav-link" data-scroll-target="#sec-Higher-order-catastrophes"><span class="header-section-number">3.3.5</span> 高次のカタストロフィ</a></li>
+  <li><a href="#sec-Other-bifurcations" id="toc-sec-Other-bifurcations" class="nav-link" data-scroll-target="#sec-Other-bifurcations"><span class="header-section-number">3.3.6</span> 他の分岐</a></li>
+  </ul></li>
+  <li><a href="#sec-Building-catastrophe-models" id="toc-sec-Building-catastrophe-models" class="nav-link" data-scroll-target="#sec-Building-catastrophe-models"><span class="header-section-number">3.4</span> カタストロフィモデルの構築</a>
+  <ul>
+  <li><a href="#sec-Mechanistic-models" id="toc-sec-Mechanistic-models" class="nav-link" data-scroll-target="#sec-Mechanistic-models"><span class="header-section-number">3.4.1</span> メカニズム的モデル</a></li>
+  <li><a href="#sec-Phenomenological-models" id="toc-sec-Phenomenological-models" class="nav-link" data-scroll-target="#sec-Phenomenological-models"><span class="header-section-number">3.4.2</span> 現象論的モデル</a></li>
+  </ul></li>
+  <li><a href="#sec-Testing-catastrophe-models" id="toc-sec-Testing-catastrophe-models" class="nav-link" data-scroll-target="#sec-Testing-catastrophe-models"><span class="header-section-number">3.5</span> カタストロフィモデルの検証</a>
+  <ul>
+  <li><a href="#sec-The-catastrophe-flags" id="toc-sec-The-catastrophe-flags" class="nav-link" data-scroll-target="#sec-The-catastrophe-flags"><span class="header-section-number">3.5.1</span> カタストロフィ・フラグ</a>
+  <ul>
+  <li><a href="#sec-Sudden-jump" id="toc-sec-Sudden-jump" class="nav-link" data-scroll-target="#sec-Sudden-jump"><span class="header-section-number">3.5.1.1</span> 突然のジャンプ</a></li>
+  <li><a href="#sec-Multimodality" id="toc-sec-Multimodality" class="nav-link" data-scroll-target="#sec-Multimodality"><span class="header-section-number">3.5.1.2</span> 多峰性</a></li>
+  <li><a href="#sec-Inaccessibility" id="toc-sec-Inaccessibility" class="nav-link" data-scroll-target="#sec-Inaccessibility"><span class="header-section-number">3.5.1.3</span> 到達不能性</a></li>
+  <li><a href="#sec-Divergence" id="toc-sec-Divergence" class="nav-link" data-scroll-target="#sec-Divergence"><span class="header-section-number">3.5.1.4</span> ダイバージェンス</a></li>
+  <li><a href="#sec-Hysteresis" id="toc-sec-Hysteresis" class="nav-link" data-scroll-target="#sec-Hysteresis"><span class="header-section-number">3.5.1.5</span> ヒステリシス</a></li>
+  <li><a href="#sec-Anomalous-variance-divergence-of-linear-response-and-critical-slowing-down" id="toc-sec-Anomalous-variance-divergence-of-linear-response-and-critical-slowing-down" class="nav-link" data-scroll-target="#sec-Anomalous-variance-divergence-of-linear-response-and-critical-slowing-down"><span class="header-section-number">3.5.1.6</span> 異常分散、線形応答の発散、そして臨界減速</a></li>
+  </ul></li>
+  <li><a href="#sec-Fitting-the-cusp-to-crosssectional-data" id="toc-sec-Fitting-the-cusp-to-crosssectional-data" class="nav-link" data-scroll-target="#sec-Fitting-the-cusp-to-crosssectional-data"><span class="header-section-number">3.5.2</span> 横断的データへのカスプの当てはめ</a>
+  <ul>
+  <li><a href="#sec-Cobbs-maximum-likelihood-approach" id="toc-sec-Cobbs-maximum-likelihood-approach" class="nav-link" data-scroll-target="#sec-Cobbs-maximum-likelihood-approach"><span class="header-section-number">3.5.2.1</span> コブの最尤アプローチ</a></li>
+  <li><a href="#sec-Empirical-examples" id="toc-sec-Empirical-examples" class="nav-link" data-scroll-target="#sec-Empirical-examples"><span class="header-section-number">3.5.2.2</span> 経験的な例</a></li>
+  <li><a href="#sec-Evaluation" id="toc-sec-Evaluation" class="nav-link" data-scroll-target="#sec-Evaluation"><span class="header-section-number">3.5.2.3</span> 評価</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#sec-Criticism-of-catastrophe-theory" id="toc-sec-Criticism-of-catastrophe-theory" class="nav-link" data-scroll-target="#sec-Criticism-of-catastrophe-theory"><span class="header-section-number">3.6</span> カタストロフィ理論への批判</a></li>
+  <li><a href="#sec-Conclusion-ch3" id="toc-sec-Conclusion-ch3" class="nav-link" data-scroll-target="#sec-Conclusion-ch3"><span class="header-section-number">3.7</span> 結論</a></li>
+  <li><a href="#sec-Exercises-ch3" id="toc-sec-Exercises-ch3" class="nav-link" data-scroll-target="#sec-Exercises-ch3"><span class="header-section-number">3.8</span> 演習問題</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch3" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">複雑系における転移</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-Introduction-ch3" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-Introduction-ch3"><span class="header-section-number">3.1</span> はじめに</h2>
+<p>私の博士論文の研究は、ジャン・ピアジェの認知発達の段階理論についてであった。これらの段階は転移によって隔てられていた。そのような転移の一つは、前操作期と具体的操作期の間に生じるはずである。具体的操作期において、子どもは重さ、高さ、体積といった、物体についての論理的で具体的な物理的規則を学ぶ。この二つの段階を区別する最も有名な検査は保存課題である。</p>
+<p>保存課題には多くのものがあるが、その設定は常に同じである。たとえば、子どもに二つの等しい粘土の玉を見せ、それらが同じ重さであることを確認させ、一方をソーセージの形に転がし、そして再び等しい重さであることの確認を求める。保存が成立していない子どもは、今や長いソーセージのほうが重いと主張する。これはまた、二列の硬貨（一方の列を広げる）や二つのコップの水（一方のコップから、より小さく長いコップに水を注ぐ）を用いても行える。これは、五歳から八歳の子どもと行うと実に魅力的な課題である。</p>
+<p>1960年代から1980年代にかけて、これは発達心理学における大きな関心の主題であった。鍵となる問いは、そこに本当に段階転移が存在するのかどうかであり、転移が実際には何であるかについて多くの混乱があった。これを明らかにし、ピアジェの仮説を証明することが私の仕事であった。問いを明らかにすることには成功したと思うが、段階理論を証明することに成功したかどうかは議論の余地がある。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>私の指導教員であったピーター・モレナーは、転移という概念を精確な仕方で定義するためにカタストロフィ理論を用い、転移の仮説を検証するためにいわゆるカタストロフィ・フラグを用い、さらに保存データにカスプモデルを当てはめる、という着想をもっていた。多くの人々の助けを借りて、これらすべての段階を実行するのに私は20年以上を要した <span class="citation" data-cites="vandermaas1992 jansen2001 dolan1998 grasman2009">(<a href="#ref-vandermaas1992" role="doc-biblioref">van der Maas and Molenaar 1992</a>; <a href="#ref-jansen2001" role="doc-biblioref">Jansen and van der Maas 2001</a>; <a href="#ref-dolan1998" role="doc-biblioref">Dolan and van der Maas 1998</a>; <a href="#ref-grasman2009" role="doc-biblioref">Grasman, van der Maas, and Wagenmakers 2009</a>)</span>。</p>
+<p>カタストロフィ理論とは何か、これらのフラグとは何か、そしてカスプとは何か。これらが本章で最初に答える問いである。しかし本章は統計についてでもある。データにカスプモデルを当てはめる方法を学ぶことになる。私は、基礎となるシステムの数学的記述をもたない領域において転移を研究するための方法論を提示する。心理学の非常に異なる下位分野からの例を提示する。最後に、約五十年前のカタストロフィ理論をめぐる過熱への応答としてなされた批判を論じる。これは長い章であるが、このアプローチを賢く用いるために必要なもののみを含めるよう努めた。これには、カタストロフィ理論の数学についてのある程度の基本的理解、カスプモデルを検証する可能性についての十分な概観、そしてこの理論の普及の初期における論争についての知識が必要である。</p>
+</section>
+<section id="sec-Examples-of-transitions" class="level2 page-columns page-full" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-Examples-of-transitions"><span class="header-section-number">3.2</span> 転移の例</h2>
+<p>第1章 <a href="#sec-A-limited-number-of-equilibria" class="quarto-xref"><span class="quarto-unresolved-ref">sec-A-limited-number-of-equilibria</span></a> で、複雑系は少数の平衡状態によって特徴づけられる傾向にあると述べた。第2章で見たように、これらの平衡状態は多くの異なる形をとりうるが、本章では安定な固定点と不安定な固定点のみを考える。私たちが特に関心をもつのは、ある外的な変数、すなわち制御変数の滑らかな変化ゆえに、安定点と不安定点の配置が変化する場合である。そのような場合、不連続な変化、すなわち（一次）相転移が生じうる。転移すなわち転換点は、複雑系の興味深い性質である。</p>
+<div class="page-columns page-full"><p>私がこれを興味深い性質と呼ぶのは、私たちが慣れ親しんでいる線形系においては、制御変数の滑らかな変化が振る舞い変数の同様の（比例した）変化をもたらすからである。ある振る舞いに大きな変化が見られることもあるが、それには制御変数の大きな変化が必要である。一例は、自転車の速度とあなたがかける力であろう。しかし恐怖やパニックの場合、この過程はしばしば非線形である。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">煙のにおいのような独立変数ないし制御変数の滑らかな変化が、恐怖（たとえばパニック）の突然のジャンプをもたらすなら、私たちはおそらく相転移を扱っている。</span></div></div>
+<p>重要な物理的な例は水の状態変化である。たとえば摂氏10度から80度の間では、温度の滑らかな変化は水の液体状態のわずかな変化しかもたらさない。しかし、摂氏0度または100度の閾値に近いところで温度を非常にゆっくりと変えると、突然の相転移が見られる。</p>
+<p><span class="math inline">\(r\)</span> が <span class="math inline">\(r = 1\)</span> の境界を越えるとき、ロジスティック写像でも同様のものを見た。しかし、これは <span class="math inline">\(X^{*}\)</span> の突然の変化をもたらさなかった。これはしばしば二次相転移と呼ばれ、安定点と不安定点の配置は変化するが、振る舞いに不連続な変化はない、ということを意味する（<a href="#fig-ch3-img1-old-13" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img1-old-13</span></a>）。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div id="fig-ch3-img1-old-13" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img1-old-13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-1-may31.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img1-old-13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: 一次（不連続）相転移と二次（連続）相転移の例。これらの特定の場合には、<span class="math inline">\(V\)</span> は体積、<span class="math inline">\(T\)</span> は温度を表す。
+</figcaption>
+</figure>
+</div>
+<p>融解や凝固のような不連続相転移は多くのシステムで生じる。自然科学からの有名な例は、崩壊する橋、転覆する船、細胞分裂、そして氷河期の始まりのような気候転移である。社会科学からの例は、紛争、戦争、革命である。心理学からの例には、入眠、攻撃の爆発、過激化、恋に落ちること、突然の洞察、うつや嗜癖への再発、パニック、そして多安定知覚がある。ネッカーの立方体の知覚は有名な例である（<a href="#fig-ch3-img2-old-14" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img2-old-14</span></a>）。これらの心理的転移のモデルを構築し検証することは、困難だが実りある。これらの転移は、心理学的介入研究で通常観察される、より小さく、しばしばかろうじて有意な効果とは対照的に、振る舞いの大きな変化を伴う。</p>
+<div id="fig-ch3-img2-old-14" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img2-old-14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-02__figure14.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img2-old-14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: ネッカーの立方体の知覚における転移。中央の立方体の知覚は双安定であり、左（「前」）の見えと右（「後ろ」）の見えの間で突然の転移が生じる。多安定知覚は、いまだ完全には理解されていない、よく研究された心理学的現象である。
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-Bifurcation-and-Catastrophe-theory" class="level2 page-columns page-full" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-Bifurcation-and-Catastrophe-theory"><span class="header-section-number">3.3</span> 分岐理論とカタストロフィ理論</h2>
+<div class="page-columns page-full"><p> 分岐は、平衡状態が消失したり、出現したり、分裂したりするときに生じる。簡単に言えば、分岐理論は、パラメータや条件の小さな変化が、数学的システムにおいてどのように結果の大きな変化をもたらしうるかを研究する。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">分岐理論は数学の一分野であり、パラメータが滑らかに変化するにつれて、与えられた力学系の族の質的すなわち位相的構造に生じる変化を研究する。</span></div></div>
+<p>カタストロフィ理論は分岐理論の一分野とみなすことができ、分岐の下位クラスを記述する。それはルネ・<span class="citation" data-cites="thomStructuralStabilityCatastrophe1977">Thom (<a href="#ref-thomStructuralStabilityCatastrophe1977" role="doc-biblioref">1977</a>)</span> によって発展させられ、クリストファー・<span class="citation" data-cites="zeemanCatastropheTheory1976">Zeeman (<a href="#ref-zeemanCatastropheTheory1976" role="doc-biblioref">1976</a>)</span> によって一般に広められた。本章でカタストロフィ理論に焦点を当てることにした理由は四つある。第一に、それは分岐の数少ない体系的な取り扱いの一つを提供する。体系的な取り扱いは、あらゆる種類の分岐を単に列挙するよりも効果的である。第二に、いったんカタストロフィ理論の基本を把握すれば、この理論に包含されない他の分岐について学ぶことがより容易になる。第三に、それは心理学と社会科学で最も広く用いられているアプローチである。最後に、この分野は、カタストロフィ理論の実践的応用のための経験的プログラムと統計的手続きを発展させてきた。</p>
+<div class="page-columns page-full"><p> カタストロフィ理論は勾配系に関わる。これらは、ポテンシャル関数によって記述できる力学系である。ポテンシャル関数は、極小と極大をもつランドスケープと考えることができ、そこにボールを投げ込み、それがどこに行き着くかを見る。次節で論じる最も単純な場合は、二次の極小である。 また、ランドスケープが滑らかに形を変え、ある極小が消失した場合にボールに何が起こるかを研究することもできる。そのとき突然のジャンプが生じうる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">勾配系においては、エネルギーのような何らかの量が最小化または最大化される。</span><span class="margin-aside">数学におけるポテンシャル関数は、システムのポテンシャルエネルギーのランドスケープを記述し、システムのダイナミクスはこの関数の勾配によって決まる。</span></div></div>
+<div class="page-columns page-full"><p>極小と極大は臨界点、すなわちポテンシャル関数の一階導関数が 0 になる点と呼ばれる。カタストロフィ理論は、ポテンシャル関数のいわゆる退化した臨界点を分析する。これらの分岐点で相転移が生じうる。トムは、（限られた制御パラメータの集合が与えられたとき）カタストロフィには七つの基本型しか存在しないことを証明した。私はまず数学的な導入から始め、主要な概念を説明した後、いくつかの心理学的な例を挙げる。 カタストロフィ理論におけるポテンシャル関数の役割の詳細な議論は、<span class="citation" data-cites="gilmoreCatastropheTheoryScientists1993">Gilmore (<a href="#ref-gilmoreCatastropheTheoryScientists1993" role="doc-biblioref">1993</a>)</span> の第1章のはじめに見出される。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">退化した臨界点とは、ポテンシャル関数の一階導関数だけでなく二階導関数も零になる点である。</span></div></div>
+<section id="sec-The-quadratic-case" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="sec-The-quadratic-case"><span class="header-section-number">3.3.1</span> 二次の場合</h3>
+<p>トムの定理は非常に込み入っていることで知られているが、基本的な概念はそれほど把握しにくいものではない。最も単純なポテンシャル関数は次のとおりである。</p>
+<p><span id="eq-ch3-1-old-5"><span class="math display">\[
+V(X) = X^{2}.
+\tag{3.1}\]</span></span></p>
+<div id="fig-ch3-img3-old-15" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img3-old-15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-3-may31.png" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img3-old-15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: 二次のポテンシャル関数。ボールは <span class="math inline">\(V(X)\)</span> の最小値へと転がる。その変化はポテンシャル関数の導関数の負 <span class="math inline">\(-V'(X)\)</span> によって定義される。
+</figcaption>
+</figure>
+</div>
+<p>ランドスケープの中のボールを想像してみよ。ボールはポテンシャル関数の極小へと転がる（<a href="#fig-ch3-img3-old-15" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img3-old-15</span></a>）。私たちは学校で、これが一階導関数が 0 で二階導関数が正である点だと学んだ。一階導関数と二階導関数はそれぞれ <span class="math inline">\(V^{'}(X) = 2X\)</span> と <span class="math inline">\(V^{''}(X) = 2\)</span> である。<span class="math inline">\(X = 0\)</span> で極小が見出される。</p>
+<p>ポテンシャル関数は、次によって定義される力学系を記述する。</p>
+<p><span id="eq-ch3-2-old-6"><span class="math display">\[
+\frac{dX}{dt} = - V^{'}(X).
+\tag{3.2}\]</span></span></p>
+<p>これは理にかなっている。ボールが <span class="math inline">\((1,1)\)</span> にあるとき、<span class="math inline">\(- V^{'}(X) = - 2\)</span> であり、ボールは <span class="math inline">\(X = 0\)</span> に向かって動く。しかし <span class="math inline">\(X = 0\)</span> であれば、<span class="math inline">\(- V^{'}(X) = 0\)</span> となり、ボールはもはや動かない。二次のポテンシャル関数の場合、固定点は一つしかない。<span class="math inline">\(V\)</span> にパラメータと低次の項を加えること、すなわち <span class="math inline">\({aX + X}^{2}\)</span> とすることで、その位置を動かすことはできるが、質的な形（一つの安定な固定点）は変わらない。また、二階導関数が正であることに注意しよう。これは、私たちが極大ではなく極小を扱っていることを教えてくれる（いわゆる二階導関数判定）。</p>
+<p>多くの力学系がこのポテンシャル関数に従って振る舞う。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 目覚ましいことは何も起こらない。分岐もジャンプもない。より高次の項をもつポテンシャル関数を考えると、これは異なる。</p>
+</section>
+<section id="sec-The-fold-catastrophe" class="level3 page-columns page-full" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="sec-The-fold-catastrophe"><span class="header-section-number">3.3.2</span> 折り目カタストロフィ</h3>
+<p>折り目（fold）カタストロフィは、次のポテンシャル関数によって定義される。</p>
+<p><span id="eq-ch3-3-old-7"><span class="math display">\[
+V(X) = {- aX + X}^{3}.
+\tag{3.3}\]</span></span></p>
+<p>この関数は <span class="math inline">\(X = 0, a = 0\)</span> で退化した臨界点（分岐点）をもつ。というのも、この点で <span class="math inline">\(V^{'}(X) = - a + 3X^{2} = 0\)</span> かつ <span class="math inline">\(V^{''}(X) = 6X = 0\)</span> であり、一階導関数も二階導関数も 0 になるからである。何がこの点をそれほど特別にするのか。これは <a href="#fig-ch3-img4-old-16" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img4-old-16</span></a> に例示されている。</p>
+<div id="fig-ch3-img4-old-16" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img4-old-16-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/fig-ch3-img4-old-16.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img4-old-16-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: <span class="math inline">\(a = 0\)</span> における分岐——平衡状態が質的に変化する。<span class="math inline">\(a&lt;0\)</span> については平衡状態がなく、<span class="math inline">\(a&gt;0\)</span> については極小と極大をもつ。
+</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">t</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>V <span class="ot">&lt;-</span> <span class="cf">function</span>(X,a) <span class="sc">-</span>a <span class="sc">*</span> X <span class="sc">+</span> X<span class="sc">^</span><span class="dv">3</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">V</span>(x, <span class="at">a =</span> <span class="sc">-</span><span class="dv">2</span>), <span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">V</span>(x, <span class="at">a =</span> <span class="dv">0</span>), <span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">V</span>(x, <span class="at">a =</span> <span class="dv">2</span>), <span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>左のプロットでは <span class="math inline">\(a &lt; 0\)</span> であり、固定点はない。ボールはマイナス無限大へと転がり去る。これは一階導関数を零に設定することで確認でき、<span class="math inline">\(X = \pm \sqrt{{a}/{3}}\)</span> が得られる。負の <span class="math inline">\(a\)</span> については解がない。正の <span class="math inline">\(a\)</span> の値は二つの解を与える。これは <span class="math inline">\(a = 2\)</span> について右に示されているとおりである。正の解 <span class="math inline">\(X = \sqrt{2/3}\)</span> は、この点における二階導関数が正であるので安定な固定点である。負の解 <span class="math inline">\(X = - \sqrt{2/3}\)</span> は、この点における二階導関数が負であるので不安定な固定点である。</p>
+<p>中央の図は、ちょうどこれら二つの場合の中間の場合を描いている。ここで平衡状態は変曲点、すなわち退化した臨界点である。固定点をもたないランドスケープから、一つは安定、一つは不安定な二つの固定点をもつランドスケープへと移るとき、この点で分岐が生じる。</p>
+<div class="page-columns page-full"><p>これを可視化するもう一つの方法は、<a href="#sec-ch2" class="quarto-xref"><span class="quarto-unresolved-ref">sec-ch2</span></a> でロジスティック写像について行ったように分岐図を作ることである。x 軸に <span class="math inline">\(0\)</span> から <span class="math inline">\(2\)</span> までの <span class="math inline">\(a\)</span> を置く。y 軸に <a href="#eq-ch3-3-old-7" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch3-3-old-7</span></a> の固定点である <span class="math inline">\(X^{*}\)</span> をプロットする。安定な固定点には実線を、不安定な点には破線を用いる。図は <a href="#fig-ch3-img5-old-17" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img5-old-17</span></a> に示されている。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">折り目は振る舞いの突然のジャンプを伴わないことに注意しよう。それは二次相転移の一例である。</span></div></div>
+<div id="fig-ch3-img5-old-17" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img5-old-17-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/fig-ch3-img5-old-17.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img5-old-17-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: 折り目カタストロフィの分岐図。<a href="#fig-ch3-img4-old-16" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img4-old-16</span></a> に示されたものと同様に、<span class="math inline">\(a=0\)</span> のとき、平衡状態のランドスケープに劇的な変化が生じる。突然、あたかも何もないところから、安定な平衡状態と不安定な平衡状態の両方が創発する。
+</figcaption>
+</figure>
+</div>
+<p>この分岐図はロジスティック写像ほど目覚ましくは見えないかもしれないが、その重要性はいくら強調してもしすぎることはない。折り目はいたるところにある！ 魅力的な本『曲線の誘惑（The Seduction of Curves）』において、Allen <span class="citation" data-cites="mcrobieSeductionCurvesLines2017">McRobie (<a href="#ref-mcrobieSeductionCurvesLines2017" role="doc-biblioref">2017</a>)</span> は、私たちが縁を見るときは常に折り目を見ている、ということを示している。<a href="#fig-ch3-img6-old-18" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img6-old-18</span></a> はこの本からのもので、そこで彼はさまざまなカタストロフィが芸術においてどのように現れるかを実演している。彼の YouTube 講義も推薦する。<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<div id="fig-ch3-img6-old-18" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img6-old-18-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-6__figure18.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img6-old-18-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: 素描における折り目。折り目線は、見える部分を隠れている部分から隔てる。（許可を得て <span class="citation" data-cites="mcrobieSeductionCurvesLines2017">McRobie (<a href="#ref-mcrobieSeductionCurvesLines2017" role="doc-biblioref">2017</a>)</span> より改変）
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p>折り目カタストロフィは、進化論 <span class="citation" data-cites="dodsonAllopatricSpeciationFold1977">(<a href="#ref-dodsonAllopatricSpeciationFold1977" role="doc-biblioref">Dodson and Hallam 1977</a>)</span> から潜水における浮力 <span class="citation" data-cites="guemezCartesianDiverFold2002">(<a href="#ref-guemezCartesianDiverFold2002" role="doc-biblioref">Güémez, Fiolhais, and Fiolhais 2002</a>)</span> に至るまでの分野で研究されてきた。加えて、高次のカタストロフィは折り目から構成される。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">折り目カタストロフィは、鞍点分岐、接分岐、あるいはブルースカイ分岐としても知られている。</span></div></div>
+</section>
+<section id="sec-The-cusp-catastrophe" class="level3 page-columns page-full" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="sec-The-cusp-catastrophe"><span class="header-section-number">3.3.3</span> カスプ・カタストロフィ</h3>
+<div class="page-columns page-full"><p> 最もよく知られたカタストロフィであるカスプは、振る舞いの突然のジャンプを示す最も単純なカタストロフィである。カスプのポテンシャル関数は次のとおりである。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">安定状態間の突然のジャンプは、一次相転移と結び付いている。</span></div></div>
+<p><span id="eq-ch3-4-old-8"><span class="math display">\[ V(X) = - aX - \frac{1}{2}bX^{2} + \frac{1}{4}X^{4}.  \tag{3.4}\]</span></span></p>
+<div class="page-columns page-full"><p>後の導出を少し容易にするために、2分の1と4分の1が加えられている。最高次のべきは今や 4 である。最初の二つの項は制御変数 <span class="math inline">\(a\)</span> と <span class="math inline">\(b\)</span> を含み、それぞれ正規変数、分裂変数として知られている。 なぜ三次の項がないのかと問うかもしれない。技術的でない答えは、そのような項は分岐の質的な振る舞いを変えないだろう、というものである。カタストロフィ理論は、構造的に安定な分岐を研究する。これは、方程式を（パラメータだけでなく）摂動させても振る舞いが根本的には変わらない、ということを意味する（さらなる説明は <a href="#sec-Other-bifurcations" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Other-bifurcations</span></a> と <span class="citation" data-cites="stewartCatastropheTheoryPhysics1982">Stewart (<a href="#ref-stewartCatastropheTheoryPhysics1982" role="doc-biblioref">1982</a>)</span> を参照）。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">制御変数とは、その緩やかな変化がシステムの振る舞いに質的な変化を誘発するパラメータである。</span></div></div>
+<p>私は、Desmos や GeoGebra のようなオンラインのグラフ計算ツールを用いて、この方程式について自分で最小限の研究を行うことを勧める（f(X)=-a X-(1/2) b X^2+(1/4) X^4 を貼り付けよ）。たとえば <span class="math inline">\(a = 1\)</span>、<span class="math inline">\(b = 3\)</span> に設定し、ポテンシャル関数のグラフを見よ。ボールが安定な固定点へと動く、という観点で考えよ。見て取れるはずなのは、三つの固定点があり、そのうち中央のものが不安定である、ということである。この双安定性は重要である。ここでも予測不可能性との関係がある。ポテンシャル関数と <span class="math inline">\(a\)</span> と <span class="math inline">\(b\)</span> の値を知っているにもかかわらず、ボールがどこにあるのかは依然として確信できない。それは二つの極小のいずれにあってもおかしくない。</p>
+<p>もう一つの典型的な振る舞いは、正の <span class="math inline">\(b\)</span> の値（<span class="math inline">\(b = 2\)</span>）について、<span class="math inline">\(a\)</span> を（-2 から 2 まで上下に）ゆっくりと変化させるときに生じる。これは <a href="#fig-ch3-img7-old-19" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img7-old-19</span></a> に示されている。<span class="math inline">\(a = 1.5\)</span> 付近で突然のジャンプが見られる。左の固定点が安定性を失い、ボールは他方の極小へと転がる。</p>
+<div id="fig-ch3-img7-old-19" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img7-old-19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-7__figure19.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img7-old-19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: <span class="math inline">\(a\)</span> を変化させることによるカスプのポテンシャル関数の変化。他方の状態へのジャンプは <span class="math inline">\(a=0\)</span> で起こるのではなく、遅れて起こり、<span class="math inline">\(a\)</span> の変化の方向に依存することに注意しよう。この遅れはヒステリシスと呼ばれる。
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p>さて、<span class="math inline">\(a\)</span> を 2 から -2 へと減少させるとどうなるかを考えよう。 この場合、ボールは <span class="math inline">\(a = - 1.5\)</span> になるまで右の極小にとどまる。ジャンプがどこで起こるかは、正規変数である <span class="math inline">\(a\)</span> の変化の方向に依存する。ジャンプの遅れはヒステリシスと呼ばれる。ヒステリシスは、複雑系における変化ないし変化の欠如を理解するうえで非常に重要である。ボールがより浅い極小にある状態（<a href="#fig-ch3-img7-old-19" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img7-old-19</span></a> における <span class="math inline">\(a = 0.5\)</span> について）は、しばしば準安定状態ないし局所的に安定な状態と呼ばれる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">ヒステリシスは遅れ、すなわち変化への抵抗を意味する。</span><span class="margin-aside">準安定状態は、しばらくの間安定であるように見えるが、その大域的に安定な状態にはない。</span></div></div>
+<p>精神物理学的法則に関する古典的な論文において、<span class="citation" data-cites="stevens1957">Stevens (<a href="#ref-stevens1957" role="doc-biblioref">1957</a>)</span> は、明るさや大きさのような性質が低から高へ、またその逆へと体系的に変化させられるとき、知覚判断にヒステリシスが生じることを報告している。この論文で彼はこう述べている。「私はそれを記述しようとしているのであって、説明しようとしているのではない。どう説明すればよいのか、私にはわからない」。私にとって、カスプは少なくとも部分的には、なぜヒステリシスが生じるのかを説明する。</p>
+<p><span class="citation" data-cites="gilmoreCatastropheTheoryScientists1993">Gilmore (<a href="#ref-gilmoreCatastropheTheoryScientists1993" role="doc-biblioref">1993</a>)</span> は、システム内のノイズについて重要な指摘をした。ノイズが多ければ、ジャンプはより早く起こり、ヒステリシス効果はより少なくなるか、まったく見られなくなる。これは「遅延」の慣行と対比して、マクスウェルの慣行と呼ばれる。したがって、ヒステリシスを実証するには精確な実験的統制が必要である。</p>
+<p>もう一つの非常に興味深いパターンは、<span class="math inline">\(a = 0\)</span> で <span class="math inline">\(b\)</span> を増加させるときに生じる（<a href="#fig-ch3-img8-old-20" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img8-old-20</span></a>）。</p>
+<div id="fig-ch3-img8-old-20" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img8-old-20-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-8__figure20.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img8-old-20-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.8: <span class="math inline">\(b\)</span> を変化させることによるカスプのポテンシャル関数の変化。一つの極小が二つに分裂する。
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p>低い <span class="math inline">\(b\)</span> については、一つの安定な固定点があり、それが不安定になる。それは二つの新たな安定なアトラクタへと分裂する。 折り目について行ったように、<span class="math inline">\(a\)</span> と <span class="math inline">\(b\)</span> の関数として <span class="math inline">\(X\)</span> の平衡状態を示す分岐図を作れる。<span class="math inline">\(a\)</span> 軸に沿ってヒステリシスが見られ、<span class="math inline">\(b\)</span> 軸に沿って分岐（ダイバージェンス）、すなわちしばしば熊手分岐と呼ばれるものが見られる（<a href="#fig-ch3-img9-old-21" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img9-old-21</span></a>）。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">熊手（ピッチフォーク）分岐は、パラメータが変化するにつれて単一の平衡状態が三つ（二つの安定と一つの不安定）に分裂するときに生じ、熊手の形に似ている。</span></div></div>
+<div id="fig-ch3-img9-old-21" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img9-old-21-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-9.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img9-old-21-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.9: カスプの <span class="math inline">\(a\)</span> と <span class="math inline">\(b\)</span> のパラメータの分岐プロット。<span class="math inline">\(b\)</span> が正であると仮定して <span class="math inline">\(a\)</span> 軸に沿って動くと、ヒステリシスが得られる。<span class="math inline">\(a=0\)</span> と仮定して <span class="math inline">\(b\)</span> 軸に沿って動くと、熊手分岐すなわちダイバージェンスが得られる。点線は不安定な極大を表す。第一のプロットの点線の枠内の領域は折り目である。
+</figcaption>
+</figure>
+</div>
+<p><span class="math inline">\(a\)</span> と <span class="math inline">\(b\)</span> の複合的な効果を描くには三次元プロットが必要であり、それはヒステリシスの図と熊手の図を組み合わせたものである（<a href="#fig-ch3-img10-old-22" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img10-old-22</span></a>）。</p>
+<div id="fig-ch3-img10-old-22" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img10-old-22-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-10-june14.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img10-old-22-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.10: カスプ・カタストロフィは、正規軸（<span class="math inline">\(a\)</span>）に沿ったヒステリシスと、分裂軸（<span class="math inline">\(b\)</span>）に沿った熊手を組み合わせたものである。カスプの後方では、<span class="math inline">\(a\)</span> の変化は平衡状態の振る舞い <span class="math inline">\(X^{*}\)</span> の滑らかな変化のみをもたらす。前方では、分岐線を横切るとき突然のジャンプが生じる。これらのジャンプは一次相転移に典型的である。分岐線の間の領域は分岐集合と呼ばれる。この領域には二つの安定な平衡状態と一つの不安定な平衡状態がある（灰色で網掛け）。
+</figcaption>
+</figure>
+</div>
+<p>カスプの図は、一階導関数を 0 に設定することで数学的に表現できる。</p>
+<p><span id="eq-ch3-5-old-9"><span class="math display">\[
+V^{'}(X) = {- a - bX + X}^{3} = 0.
+\tag{3.5}\]</span></span></p>
+<p>この種の方程式は三次方程式と呼ばれる。<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> カスプの退化した臨界点は、一階導関数と二階導関数を 0 に設定することで見出せる。これはあなたの高校数学の訓練でぎりぎり手の届く範囲であり、演習として残しておく。結果は次のとおりである。</p>
+<p><span id="eq-ch3-6-old-10"><span class="math display">\[
+27a^{2} = 4b^{3}.
+\tag{3.6}\]</span></span></p>
+<p>この方程式は、一階導関数と二階導関数がともに 0 になり、突然のジャンプが生じる分岐線を定義する（<a href="#fig-ch3-img10-old-22" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img10-old-22</span></a> を参照）。分岐線の間の領域が分岐集合である。この領域では、カスプは三つの固定点をもち、そのうち中央のものが不安定である。中央のこれらの不安定な状態は到達不能領域と呼ばれ、カスプの図で灰色に網掛けされている。分岐線は <span class="math inline">\((0,0,0)\)</span> で交わる。この点では三階導関数も 0 である。これがカスプ点である。</p>
+</section>
+<section id="sec-Examples-of-cusp-models" class="level3 page-columns page-full" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="sec-Examples-of-cusp-models"><span class="header-section-number">3.3.4</span> カスプモデルの例</h3>
+<p>カスプを例示するのに、私は常に名刺を用いる（<a href="#fig-ch3-img11-old-23" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img11-old-23</span></a>）。この例を試してみることを勧める（クレジットカードでは試すな）。二つの力で遊べる。<span class="math inline">\(Fv\)</span> は鉛直方向の力であり、カスプにおける分裂制御変数（<span class="math inline">\(b\)</span>）である。<span class="math inline">\(Fh\)</span> は水平方向の力であり、カスプにおける正規変数（<span class="math inline">\(a\)</span>）である。<span class="math inline">\(Fv = 0\)</span> のときにのみ滑らかな変化が得られるが、鉛直方向の力を加えると突然のジャンプとヒステリシスが得られることに注意しよう。一つの非常に重要な現象は、<span class="math inline">\(Fv = 0\)</span> のときカードには「記憶」がない、ということである。カードをある位置に押しやることはできるが、この力を解放するや否や（<span class="math inline">\(Fh\)</span> を 0 に戻すや否や）、カードは中央の位置に戻る。鉛直方向の圧力ではこうはならない。カードを左または右の位置に強制すれば、水平方向の力を取り除いても、それはそこにとどまる。カードには記憶がある。</p>
+<div id="fig-ch3-img11-old-23" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img11-old-23-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-11-may31.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img11-old-23-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.11: 単純な名刺は、カスプのすべての性質を例示するのに用いることができる（本文を参照）。
+</figcaption>
+</figure>
+</div>
+<p>これは単純に見えるが、そのような弾性的な曲げ構造の数学的分析は、それ自体が巨大な話題である <span class="citation" data-cites="postonCatastropheTheoryIts2014">(<a href="#ref-postonCatastropheTheoryIts2014" role="doc-biblioref">Poston and Stewart 2014</a>)</span>。水の凝固もまたカスプである。近似として、水の密度が振る舞い変数、温度が正規変数、圧力が分裂変数として作用する、と言えるだろう（より繊細な分析については <span class="citation" data-cites="postonCatastropheTheoryIts2014">Poston and Stewart (<a href="#ref-postonCatastropheTheoryIts2014" role="doc-biblioref">2014</a>)</span> の第14章を参照）。水の完全な相図を研究することは非常に教育的である（<a href="#fig-ch3-img12-old-24" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img12-old-24</span></a>）。それは平衡状態の地図とみなすことができる。この種の地図作成は、心理学と社会科学において極めて有用であろう。</p>
+<div id="fig-ch3-img12-old-24" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img12-old-24-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-12-may31.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img12-old-24-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.12: 水の相図。温度と圧力の関数として、水の状態における平衡状態と転移を要約したもの。
+</figcaption>
+</figure>
+</div>
+<p>カスプの心理学的な例は、態度の突然のジャンプに関わる <span class="citation" data-cites="lataneAttitudesCatastrophesDimensions1994 vandermaasSuddenTransitionsAttitudes2003">(<a href="#ref-lataneAttitudesCatastrophesDimensions1994" role="doc-biblioref">Latané and Nowak 1994</a>; <a href="#ref-vandermaasSuddenTransitionsAttitudes2003" role="doc-biblioref">van der Maas, Kolstein, and van der Pligt 2003</a>)</span>。態度については後の章でさらに詳しく論じる。一般に、私たちは人生の多くの事柄（政治、蛇、ハンバーガー、スポーツ）に対して比較的安定した態度をもっているが、時にそれらは変化し、まれには急進的に変化する。たとえば、突然、陰謀論者、無神論者、あるいは菜食主義者になるかもしれない。一例は妊娠中絶に対する態度である（<a href="#fig-ch3-img13-old-25" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img13-old-25</span></a>）。</p>
+<div id="fig-ch3-img13-old-25" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img13-old-25-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-13-june14.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img13-old-25-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.13: 態度（ここでは妊娠中絶に対する）のカスプモデル。ヒステリシスのために、深く関与している人々を新たな情報で説得することは非常に難しいが、もし彼らが変化するなら、それは突然のジャンプとなる。
+</figcaption>
+</figure>
+</div>
+<p>カスプのモデリングは、振る舞い変数の状態を定義することから始まる。この場合、双安定カスプの二つの状態は、対立する二つの立場、すなわちプロライフ（生命尊重）<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> とプロチョイス（選択尊重）である。<span class="math inline">\(a = 0, b = 0\)</span> と結び付いたもう一つの状態は、中立的な状態、すなわち「わからない」あるいは「関心がない」という立場である。</p>
+<p>正規変数（<span class="math inline">\(a\)</span>）と分裂変数（<span class="math inline">\(b\)</span>）は、情報と関与として解釈される。情報は、人々がプロライフの立場にあるかプロチョイスの立場にあるかに影響を与える諸要因の集まりである。政治的・宗教的な志向、そして個人的な経験が、この全体的な要因に加わる。この情報変数を構成する一つの方法は、因子分析または主成分分析を通じてである。</p>
+<p>分裂要因である関与もまた、いくつもの効果（重要性、注意）を組み合わせたものである。主たる考えは、独立変数には二つのタイプがある、というものである。あるものは（主に）正規軸に沿って働き、あるものは（主に）分裂軸に影響する。</p>
+<div class="page-columns page-full"><p>このモデルの含意は、低い関与については変化が連続的である、ということである（<a href="#fig-ch3-img13-old-25" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img13-old-25</span></a>）。プロライフないしプロチョイスの立場を支持する何らかの新しい情報を人々に提示することは、中程度の効果をもつだろう。名刺で実証したように、一つの問題は、関与していない人には「記憶がない」ということである。この人に影響を与えるのをやめるや否や、彼らは中立的な「関心がない」という立場へと漂っていく。人々が深く関与しているとき、私たちにはもう一つの問題がある。すなわち、彼らはヒステリシスを経験する。 このヒステリシス効果が大きいとき、説得はまったく機能しない。政治的議論に関わったことがあれば、おそらくそれを自分で経験しているだろう。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">ヒステリシス効果のために、新たな情報で人々を説得することは非常に難しい。</span></div></div>
+<div class="page-columns page-full"><p>しかし、基礎となる情報の変化が十分に大きければ、態度は突然のジャンプを示しうる。それらが中心的な態度であれば、それは人生の大きな出来事となりうる。そのような転移についての逸話的証拠は多い <span class="citation" data-cites="ebaugh1988">(<a href="#ref-ebaugh1988" role="doc-biblioref">Ebaugh 1988</a>)</span> が、そのような効果を態度測定の実際の時系列で捉えることは非常に難しい。カスプモデルと整合するもう一つの効果はアンビバレンス（両価性）である。 アンビバレンスは高い関与と結び付いている。均衡した情報（<span class="math inline">\(a = 0\)</span>）をもつ深く関与した人々は、極端な立場の間で振動しうる（<a href="#fig-ch4n-img2-old-50" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch4n-img2-old-50</span></a> を参照）。最後に、熊手分岐は争点や政治の分極化を説明できる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">態度のカスプモデルにおいて、アンビバレンスは中立であることと同じではない。</span><span class="margin-aside">中立的な人々の集団において、たとえば議論のために関与が増大すると、彼らは二つの極端な立場に分裂しうる（分極化）。</span></div></div>
+<p>カスプのような振る舞いのもう一つの心理学的な例は多安定知覚である。<span class="citation" data-cites="stewartCatastropheTheoryModeling1983">Stewart and Peregoy (<a href="#ref-stewartCatastropheTheoryModeling1983" role="doc-biblioref">1983</a>)</span> は、男性の顔または女性の姿の知覚を振る舞い変数として用い、分裂変数を細部の量、正規変数を男性／女性の区別に関係する細部の変化とするモデルを提案した。結果は <a href="#fig-ch3-img14-old-26" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img14-old-26</span></a> に示されている。</p>
+<div id="fig-ch3-img14-old-26" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img14-old-26-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/image14.jpg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img14-old-26-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.14: 分岐集合内に配置された多安定知覚刺激。当てはめられた分岐線は、<a href="#sec-Cobbs-maximum-likelihood-approach" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Cobbs-maximum-likelihood-approach</span></a> で説明するコブの方法を用いて計算した。（許可を得て <span class="citation" data-cites="stewartCatastropheTheoryModeling1983">Stewart and Peregoy (<a href="#ref-stewartCatastropheTheoryModeling1983" role="doc-biblioref">1983</a>)</span> より改変）
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-Higher-order-catastrophes" class="level3 page-columns page-full" data-number="3.3.5">
+<h3 data-number="3.3.5" class="anchored" data-anchor-id="sec-Higher-order-catastrophes"><span class="header-section-number">3.3.5</span> 高次のカタストロフィ</h3>
+<p>カスプが折り目から構成されていることに注意しよう。これは <a href="#fig-ch3-img9-old-21" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img9-old-21</span></a> のヒステリシスの図で最もよく見て取れる（点線の長方形を参照）。高次のカタストロフィはカスプと折り目の要素を生む。ポテンシャル関数 <span class="math inline">\(V(X) = {- aX - \frac{1}{2}bX^{2} - \frac{1}{3}cX}^{3} + \frac{1}{5}X^{5}\)</span> をもつ燕尾（スワローテイル）カタストロフィは、三つの折り目分岐の面が二つのカスプ分岐の線で交わり、それらがさらに単一の燕尾分岐点で交わるものから成る。これを可視化するには四次元空間が必要であり、それは難しい。カタストロフィ理論に関するウィキペディアのページには、役立つかもしれない回転するグラフがいくつかある。蝶（バタフライ）カタストロフィは、最高次の項として <span class="math inline">\(X^{6}\)</span> をもつ（そして四つの制御変数をもつ）。</p>
+<div class="page-columns page-full"><p> このカタストロフィについては、態度のモデリングに関連して <a href="#sec-Tricriticality" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Tricriticality</span></a> で論じる。<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> 他のカタストロフィは、一つではなく二つの振る舞い変数をもつ。しかし、カタストロフィ理論の応用の圧倒的大多数はカスプに焦点を当てており、これが本章の残りの焦点でもある。カタストロフィ理論の全容を提示する良い（しかし容易ではない）本が多くある <span class="citation" data-cites="gilmoreCatastropheTheoryScientists1993 postonCatastropheTheoryIts2014">(<a href="#ref-gilmoreCatastropheTheoryScientists1993" role="doc-biblioref">Gilmore 1993</a>; <a href="#ref-postonCatastropheTheoryIts2014" role="doc-biblioref">Poston and Stewart 2014</a>)</span>。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">蝶カタストロフィは、三峰性の振る舞いを観察するときに関心の対象となる。</span></div></div>
+</section>
+<section id="sec-Other-bifurcations" class="level3 page-columns page-full" data-number="3.3.6">
+<h3 data-number="3.3.6" class="anchored" data-anchor-id="sec-Other-bifurcations"><span class="header-section-number">3.3.6</span> 他の分岐</h3>
+<div class="page-columns page-full"><p>分岐理論とは対照的に、カタストロフィ理論は構造的に安定な局所分岐に限られる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">分岐理論はまた、構造的に安定でない分岐や、いわゆる大域分岐も扱う。</span></div></div>
+<p>構造的に安定でない局所分岐の例は、超臨界分岐（<span class="math inline">\(\frac{dX}{dt} = aX - X^{2}\)</span>）と熊手分岐（<span class="math inline">\(\frac{dX}{dt} = bX - X^{3}\)</span>）である。熊手はカスプの一部であり、構造的に安定でない。というのも、それは追加の項 <span class="math inline">\(a\)</span> によって摂動されうるからである。<span class="math inline">\(a\)</span> が 0 に等しくなければ、それは熊手を歪める（<a href="#fig-ch3-img15-old-27" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img15-old-27</span></a> を参照）。</p>
+<div id="fig-ch3-img15-old-27" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img15-old-27-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-15-may31.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img15-old-27-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.15: 摂動された熊手分岐（<span class="math inline">\(a = .1\)</span>）。<span class="math inline">\(a = 0\)</span> については、<a href="#fig-ch3-img9-old-21" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img9-old-21</span></a> に示された熊手分岐が得られる。したがって、モデルパラメータの摂動がこの分岐に質的な変化をもたらし、これがそれが構造的に安定とみなされない理由である。
+</figcaption>
+</figure>
+</div>
+<p>すでに見たもう一つは周期倍化分岐である。これは、固定点が周期 2 のリミットサイクルに変化したとき、ロジスティック写像で生じた。最後に、大域分岐は、リミットサイクルが発散するときのように、位相空間内の小さな近傍に局在化できない <span class="citation" data-cites="guckenheimerGlobalBifurcations1983">(<a href="#ref-guckenheimerGlobalBifurcations1983" role="doc-biblioref">Guckenheimer and Holmes 1983</a>)</span>。しかし、心理学や社会科学における大域分岐の応用を私は知らない。</p>
+</section>
+</section>
+<section id="sec-Building-catastrophe-models" class="level2 page-columns page-full" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-Building-catastrophe-models"><span class="header-section-number">3.4</span> カタストロフィモデルの構築</h2>
+<section id="sec-Mechanistic-models" class="level3 page-columns page-full" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="sec-Mechanistic-models"><span class="header-section-number">3.4.1</span> メカニズム的モデル</h3>
+<div class="page-columns page-full"><p>妊娠中絶に対する態度のモデルは、メカニズム的モデルと対比して、現象論的モデルと呼ばれる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">現象論的モデルにおいては、カスプの存在を仮定し、関与する変数について仮説を立てる。メカニズム的アプローチにおいては、カスプは基本的な仮定ないし第一原理から導かれる。</span></div></div>
+<p>メカニズム的アプローチは、物理科学や生命科学ではるかに一般的である。一例は、ファン・デル・ワールス方程式によって記述される水の相転移である。<span class="citation" data-cites="postonCatastropheTheoryIts2014">Poston and Stewart (<a href="#ref-postonCatastropheTheoryIts2014" role="doc-biblioref">2014</a>)</span> は、ファン・デル・ワールス方程式がどのようにカスプ方程式の形をとるように再パラメータ化できるかを示している。その利点は、温度と圧力がカスプの制御変数とどのように関係しているかを学べることである。これは、この相転移のダイナミクスの完全な理解を与えてくれる。</p>
+<p>第4章 <a href="#sec-Analogical-modeling-Budworms-and-Beers" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Analogical-modeling-Budworms-and-Beers</span></a> で私が心理学的モデルとして用いる一つのモデルは、トウヒノシントメハマキ（spruce budworm）の大発生のモデルである。これは30〜40年ごとに生じ、数千万ヘクタールの樹木の落葉をもたらす <span class="citation" data-cites="ludwig1978">(<a href="#ref-ludwig1978" role="doc-biblioref">Ludwig, Jones, and Holling 1978</a>)</span>。このモデルは次のとおりである。</p>
+<p><span id="eq-ch3-7-old-11"><span class="math display">\[
+\frac{dN}{dt} = r_{b}N\left( 1 - \frac{N}{K} \right) - \frac{BN^{2}}{A^{2} + N^{2}}.
+\tag{3.7}\]</span></span></p>
+<p>ここで <span class="math inline">\(N\)</span> はハマキの個体群の大きさ、<span class="math inline">\(r_{b}\)</span> は成長率、<span class="math inline">\(K\)</span> は環境収容力、<span class="math inline">\(B\)</span> は捕食の上限、そして <span class="math inline">\(1/A\)</span> は捕食者の応答性である。</p>
+<p>第一の部分はロジスティック成長方程式である。<span class="math inline">\(N\)</span> は速度 <span class="math inline">\(r_{b}\)</span> で <span class="math inline">\(K\)</span> まで成長する。これは差分方程式ではなく微分方程式であることに注意しよう。連続時間のロジスティック成長にはカオスはない。第二の部分は捕食関数であり、<span class="math inline">\(B\)</span> で平坦になる増加する形をもつ。この関数の曲率は <span class="math inline">\(A\)</span> によって決まる。高い <span class="math inline">\(A\)</span> は関数をより急でなくする。これは、捕食がハマキの増加にかなりゆっくりと反応する、ということを意味する（このモデルの構築については後で詳述する）。</p>
+<p>このモデルへの解析的アプローチは、モデルがカスプの形をとるように再パラメータ化することである。そのような再パラメータ化を自分で行うのはそれほど容易ではない。その考えは、モデルパラメータの関数である、より少数の新たな変数の集合を作ることである。このモデルにとって便利な再パラメータ化は次のとおりである。</p>
+<p><span id="eq-ch3-8-old-12"><span class="math display">\[
+r = \frac{A\ r_{b}}{B}\text{ and}\ q = \frac{K}{A}.
+\tag{3.8}\]</span></span></p>
+<p>これら二つの「構成された」制御変数を用いて、<a href="#fig-ch3-img16-old-28" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img16-old-28</span></a> のようにカスプの分岐線を描ける。</p>
+<div id="fig-ch3-img16-old-28" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img16-old-28-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-16-may31.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img16-old-28-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.16: トウヒノシントメハマキモデルの分岐図。分岐集合には、二つの代替的な安定状態、すなわち通常の個体群水準と大発生水準がある。
+</figcaption>
+</figure>
+</div>
+<p>後の章ではメカニズム的アプローチの心理学的な例を論じるが、転移のモデルに関する限り、これらはまれである。現象論的アプローチのほうがはるかに一般的である。</p>
+</section>
+<section id="sec-Phenomenological-models" class="level3 page-columns page-full" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="sec-Phenomenological-models"><span class="header-section-number">3.4.2</span> 現象論的モデル</h3>
+<p>態度のカスプモデルは典型的な現象論的モデルである。私たちは単に、カスプが態度のモデルであると仮定する。現象論的モデルは、システムを駆動する基礎的なメカニズムの深い理解を提供しないので、メカニズム的モデルほど説得力がない。しかし心理学と社会科学では、あまり選り好みはできない。他の多くの、言語的に述べられた態度モデルと比べると、カスプ態度モデルはかなり精確である。それはいくつもの現象を含意し、検証可能である。</p>
+<p>現象論的モデルを立てることは自明な作業ではない。私はこれについていくつかの指針を提案する。第一に、振る舞い変数を定義せよ。双安定なモードについて考えることが重要である。それらは何か。その間にある到達不能状態は何か。これらの状態の間でジャンプが起こりうるか。カスプの後方にある中立状態は何か。これらの問いに答えられないなら、カスプが適切なモデルであるかどうかを再考すべきである。</p>
+<p>第二に、制御変数を選べ。何が正規変数となりうるか、何が分裂変数となりうるか。これらは容易な問いではない。時には候補が多すぎることもある。態度のカスプモデルについては、関与の代わりに、興味、重要性、感情的価値などを提案できるだろう。この場合、私は分裂軸を、これらの少しずつ異なる変数すべての共通因子と考える。他の場合には、良い候補がない。<a href="#fig-ch3-img14-old-26" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img14-old-26</span></a> の例では、正規軸に沿って何が操作されているのかが正確には明らかでない。選択をしたなら、分裂値の高い値において、正規変数の変化が突然のジャンプとヒステリシスをもたらしうるかどうかを確認するとよい。また、熊手分岐が理論的に意味をなすかどうかも確認せよ。<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<div class="page-columns page-full"><p>ここにはもう一つの問題がある。 一部の現象論的モデルでは、制御変数が45度回転させられる。最も有名な例は、ゼーマンの <span class="citation" data-cites="zeemanCatastropheTheory1976">(<a href="#ref-zeemanCatastropheTheory1976" role="doc-biblioref">1976</a>)</span> 犬の攻撃性のモデルである（<a href="#fig-ch3-img17-old-29" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img17-old-29</span></a>）。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">カスプモデルの制御変数は、解釈を容易にするために回転させることができる。</span></div></div>
+<div id="fig-ch3-img17-old-29" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img17-old-29-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-17-june14.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img17-old-29-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.17: 怒りと恐怖を回転させた制御変数とするゼーマンの犬の攻撃性モデル。
+</figcaption>
+</figure>
+</div>
+<p>制御変数は恐怖と怒りである。このような回転において、正規変数は恐怖と怒りの差であり、分裂変数は恐怖と怒りの和である。もう一つの例は、反応時間課題における速度・正確性トレードオフの私たちのモデルに見出される <span class="citation" data-cites="dutilhPhaseTransitionModel2011">(<a href="#ref-dutilhPhaseTransitionModel2011" role="doc-biblioref">Dutilh et al. 2011</a>)</span>。現象論的モデルを構成するとき、制御変数を定義するこれら二つの選択肢を考慮すべきである。</p>
+<p>仕事やスポーツにおけるパフォーマンスの破局的な低下を説明するために、<span class="citation" data-cites="hardy1991">Hardy and Parfitt (<a href="#ref-hardy1991" role="doc-biblioref">1991</a>)</span> は、認知的不安を分裂要因、生理的覚醒を正規要因とするカスプモデルを提案した。その考えは、高い認知的不安の水準では、覚醒の増減がヒステリシス効果を含む突然の変化をもたらす、というものである。<span class="citation" data-cites="hardyTestingPredictionsCusp1996">Hardy (<a href="#ref-hardyTestingPredictionsCusp1996" role="doc-biblioref">1996</a>)</span> はこのモデルのさらなる検証を提示しており、これは <span class="citation" data-cites="cohenCriticalElaborationEmpirical2003">Cohen, Pargman, and Tenenbaum (<a href="#ref-cohenCriticalElaborationEmpirical2003" role="doc-biblioref">2003</a>)</span> によって批判されている。蝶モデルへの拡張は <span class="citation" data-cites="guastello1984">Guastello (<a href="#ref-guastello1984" role="doc-biblioref">1984</a>)</span> と <span class="citation" data-cites="hardy2004">Hardy, Woodman, and Carrington (<a href="#ref-hardy2004" role="doc-biblioref">2004</a>)</span> で提示されている。</p>
+<p>カスプモデルは嗜癖についても開発されてきた <span class="citation" data-cites="guastello1984 mazanovCuspCatastropheModel2006">(<a href="#ref-guastello1984" role="doc-biblioref">Guastello 1984</a>; <a href="#ref-mazanovCuspCatastropheModel2006" role="doc-biblioref">Mazanov and Byrne 2006</a>)</span>。<span class="citation" data-cites="witkiewitzNonnormalityDivergencePosttreatment2007">Witkiewitz et al. (<a href="#ref-witkiewitzNonnormalityDivergencePosttreatment2007" role="doc-biblioref">2007</a>)</span> は、遠位のリスクを分裂軸、近位のリスクを正規軸として用いることを提案している。このモデルは、アルコール依存症に対するさまざまな治療の有効性についての八年にわたる多施設調査である Project MATCH の著名なデータセットを用いて検証されている。</p>
+<div class="page-columns page-full"><p>最後の例として、<span class="citation" data-cites="paulosMathematicsHumor2008">Paulos (<a href="#ref-paulosMathematicsHumor2008" role="doc-biblioref">2008</a>)</span> が数学とユーモアに関する魅力的な本で提示したユーモアのモデルを挙げる。パウロスはこのモデルをだじゃれの文脈で説明している。彼の例は「クラブ（棍棒）は幼い子どもに適していると思いますか」で、そのオチは「優しさが通用しないときだけね」である。これはおそらく子どものいる人にだけ面白い。パウロスは、犬の攻撃性モデルのように回転させた制御軸を用いる。だじゃれの解釈が振る舞い軸である。一方の軸は「クラブ」の第一の意味を、他方の軸は第二の意味を表す。分岐集合は曖昧な領域を表す。冗談は、一つの意味から別の意味へのジャンプを含む。 パウロスは、このカスプモデルが認知的不一致理論、さまざまなユーモアの心理学理論、そして笑いの解放理論を組み合わせたものだと主張している。<span class="citation" data-cites="tschacher2023">Tschacher and Haken (<a href="#ref-tschacher2023" role="doc-biblioref">2023</a>)</span> は、関連するユーモアの複雑性説明を提案している。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">オチは、笑いを通じた緊張の解放を伴う、解釈の破局的な変化を強いる。</span></div></div>
+</section>
+</section>
+<section id="sec-Testing-catastrophe-models" class="level2 page-columns page-full" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec-Testing-catastrophe-models"><span class="header-section-number">3.5</span> カタストロフィモデルの検証</h2>
+<section id="sec-The-catastrophe-flags" class="level3 page-columns page-full" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="sec-The-catastrophe-flags"><span class="header-section-number">3.5.1</span> カタストロフィ・フラグ</h3>
+<div class="page-columns page-full"><p>突然とはどれほど突然なのか。気候変動の転移が数百年を要するとき、それはどのようにして段階（すなわち氷河期）間の転移とみなせるのか。ボールが新たな極小に向かって転がっているときでさえ、転がるのに時間がかかる。 しかしそうすると、ロジスティック成長パターンに見られるような連続的な加速との違いは何なのか。加速と、突然で不連続なジャンプの時間経過は、非常に似て見えるかもしれない（<a href="#fig-ch3-img18-old-30" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img18-old-30</span></a>）。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">突然の転移は瞬時ではないが、その中間状態は不安定である。</span></div></div>
+<div id="fig-ch3-img18-old-30" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img18-old-30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-18-may31.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img18-old-30-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.18: 連続的な成長曲線と不連続な成長曲線は、非常に似て見えるかもしれない。
+</figcaption>
+</figure>
+</div>
+<p>実際、時系列データという点では、それらはまったく同じに見えるかもしれない。主たる違いは、連続的な場合には中間の値が安定である、ということである。加速は、その位置を素早く変える二次の極小として理解できる。過程の途中で操作した制御変数を凍結して過程を止めれば、状態は中間の値にとどまる。これらの中間の値はすべて安定な値である。不連続な過程で操作変数を凍結すれば、それは安定な状態へと動き続ける。この場合、中間の状態は不安定である。ボールは転がり続け、そして残念ながら気候は変わり続ける。</p>
+<p>実際に時系列データを用いる場合、これは行うのが難しい区別である。それは、加速を相転移から区別するには単純な時系列では不十分である、ということを意味する。ではどうやって二つの過程を区別するのか。カタストロフィ理論の文脈で、Gilmore（1993）はカタストロフィ・フラグを提案した。これらは、データに見て取れるカスプに関連する現象である。これらのどれか一つだけではカスプを示すのに十分ではないが、まとめて考えると、その存在についての説得力のある証拠を提供する。</p>
+<p>以下の小節では、これらのフラグを定義し、例を用いてその心理学における応用を例示する。第一のフラグは突然のジャンプである。</p>
+<section id="sec-Sudden-jump" class="level4 page-columns page-full" data-number="3.5.1.1">
+<h4 data-number="3.5.1.1" class="anchored" data-anchor-id="sec-Sudden-jump"><span class="header-section-number">3.5.1.1</span> 突然のジャンプ</h4>
+<div class="page-columns page-full"><p> 突然のジャンプは十分ではない（加速のためかもしれない）が、時系列に突然のジャンプを実証することは（他のフラグとの関連でも）有用である。突然のジャンプの統計的検出は、いくつもの技法を用いて可能である。<a href="#fig-ch3-img19-old-31" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img19-old-31</span></a> は、研究中に抗うつ薬を徐々に中止した患者の、SCL-90-R のうつ下位尺度を用いた抑うつ症状の週ごとの生の測定値を提示している。参加者と研究者は用量減少の計画について盲検化されていた <span class="citation" data-cites="wichersCriticalSlowingPersonalized2016">(<a href="#ref-wichersCriticalSlowingPersonalized2016" role="doc-biblioref">Wichers, Groot, and Psychosystems 2016</a>)</span>。一つの問いは、この減少がうつ状態への突然のジャンプをもたらしたかどうかであった。変化点検出法 <span class="citation" data-cites="jamesEcpPackageNonparametric2014">(<a href="#ref-jamesEcpPackageNonparametric2014" role="doc-biblioref">James and Matteson 2014</a>)</span> を用いて、私たちは 18 週目に、ブートストラップした <span class="math inline">\(p\)</span> 値 .005（変化点がないという帰無仮説のもとで）でジャンプを見出した。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">突然のジャンプは、平衡状態の振る舞いの大きく速い変化である。</span></div></div>
+<div id="fig-ch3-img19-old-31" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img19-old-31-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/fig-ch3-img19-old-31.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img19-old-31-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.19: 研究中に抗うつ薬を徐々に中止した患者における、うつ状態（SLC-90 の得点）への突然のジャンプ。
+</figcaption>
+</figure>
+</div>
+<p>変化点分析のための多くの方法が <span class="citation" data-cites="burgEvaluationChangePoint2022">Burg and Williams (<a href="#ref-burgEvaluationChangePoint2022" role="doc-biblioref">2022</a>)</span> で開発され、比較されている。</p>
+<p>この図のコードは次のとおりである。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">t</span>(<span class="dv">1</span>)); <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">'data/PNAS_patient_data.txt'</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ecp) <span class="co"># if error: install.packages('ecp')</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>e1 <span class="ot">&lt;-</span> <span class="fu">e.divisive</span>(<span class="fu">matrix</span>(x<span class="sc">$</span>dep, , <span class="dv">1</span>), <span class="at">sig =</span> .<span class="dv">01</span>, <span class="at">min.size =</span> <span class="dv">10</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x<span class="sc">$</span>week, x<span class="sc">$</span>dep, <span class="at">type =</span> <span class="st">'b'</span>, <span class="at">pch =</span> (e1<span class="sc">$</span>cluster<span class="dv">-1</span>) <span class="sc">*</span> <span class="dv">16</span> <span class="sc">+</span> <span class="dv">1</span>, <span class="at">xlab =</span> <span class="st">'Week'</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">'SLC-90'</span>, <span class="at">bty =</span> <span class="st">'n'</span>, <span class="at">main =</span> <span class="st">'Jump to depression'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-Multimodality" class="level4 page-columns page-full" data-number="3.5.1.2">
+<h4 data-number="3.5.1.2" class="anchored" data-anchor-id="sec-Multimodality"><span class="header-section-number">3.5.1.2</span> 多峰性</h4>
+<p>多峰性（カスプの場合は双峰性）は重要で使いやすいフラグである。というのも、それは横断的データで検証できるからである。頻度分布における多峰性を検証するために有限混合モデルが開発されてきた <span class="citation" data-cites="mclachlanFiniteMixtureModels2019">(<a href="#ref-mclachlanFiniteMixtureModels2019" role="doc-biblioref">McLachlan, Lee, and Rathnayake 2019</a>)</span>。</p>
+<p>一例は <a href="#fig-ch3-img20-old-32" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img20-old-32</span></a> に示されている。これらのデータは保存予測課題からのもので、そこで子どもは、水が注がれたとき二つ目のコップの水位がどうなるかを予測しなければならない。得られたデータと、二つの正規分布の混合の当てはめが右に示されている。データは明らかに双峰性であり、保存学習における転移の仮説を支持している <span class="citation" data-cites="vandermaas1992">(<a href="#ref-vandermaas1992" role="doc-biblioref">van der Maas and Molenaar 1992</a>)</span>。これらのデータは <span class="citation" data-cites="dolan1998">Dolan and van der Maas (<a href="#ref-dolan1998" role="doc-biblioref">1998</a>)</span> で、構造方程式モデルに従う多変量正規混合分布を当てはめるために用いられた。</p>
+<div id="fig-ch3-img20-old-32" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img20-old-32-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-20.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img20-old-32-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.20: より幅の広いコップに水が注がれたときに期待される水位の双峰性。ピアジェの保存課題のこの変種は、五歳から八歳の子どもに用いられる。
+</figcaption>
+</figure>
+</div>
+<p>コードは次のとおりである。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">read.table</span>(<span class="st">'data/conservation_anticipation_item3.txt'</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mixtools) <span class="co"># if error: install.packages('mixtools')</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">normalmixEM</span>(x)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result, <span class="at">whichplot =</span> <span class="dv">2</span>, <span class="at">breaks =</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>多峰性、混合、そしてクラスタリングに焦点を当てた統計の一分野がまるごと存在する。関連する R パッケージの概観を提示するブログがいくつかある <span class="citation" data-cites="arnaudMixtureModellingScratch2021">(<a href="#ref-arnaudMixtureModellingScratch2021" role="doc-biblioref">Arnaud 2021</a>)</span>。隠れマルコフモデルを用いた心理学からの詳細な例がいくつか <span class="citation" data-cites="visserMixtureHiddenMarkov2022">Visser and Speekenbrink (<a href="#ref-visserMixtureHiddenMarkov2022" role="doc-biblioref">2022</a>)</span> で提示されている。</p>
+<div class="page-columns page-full"><p> 発達過程における突然のジャンプを捉えるには、多くの高頻度のデータが必要である。意見の突然の変化もまれである。しかし、妊娠中絶のような争点に関する言明について判断を求められた多数の人々についてデータを集めることは容易である。これらの判断が双峰的に分布していれば、これは相転移と整合する。双峰的なデータは、加速の過程によっても生み出されうる。その場合、時系列は主に加速の前後のデータ値から成る。したがって、双峰性は十分ではない。それは必要条件とみなすことができるので、私は常に横断的な多峰性の研究から始めることを勧める。それらが失敗するなら、仮説を再考したほうがよいかもしれない。私は算数学習の測定において多峰性をしばしば探したが、説得力のあるものは決して見つからず、そのために仮説を考え直すことになった。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">突然のジャンプに対する多峰性の利点は、それを横断的データで検証できることである。</span></div></div>
+</section>
+<section id="sec-Inaccessibility" class="level4 page-columns page-full" data-number="3.5.1.3">
+<h4 data-number="3.5.1.3" class="anchored" data-anchor-id="sec-Inaccessibility"><span class="header-section-number">3.5.1.3</span> 到達不能性</h4>
+<div class="page-columns page-full"><p>到達不能性とは、振る舞い変数のある値が不安定である、ということを意味する。名刺は良い例である。ある程度の鉛直方向の圧力を加えれば、何を試そうとも、カードを中央の位置にとどまるよう強制することはできない。それは不安定である。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">到達不能性は、突然のジャンプと双峰性が加速のためであるという対立仮説を棄却するのに関係する。</span></div></div>
+<p><span class="citation" data-cites="dutilhPhaseTransitionModel2011">Dutilh et al. (<a href="#ref-dutilhPhaseTransitionModel2011" role="doc-biblioref">2011</a>)</span> の実験2で、私たちはこのフラグに焦点を当てた。私たちの仮説は、単純選択反応課題においては、速い推測状態と、より遅い刺激駆動反応状態の間に相転移がある、というものであった。その考えは、被験者に速度を上げるよう強制すれば、パフォーマンスに破局的な低下（ほぼ100%正答から50%正答へ）が生じる、というものである。</p>
+<p>私たちは、被験者が一連の単純選択項目（語彙判断課題）に反応するゲームを作った。系列の長さは被験者には知らされていなかった。系列の終わりに、正答率が75%にどれだけ近いかに応じて報酬が与えられた。速度も報酬の対象であったが、はるかに少なかった。したがって、私たちは被験者に到達不能状態にあるよう求めた。情報蓄積モデルに基づく対立仮説は、相転移はなく、75%の正確性で反応するには境界の正しい設定が必要である、というものであった（<a href="#sec-Response-time-models" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Response-time-models</span></a> を参照）。</p>
+<p>被験者は、対立モデルに従って教示された場合でさえ、速い推測モードと、より遅い刺激統制モードの間を切り替えることで課題を解いたようであった。したがって、75%の中間状態は不安定であるように見えた。</p>
+</section>
+<section id="sec-Divergence" class="level4 page-columns page-full" data-number="3.5.1.4">
+<h4 data-number="3.5.1.4" class="anchored" data-anchor-id="sec-Divergence"><span class="header-section-number">3.5.1.4</span> ダイバージェンス</h4>
+<div class="page-columns page-full"><p>ダイバージェンス、すなわち熊手分岐、平衡状態の分裂は、分裂変数の操作を必要とする。態度の場合、私たちはこれを関与ないし何らかの関連する変数だと仮定する。<span class="citation" data-cites="vandermaasSuddenTransitionsAttitudes2003">van der Maas, Kolstein, and van der Pligt (<a href="#ref-vandermaasSuddenTransitionsAttitudes2003" role="doc-biblioref">2003</a>)</span> で、私たちは <span class="citation" data-cites="stoufferAmericanSoldierAdjustment1949">Stouffer et al. (<a href="#ref-stoufferAmericanSoldierAdjustment1949" role="doc-biblioref">1949</a>)</span> のデータセットを再分析した。これは <span class="citation" data-cites="lataneAttitudesCatastrophesDimensions1994">Latané and Nowak (<a href="#ref-lataneAttitudesCatastrophesDimensions1994" role="doc-biblioref">1994</a>)</span> がカスプモデルの証拠として提示したものである。態度は復員に関わるもの（0、不賛成、から 6、賛成、まで）であり、回答者は自分の答えについてどれだけ強く感じているかを示すよう求められた（強度 0 から強度 5 まで）。感情の強度が低い場合、データは正規分布するが、強度が高い場合、データは双峰的に分布する（<a href="#fig-ch3-img21-old-33" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img21-old-33</span></a> を参照）。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">多峰性を検証した後、ダイバージェンスを検証することは理にかなった次の段階である。</span></div></div>
+<div id="fig-ch3-img21-old-33" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img21-old-33-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-21-may31.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img21-old-33-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.21: 態度における熊手分岐。点線はこれらのデータへのカスプモデルの当てはめを表す。この技法は <a href="#sec-Fitting-the-cusp-to-crosssectional-data" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Fitting-the-cusp-to-crosssectional-data</span></a> で論じる。
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-Hysteresis" class="level4 page-columns page-full" data-number="3.5.1.5">
+<h4 data-number="3.5.1.5" class="anchored" data-anchor-id="sec-Hysteresis"><span class="header-section-number">3.5.1.5</span> ヒステリシス</h4>
+<div class="page-columns page-full"><p> ヒステリシスを検証するには、正規変数をゆっくりと増加させ、また減少させ、突然のジャンプが遅れて生じるかどうかを検証する必要がある。私たちは、特定の次元（支点からの距離）を体系的に変化させたピアジェの天秤課題を用いて、比例推論におけるヒステリシスを実証した <span class="citation" data-cites="jansen2001">(<a href="#ref-jansen2001" role="doc-biblioref">Jansen and van der Maas 2001</a>)</span>。私たちはまた、反応時間課題で被験者を速く反応させると、最終的に正確性の破局がもたらされる、と仮定した。この主張を支持するために、私たちは反応時間の双峰性と、速度・正確性トレードオフにおけるヒステリシスを実証した <span class="citation" data-cites="dutilhPhaseTransitionModel2011">(<a href="#ref-dutilhPhaseTransitionModel2011" role="doc-biblioref">Dutilh et al. 2011</a>)</span>。多安定知覚のカスプモデルを支持するために、私たちは四重運動パラダイムを用いた <span class="citation" data-cites="ploegerStochasticCatastropheAnalysis2002">(<a href="#ref-ploegerStochasticCatastropheAnalysis2002" role="doc-biblioref">Ploeger, van der Maas, and Hartelman 2002</a>)</span>。この知覚パラダイムでは、二つの光が同時に提示される。まず長方形の対角に位置する二つの角からの一対、次に長方形の他の二つの対角の角からの二つ目の一対である。通常、鉛直または水平の見かけの運動のいずれかが知覚される。アスペクト比（すなわち四重奏の高さと幅の比）を徐々に増加または減少させることで、二つの見えの間のジャンプにおけるヒステリシスが実証された（<a href="#fig-ch3-img22-old-34" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img22-old-34</span></a> を参照）。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">ヒステリシス、すなわち突然のジャンプの遅れは、正規制御変数の洗練された操作を必要とする。</span></div></div>
+<p><span class="citation" data-cites="ploegerStochasticCatastropheAnalysis2002">Ploeger, van der Maas, and Hartelman (<a href="#ref-ploegerStochasticCatastropheAnalysis2002" role="doc-biblioref">2002</a>)</span> で、私たちは、ヒステリシスが単に遅延した反応のためであるという対立的な説明を排除するために、修正極限法という特別なデザインを用いた。切り替えは常に中央（アスペクト比 1）で生じるが、自己報告が遅延している、という可能性もある。修正極限法では、被験者は試行中には反応せず、試行全体の後にのみ反応する。試行の長さを変えることで、被験者がどのパラメータ値で切り替えを知覚するかを決定できる。</p>
+<div id="fig-ch3-img22-old-34" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img22-old-34-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-22-june14.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img22-old-34-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.22: 見かけの運動の知覚におけるヒステリシス。鉛直または水平の見かけの運動の知覚の間の切り替えは、アスペクト比（水平軸）が変化させられるときに生じる。アスペクト比は四重奏の高さと幅の比である。（許可を得て <span class="citation" data-cites="ploegerStochasticCatastropheAnalysis2002">Ploeger, van der Maas, and Hartelman (<a href="#ref-ploegerStochasticCatastropheAnalysis2002" role="doc-biblioref">2002</a>)</span> より改変）
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-Anomalous-variance-divergence-of-linear-response-and-critical-slowing-down" class="level4 page-columns page-full" data-number="3.5.1.6">
+<h4 data-number="3.5.1.6" class="anchored" data-anchor-id="sec-Anomalous-variance-divergence-of-linear-response-and-critical-slowing-down"><span class="header-section-number">3.5.1.6</span> 異常分散、線形応答の発散、そして臨界減速</h4>
+<div class="page-columns page-full"><p>ギルモアの最後の三つのフラグ——異常分散、線形応答の発散、そして臨界減速——は、分岐線の近くで生じる指標である。それらは早期警告信号としても知られ、人気のある研究主題である <span class="citation" data-cites="dakosMethodsDetectingEarly2012">(<a href="#ref-dakosMethodsDetectingEarly2012" role="doc-biblioref">Dakos et al. 2012</a>)</span>。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">早期警告とは、システム内の転移に先行して予測する指標ないし信号であり、予期と、場合によっては予防的な行動を可能にする。</span></div></div>
+<p>異常分散が生じるのは、分岐点の近くで二階導関数が減少する、すなわち極小がより浅くなるからである。状態には常に何らかの摂動があると仮定すれば、これは状態のより大きな揺らぎをもたらす。</p>
+<p>線形応答の発散は、状態の小さな摂動の効果の大きさであり、分岐点の近くでより大きくなる。平衡状態に戻るのにもより長い時間がかかる。この戻り時間の遅れは臨界減速として知られ、非線形力学系への他のアプローチ <span class="citation" data-cites="hakenSynergetics1977">(たとえばシナジェティクス、 <a href="#ref-hakenSynergetics1977" role="doc-biblioref">Haken 1977</a>)</span> でも研究されている。心理学における応用の例は <span class="citation" data-cites="leemputCriticalSlowingEarly2014">Leemput et al. (<a href="#ref-leemputCriticalSlowingEarly2014" role="doc-biblioref">2014</a>)</span> と <span class="citation" data-cites="olthofCriticalFluctuationsEarlyWarning2020">Olthof et al. (<a href="#ref-olthofCriticalFluctuationsEarlyWarning2020" role="doc-biblioref">2020</a>)</span> に見出される。いくぶん批判的なレビューは <span class="citation" data-cites="dablander2023">Dablander et al. (<a href="#ref-dablander2023" role="doc-biblioref">2023</a>)</span> で提供されている。</p>
+<p>私の経験では、早期警告信号の問題は、転移を予測するには第一種の過誤も第二種の過誤も低くなければならない、ということである。これはシミュレーションにおいてすら困難であり、ノイズの多い心理学的データではなおさらである。これらの早期警告が本当に機能すれば素晴らしいだろう。たとえば、うつや嗜癖への再発を予測できることは、大きな臨床的価値をもつだろう。</p>
+<p>まとめると、カタストロフィ・フラグは、心理学における相転移研究のための方法論を提供する。単一のフラグでは十分でないかもしれないが、その組み合わせは十分である。たとえば、到達不能性とヒステリシスの証拠の組み合わせは説得力がある。私はほとんどのフラグについて心理学的な例を挙げた。特定の場合にどのフラグを用いるかは、制御変数についての知識と実験的統制に依存する。もう一つのアプローチは、カスプモデルをデータに直接当てはめることである。これが次節の主題である。</p>
+</section>
+</section>
+<section id="sec-Fitting-the-cusp-to-crosssectional-data" class="level3 page-columns page-full" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="sec-Fitting-the-cusp-to-crosssectional-data"><span class="header-section-number">3.5.2</span> 横断的データへのカスプの当てはめ</h3>
+<section id="sec-Cobbs-maximum-likelihood-approach" class="level4 page-columns page-full" data-number="3.5.2.1">
+<h4 data-number="3.5.2.1" class="anchored" data-anchor-id="sec-Cobbs-maximum-likelihood-approach"><span class="header-section-number">3.5.2.1</span> コブの最尤アプローチ</h4>
+<p>一連の論文において、ローレン・コブと同僚たち <span class="citation" data-cites="cobbApplicationsCatastropheTheory1985 cobbStochasticCatastropheModels1978">(<a href="#ref-cobbApplicationsCatastropheTheory1985" role="doc-biblioref">Cobb and Zacks 1985</a>; <a href="#ref-cobbStochasticCatastropheModels1978" role="doc-biblioref">Cobb 1978</a>)</span> は、<span class="math inline">\(X\)</span>、<span class="math inline">\(a\)</span>、<span class="math inline">\(b\)</span> の横断的測定から成るデータにカスプ・カタストロフィを当てはめる最尤アプローチ<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> を開発した。私たちはこのアプローチを、<span class="citation" data-cites="grasman2009">Grasman, van der Maas, and Wagenmakers (<a href="#ref-grasman2009" role="doc-biblioref">2009</a>)</span> で記述された cusp という R パッケージに実装した。</p>
+<p>基本的な考えは、決定論的な理論であるカタストロフィ理論を、ウィーナーノイズ（分散 <span class="math inline">\(\sigma^{2}\)</span> をもつ）と呼ばれる確率的な項を <a href="#eq-ch3-2-old-6" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch3-2-old-6</span></a> に加えることで、確率的にすることである<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>。</p>
+<p><span id="eq-ch3-9-old-13"><span class="math display">\[
+dX = - V^{'}(X)dt + \sigma dW(t). \tag{3.9}\]</span></span></p>
+<div class="page-columns page-full"><p>この種の確率性は測定ノイズと同じではない、ということに注意することが重要である。測定ノイズ——すなわち <span class="math inline">\(Y = X + \varepsilon\)</span> における <span class="math inline">\(\varepsilon\)</span>——は <span class="math inline">\(X\)</span> のダイナミクスに影響しない。ウィーナーノイズは影響する。それは <span class="math inline">\(X\)</span> 自体の更新方程式の一部である。 この確率微分方程式は、次の形の確率分布と結び付いている。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">確率微分方程式（SDE）とは、ランダムな揺らぎを表す項を組み込んだ微分方程式である。</span></div></div>
+<p><span id="eq-ch3-10-old-14"><span class="math display">\[
+f(X) = \frac{1}{{Z\sigma}^{2}}e^{\frac{- V(X)}{\sigma^{2}}}, \tag{3.10}\]</span></span></p>
+<p>ここで <span class="math inline">\(Z\)</span> は、<span class="math inline">\(f(X)\)</span> の下の面積が 1 になることを保証するのに必要な正規化定数<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> である。これは複雑に見えるかもしれないが、二次の場合 <span class="math inline">\(V(X) = {\frac{1}{2}X}^{2}\)</span> については、これは <span class="math inline">\(Z = {\sqrt{2\pi}}/{\sigma}\)</span> をもつ標準正規分布をもたらす。</p>
+<p>正規分布の場合と同様に、変数のある種の変換を許容したい。必要な統計的記法を単純化するために、カスプを <span class="math inline">\(V(y) = {- \alpha y - \frac{1}{2}\beta y^{2} + \frac{1}{4}y}^{4}\)</span> と書く。カスプの確率分布は次のとおりである。</p>
+<p><span id="eq-ch3-11-old-15"><span class="math display">\[
+f(y) = \frac{1}{{Z\sigma}^{2}}e^{\frac{\alpha y + \frac{1}{2}\beta y^{2} - \frac{1}{4}y^{4}}{\sigma^{2}}}. \tag{3.11}\]</span></span></p>
+<p>回帰モデルと同様に、カスプの変数は測定された変数の線形関数としてモデル化される。すなわち、被験者 <span class="math inline">\(i = 1,\ldots,n\)</span> について、従属変数 <span class="math inline">\(Y_{i1},\ Y_{i2},\ldots,Y_{ip}\)</span> と独立変数 <span class="math inline">\(X_{i1},\ X_{i2},\ldots,X_{iq}\)</span> は、カスプの変数と次のように関係づけられる。</p>
+<p><span id="eq-ch3-12-old-16"><span class="math display">\[
+\begin{gathered}
+y_{i} = w_{0} + w_{1}Y_{i1} + w_{2}Y_{i2} + \ldots + w_{p}Y_{ip}, \\
+\alpha_{i} = a_{0} + a_{1}X_{i1} + a_{2}X_{i2} + \ldots + a_{q}X_{iq}, \\
+\beta_{i} = b_{0} + b_{1}X_{i1} + b_{2}X_{i2} + \ldots + b_{q}X_{iq}.
+\end{gathered}
+\tag{3.12}\]</span></span></p>
+<div class="page-columns page-full"><p>これらの回帰パラメータを推定することで、カスプモデルを経験的データに当てはめる。R の cusp パッケージがこれを可能にする。まずシミュレートしたデータを用いてこれを実演する。 このアプローチを強く推奨する。第一に、それは統計技法が実際に何をするのかを理解することを強いる。そして第二に、それは検出力を検証し、技法の仮定の違反を調べる方法を与えてくれる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">統計技法を用いるときの私の第一の規則——シミュレートしたデータで検証する前に、実データで統計技法を決して用いるな。</span></div></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cusp) <span class="co"># if error: install.packages('cusp')</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>X1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>) <span class="co"># independent variable 1</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>X2 <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>) <span class="co"># independent variable 2</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># to be estimated parameters:</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>w0 <span class="ot">&lt;-</span> <span class="dv">2</span>; w1 <span class="ot">&lt;-</span> <span class="dv">4</span>; a0 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span>; a1 <span class="ot">&lt;-</span> <span class="dv">3</span>; b0 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span>; b1 <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># sample Y1 according to cusp using rcusp and the parameter values:</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>Y1 <span class="ot">&lt;-</span> <span class="sc">-</span>w0<span class="sc">/</span>w1 <span class="sc">+</span> (<span class="dv">1</span><span class="sc">/</span>w1) <span class="sc">*</span> <span class="fu">Vectorize</span>(rcusp)(<span class="dv">1</span>, a0 <span class="sc">+</span> a1 <span class="sc">*</span> X1, b0 <span class="sc">+</span> b1 <span class="sc">*</span> X2)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X1, X2, Y1) <span class="co"># collect ‘measured’ variables in data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>まず記述的な分析を行うことを勧める。<code>hist(data$Y1)</code> で、双峰性の何らかの兆候があるかどうかを調べられる。<span class="math inline">\(X2\)</span> は分裂変数なので、<code>hist(data$Y1[data$X2&gt;mean(data$X2)]</code> でより強い双峰性が見られるかもしれない。R の pairs 関数 <code>pairs(data)</code> も常に推奨される。この完璧にシミュレートされた場合には、すでにカスプの強い兆候が見られるだろう。さて、<span class="math inline">\(\alpha\)</span> と <span class="math inline">\(\beta\)</span> をともに <span class="math inline">\(X1\)</span> と <span class="math inline">\(X2\)</span> の関数とする完全なモデルを当てはめる。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cusp</span>(y <span class="sc">~</span> Y1, alpha <span class="sc">~</span> X1<span class="sc">+</span>X2, beta <span class="sc">~</span> X1<span class="sc">+</span>X2, data)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>表は要約を提供する。</p>
+<div id="tbl-par-estimates" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-par-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Coefficients</th>
+<th style="text-align: center;">Estimate</th>
+<th style="text-align: center;">Std. Error</th>
+<th style="text-align: center;">z-value</th>
+<th style="text-align: center;">Pr(&gt;|z|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">a[Intercept]</td>
+<td style="text-align: center;">-2.13</td>
+<td style="text-align: center;">0.19</td>
+<td style="text-align: center;">-11.0</td>
+<td style="text-align: center;">&lt; 2e-16<sup>***</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">a[X1]</td>
+<td style="text-align: center;">3.11</td>
+<td style="text-align: center;">0.22</td>
+<td style="text-align: center;">14.2</td>
+<td style="text-align: center;">&lt; 2e-16<sup>***</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">a[X2]</td>
+<td style="text-align: center;">0.15</td>
+<td style="text-align: center;">0.17</td>
+<td style="text-align: center;">0.9</td>
+<td style="text-align: center;">0.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">b[Intercept]</td>
+<td style="text-align: center;">-2.29</td>
+<td style="text-align: center;">0.34</td>
+<td style="text-align: center;">-6.7</td>
+<td style="text-align: center;">2.66e-11<sup>***</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b[X1]</td>
+<td style="text-align: center;">-0.09</td>
+<td style="text-align: center;">0.33</td>
+<td style="text-align: center;">-0.3</td>
+<td style="text-align: center;">0.79</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">b[X2]</td>
+<td style="text-align: center;">4.40</td>
+<td style="text-align: center;">0.27</td>
+<td style="text-align: center;">16.5</td>
+<td style="text-align: center;">&lt; 2e-16<sup>***</sup></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">w[Intercept]</td>
+<td style="text-align: center;">1.98</td>
+<td style="text-align: center;">0.07</td>
+<td style="text-align: center;">27.6</td>
+<td style="text-align: center;">&lt; 2e-16<sup>***</sup></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">w[Y1]</td>
+<td style="text-align: center;">3.97</td>
+<td style="text-align: center;">0.10</td>
+<td style="text-align: center;">38.0</td>
+<td style="text-align: center;">&lt; 2e-16<sup>***</sup></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-par-estimates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.1: cusp パッケージによって生成された、標準誤差と p 値を含むパラメータ推定値。
+</figcaption>
+</figure>
+</div>
+<p>パラメータが多すぎるモデルを当てはめたことに注意しよう。私たちは <span class="math inline">\(a_{2}\)</span> と <span class="math inline">\(b_{1}\)</span> も推定した（モデルが alpha ~ X1+X2、beta ~ X1+X2 と指定されていたため）。これらの推定値は 0 と有意には異ならない。他のパラメータは、その真の値に妥当なほど近く推定されている。というのも、真の値が推定値の信頼区間（両側に標準誤差の2倍で定義される）内に収まっているからである。<span class="math inline">\(a_{2}\)</span> と <span class="math inline">\(b_{1}\)</span> を除いた簡約モデルを当てはめると、AIC と BIC の点でより良い当てはめが期待される。これらの当てはめ指標は、過剰適合を抑制しモデルの倹約性を促進するために、用いたパラメータの数に応じて当てはめの良さ（たとえば対数尤度）にペナルティを課す。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fit_correct_model <span class="ot">&lt;-</span> <span class="fu">cusp</span>(y <span class="sc">~</span> Y1, alpha <span class="sc">~</span> X1, beta <span class="sc">~</span> X2, data)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_correct_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tbl-comparative-fit" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-comparative-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">R.Squared</th>
+<th style="text-align: center;">logLik</th>
+<th style="text-align: center;">npar</th>
+<th style="text-align: center;">AIC</th>
+<th style="text-align: center;">AICc</th>
+<th style="text-align: center;">BIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>フルモデル</td>
+<td style="text-align: center;">0.428</td>
+<td style="text-align: center;">-1058.7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">2133.3</td>
+<td style="text-align: center;">2133.5</td>
+<td style="text-align: center;">2172.6</td>
+</tr>
+<tr class="even">
+<td>簡約モデル</td>
+<td style="text-align: center;">0.426</td>
+<td style="text-align: center;">-1059.0</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">2130.0</td>
+<td style="text-align: center;">2130.1</td>
+<td style="text-align: center;">2159.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-comparative-fit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3.2: 比較的当てはめ指標 AIC、AICc、BIC は、簡約モデルが選ぶべきモデルであることを示している。
+</figcaption>
+</figure>
+</div>
+<p>次のシミュレーションは、このアプローチを用いてヒステリシスを検出できることを実証する。<span class="math inline">\(- 2 &lt; \alpha &lt; 2\)</span> と固定した <span class="math inline">\(\beta\)</span> でデータをシミュレートする。<span class="math inline">\(\beta &lt; 0\)</span> ならヒステリシスはないが、<span class="math inline">\(\beta &gt; 0\)</span> ならヒステリシスがある。以下のコードで、異なる <span class="math inline">\(\beta\)</span> についてデータセットをシミュレートし、線形モデルとカスプモデルの間で当てはめの良さを比較する。<a href="#fig-ch3-img23-old-35" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img23-old-35</span></a> は結果を要約している。より低い BIC がより良く当てはまるモデルを示すことに注意しよう。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>X1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="at">le =</span> n) <span class="co"># independent variable 1</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>a0 <span class="ot">&lt;-</span> <span class="dv">0</span>; a1 <span class="ot">&lt;-</span> <span class="dv">2</span>; b0 <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># to be estimated parameters</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>b0s <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="at">by =</span> .<span class="dv">25</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="fu">length</span>(b0s), <span class="dv">7</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (b0 <span class="cf">in</span> b0s){</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  Y1 <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(rcusp)(<span class="dv">1</span>, a1 <span class="sc">*</span> X1, b0)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(X1, Y1) <span class="co"># collect ‘measured’ variables in data</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  fit <span class="ot">&lt;-</span> <span class="fu">cusp</span>(y <span class="sc">~</span> Y1, alpha <span class="sc">~</span> X1, beta <span class="sc">~</span> <span class="dv">1</span>, data)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  sf <span class="ot">&lt;-</span> <span class="fu">summary</span>(fit)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  dat[i, ] <span class="ot">&lt;-</span> <span class="fu">c</span>(b0, sf<span class="sc">$</span>r2lin.r.squared[<span class="dv">1</span>], sf<span class="sc">$</span>r2cusp.r.squared[<span class="dv">1</span>],</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                sf<span class="sc">$</span>r2lin.bic[<span class="dv">1</span>], sf<span class="sc">$</span>r2cusp.bic[<span class="dv">1</span>],</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                sf<span class="sc">$</span>r2lin.aic[<span class="dv">1</span>], sf<span class="sc">$</span>r2cusp.aic[<span class="dv">1</span>])</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">matplot</span>(dat[,<span class="dv">1</span>], dat[,<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">ylab =</span> <span class="st">'Bic'</span>, <span class="at">xlab =</span> <span class="st">'b0'</span>, <span class="at">bty =</span> <span class="st">'n'</span>, <span class="at">type =</span> <span class="st">'b'</span>,</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">pch =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">cex.lab =</span> <span class="fl">1.5</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">'right'</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">'linear'</span>,<span class="st">'cusp'</span>), <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="sc">-</span>.<span class="dv">5</span>, <span class="dv">800</span>, <span class="st">'no hysteresis'</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(.<span class="dv">5</span>, <span class="dv">800</span>, <span class="st">'hysteresis'</span>, <span class="at">cex =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fig-ch3-img23-old-35" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img23-old-35-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/fig-ch3-img23-old-35.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img23-old-35-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.23: カスプの後方（低い <span class="math inline">\(b_0\)</span>）では、カスプはほぼ線形であり、BIC はカスプモデル（実線）よりもこの単純なモデル（点線）を選好する。
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-Empirical-examples" class="level4" data-number="3.5.2.2">
+<h4 data-number="3.5.2.2" class="anchored" data-anchor-id="sec-Empirical-examples"><span class="header-section-number">3.5.2.2</span> 経験的な例</h4>
+<p><span class="citation" data-cites="grasman2009">Grasman, van der Maas, and Wagenmakers (<a href="#ref-grasman2009" role="doc-biblioref">2009</a>)</span> で、私たちは実データを用いたいくつかの例を提示している。もう一つの例として、以前ダイバージェンスの例として用いたストウファーのデータを用いる（<a href="#fig-ch3-img21-old-33" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img21-old-33</span></a> を参照）。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">'data/stoufer.txt'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'IntensityofFeeling'</span>, <span class="st">'Attitude'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cusp</span>(y <span class="sc">~</span> Attitude, alpha <span class="sc">~</span> IntensityofFeeling,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            beta <span class="sc">~</span> IntensityofFeeling, x)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>パラメータ推定値を調べると、予想どおり、感情の強度は分裂軸にのみ負荷し、正規軸には負荷しないことがわかる。<a href="#fig-ch3-img24-old-36" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img24-old-36</span></a> は分岐集合内のデータの位置を示している（<code>plot(fit)</code>）。</p>
+<div id="fig-ch3-img24-old-36" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img24-old-36-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-24__figure36.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img24-old-36-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.24: <a href="#fig-ch3-img21-old-33" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img21-old-33</span></a> のデータの分岐集合内への配置。
+</figcaption>
+</figure>
+</div>
+<p>もう一つの例は <span class="citation" data-cites="bentlerEvidenceRegardingStages1970">Bentler (<a href="#ref-bentlerEvidenceRegardingStages1970" role="doc-biblioref">1970</a>)</span> の保存データセットである。これは、八つの異なる年齢群の560人の子どもの保存検査からの12項目の検査の得点を含む（<a href="#fig-ch3-img25-old-37" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img25-old-37</span></a>）。これらのデータは双峰的であり、正規軸に沿って動くことが期待される <span class="citation" data-cites="vandermaas1992">(<a href="#ref-vandermaas1992" role="doc-biblioref">van der Maas and Molenaar 1992</a>)</span>。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">'data/bentler.txt'</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">t</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'age 4 to 4.5'</span>,<span class="st">'age 4.5 to 5'</span>,<span class="st">'age 5 to 5.5'</span>,<span class="st">'age 5.5 to 6'</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">'age 6 to 6.5'</span>,<span class="st">'age 6.5 to 7'</span>,<span class="st">'age 7 to 7.5'</span>,<span class="st">'age 7.5 to 8'</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>){</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">==</span> <span class="dv">1</span>) {<span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>)); names <span class="ot">=</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">12</span>} <span class="cf">else</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    {names <span class="ot">=</span> <span class="st">''</span>; <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>))}</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">barplot</span>(<span class="fu">table</span>(<span class="fu">factor</span>(x[x[,<span class="dv">1</span>] <span class="sc">==</span> i,<span class="dv">2</span>], <span class="at">levels =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">12</span>)),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">horiz =</span> <span class="cn">TRUE</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> age[i], <span class="at">xlab =</span> <span class="st">''</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">names =</span> names, <span class="at">cex.main =</span> <span class="fl">1.5</span>, <span class="at">cex.names =</span> <span class="fl">1.5</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">cusp</span>(y <span class="sc">~</span> score, alpha <span class="sc">~</span> age_range, beta <span class="sc">~</span> age_range, x)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>これはカスプの当てはめの結果によって支持される。beta ~ 1 のモデルが AIC と BIC に従ってより良く当てはまることを確認できる。</p>
+<div id="fig-ch3-img25-old-37" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img25-old-37-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/fig-ch3-img25-old-37.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img25-old-37-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.25: ベントラーの保存データにおいて、合計得点の分布は双峰的であり、各峰の重みは年齢とともに移り変わる。
+</figcaption>
+</figure>
+</div>
+<p>私たちが教室でしばしば用いてきた優れた演習は、ゼーマン機械を作り、それでデータを集め、カスプモデルをデータに当てはめることである <span class="citation" data-cites="grasman2009">(詳細は <a href="#ref-grasman2009" role="doc-biblioref">Grasman, van der Maas, and Wagenmakers 2009</a> を参照)</span>。ゼーマンはカスプの性質を実演するためにこの機械を発明した。私たちの学生は、モデルの質と、そのゼーマン機械の芸術的価値に対して報酬を与えられた（<a href="#fig-ch3-img26-old-38" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch3-img26-old-38</span></a>）。</p>
+<div id="fig-ch3-img26-old-38" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch3-img26-old-38-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch3/ch3-26-june14.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch3-img26-old-38-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.26: ゼーマンのカタストロフィ機械。これは回転する円板と二つの弾性帯から成る。第一の弾性帯は固定点とストラップ点に取り付けられている。他方の弾性帯の端（赤い点）は、制御平面を通じて手で動かされる。ストラップ点はカスプ・カタストロフィに従って動く。X、Y、Z の値の集合を集めることでデータが集められる。通常、R のカスプ当てはめ関数を適用するには 50 から 100 のデータ点で十分である。
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-Evaluation" class="level4 page-columns page-full" data-number="3.5.2.3">
+<h4 data-number="3.5.2.3" class="anchored" data-anchor-id="sec-Evaluation"><span class="header-section-number">3.5.2.3</span> 評価</h4>
+<div class="page-columns page-full"><p>いくつかの最後の注釈。第一に、コブの方法は横断的データで用いることができる。 データ点は独立であるべきである。時系列でヒステリシスを検証するには、他のアプローチが必要である。一つの選択肢は、<span class="citation" data-cites="dutilhPhaseTransitionModel2011">Dutilh et al. (<a href="#ref-dutilhPhaseTransitionModel2011" role="doc-biblioref">2011</a>)</span> のように隠れマルコフモデルを用いることである。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">コブの方法は時系列には妥当でない。</span></div></div>
+<p>第二に、確率分布とポテンシャル関数の間の根本的な違いによる、コブのアプローチのいくつかの問題がある。後者は、カスプの質的な性質を変えることなく、多くの仕方で変換できる（いわゆる局所微分同相写像）。確率分布に課される追加の制約（面積 = 1）のもとでは、同じ変換が、モードの数の変化のような質的な効果をもたらしうる。<span class="citation" data-cites="wagenmakersTransformationInvariantStochastic2005">Wagenmakers et al. (<a href="#ref-wagenmakersTransformationInvariantStochastic2005" role="doc-biblioref">2005</a>)</span> は、時系列についてこの問題への解決策を提案している。</p>
+<p>第三に、二つの代替的なアプローチが提案されている。グアステロの <span class="citation" data-cites="guastelloModeratorRegressionCusp1982">(<a href="#ref-guastelloModeratorRegressionCusp1982" role="doc-biblioref">1982</a>)</span> 変化得点最小二乗回帰アプローチと Gemcat アプローチ <span class="citation" data-cites="olivaGemcatGeneralMultivariate1987">(<a href="#ref-olivaGemcatGeneralMultivariate1987" role="doc-biblioref">1987</a>)</span> は、どちらもカスプの一階導関数を出発点として用いる。両アプローチの問題は、安定な平衡状態と不安定な平衡状態を区別しないことである。到達不能領域のデータ点はモデルの当てはめを改善するが、本来はそれを減じるべきである。<span class="citation" data-cites="alexanderExaminationLeastsquaresRegression1992">Alexander et al. (<a href="#ref-alexanderExaminationLeastsquaresRegression1992" role="doc-biblioref">1992</a>)</span> は詳細な批判を提供している。</p>
+</section>
+</section>
+</section>
+<section id="sec-Criticism-of-catastrophe-theory" class="level2 page-columns page-full" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="sec-Criticism-of-catastrophe-theory"><span class="header-section-number">3.6</span> カタストロフィ理論への批判</h2>
+<p><span class="citation" data-cites="rosserRiseFallCatastrophe2007">Rosser (<a href="#ref-rosserRiseFallCatastrophe2007" role="doc-biblioref">2007</a>)</span> はカタストロフィ理論の隆盛と衰退について語っている。<span class="citation" data-cites="zeemanCatastropheTheory1976">Zeeman (<a href="#ref-zeemanCatastropheTheory1976" role="doc-biblioref">1976</a>)</span> が Scientific American に発表した論文<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>——そこで彼は行動科学・社会科学におけるカタストロフィ理論の現象論的応用を導入した——に続く過熱は、<span class="citation" data-cites="zahlerClaimsAccomplishmentsApplied1977">Zahler and Sussmann (<a href="#ref-zahlerClaimsAccomplishmentsApplied1977" role="doc-biblioref">1977</a>)</span> による Nature での強い言葉での反論をもたらした。</p>
+<div class="page-columns page-full"><p>私たちが仕事でカタストロフィ理論を用いるとき、人々はいまだにこの論文に言及するので、ザーラーとサスマンの主要な批判点に簡単に応答する。彼らはその序論で、物理学と工学におけるカタストロフィ理論の正当な用法はありうる、と述べている。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">彼らは純粋に数学的な主題としてのカタストロフィ理論の正しさや重要性を疑問視しているのではない。</span></div></div>
+<p>彼らは10の点を提起しており、そのいくつかにはすでに触れた。たとえば、彼らの第一の点はジャンプが実際にどれほど突然であるかについてだが、彼らはこれをそれほど深刻でない批判と呼んでいる。以前説明したように、重要なのは突然さではなく、中間状態が不安定であるかどうかである。</p>
+<p>いくつかの点は、データからカスプを推論することについてであり、これはゼーマンの初期の仕事では実際かなり表面的に行われていた。彼らは、検証可能な予測がないこと、カスプの位置をずらせること、そしてデータがカスプに当てはまるかどうかを判定する方法がないことを指摘している。私は、これらの問題が大部分解決されたことを示せたと願っている。すなわち、カタストロフィ・フラグは新たな検証可能な予測を可能にし、コブの最尤アプローチによって、現代科学の他のどんな統計モデルとも同様にモデルを当てはめられる。もちろん、心理学と社会科学における統計の使用には批判的でありうるが、これらの批判はカタストロフィ理論に固有のものではない。</p>
+<p>もう一つの、いくぶん一貫性を欠く批判の系譜は、心理学と社会科学における多くのカタストロフィモデルが単に誤っていてデータと矛盾している（これは真かもしれない）と同時に、反証可能でもない、というものである。しかし、両方を同時に主張することはできない。もし誤っている、あるいはデータと矛盾しているなら、それは反証可能である。とはいえ、反証可能性について考えることが重要であることには同意する。心理学の理論は動く標的である傾向がある。誰かが理論と矛盾する経験的結果を見出すや否や、理論は素早く修正される。</p>
+<p>次にザーラーとサスマンは、カタストロフィ理論家がしばしば離散的な変数を連続的なものにしようとする、と指摘している。彼らの例は攻撃性であり、彼らはこれが本質的に離散的だと考えている。彼らは、攻撃性を連続的な振る舞いの族として解釈するゼーマンの解釈を、不条理でまったく無意味だと呼んでいる。これは少し強すぎるかもしれない。攻撃性が、軽度から重度へ、あるいは言語的から身体的へ、人の所有物に向けられたもの、人に向けられた軽度の身体的なものから重度の身体的なものへと変化しうる状況を考えることができる。攻撃的行為の豊かな順序づけは、家庭内暴力を記述するのに非常に有用である。時にはこれらの行為ないし変種に沿った変化は緩やかであり、また時には突然である。そのような順序づけを量的な連続体として扱えるかどうかは、私たちの分野で最も難しい問いの一つである <span class="citation" data-cites="borsboomKindsContinuaReview2016 michellPsychometricsPathologicalScience2008">(<a href="#ref-borsboomKindsContinuaReview2016" role="doc-biblioref">Borsboom et al. 2016</a>; <a href="#ref-michellPsychometricsPathologicalScience2008" role="doc-biblioref">Michell 2008</a>)</span>。</p>
+<p>ザーラーとサスマンの最後の点は、量子力学、離散数学、そして分岐理論のような、より良い代替物が存在する、というものである。心理学における量子力学の仕事は（とりわけ意識の文脈で）あるが、それがこの分野で飛躍的な進展をもたらすかどうかは今後を見なければならない。離散数学はある場合（たとえば記号的思考をモデル化するのに）代替物となりうる。私はカタストロフィ理論を分岐理論の特別な一分野とみなしており、研究対象のシステムを数学的方程式で記述するのが難しいときに特に有用だと考えている。これは現象論的モデルとメカニズム的モデルの区別に立ち戻る。私たちは第一原理に基づくメカニズム的モデルの開発により多くの努力を注ぐべきだと思う。これについては次の章で詳述する。</p>
+<div class="page-columns page-full"><p><span class="citation" data-cites="loehleCatastropheTheoryEcology1989">Loehle (<a href="#ref-loehleCatastropheTheoryEcology1989" role="doc-biblioref">1989</a>)</span> は、生態系のモデリングの文脈におけるカタストロフィ理論の有用性について優れた議論を提示している。彼は「カタストロフィモデルを適用する際の未解決の問題は、モデルのデータへの当てはめの良さを検証することである」と結論しているが、この問題は今や大部分解決された。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">カスプモデルを当てはめるためのコブの方法と併せてカタストロフィ・フラグを用いる経験的プログラムは、カタストロフィ理論に対する以前の批判の多くを回避する。</span></div></div>
+</section>
+<section id="sec-Conclusion-ch3" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="sec-Conclusion-ch3"><span class="header-section-number">3.7</span> 結論</h2>
+<p>心理学者はしばしば、心理学的なタイプやクラス、段階や相、そしてそれらの間の転移に関心をもつ。分岐の基本を知れば、転移についての私たちの考えははるかに明晰で進んだものになる。</p>
+<p>カタストロフィ理論は、行動科学・社会科学のための道具箱を備えている。私たちは現象論的モデルを構築し、カタストロフィ・フラグを検証し、さらにカスプモデルをデータに当てはめることができる。この道具箱の発展とともに、カタストロフィ理論への批判のほとんどはその意義を失う。</p>
+<p>しかし、改善の余地はある。現象論的モデルは説明力に限りがある。力学系モデルに関する次章で説明するように、現象論的モデルの使用を支持する、よりメカニズム的なモデルを作ることが可能である。第6章 <a href="#sec-Ising-attitude-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Ising-attitude-model</span></a> では、ネットワークを用いたもう一つの選択肢が導入される。態度についてのイジングネットワークモデルの振る舞いがカスプモデルによって支配されること、そしてそれが妊娠中絶に対する態度について提案されたカスプモデルと非常に似ていることを、私は実演する。</p>
+</section>
+<section id="sec-Exercises-ch3" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="sec-Exercises-ch3"><span class="header-section-number">3.8</span> 演習問題</h2>
+<ol type="1">
+<li><p>折り目の平衡状態は <span class="math inline">\(X = \pm \sqrt{\frac{a}{3}}\)</span> である。これは一階導関数を 0 に設定することで確認できる。これを示せ。(*)</p></li>
+<li><p>ゼーマンの犬の攻撃性モデルにおいて、恐怖と怒りは「回転させた」制御変数である。これを回転させていない軸をもつモデルにどう翻訳できるか。恐怖と怒りの関数として正規軸と分裂軸を指定する方程式を提示せよ。(*)</p></li>
+<li><p>一階導関数と二階導関数を 0 に設定することで、カスプの分岐線の方程式（<span class="math inline">\(27a^{2} = 4b^{3}\)</span>）を導け。GeoGebra または Desmos で分岐線をプロットせよ。(**)</p></li>
+<li><p>蝶カタストロフィ <span class="math inline">\(V(X) = {- aX - bX^{2} - cX}^{3} - dX^{4} + X^{6}\)</span> についてのいくらかの洞察は、Desmos や GeoGebra のような無料のオンライングラフ計算機に方程式を入力することで得られる。<span class="math inline">\(a\)</span>、<span class="math inline">\(b\)</span>、<span class="math inline">\(c\)</span>、<span class="math inline">\(d\)</span> を 0、-5、0、5 に設定せよ。それから <span class="math inline">\(a\)</span> と <span class="math inline">\(c\)</span> を変化させ始めよ。アトラクタの出現と消失に対するこれら二つのパラメータの効果の違いは何か。(**)</p></li>
+<li><p>恋に落ちることについての現象論的カスプを立てよ。私の指針に従え（<a href="#sec-Phenomenological-models" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Phenomenological-models</span></a> を参照）。(**)</p></li>
+<li><p><code>age_range</code> が正規軸にのみ負荷するとき、実際にベントラーのデータがより良く当てはまるかどうか（AIC と BIC に従って）を確認せよ。この場合、<code>cusp()</code> における <code>beta</code> の正しい指定は何か。(*)</p></li>
+<li><p>この R コードで作成された厄介なデータセットについて、（BIC に従って）最も良く当てはまるカスプモデルは何か。なぜか。(**)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">Vectorize</span>(rcusp)(<span class="dv">1</span>, .<span class="dv">7</span> <span class="sc">*</span> <span class="fu">rnorm</span>(n), <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">rnorm</span>(n)) <span class="co"># sample z</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(z, x, y) <span class="co"># collect variables in data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>ゼーマン機械を作り、データを集め、カスプを当てはめよ <span class="citation" data-cites="grasman2009">(<a href="#ref-grasman2009" role="doc-biblioref">Grasman, van der Maas, and Wagenmakers 2009</a> の例 III を参照)</span>。あなたの最も良く当てはまるモデルは何か。分岐集合内のデータのプロットと、あなたのゼーマン機械の写真を提示せよ。(**)</p></li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-alexanderExaminationLeastsquaresRegression1992" class="csl-entry" role="listitem">
+Alexander, Ralph A., Glenn R. Herbert, Richard P. DeShon, and Paul J. Hanges. 1992. <span>“An Examination of Least-Squares Regression Modeling of Catastrophe Theory.”</span> <em>Psychological Bulletin</em> 111: 366–74. <a href="https://doi.org/10.1037/0033-2909.111.2.366">https://doi.org/10.1037/0033-2909.111.2.366</a>.
+</div>
+<div id="ref-arnaudMixtureModellingScratch2021" class="csl-entry" role="listitem">
+Arnaud, M. 2021. <span>“Mixture Modelling from Scratch, in <span>R</span>.”</span> <em>Medium</em>. https://towardsdatascience.com/mixture-modelling-from-scratch-in-r-5ab7bfc83eef.
+</div>
+<div id="ref-bentlerEvidenceRegardingStages1970" class="csl-entry" role="listitem">
+Bentler, P. M. 1970. <span>“Evidence Regarding <span>Stages</span> in the <span>Development</span> of <span>Conservation</span>.”</span> <em>Perceptual and Motor Skills</em> 31 (3): 855–59. <a href="https://doi.org/10.2466/pms.1970.31.3.855">https://doi.org/10.2466/pms.1970.31.3.855</a>.
+</div>
+<div id="ref-borsboomKindsContinuaReview2016" class="csl-entry" role="listitem">
+Borsboom, Denny, Mijke Rhemtulla, Angélique O. J. Cramer, Han L. J. van der Maas, M. Scheffer, and C. V. Dolan. 2016. <span>“Kinds <span><em>Versus</em></span> Continua: A Review of Psychometric Approaches to Uncover the Structure of Psychiatric Constructs.”</span> <em>Psychological Medicine</em> 46 (8): 1567–79. <a href="https://doi.org/10.1017/S0033291715001944">https://doi.org/10.1017/S0033291715001944</a>.
+</div>
+<div id="ref-burgEvaluationChangePoint2022" class="csl-entry" role="listitem">
+Burg, Gerrit J. J. van den, and Christopher K. I. Williams. 2022. <span>“An <span>Evaluation</span> of <span>Change Point Detection Algorithms</span>.”</span> <span>arXiv</span>. <a href="https://doi.org/10.48550/arXiv.2003.06222">https://doi.org/10.48550/arXiv.2003.06222</a>.
+</div>
+<div id="ref-cobbStochasticCatastropheModels1978" class="csl-entry" role="listitem">
+Cobb, Loren. 1978. <span>“Stochastic Catastrophe Models and Multimodal Distributions.”</span> <em>Behavioral Science</em> 23 (4): 360–74. <a href="https://doi.org/10.1002/bs.3830230407">https://doi.org/10.1002/bs.3830230407</a>.
+</div>
+<div id="ref-cobbApplicationsCatastropheTheory1985" class="csl-entry" role="listitem">
+Cobb, Loren, and Shelemyahu Zacks. 1985. <span>“Applications of <span>Catastrophe Theory</span> for <span>Statistical Modeling</span> in the <span>Biosciences</span>.”</span> <em>Journal of the American Statistical Association</em> 80 (392): 793–802. <a href="https://doi.org/10.1080/01621459.1985.10478184">https://doi.org/10.1080/01621459.1985.10478184</a>.
+</div>
+<div id="ref-cohenCriticalElaborationEmpirical2003" class="csl-entry" role="listitem">
+Cohen, Alexander, David Pargman, and Gershon Tenenbaum. 2003. <span>“Critical <span>Elaboration</span> and <span>Empirical Investigation</span> of the <span>Cusp Catastrophe Model</span>: <span>A Lesson</span> for <span>Practitioners</span>.”</span> <em>Journal of Applied Sport Psychology</em> 15 (2): 144–59. <a href="https://doi.org/10.1080/10413200305393">https://doi.org/10.1080/10413200305393</a>.
+</div>
+<div id="ref-dablander2023" class="csl-entry" role="listitem">
+Dablander, Fabian, Anton Pichler, Arta Cika, and Andrea Bacilieri. 2023. <span>“Anticipating Critical Transitions in Psychological Systems Using Early Warning Signals: Theoretical and Practical Considerations.”</span> <em>Psychological Methods</em> 28 (4): 765–90. <a href="https://doi.org/10.1037/met0000450">https://doi.org/10.1037/met0000450</a>.
+</div>
+<div id="ref-dakosMethodsDetectingEarly2012" class="csl-entry" role="listitem">
+Dakos, Vasilis, Stephen R. Carpenter, William A. Brock, Aaron M. Ellison, Vishwesha Guttal, Anthony R. Ives, Sonia Kéfi, et al. 2012. <span>“Methods for Detecting Early Warnings of Critical Transitions in Time Series Illustrated Using Simulated Ecological Data.”</span> <em>PloS One</em> 7 (7): e41010. <a href="https://doi.org/10.1371/journal.pone.0041010">https://doi.org/10.1371/journal.pone.0041010</a>.
+</div>
+<div id="ref-dodsonAllopatricSpeciationFold1977" class="csl-entry" role="listitem">
+Dodson, M. M., and A. Hallam. 1977. <span>“Allopatric <span>Speciation</span> and the <span>Fold Catastrophe</span>.”</span> <em>The American Naturalist</em> 111 (979): 415–33. <a href="https://doi.org/10.1086/283176">https://doi.org/10.1086/283176</a>.
+</div>
+<div id="ref-dolan1998" class="csl-entry" role="listitem">
+Dolan, Conor V., and Han L. J. van der Maas. 1998. <span>“Fitting Multivariage Normal Finite Mixtures Subject to Structural Equation Modeling.”</span> <em>Psychometrika</em> 63 (3): 227–53. <a href="https://doi.org/10.1007/BF02294853">https://doi.org/10.1007/BF02294853</a>.
+</div>
+<div id="ref-dutilhPhaseTransitionModel2011" class="csl-entry" role="listitem">
+Dutilh, Gilles, Eric-Jan Wagenmakers, Ingmar Visser, and van der Han L. J. Maas. 2011. <span>“A <span>Phase Transition Model</span> for the <span>Speed-Accuracy Trade-Off</span> in <span>Response Time Experiments</span>.”</span> <em>Cognitive Science</em> 35 (2): 211–50. <a href="https://doi.org/10.1111/j.1551-6709.2010.01147.x">https://doi.org/10.1111/j.1551-6709.2010.01147.x</a>.
+</div>
+<div id="ref-ebaugh1988" class="csl-entry" role="listitem">
+Ebaugh, Helen Rose Fuchs. 1988. <em>Becoming an Ex: The Process of Role Exit</em>. University of Chicago Press.
+</div>
+<div id="ref-gilmoreCatastropheTheoryScientists1993" class="csl-entry" role="listitem">
+Gilmore, Robert. 1993. <em>Catastrophe <span>Theory</span> for <span>Scientists</span> and <span>Engineers</span></em>. <span>Courier Corporation</span>.
+</div>
+<div id="ref-grasman2009" class="csl-entry" role="listitem">
+Grasman, Raoul, Han L. J. van der Maas, and Eric-Jan Wagenmakers. 2009. <span>“Fitting the Cusp Catastrophe in R: A Cusp Package Primer.”</span> <em>Journal of Statistical Software</em> 032 (i08). <a href="https://ideas.repec.org/a/jss/jstsof/v032i08.html">https://ideas.repec.org/a/jss/jstsof/v032i08.html</a>.
+</div>
+<div id="ref-guastelloModeratorRegressionCusp1982" class="csl-entry" role="listitem">
+Guastello, Stephen J. 1982. <span>“Moderator Regression and the Cusp Catastrophe: <span>Application</span> of Two-Stage Personnel Selection, Training, Therapy, and Policy Evaluation.”</span> <em>Behavioral Science</em> 27 (3): 259–72. <a href="https://doi.org/10.1002/bs.3830270305">https://doi.org/10.1002/bs.3830270305</a>.
+</div>
+<div id="ref-guastello1984" class="csl-entry" role="listitem">
+———. 1984. <span>“Cusp and Butterfly Catastrophe Modeling of Two Opponent Process Models: Drug Addiction and Work Performance.”</span> <em>Behavioral Science</em> 29 (4): 258262. <a href="https://www.proquest.com/docview/1301285594/citation/C898CBB773DF4B72PQ/1">https://www.proquest.com/docview/1301285594/citation/C898CBB773DF4B72PQ/1</a>.
+</div>
+<div id="ref-guckenheimerGlobalBifurcations1983" class="csl-entry" role="listitem">
+Guckenheimer, John, and Philip Holmes. 1983. <span>“Global <span>Bifurcations</span>.”</span> In <em>Nonlinear <span>Oscillations</span>, <span>Dynamical Systems</span>, and <span>Bifurcations</span> of <span>Vector Fields</span></em>, edited by John Guckenheimer and Philip Holmes, 289–352. Applied <span>Mathematical Sciences</span>. <span>New York, NY</span>: <span>Springer</span>. <a href="https://doi.org/10.1007/978-1-4612-1140-2_6">https://doi.org/10.1007/978-1-4612-1140-2_6</a>.
+</div>
+<div id="ref-guemezCartesianDiverFold2002" class="csl-entry" role="listitem">
+Güémez, J., C. Fiolhais, and M. Fiolhais. 2002. <span>“The <span>Cartesian</span> Diver and the Fold Catastrophe.”</span> <em>American Journal of Physics</em> 70 (7): 710–14. <a href="https://doi.org/10.1119/1.1477433">https://doi.org/10.1119/1.1477433</a>.
+</div>
+<div id="ref-hakenSynergetics1977" class="csl-entry" role="listitem">
+Haken, Hermann. 1977. <span>“Synergetics.”</span> <em>Physics Bulletin</em> 28 (9): 412. <a href="https://doi.org/10.1088/0031-9112/28/9/027">https://doi.org/10.1088/0031-9112/28/9/027</a>.
+</div>
+<div id="ref-hardyTestingPredictionsCusp1996" class="csl-entry" role="listitem">
+Hardy, Lew. 1996. <span>“Testing the <span>Predictions</span> of the <span>Cusp Catastrophe Model</span> of <span>Anxiety</span> and <span>Performance</span>.”</span> <em>The Sport Psychologist</em> 10 (2): 140–56. <a href="https://doi.org/10.1123/tsp.10.2.140">https://doi.org/10.1123/tsp.10.2.140</a>.
+</div>
+<div id="ref-hardy1991" class="csl-entry" role="listitem">
+Hardy, Lew, and Gaynor Parfitt. 1991. <span>“A Catastrophe Model of Anxiety and Performance.”</span> <em>British Journal of Psychology</em> 82 (2): 163–78. <a href="https://doi.org/10.1111/j.2044-8295.1991.tb02391.x">https://doi.org/10.1111/j.2044-8295.1991.tb02391.x</a>.
+</div>
+<div id="ref-hardy2004" class="csl-entry" role="listitem">
+Hardy, Lew, Tim Woodman, and Stephen Carrington. 2004. <span>“Is Self-Confidence a Bias Factor in Higher-Order Catastrophe Models? An Exploratory Analysis.”</span> <em>Journal of Sport and Exercise Psychology</em> 26 (3): 359–68. <a href="https://doi.org/10.1123/jsep.26.3.359">https://doi.org/10.1123/jsep.26.3.359</a>.
+</div>
+<div id="ref-jamesEcpPackageNonparametric2014" class="csl-entry" role="listitem">
+James, Nicholas A., and David S. Matteson. 2014. <span>“<span><strong>Ecp</strong></span> : <span>An</span> <span><em>R</em></span> <span>Package</span> for <span>Nonparametric Multiple Change Point Analysis</span> of <span>Multivariate Data</span>.”</span> <em>Journal of Statistical Software</em> 62 (7). <a href="https://doi.org/10.18637/jss.v062.i07">https://doi.org/10.18637/jss.v062.i07</a>.
+</div>
+<div id="ref-jansen2001" class="csl-entry" role="listitem">
+Jansen, Brenda R. J., and Han L. J. van der Maas. 2001. <span>“Evidence for the Phase Transition from Rule I to Rule II on the Balance Scale Task.”</span> <em>Developmental Review</em> 21 (4): 450494. <a href="https://doi.org/10.1006/drev.2001.0530">https://doi.org/10.1006/drev.2001.0530</a>.
+</div>
+<div id="ref-kreitlerHorizontalDecalageProblem1989" class="csl-entry" role="listitem">
+Kreitler, Shulamith, and Hans Kreitler. 1989. <span>“Horizontal Decalage: <span>A</span> Problem and Its Solution.”</span> <em>Cognitive Development</em> 4 (1): 89–119. <a href="https://doi.org/10.1016/0885-2014(89)90006-3">https://doi.org/10.1016/0885-2014(89)90006-3</a>.
+</div>
+<div id="ref-lataneAttitudesCatastrophesDimensions1994" class="csl-entry" role="listitem">
+Latané, Bibb, and Andrzej Nowak. 1994. <span>“Attitudes as Catastrophes: <span>From</span> Dimensions to Categories with Increasing Involvement.”</span> In <em>Dynamical Systems in Social Psychology</em>, 219–49. <span>San Diego, CA, US</span>: <span>Academic Press</span>.
+</div>
+<div id="ref-leemputCriticalSlowingEarly2014" class="csl-entry" role="listitem">
+Leemput, van de Ingrid A., Marieke Wichers, Angélique O. J. Cramer, Denny Borsboom, Francis Tuerlinckx, Peter Kuppens, van Egbert H. Nes, et al. 2014. <span>“Critical Slowing down as Early Warning for the Onset and Termination of Depression.”</span> <em>Proceedings of the National Academy of Sciences</em> 111 (1): 87–92. <a href="https://doi.org/10.1073/pnas.1312114110">https://doi.org/10.1073/pnas.1312114110</a>.
+</div>
+<div id="ref-loehleCatastropheTheoryEcology1989" class="csl-entry" role="listitem">
+Loehle, Craig. 1989. <span>“Catastrophe Theory in Ecology: A Critical Review and an Example of the Butterfly Catastrophe.”</span> <em>Ecological Modelling</em> 49 (1): 125–52. <a href="https://doi.org/10.1016/0304-3800(89)90047-1">https://doi.org/10.1016/0304-3800(89)90047-1</a>.
+</div>
+<div id="ref-ludwig1978" class="csl-entry" role="listitem">
+Ludwig, D., D. D. Jones, and C. S. Holling. 1978. <span>“Qualitative Analysis of Insect Outbreak Systems: The Spruce Budworm and Forest.”</span> <em>Journal of Animal Ecology</em> 47 (1): 315–32. <a href="https://doi.org/10.2307/3939">https://doi.org/10.2307/3939</a>.
+</div>
+<div id="ref-mazanovCuspCatastropheModel2006" class="csl-entry" role="listitem">
+Mazanov, Jason, and D. G. Byrne. 2006. <span>“A <span>Cusp Catastrophe Model Analysis</span> of <span>Changes</span> in <span>Adolescent Substance Use</span>: <span>Assessment</span> of <span>Behavioural Intention</span> as a <span>Bifurcation Variable</span>.”</span> <em>Nonlinear Dynamics, Psychology, and Life Sciences</em> 10: 445–70.
+</div>
+<div id="ref-mclachlanFiniteMixtureModels2019" class="csl-entry" role="listitem">
+McLachlan, Geoffrey J., Sharon X. Lee, and Suren I. Rathnayake. 2019. <span>“Finite <span>Mixture Models</span>.”</span> <em>Annual Review of Statistics and Its Application</em> 6 (1): 355–78. <a href="https://doi.org/10.1146/annurev-statistics-031017-100325">https://doi.org/10.1146/annurev-statistics-031017-100325</a>.
+</div>
+<div id="ref-mcrobieSeductionCurvesLines2017" class="csl-entry" role="listitem">
+McRobie, Allan. 2017. <em>The <span>Seduction</span> of <span>Curves</span>: <span>The Lines</span> of <span>Beauty That Connect Mathematics</span>, <span>Art</span>, and the <span>Nude</span></em>. <span>Princeton University Press</span>.
+</div>
+<div id="ref-michellPsychometricsPathologicalScience2008" class="csl-entry" role="listitem">
+Michell, Joel. 2008. <span>“Is <span>Psychometrics Pathological Science</span>?”</span> <em>Measurement: Interdisciplinary Research and Perspectives</em> 6 (January): 7–24. <a href="https://doi.org/10.1080/15366360802035489">https://doi.org/10.1080/15366360802035489</a>.
+</div>
+<div id="ref-olivaGemcatGeneralMultivariate1987" class="csl-entry" role="listitem">
+Oliva, Terence A., Wayne S. Desarbo, Diana L. Day, and Kamel Jedidi. 1987. <span>“Gemcat: <span>A</span> General Multivariate Methodology for Estimating Catastrophe Models.”</span> <em>Behavioral Science</em> 32 (2): 121–37. <a href="https://doi.org/10.1002/bs.3830320205">https://doi.org/10.1002/bs.3830320205</a>.
+</div>
+<div id="ref-olthofCriticalFluctuationsEarlyWarning2020" class="csl-entry" role="listitem">
+Olthof, Merlijn, Fred Hasselman, Guido Strunk, Marieke van Rooij, Benjamin Aas, Marieke A. Helmich, Günter Schiepek, and Anna Lichtwarck-Aschoff. 2020. <span>“Critical <span>Fluctuations</span> as an <span>Early-Warning Signal</span> for <span>Sudden Gains</span> and <span>Losses</span> in <span>Patients Receiving Psychotherapy</span> for <span>Mood Disorders</span>.”</span> <em>Clinical Psychological Science</em> 8 (1): 25–35. <a href="https://doi.org/10.1177/2167702619865969">https://doi.org/10.1177/2167702619865969</a>.
+</div>
+<div id="ref-paulosMathematicsHumor2008" class="csl-entry" role="listitem">
+Paulos, John Allen. 2008. <em>Mathematics and <span>Humor</span></em>. <span>University of Chicago Press</span>.
+</div>
+<div id="ref-ploegerStochasticCatastropheAnalysis2002" class="csl-entry" role="listitem">
+Ploeger, Annemie, Han L. J. van der Maas, and Pascal A. I. Hartelman. 2002. <span>“Stochastic Catastrophe Analysis of Switches in the Perception of Apparent Motion.”</span> <em>Psychonomic Bulletin &amp; Review</em> 9 (1): 26–42. <a href="https://doi.org/10.3758/BF03196255">https://doi.org/10.3758/BF03196255</a>.
+</div>
+<div id="ref-postonCatastropheTheoryIts2014" class="csl-entry" role="listitem">
+Poston, Tim, and Ian Stewart. 2014. <em>Catastrophe <span>Theory</span> and <span>Its Applications</span></em>. <span>Courier Corporation</span>.
+</div>
+<div id="ref-rosserRiseFallCatastrophe2007" class="csl-entry" role="listitem">
+Rosser, J. Barkley. 2007. <span>“The Rise and Fall of Catastrophe Theory Applications in Economics: <span>Was</span> the Baby Thrown Out with the Bathwater?”</span> <em>Journal of Economic Dynamics and Control</em> 31 (10): 3255–80. <a href="https://doi.org/10.1016/j.jedc.2006.09.013">https://doi.org/10.1016/j.jedc.2006.09.013</a>.
+</div>
+<div id="ref-stevens1957" class="csl-entry" role="listitem">
+Stevens, S. S. 1957. <span>“On the Psychophysical Law.”</span> <em>Psychological Review</em> 64 (3): 153181. <a href="https://doi.org/10.1037/h0046162">https://doi.org/10.1037/h0046162</a>.
+</div>
+<div id="ref-stewartCatastropheTheoryPhysics1982" class="csl-entry" role="listitem">
+Stewart, Ian. 1982. <span>“Catastrophe Theory in Physics.”</span> <em>Reports on Progress in Physics</em> 45 (2): 185–221. <a href="https://doi.org/10.1088/0034-4885/45/2/002">https://doi.org/10.1088/0034-4885/45/2/002</a>.
+</div>
+<div id="ref-stewartCatastropheTheoryModeling1983" class="csl-entry" role="listitem">
+Stewart, Ian, and P. L. Peregoy. 1983. <span>“Catastrophe Theory Modeling in Psychology.”</span> <em>Psychological Bulletin</em> 94: 336–62. <a href="https://doi.org/10.1037/0033-2909.94.2.336">https://doi.org/10.1037/0033-2909.94.2.336</a>.
+</div>
+<div id="ref-stoufferAmericanSoldierAdjustment1949" class="csl-entry" role="listitem">
+Stouffer, Samuel A., Edward A. Suchman, Leland C. Devinney, Shirley A. Star, and Robin M. Williams Jr. 1949. <em>The <span>American</span> Soldier: <span>Adjustment</span> During Army Life. (<span>Studies</span> in Social Psychology in <span>World War II</span>), <span>Vol</span>. 1</em>. The <span>American</span> Soldier: <span>Adjustment</span> During Army Life. (<span>Studies</span> in Social Psychology in <span>World War II</span>), <span>Vol</span>. 1. <span>Oxford, England</span>: <span>Princeton Univ. Press</span>.
+</div>
+<div id="ref-thomStructuralStabilityCatastrophe1977" class="csl-entry" role="listitem">
+Thom, René. 1977. <span>“Structural <span>Stability</span>, <span>Catastrophe Theory</span>, and <span>Applied Mathematics</span>.”</span> <em>SIAM Review</em> 19 (2): 189–201. <a href="https://doi.org/10.1137/1019036">https://doi.org/10.1137/1019036</a>.
+</div>
+<div id="ref-tschacher2023" class="csl-entry" role="listitem">
+Tschacher, Wolfgang, and Hermann Haken. 2023. <span>“A Complexity Science Account of Humor.”</span> <em>Entropy</em> 25 (2): 341. <a href="https://doi.org/10.3390/e25020341">https://doi.org/10.3390/e25020341</a>.
+</div>
+<div id="ref-vandermaasSuddenTransitionsAttitudes2003" class="csl-entry" role="listitem">
+van der Maas, Han L. J., Rogier Kolstein, and Joop van der Pligt. 2003. <span>“Sudden <span>Transitions</span> in <span>Attitudes</span>.”</span> <em>Sociological Methods &amp; Research</em> 32 (2): 125–52. <a href="https://doi.org/10.1177/0049124103253773">https://doi.org/10.1177/0049124103253773</a>.
+</div>
+<div id="ref-vandermaas1992" class="csl-entry" role="listitem">
+van der Maas, Han L. J., and Peter C. M. Molenaar. 1992. <span>“Stagewise Cognitive Development: An Application of Catastrophe Theory.”</span> <em>Psychological Review</em> 99 (3): 395–417. <a href="https://doi.org/10.1037/0033-295X.99.3.395">https://doi.org/10.1037/0033-295X.99.3.395</a>.
+</div>
+<div id="ref-visserMixtureHiddenMarkov2022" class="csl-entry" role="listitem">
+Visser, Ingmar, and Maarten Speekenbrink. 2022. <em>Mixture and <span>Hidden Markov Models</span> with <span>R</span></em>. <span>Springer International Publishing</span>.
+</div>
+<div id="ref-wagenmakersTransformationInvariantStochastic2005" class="csl-entry" role="listitem">
+Wagenmakers, Eric-Jan, Peter C. M. Molenaar, Raoul P. P. P. Grasman, Pascal A. I. Hartelman, and Han L. J. van der Maas. 2005. <span>“Transformation Invariant Stochastic Catastrophe Theory.”</span> <em>Physica D: Nonlinear Phenomena</em> 211 (3): 263–76. <a href="https://doi.org/10.1016/j.physd.2005.08.014">https://doi.org/10.1016/j.physd.2005.08.014</a>.
+</div>
+<div id="ref-wichersCriticalSlowingPersonalized2016" class="csl-entry" role="listitem">
+Wichers, Marieke, Peter C. Groot, and ESM Group Psychosystems. 2016. <span>“Critical <span>Slowing Down</span> as a <span>Personalized Early Warning Signal</span> for <span>Depression</span>.”</span> <em>Psychotherapy and Psychosomatics</em> 85 (2): 114–16. <a href="https://doi.org/10.1159/000441458">https://doi.org/10.1159/000441458</a>.
+</div>
+<div id="ref-witkiewitzNonnormalityDivergencePosttreatment2007" class="csl-entry" role="listitem">
+Witkiewitz, Katie, Han L. J. van der Maas, Michael R. Hufford, and G. Alan Marlatt. 2007. <span>“Nonnormality and Divergence in Posttreatment Alcohol Use: <span>Reexamining</span> the <span>Project MATCH</span> Data "Another Way.".”</span> <em>Journal of Abnormal Psychology</em> 116: 378–94. <a href="https://doi.org/10.1037/0021-843X.116.2.378">https://doi.org/10.1037/0021-843X.116.2.378</a>.
+</div>
+<div id="ref-zahlerClaimsAccomplishmentsApplied1977" class="csl-entry" role="listitem">
+Zahler, Raphael S., and Hector J. Sussmann. 1977. <span>“Claims and Accomplishments of Applied Catastrophe Theory.”</span> <em>Nature</em> 269 (October): 759–63. <a href="https://doi.org/10.1038/269759a0">https://doi.org/10.1038/269759a0</a>.
+</div>
+<div id="ref-zeemanCatastropheTheory1976" class="csl-entry" role="listitem">
+Zeeman, E. C. 1976. <span>“Catastrophe <span>Theory</span>.”</span> <em>Scientific American</em> 234 (4): 65–83.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>特定の保存課題を習得することはかなり突然であるように見えるが、数の保存の習得と体積の保存の習得の間には、二年ほどの隔たりが容易に生じうる <span class="citation" data-cites="kreitlerHorizontalDecalageProblem1989">(<a href="#ref-kreitlerHorizontalDecalageProblem1989" role="doc-biblioref">Kreitler and Kreitler 1989</a>)</span>。これは段階理論と矛盾する。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>関連するよく似た区別は、亜臨界分岐と超臨界分岐の間の区別である。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="#sec-Cobbs-maximum-likelihood-approach" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Cobbs-maximum-likelihood-approach</span></a> で見るように、二次のポテンシャル関数の統計的な等価物は正規分布であり、私たちの統計的な仕事で最も人気のある分布である。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://www.youtube.com/watch?v=6ZQKzcw9Ulk" class="uri">https://www.youtube.com/watch?v=6ZQKzcw9Ulk</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>三次方程式は容易には解けない。これは、カスプが <span class="math inline">\(y = f(x)\)</span> の形の関数ではないという事実による。関数は <span class="math inline">\(x\)</span> の各要素にちょうど一つの <span class="math inline">\(y\)</span> の要素を割り当てる。しかし双安定系では、一つの <span class="math inline">\(x\)</span> の値に二つの <span class="math inline">\(y\)</span> の値を割り当てる。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>この見方を「選択反対（アンチチョイス）」と呼ぶほうがおそらくよい。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>蝶カタストロフィとカオス理論におけるバタフライ効果はまったく無関係の概念である、ということを指摘しておく。<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>これらの指針と例が与えられれば、たとえば恋に落ちることについて、自分自身のカスプモデルを開発することは興味深い演習である。これは厄介な演習である。<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>この方法は、観察されたデータを最も確からしくするパラメータ値を見つける。<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>これには多くの異なる記法が存在する。<span class="math inline">\(dX\)</span> も <span class="math inline">\(dW\)</span> も時間に依存するので、<span class="math inline">\(dX(t) = - V^{'}\left( X(t) \right)dt + \sigma dW(t)\)</span> とするほうがおそらく明確である。<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>後の章との整合性のために、私は <span class="math inline">\(Z\)</span> を <span class="citation" data-cites="grasman2009">Grasman, van der Maas, and Wagenmakers (<a href="#ref-grasman2009" role="doc-biblioref">2009</a>)</span> の記法とは異なる仕方で定義する。それはその論文の <span class="math inline">\(Z\)</span> の逆数である。<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>ゼーマンの仕事ぶりを見るには、BBC のドキュメンタリー『Case Study Catastrophe Theory Maths Foundation Course』（<a href="https://www.youtube.com/watch?v=myDvcvox1V4&amp;t=1435s" class="uri">https://www.youtube.com/watch?v=myDvcvox1V4&amp;t=1435s</a>）を推薦する。<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch2.html" class="pagination-link" aria-label="カオスと予測不可能性">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">カオスと予測不可能性</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch4n.html" class="pagination-link" aria-label="力学系モデルの構築">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">力学系モデルの構築</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://www.sfipress.org/"><img src="csrp-online-press-logo.png" alt="Santa Fe Institute press" style="height:45px;"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p>© Han L. J. van der Maas, 2024</p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank">CC BY-SA 4.0</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

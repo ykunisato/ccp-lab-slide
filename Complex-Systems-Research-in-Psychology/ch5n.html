@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.33">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; 自己組織化 – Complex Systems Research in Psychology</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ch6.html" rel="next">
+<link href="./ch4n.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1e13a3099a05037a1437c813e2312cdf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ch5n.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">自己組織化</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./sfi_cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Complex Systems Research in Psychology</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://www.sfipress.org/books/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-book"></i></a>
+    <a href="https://a.co/d/aXyHRoK" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-cart"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-filetype-pdf"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Complex-systems-research-in-Psychology.pdf">
+            Download PDF
+            </a>
+          </li>
+      </ul>
+    </div>
+    <a href="https://github.com/SantaFeInstitute/ComplexPsych/tree/master" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">プロローグ</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">カオスと予測不可能性</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">複雑系における転移</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch4n.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">力学系モデルの構築</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch5n.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">自己組織化</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">心理学的ネットワークモデル</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">社会物理学</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ch8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">エピローグ</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-Introduction-ch5n" id="toc-sec-Introduction-ch5n" class="nav-link active" data-scroll-target="#sec-Introduction-ch5n"><span class="header-section-number">5.1</span> はじめに</a></li>
+  <li><a href="#sec-Key-examples-from-the-natural-sciences" id="toc-sec-Key-examples-from-the-natural-sciences" class="nav-link" data-scroll-target="#sec-Key-examples-from-the-natural-sciences"><span class="header-section-number">5.2</span> 自然科学からの鍵となる例</a>
+  <ul>
+  <li><a href="#sec-Physics" id="toc-sec-Physics" class="nav-link" data-scroll-target="#sec-Physics"><span class="header-section-number">5.2.1</span> 物理学</a></li>
+  <li><a href="#sec-Chemistry" id="toc-sec-Chemistry" class="nav-link" data-scroll-target="#sec-Chemistry"><span class="header-section-number">5.2.2</span> 化学</a></li>
+  <li><a href="#sec-Biology" id="toc-sec-Biology" class="nav-link" data-scroll-target="#sec-Biology"><span class="header-section-number">5.2.3</span> 生物学</a></li>
+  <li><a href="#sec-Computer-science" id="toc-sec-Computer-science" class="nav-link" data-scroll-target="#sec-Computer-science"><span class="header-section-number">5.2.4</span> 計算機科学</a></li>
+  <li><a href="#sec-Neural-networks" id="toc-sec-Neural-networks" class="nav-link" data-scroll-target="#sec-Neural-networks"><span class="header-section-number">5.2.5</span> ニューラルネットワーク</a></li>
+  <li><a href="#sec-The-concept-of-selforganization" id="toc-sec-The-concept-of-selforganization" class="nav-link" data-scroll-target="#sec-The-concept-of-selforganization"><span class="header-section-number">5.2.6</span> 自己組織化という概念</a></li>
+  </ul></li>
+  <li><a href="#sec-NetLogo" id="toc-sec-NetLogo" class="nav-link" data-scroll-target="#sec-NetLogo"><span class="header-section-number">5.3</span> NetLogo</a>
+  <ul>
+  <li><a href="#sec-Examples" id="toc-sec-Examples" class="nav-link" data-scroll-target="#sec-Examples"><span class="header-section-number">5.3.1</span> 例</a></li>
+  <li><a href="#sec-A-bit-of-NetLogo-programming" id="toc-sec-A-bit-of-NetLogo-programming" class="nav-link" data-scroll-target="#sec-A-bit-of-NetLogo-programming"><span class="header-section-number">5.3.2</span> NetLogo プログラミングを少し</a>
+  <ul>
+  <li><a href="#sec-Game-of-Life" id="toc-sec-Game-of-Life" class="nav-link" data-scroll-target="#sec-Game-of-Life"><span class="header-section-number">5.3.2.1</span> ライフゲーム</a></li>
+  <li><a href="#sec-The-Ising-model" id="toc-sec-The-Ising-model" class="nav-link" data-scroll-target="#sec-The-Ising-model"><span class="header-section-number">5.3.2.2</span> イジングモデル</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#sec-Selforganization-in-psychology-and-social-systems" id="toc-sec-Selforganization-in-psychology-and-social-systems" class="nav-link" data-scroll-target="#sec-Selforganization-in-psychology-and-social-systems"><span class="header-section-number">5.4</span> 心理学と社会システムにおける自己組織化</a>
+  <ul>
+  <li><a href="#sec-The-brain" id="toc-sec-The-brain" class="nav-link" data-scroll-target="#sec-The-brain"><span class="header-section-number">5.4.1</span> 脳</a></li>
+  <li><a href="#sec-Consciousness" id="toc-sec-Consciousness" class="nav-link" data-scroll-target="#sec-Consciousness"><span class="header-section-number">5.4.2</span> 意識</a></li>
+  <li><a href="#sec-Visual-illusions" id="toc-sec-Visual-illusions" class="nav-link" data-scroll-target="#sec-Visual-illusions"><span class="header-section-number">5.4.3</span> 視覚錯覚</a></li>
+  <li><a href="#sec-Motor-action" id="toc-sec-Motor-action" class="nav-link" data-scroll-target="#sec-Motor-action"><span class="header-section-number">5.4.4</span> 運動行為</a></li>
+  <li><a href="#sec-Robotics" id="toc-sec-Robotics" class="nav-link" data-scroll-target="#sec-Robotics"><span class="header-section-number">5.4.5</span> ロボット工学</a></li>
+  <li><a href="#sec-Developmental-processes" id="toc-sec-Developmental-processes" class="nav-link" data-scroll-target="#sec-Developmental-processes"><span class="header-section-number">5.4.6</span> 発達過程</a></li>
+  <li><a href="#sec-Psychological-disorders" id="toc-sec-Psychological-disorders" class="nav-link" data-scroll-target="#sec-Psychological-disorders"><span class="header-section-number">5.4.7</span> 心理的障害</a></li>
+  <li><a href="#sec-Social-relations" id="toc-sec-Social-relations" class="nav-link" data-scroll-target="#sec-Social-relations"><span class="header-section-number">5.4.8</span> 社会的関係</a></li>
+  <li><a href="#sec-Collective-Intelligence" id="toc-sec-Collective-Intelligence" class="nav-link" data-scroll-target="#sec-Collective-Intelligence"><span class="header-section-number">5.4.9</span> 集合知</a></li>
+  <li><a href="#sec-Game-theory" id="toc-sec-Game-theory" class="nav-link" data-scroll-target="#sec-Game-theory"><span class="header-section-number">5.4.10</span> ゲーム理論</a></li>
+  <li><a href="#sec-Selforganization-in-organizations" id="toc-sec-Selforganization-in-organizations" class="nav-link" data-scroll-target="#sec-Selforganization-in-organizations"><span class="header-section-number">5.4.11</span> 組織における自己組織化</a></li>
+  </ul></li>
+  <li><a href="#sec-Zooming-out" id="toc-sec-Zooming-out" class="nav-link" data-scroll-target="#sec-Zooming-out"><span class="header-section-number">5.5</span> 引いて見る</a></li>
+  <li><a href="#sec-Exercises-ch5n" id="toc-sec-Exercises-ch5n" class="nav-link" data-scroll-target="#sec-Exercises-ch5n"><span class="header-section-number">5.6</span> 演習問題</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch5n" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">自己組織化</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-Introduction-ch5n" class="level2 page-columns page-full" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-Introduction-ch5n"><span class="header-section-number">5.1</span> はじめに</h2>
+<div class="page-columns page-full"><p>第2章と第3章でカオスと相転移を見た。今度は第三の驚くべき性質、すなわち自己組織化に焦点を当てる。 自己組織化は心理的・社会的過程において不可欠な役割を果たす。それは私たちの神経系においてニューロンのレベルで、知覚過程においても高次認知においても作動している。人間の相互作用においては、自己組織化は協力や意見の分極化における鍵となるメカニズムである。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">自己組織化が魅力的なのは、外部からの制御や介入なしに秩序や構造を生み出す複雑系の注目すべき能力を明らかにするからである。</span></div></div>
+<p>カオスや相転移とは異なり、自己組織化には一般に受け入れられた定義がない。ほとんどの人が同意する定義は、自己組織化すなわち自発的秩序とは、初期には無秩序な複雑系の部分間の局所的な相互作用から大域的な秩序が創発する過程である、というものである。これらの局所的な相互作用はしばしば速く、一方、大域的な振る舞いはより遅い時間スケールで起こる。自己組織化は開放系において起こる。これは、熱や食物といったエネルギーが吸収されうる、ということを意味する。最後に、大域的な性質と局所的な性質の間の何らかのフィードバックが不可欠であるように思われる。自己組織化は多くの物理的、化学的、生物学的、そして人間のシステムで生じる。自己組織化の例には、レーザー、流体の乱流、流体力学における対流セル、化学振動、群れの形成、神経波、そして違法薬物市場がある。自己組織化するシステムの研究の体系的なレビューについては、<span class="citation" data-cites="kalantariEmergencePhenomenaSelforganizing2020">Kalantari, Nazemi, and Masoumi (<a href="#ref-kalantariEmergencePhenomenaSelforganizing2020" role="doc-biblioref">2020</a>)</span> を参照。優れたオンライン動画が多くある。入門として「同期の驚くべき秘密（The Surprising Secret of Synchronization）」を推薦する。自己組織化研究の短い歴史については、「Self-Organization」に関するウィキペディアのページを参照されたい。拡張された歴史的レビューについては、<span class="citation" data-cites="FP_Krakauer_intro">Krakauer (<a href="#ref-FP_Krakauer_intro" role="doc-biblioref">2024</a>)</span> を参照されたい。</p>
+<p>本章はまた、少数の変数をもつシステムの研究から、多数の変数をもつシステムへの移行を画するものである。私たちは今や、エージェントベースモデリングやネットワーク理論といった、多要素システムを研究するための道具とモデルに焦点を当てる。複雑性と自己組織化が働くのを見ることになる！ これは、前の章が複雑系研究の不可欠な一部ではないと言っているのではない。複雑系の大域的な振る舞いは、しばしば高度に非線形な仕方で振る舞う少数の変数によって記述できる。この大域的な振る舞いを研究するには、カオス理論、分岐理論、そして力学系理論は不可欠な道具である。</p>
+<p>本章の主たる目標は、異なる科学における、とりわけ心理学における自己組織化の過程についての理解を提供することである。私は多くの異なる科学分野からの例を提供することでこれを行う。これらの鍵となる例は心理学における新たな研究の系譜に着想を与えうるので、それらを知っておくことが重要である。</p>
+<p>私たちは、エージェントベースモデルを用いて神経系や社会系における自己組織化の過程をシミュレートすることを学ぶ。そのために、R ともう一つの道具である NetLogo を用いる。NetLogo は Uri Wilensky <span class="citation" data-cites="wilenskyIntroductionAgentbasedModeling2015">(<a href="#ref-wilenskyIntroductionAgentbasedModeling2015" role="doc-biblioref">2015</a>)</span> によって開発されたオープンソースのプログラミング言語である。（高度な）代替物もあるが、一般的な道具として NetLogo は非常に有用であり、扱っていて楽しい。</p>
+<p>私はまず自然科学における自己組織化の過程の概観から始め、それから NetLogo といくつかの例を紹介する。心理学の異なる領域における自己組織化の応用の概観で締めくくる。</p>
+</section>
+<section id="sec-Key-examples-from-the-natural-sciences" class="level2 page-columns page-full" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-Key-examples-from-the-natural-sciences"><span class="header-section-number">5.2</span> 自然科学からの鍵となる例</h2>
+<section id="sec-Physics" class="level3 page-columns page-full" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="sec-Physics"><span class="header-section-number">5.2.1</span> 物理学</h3>
+<div class="page-columns page-full"><p>自己組織化の物理的な一例はレーザーである。複雑系理論の重要な創始者はヘルマン・ハーケン <span class="citation" data-cites="hakenSynergetics1977">(<a href="#ref-hakenSynergetics1977" role="doc-biblioref">1977</a>)</span> である。彼はシナジェティクス、すなわちシステムにおける自己組織化と複雑性の研究への特定のアプローチを発展させた。これは心理学でも人気がある。シナジェティクスはレーザーに関するハーケンの仕事に由来する。ここではレーザーを詳しく論じないが、その現象は魅力的である。普通のランプの光は不規則（非同期）である。レーザーのエネルギーを増加させることで、強力なコヒーレント光への転移が生じる。シナジェティクスの分野では、秩序パラメータは創発するコヒーレントなレーザー光波を記述するのに用いられる用語である。 このシステム内の個々の原子は、この創発的な性質と整合する仕方で運動し、これは残念ながら隷属（enslavement）と呼ばれる。興味深いことに、これらの原子の運動が秩序パラメータ、すなわちレーザー光波の形成に寄与する。逆に、レーザー光波は個々の原子の運動を支配する。この相互作用は循環的な因果関係、すなわち強い創発を示す（<a href="#fig-ch1-img4" class="quarto-xref">図&nbsp;<span class="quarto-unresolved-ref ref-noprefix">fig-ch1-img4</span></a> と比較）。以下で見るように、シナジェティクスは知覚 <span class="citation" data-cites="hakenSynergeticsPsychology1992">(<a href="#ref-hakenSynergeticsPsychology1992" role="doc-biblioref">Haken 1992</a>)</span> や協調的な人間の運動 <span class="citation" data-cites="fuchsCoordinationDynamicsSynergetics2018">(<a href="#ref-fuchsCoordinationDynamicsSynergetics2018" role="doc-biblioref">Fuchs and Kelso 2018</a>)</span> に応用されてきた。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">秩序パラメータとは、システム内の秩序の度合いを、とりわけ相転移の文脈で記述するための量的な尺度である。</span></div></div>
+<div class="page-columns page-full"><p> もう一つの有名な例で、後に心理学的モデリングにとって非常に重要になるのは、磁性のイジングモデルである。このモデルの標準的な2次元版では、原子は二次元格子上の位置である。原子は左（<span class="math inline">\(-1\)</span>）または右（<span class="math inline">\(1\)</span>）のスピンをもつ。スピンが揃うとき（すべて <span class="math inline">\(1\)</span> またはすべて <span class="math inline">\(-1\)</span>）、実効的な磁石が得られる。それらが揃っていなければ、個々のスピンの効果は打ち消し合う。二つの変数が磁石の振る舞いを制御する。すなわち、磁石の温度と外部磁場である。温度が低いほど、スピンはより揃う。 磁石がその磁力を失う温度はキュリー点と呼ばれる（楽しい実演については YouTube を参照）。外部磁場は別の磁石によって引き起こされうる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">イジングモデル（現代物理学ではより高度な磁性のモデルに置き換えられた）は多くの科学で応用されてきた。</span><span class="margin-aside">高温では、すべての原子がランダムに振る舞い、磁石はその磁気的効果を失う。</span></div></div>
+<div id="fig-ch5n-img1-old-39" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch5n-img1-old-39-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch5n/ch5-1-june14.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch5n-img1-old-39-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: 磁石の模式図。スピン <span class="math inline">\(x\)</span> は左（<span class="math inline">\(-1\)</span>）または右（<span class="math inline">\(1\)</span>）でありうる。より低い温度 <span class="math inline">\(T\)</span> では、スピンは近傍のスピンと外部磁場 <span class="math inline">\(\tau\)</span> に揃う傾向があり、磁性をもたらす。
+</figcaption>
+</figure>
+</div>
+<p>イジングモデルの主なモデル方程式は次のとおりである。</p>
+<p><span id="eq-ch5n-1-old-17"><span class="math display">\[
+H\left( \mathbf{x} \right) = - \sum_{i}^{n}{\tau x_{i}} - \sum_{&lt; i,j &gt;}^{}{x_{i}x_{j}}, \tag{5.1}\]</span></span></p>
+<p><span id="eq-ch5n-2-old-18"><span class="math display">\[
+P\left( \mathbf{X} = \mathbf{x} \right) = \frac{\exp\left( - \beta H\left( \mathbf{x} \right) \right)}{Z}. \tag{5.2}\]</span></span></p>
+<p>第一の方程式は、与えられた状態ベクトル <span class="math inline">\(\mathbf{x}\)</span> のエネルギーを定義する（状態 —1 と 1 をもつ <span class="math inline">\(n\)</span> 個のスピンについて）。総和における記法 <span class="math inline">\(&lt;i,j&gt;\)</span> は、すべての近傍の、すなわち結合した対について総和をとることを意味する。ベクトルと行列は太字で表される。</p>
+<div class="page-columns page-full"><p> 外部磁場と温度はそれぞれ <span class="math inline">\(\tau\)</span> と <span class="math inline">\(T\)</span>（<span class="math inline">\(1/\beta\)</span>）である。第一の方程式は単に、外部磁場と一致するノードがエネルギーを下げる、と述べている。また、等しいスピンをもつ近傍のノードもエネルギーを下げる。四つの結合した正のスピン（<a href="#fig-ch5n-img1-old-39" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img1-old-39</span></a> の右列）だけがあり外部磁場がないとすれば、<span class="math inline">\(\mathbf{x} = (1,1,1,1)\)</span> で <span class="math inline">\(H = - 6\)</span> となる。これは <span class="math inline">\(\mathbf{x} = ( - 1, - 1, - 1, - 1)\)</span> の場合にも当てはまるが、他のどの状態もより高いエネルギーをもつ。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">外部磁場を用いれば、スピンをすべて左またはすべて右に強制できる。</span></div></div>
+<p>第二の方程式は、ある状態（たとえばすべてのスピンが <span class="math inline">\(1\)</span>）の確率を定義する。この確率には、すべての可能な状態にわたる確率の和が 1 になることを保証するための正規化 <span class="math inline">\(Z\)</span> が必要である。大きなシステム（<span class="math inline">\(N &gt; 20\)</span>）については、可能な状態の数が指数関数的に増大するので、<span class="math inline">\(Z\)</span> の計算は実質的な問題である。温度が非常に高い場合、すなわち <span class="math inline">\(\beta\)</span> が 0 に近い場合、<span class="math inline">\(\exp\left( - \beta H\left( \mathbf{x} \right) \right)\)</span> はすべての可能な状態について 1 となり、スピンはランダムに振る舞う。状態間のエネルギーの差はもはや問題にならない。</p>
+<div class="page-columns page-full"><p> 振る舞いのランダムさはエントロピーという概念によって捉えられる。これをもう少しよく説明するには、イジング系のミクロ状態とマクロ状態を区別する必要がある。ボルツマンエントロピーは、特定のマクロ状態が実現されうる仕方の数（<span class="math inline">\(W\)</span>）の関数である。<span class="math inline">\(\sum_{}^{}x = 4\)</span> については、仕方は一つしかない（<span class="math inline">\(\mathbf{x} = 1,1,1,1\)</span>）。しかし <span class="math inline">\(\sum_{}^{}x = 0\)</span> については、六つの仕方がある（<span class="math inline">\(W = 6\)</span>）。これら二つの場合のボルツマンエントロピー（<span class="math inline">\(\ln W\)</span>）は、それぞれ 0 と 1.79 である。エントロピーという概念は後の議論で重要になる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">エントロピーは、システムにおける無秩序ないしランダムさの度合いの尺度である。</span><span class="margin-aside">ミクロ状態はスピンの配置 <span class="math inline">\(\mathbf{x}\)</span> によって定義され、一方、マクロ状態はスピンの和によって決まる（磁化がどう定義されるかと同様）。</span></div></div>
+<p>このモデルのシミュレーションでは、ランダムなスピンを一つ取り、現在の <span class="math inline">\(\mathbf{x}\)</span> のエネルギーと、その特定のスピンを反転させた <span class="math inline">\(\mathbf{x}\)</span> のエネルギーを計算する。エネルギーの差が反転の確率を決める。</p>
+<p><span id="eq-ch5n-3-old-19"><span class="math display">\[
+P\left( x_{i} \rightarrow - x_{i} \right) = \frac{1}{ 1 + e^{- \beta\left( H\left( x_{i} \right) - H\left( - x_{i} \right) \right)}}. \tag{5.3}\]</span></span></p>
+<div class="page-columns page-full"><p>これらの反転を繰り返し行えば、モデルの平衡状態が見つかる。 これはグラウバーダイナミクスと呼ばれる（より効率的なアルゴリズムも存在する）。これらのアルゴリズムの美点は、正規化定数 <span class="math inline">\(Z\)</span> が方程式から脱落することである。このようにして、<span class="math inline">\(N\)</span> が 20 よりはるかに大きいイジング系をシミュレートできる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">グラウバーダイナミクスは、エネルギー差と温度に基づいてシステム内のスピン状態を更新し、それを平衡へと導くシミュレーション技法である。</span></div></div>
+<div class="page-columns page-full"><p>興味深いことに、完全結合イジングネットワーク（キュリー–ワイスモデルとも呼ばれる）の場合、創発的な振る舞い——平均場の振る舞いと呼ばれるもの——はカスプによって記述できる <span class="citation" data-cites="abeCuspSingularityMean2017 postonCatastropheTheoryIts2014">(<a href="#ref-abeCuspSingularityMean2017" role="doc-biblioref">Abe et al. 2017</a>; <a href="#ref-postonCatastropheTheoryIts2014" role="doc-biblioref">Poston and Stewart 2014</a>)</span>。 外部磁場は正規変数である。温度は分裂変数として作用する。自己組織化との関係は、熱い磁石を冷やすと、ある閾値でスピンが揃い始め、すぐにすべて <span class="math inline">\(1\)</span> かすべて <span class="math inline">\(-1\)</span> になることである。これは熊手分岐であり、無秩序から秩序を生み出す。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><span class="margin-aside">平均場の振る舞いは、すべてのスピンによって生み出される平均的な磁場である。</span></div></div>
+<div class="page-columns page-full"><p>2次元イジングモデル（<a href="#fig-ch5n-img1-old-39" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img1-old-39</span></a> を参照）では、結合は疎（局所的のみ）であり、より込み入った（自己組織化する）振る舞いが生じる。 これを本章で後に <a href="#sec-The-Ising-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-The-Ising-model</span></a> でシミュレートし、また第6章 <a href="#sec-Ising-attitude-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Ising-attitude-model</span></a> で態度のモデルとしてシミュレートする。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">完全結合イジングモデルはカスプに従って振る舞う。より結合の少ないイジングスピンのネットワークでは、自己組織化するパターンが創発しうる。</span></div></div>
+</section>
+<section id="sec-Chemistry" class="level3 page-columns page-full" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="sec-Chemistry"><span class="header-section-number">5.2.2</span> 化学</h3>
+<p>自己組織化するシステムの研究の他の創始者はイリヤ・プリゴジンとイザベル・スタンジェールである。プリゴジンは、散逸系における自己組織化に関する仕事に対して1977年のノーベル化学賞を受賞した。これらは、（高いエネルギー入力ゆえに）熱力学的平衡から遠く離れたシステムであり、相互作用する粒子間の長距離相関ゆえに、複雑で、時にはカオス的な構造が形成される。そのような振る舞いの一つの注目すべき例は、興味深い非線形化学振動子であるベロウソフ–ジャボチンスキー反応である。</p>
+<div class="page-columns page-full"><p>スタンジェールとプリゴジンは1978年に影響力のある本『混沌からの秩序（Order Out of Chaos）』を著した。この仕事は、とりわけ熱力学第二法則の定式化を通じて、科学界に大きな影響を与えた。 第二法則を述べる一つの方法は、システムに外部からの仕事が加えられない限り、熱は高温の物体から低温の物体へと自発的に流れ、その逆はない、というものである。より魅力的な例は、自然には決して清潔で整頓されず、むしろその逆になる学生の部屋であろう。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">熱力学第二法則は、孤立系の全エントロピーが時間とともに常に増大し決して減少しない、と述べる。これは、自然界における自発的な過程が無秩序ないしランダムさの増大する状態へと向かう傾向がある、ということを意味する。</span></div></div>
+<div class="page-columns page-full"><p><span class="citation" data-cites="stengersOrderOutChaos1978">Stengers and Prigogine (<a href="#ref-stengersOrderOutChaos1978" role="doc-biblioref">1978</a>)</span> は、閉じた系では確かにエントロピーが増大するが、開いた系における自己組織化の過程は秩序ある構造を作り出し、その結果、彼らが「局所エントロピー」と呼ぶものの正味の減少をもたらす、と論じた。プリゴジンとスタンジェールは不可逆的な転移に特に重点を置き、複雑系を理解するうえでのその重要性を強調した。以前論じたカタストロフィモデルは対称的な転移を示した（名刺における突然のジャンプは対称的である）が、プリゴジンの研究は、この対称性が常に成り立つわけではないことを明らかにした。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">不可逆的な転移とは、変化を引き起こした条件を単に逆にするだけでは元に戻せないシステムの変化を指し、しばしばシステムの状態や構造の恒久的な変化をもたらす。</span></div></div>
+<p>この点を例示するために、目玉焼きを作る類推を考えよう。生卵を焼いた形に変える過程は相転移を表すが、この変化を逆にして卵を「焼き戻す」ことは不可能である。プリゴジンはこれらの不可逆的な転移を、時間の方向についての深遠な問い、一般に時間の矢として知られるものと結び付けた。それはそれ自体、魅力的な話題だが、ここではこれ以上探求しない。</p>
+</section>
+<section id="sec-Biology" class="level3 page-columns page-full" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="sec-Biology"><span class="header-section-number">5.2.3</span> 生物学</h3>
+<p>複雑系科学の創始者には事欠かない。もう一つの素晴らしい本はスチュアート・カウフマンの『秩序の起源（Origin of Order）』（1993）であり、自己組織化という概念を進化論に導入している。彼は、新ダーウィン主義的な過程における小さな漸進的なステップでは自然進化を完全には説明できない、と論じている。荒れたフィットネスランドスケープにおける適応的な歩みやニッチのホッピングについて知りたければ、彼の本を読む必要がある <span class="citation" data-cites="kauffmanOriginsOrderSelfOrganization1993">(<a href="#ref-kauffmanOriginsOrderSelfOrganization1993" role="doc-biblioref">Kauffman 1993</a>)</span>。もう一つの影響力のある理論は断続平衡説であり、種は長い安定の期間を、比較的短い急速な進化的変化の爆発によって中断されつつ経る、と提案する <span class="citation" data-cites="eldredgePunctuatedEquilibriaAlternative1972">(<a href="#ref-eldredgePunctuatedEquilibriaAlternative1972" role="doc-biblioref">Eldredge and Gould 1972</a>)</span>。</p>
+<div class="page-columns page-full"><p>進化における自己組織化の役割の見事な例は、<span class="citation" data-cites="boerlijstSpiralWaveStructure1991">Boerlijst and Hogeweg (<a href="#ref-boerlijstSpiralWaveStructure1991" role="doc-biblioref">1991</a>)</span> による前生物的進化における螺旋波構造に関する仕事である。この仕事は、情報の閾値に関するアイゲンとシュスターの <span class="citation" data-cites="eigenHypercycle1979">(<a href="#ref-eigenHypercycle1979" role="doc-biblioref">1979</a>)</span> 古典的な仕事に立脚している。進化には長い分子の複製が必要である。しかし、自己複製する分子の系では、分子の長さは複製の正確さによって制限され、それは変異率に関係する。アイゲンとシュスターは、そのような分子が、各分子が最近傍の分子を触媒するハイパーサイクルとして組織されれば、この閾値を克服できることを示した。 しかし、ハイパーサイクルは寄生者に対して脆弱であることが示された。これらは、一方の隣接者から利益を得るが他方を助けない分子である。この分子は他を競争で打ち負かし、私たちは限られた一分子系に逆戻りする。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">ハイパーサイクルとは、互いの生成を相互に支え合う自己複製する分子ないし実体のネットワークであり、個々の実体が単独で達成しうるものを超えた複雑性と安定性の増大をもたらす。</span></div></div>
+<div class="page-columns page-full"><p>ブールリストとホーヘヴェグが行ったのは、ハイパーサイクルをセルオートマトンに実装することであった。ハイパーサイクルのシミュレーションでは、セルは空（死んでいる）か、いくつかの色の一つで満たされている。色はある確率で死ぬが、局所的な近傍に触媒する色があるかどうかに依存する確率で、空のセルに複製もされる。色の一つは寄生者であり、一つの色によって触媒されるが他のどの色も触媒しない。その効果は、後に NetLogo を用いて見ることになるが、回転する大域的な螺旋が創発して寄生者を隔離し、安定なハイパーサイクルが優勢になる、というものである。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">セルオートマトン（CA）は、通常はセルの二次元格子であり、2次元イジングモデルのようにセルがその近傍と相互作用する。しかし、これはより多いまたは少ない次元に一般化できる。</span></div></div>
+<p>自己組織化の多くの例は生態系生物学に由来する。以下で NetLogo における群れの形成のシミュレーションを見るが、私はアリの集団的な振る舞いも強調したい（<a href="#fig-ch5n-img2-old-40" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img2-old-40</span></a>）。</p>
+<div id="fig-ch5n-img2-old-40" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch5n-img2-old-40-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch5n/ch5-2-june14.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch5n-img2-old-40-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: アリの橋は集団的な振る舞いの一例である。
+</figcaption>
+</figure>
+</div>
+<p>アリは大域的に組織化された振る舞いの驚くべき形を示す。彼らは橋、巣、いかだを作り、捕食者を撃退する。巣を移転すらする。アリのコロニーはフェロモンと群れ知能を用いて移転する。斥候が潜在的な場所を探し、フェロモンの跡を残す。有望な場所が見つかれば、より多くのアリが跡をたどり、信号を強化する。不適当な場所では跡が薄れる。いったん決定がなされると、コロニーは集団的に選ばれた場所へと移動し、幼虫を運び、新たな巣を築く。</p>
+<div class="page-columns page-full"><p>アリの社会を生きた生物と考えることは奇妙な考えではない。この振る舞いすべてが自己組織化されていることに注意しよう。橋を建てるための設計図をもち、残りのアリに特定のことをするよう命じるスーパーアリなど明らかに存在しない。アリはまた、組織するために長い経営会議を開くこともない。同じことが鳥の群れにも当てはまる。集団的に左へ、右へ、あるいは分裂せよと命令をさえずる鳥など存在しない。これは人間の脳にも当てはまる。個々のニューロンは知的ではない。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">私たちの知能は、数十億のニューロンの集団的な振る舞いに基づいている。</span></div></div>
+</section>
+<section id="sec-Computer-science" class="level3 page-columns page-full" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="sec-Computer-science"><span class="header-section-number">5.2.4</span> 計算機科学</h3>
+<p>自己組織化研究のもう一つの重要な源は計算機科学である。単純だが全く驚くべき例は、ジョン・コンウェイのライフゲームに関する仕事である <span class="citation" data-cites="berlekampWinningWaysYour2004">(<a href="#ref-berlekampWinningWaysYour2004" role="doc-biblioref">Berlekamp, Conway, and Guy 2004</a>)</span>。その規則は <a href="#fig-ch5n-img3-old-41" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img3-old-41</span></a> に描かれている。</p>
+<div id="fig-ch5n-img3-old-41" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch5n-img3-old-41-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch5n/ch5n-3.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch5n-img3-old-41-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.3: ライフゲームの規則。
+</figcaption>
+</figure>
+</div>
+<p>各セルについて、その近傍の状態が与えられると、すべてのセルの次の状態が計算される。これは同期更新と呼ばれる。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> ランダムな初期状態から始めた場合に何が起こるかを予測するのは難しい。しかし、四つの正方形のブロックが安定であること、そして三つのブロックの線が水平の線と垂直の線の間で振動することは容易に確かめられる。</p>
+<p>ライフゲームで遊ぶための優れた道具は Golly であり、コンピュータや携帯電話向けに無料で入手できるアプリケーションである。Golly をダウンロードして開き、いくつかランダムな線を描き、Enter を押して何が起こるかを見てほしい。しばしば、それが（振動する下位パターンをもつ）安定状態に収束するのが見られるだろう。時折、ウォーカーやグライダーが見られる（縮小表示せよ）。これらは場を動き回るパターンである。</p>
+<div class="page-columns page-full"><p>ランダムな初期パターンはめったに注目すべきものをもたらさないが、特別な初期状態を選ぶことで、驚くべき結果が得られる。まず、Life within Patterns フォルダを見てみよ。たとえば line-puffer superstable や宇宙船のタイプの一つを取ってみよ。私のお気に入りは HashLife フォルダの metapixel galaxy である。+ と — のボタンを用いてシミュレーションを速めたり遅くしたりできることに注意しよう。これが行うのは、ライフゲームの中でライフゲームをシミュレートすることである！ 実際に何が起こっているかを見るために拡大・縮小せよ。私はこれを何度も見てきたが、いまだに当惑している。 子どもじみているが楽しい実験は、metapixel galaxy をいくつかのセルで撹乱することである。これは大きな撹乱とパターンの崩壊をもたらす。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">チューリングマシンは、1936年にアラン・チューリングによって考案された理論的な機械であり、その単純さにもかかわらず、もちろんライフゲームを含む、あらゆるコンピュータ・アルゴリズムを実装できる！</span></div></div>
+<p>ライフゲームの中で（万能）チューリングマシンを作ることが可能であることを見て、私はさらに驚いた <span class="citation" data-cites="rendellGameLifeUniversal2016">(<a href="#ref-rendellGameLifeUniversal2016" role="doc-biblioref">Rendell 2016</a>)</span>。チューリングマシンのライフゲームによる実装は <a href="#fig-ch5n-img4-old-42" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img4-old-42</span></a> に示されている。これは、そのような単純な要素間の初歩的な相互作用を用いて、自己組織化する知的なシステムを構築できるのか、という問いを提起する。実は、ある程度まではできるが、脳に似たメカニズムに基づく異なる設定を用いることによってである（次のニューラルネットワークに関する節を参照）。</p>
+<div id="fig-ch5n-img4-old-42" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch5n-img4-old-42-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch5n/image4.jpg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch5n-img4-old-42-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.4: ライフゲームの中で作られたチューリングマシン。（LifeWiki より転載）
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p>複雑系理論と、計算システムにおける自己組織化の役割のもう一つの源はサイバネティクスである <span class="citation" data-cites="ashbyIntroductionCybernetics1956 wienerCyberneticsControlCommunication2019">(<a href="#ref-ashbyIntroductionCybernetics1956" role="doc-biblioref">Ashby 1956</a>; <a href="#ref-wienerCyberneticsControlCommunication2019" role="doc-biblioref">Wiener 2019</a>)</span>。 この非常に独創的な仕事の雰囲気を伝えるために、元々1948年に出版されたノーマン・ウィーナーの本のいくつかの章の題名だけを挙げよう。「ゲシュタルトと普遍者」「サイバネティクスと精神病理学」「学習し自己再生する機械について」、そして最後に「脳波と自己組織化」である。そしてこれは1948年に書かれたのである！</p><div class="no-row-height column-margin column-container"><span class="margin-aside">サイバネティクスは、複雑系における循環的な因果とフィードバックのメカニズムを研究し、システムがどのように自身を調節し、情報を処理し、環境の変化に適応するかに焦点を当てる。</span></div></div>
+<div class="page-columns page-full"><p>自己組織化への関心は理論的なものだけではない。最適化、すなわちあるデータを記述するモデルの最良のパラメータの探索において、セルオートマトンや自己組織化に着想を得た技法が応用されてきた <span class="citation" data-cites="langtonComputationEdgeChaos1990 xueNovelSwarmIntelligence2020">(<a href="#ref-langtonComputationEdgeChaos1990" role="doc-biblioref">Langton 1990</a>; <a href="#ref-xueNovelSwarmIntelligence2020" role="doc-biblioref">Xue and Shen 2020</a>)</span>。私は遺伝的アルゴリズム <span class="citation" data-cites="hollandGeneticAlgorithms1992 mitchellIntroductionGeneticAlgorithms1998">(<a href="#ref-hollandGeneticAlgorithms1992" role="doc-biblioref">Holland 1992a</a>; <a href="#ref-mitchellIntroductionGeneticAlgorithms1998" role="doc-biblioref">Mitchell 1998</a>)</span> に常に魅了されてきた。そこでは、問題への解（パラメータ値の集合）が進化する集団における個体である。 変異と交叉を通じて、より良い個体が進化する。これは遅いが非常に頑健な最適化の方法であり、局所最小値への収束を防ぐ。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">遺伝的アルゴリズムは、自然選択の過程に着想を得た最適化アルゴリズムの一クラスであり、問題への解が世代を経て進化する。</span></div></div>
+<p>ジョン・ヘンリー・ホランドは、米国における複雑系アプローチの創始者の一人とみなされている。彼は複雑系についていくつもの影響力のある本を書いた。彼の最も有名な本『自然系および人工系における適応——生物学、制御理論、人工知能への応用を伴う入門的分析（Adaptation in Natural and Artificial Systems: An Introductory Analysis with Applications to Biology, Control Theory, and Artificial Intelligence）』<span class="citation" data-cites="hollandAdaptationNaturalArtificial1992">(<a href="#ref-hollandAdaptationNaturalArtificial1992" role="doc-biblioref">Holland 1992b</a>)</span> は、75,000回以上引用されている。</p>
+<div class="page-columns page-full"><p>私の応用の仕事で大きな役割を果たした自己組織化するアルゴリズムは、チェスの競技のために開発されたイロレーティングシステムである <span class="citation" data-cites="eloRatingChessplayersPresent1978">(<a href="#ref-eloRatingChessplayersPresent1978" role="doc-biblioref">Elo 1978</a>)</span>。 対局の結果に基づいてチェスプレイヤーのレーティングが推定され、それがひいては将来の対局でプレイヤーをマッチングするのに用いられる。レーティングは時間とともに収束するが、プレイヤーの技能が変化するにつれて調整される。私たちは、子どもが算数や言語の練習問題に対して対局するオンライン学習システムでの使用のために、このシステムを適応させた <span class="citation" data-cites="marisSpeedaccuracyResponseModels2012">(<a href="#ref-marisSpeedaccuracyResponseModels2012" role="doc-biblioref">Maris and van der Maas 2012</a>)</span>。子どもと練習問題のレーティングは、大規模な教育システムにおいてその場で推定される <span class="citation" data-cites="klinkenbergComputerAdaptivePractice2011">(<a href="#ref-klinkenbergComputerAdaptivePractice2011" role="doc-biblioref">Klinkenberg, Straatemeier, and van der Maas 2011</a>)</span>。私たちはこのシステムを、発達過程における突然の転移についての私たちの仮説を検証するために高頻度の学習データを集めるために構築したが、それはオンライン適応型練習システムとしてより成功した。私たちはこのシステムで数十億の項目反応を集めた <span class="citation" data-cites="brinkhuisLearningItHappens2018">(<a href="#ref-brinkhuisLearningItHappens2018" role="doc-biblioref">Brinkhuis et al. 2018</a>)</span>。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">イロレーティングシステムは、対局の結果に基づいて、一対一のゲームにおけるプレイヤーの相対的な技能水準を計算する自己組織化する方法である。</span></div></div>
+</section>
+<section id="sec-Neural-networks" class="level3 page-columns page-full" data-number="5.2.5">
+<h3 data-number="5.2.5" class="anchored" data-anchor-id="sec-Neural-networks"><span class="header-section-number">5.2.5</span> ニューラルネットワーク</h3>
+<div class="page-columns page-full"><p>私たちの日常生活に大きな影響を与えている現在の AI 革命は、いくつもの自己組織化する計算技法によるものである。疑いなく、深層学習ニューラルネットワークが最大の役割を果たしてきた。ニューラルネットワークの分野の本格的な概観は明らかに本書の範囲を超えるが、少なくとも人工ニューラルネットワーク（ANN）、すなわち人工ニューロンのネットワークの基本を知らずに、心理学における複雑系の役割を理解することはできない。 ANN は、層に組織された相互接続されたノード、すなわち「ニューロン」から成り、ネットワークを通じて信号を伝播させることで情報を処理する。ANN はデータで訓練されてパターンや関係を学習し、それによって分類、回帰、パターン認識といった課題を遂行できるようになる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">人工ニューラルネットワークは、生物学的ニューラルネットワークの構造と機能に着想を得た計算モデルである。</span></div></div>
+<p>人工ニューロンは、ネットワーク内の他のニューロンからの入力への応答によって特徴づけられる。その入力は通常、活性化関数を通される前に重み付けされ、総和される。この活性化関数は、二値の出力を生み出すか、ニューロンの活性化の水準を反映する連続的な値を生み出す。入力はたとえば画像でありうるし、出力はこれらの画像の分類でありうる。重要なのは、ニューラルネットワークが例から学習することである。</p>
+<div class="page-columns page-full"><p>教師なし学習は入力の構造に基づく。有名な教師なし学習の規則はヘッブの規則 <span class="citation" data-cites="hebbOrganizationBehaviorNeuropsychological1949">(<a href="#ref-hebbOrganizationBehaviorNeuropsychological1949" role="doc-biblioref">Hebb 1949</a>)</span> であり、ともに発火するものはともに結線する、と述べる。したがって、活動が相関するニューロンはその結合を強化する（そうでなければ結合は減衰する）。教師あり学習では、逆伝播を通じて、モデルの出力と意図された出力の間の不一致に基づいて結合が更新される。 ヘッブ学習と逆伝播は、現代の ANN で用いられる学習メカニズムのうちのわずか二つである。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">逆伝播は、この不一致すなわち誤差が時間とともに最小化されるように、特定の結合を更新するメカニズムである。</span></div></div>
+<p>GPT のような現代の大規模言語モデルは、そのアーキテクチャ、訓練目的、事前学習過程、規模、そして応用の点で、伝統的な逆伝播ネットワークと異なる。大規模言語モデルは、トランスフォーマーアーキテクチャを用い、教師なし事前学習に続いて教師ありのファインチューニングを経て、膨大な量のラベルなしデータで訓練され、規模がはるかに大きく、主に自然言語処理の課題に用いられる。</p>
+<div class="page-columns page-full"><p>もう一つの重要な区別は、順伝播型ニューラルネットワークと再帰型ニューラルネットワークの間の区別である。 興味深い再帰型の教師なしモデルはボルツマンマシンである。それは基本的に、ノード間の結合が連続的な値をもつイジングモデル（<a href="#sec-Physics" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Physics</span></a> を参照）である。これらの結合すなわち重みは、ヘッブの規則に従って更新できる。ボルツマンマシンの単純な設定は、結合した人工ニューロンのネットワークを取り、これらのニューロンの状態を入力に等しく設定することで、学習すべき入力をある順序で提示することである。ヘッブの規則は、ボルツマンマシンがこれらの入力状態の記憶を構築するように、ニューロン間の重みを変えるべきである。 これが訓練の相である。検証の相では、すべてではなく一部のノードを特定の学習された入力パターンの値に設定することで、部分的な状態を提示する。グラウバーダイナミクスによって、パターンに属する値を取るはずの残りの状態を更新する。このパターン補完の課題は ANN に典型的である。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">順伝播型ニューラルネットワークは単一の前向きのパスで情報を処理するが、再帰型ニューラルネットワークは有向の閉路をもち、時間的な依存を捉えられる。</span><span class="margin-aside">ヘッブの規則は、ともに発火するニューロンはともに結線する、と述べる。</span></div></div>
+<p>この設定は一般ボルツマンマシンないし制限のないボルツマンマシンと呼ばれ、どのノードも他のどのノードとも結合でき、各ノードが入力ノードである。制限ボルツマンマシン（RBM）は、その計算効率のためにはるかに人気がある。RBM では、ノードは層に組織され、層間には結合があるが層内にはない。深層 RBM では、これらの層を多く積み重ね、それらを対ごとに訓練できる（<a href="#fig-ch5n-img5-old-43" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img5-old-43</span></a>）。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 他の著名なアプローチは、コホネンの自己組織化マップとホップフィールド・ニューラルネットワークである。</p>
+<div id="fig-ch5n-img5-old-43" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch5n-img5-old-43-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch5n/ch5n-5__figure43.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch5n-img5-old-43-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.5: 深層学習の制限ボルツマンマシン。
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p>ニューラルネットワークの人気の波は、教師あり学習アルゴリズムの発展と密接に関係している。そこでは、人工ニューロン間の結合が、ネットワークの出力と望ましいまたは期待される出力の間の差に基づいて更新される。最初の教師あり ANN であるパーセプトロンは、複数の入力ノードと一つの出力ノードから成り、線形分離可能なクラスからの入力パターンを分類できた。これには OR と AND の関係が含まれたが、XOR の関係は除外された。 XOR では、二つのビットの和は分類に有用でない。パーセプトロンに隠れ層を加えることで XOR は解けるが、多層ネットワークがこの非線形の分類を例から学習できるような逆伝播の規則を開発するには、長い年月がかかった。以下で NetLogo で簡単なシミュレーションを行う。それらは極めて強力だが、逆伝播ネットワークが自己組織化するシステムであるかどうかは議論の余地がある。自己組織化するシステムは、明示的な指示なしに環境に適応する能力によって特徴づけられる。教師なしニューラルネットワークはこの点でより興味深い。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">XOR パターンでは、00 と 11 の組み合わせは偽であり、01 と 10 は真である。</span></div></div>
+<p>これらのモデルはすべて20世紀末までに知られていたが、その有用性は限られていた。これは、アルゴリズム、とりわけハードウェアのいくつかの改良によって変わった。現在の深層学習 ANN は、数十億のノードの中の数十の層から成り、専用の並列プロセッサを用いて数十億の入力で訓練される <span class="citation" data-cites="schmidhuberDeepLearningNeural2015">(たとえば <a href="#ref-schmidhuberDeepLearningNeural2015" role="doc-biblioref">Schmidhuber 2015</a>)</span>。</p>
+<div class="page-columns page-full"><p>ニューラルネットワークは AI 革命の中心にあるが、他の発展、とりわけ強化学習も鍵となる役割を果たしてきた。 例はゲームエンジン、ロボット、そして自動運転車である。強化学習の研究もまた心理学にその根をもつことに注意しよう <span class="citation" data-cites="suttonReinforcementLearningSecond2018">(<a href="#ref-suttonReinforcementLearningSecond2018" role="doc-biblioref">Sutton and Barto 2018, の第1章を参照</a>)</span>。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">強化学習は、環境に対して振る舞ったり作用したりする必要のある AI システムにおいて不可欠である。</span></div></div>
+<div class="page-columns page-full"><p>私は AlphaZero チェスの構築と性能に最も驚かされた。AlphaZero チェス <span class="citation" data-cites="silverGeneralReinforcementLearning2018">(<a href="#ref-silverGeneralReinforcementLearning2018" role="doc-biblioref">Silver et al. 2018</a>)</span> は、局面を評価し次の手を予測する深層学習ニューラルネットワークを、強化学習の変種（モンテカルロ木探索）と組み合わせている。驚くべきことに、AlphaZero は数百万の自己対局を通じてチェスを学習する。このアプローチは、力任せの探索と、序盤と終盤の組み込まれた索引が成功の鍵であった古典的なチェスプログラムからの急進的な離脱である。 学習するにつれ、それは約64,000の訓練ステップの後に学習における相転移を示す <span class="citation" data-cites="mcgrathAcquisitionChessKnowledge2022">(<a href="#ref-mcgrathAcquisitionChessKnowledge2022" role="doc-biblioref">McGrath et al. 2022, の図7を参照</a>)</span>。心理学と現代の AI の間の相互関係の分析については、<span class="citation" data-cites="vandermaasHowMuchIntelligence2021">van der Maas, Snoek, and Stevenson (<a href="#ref-vandermaasHowMuchIntelligence2021" role="doc-biblioref">2021</a>)</span> を参照されたい。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">AlphaZero チェスは、自己対局によってチェスをゼロから学習する自己組織化するプログラムである。</span></div></div>
+<p>AlphaZero によるモンテカルロ木探索の使用もまた、記号的人工知能の一形態である。古典的な記号的アプローチをニューラルネットワークと組み合わせるという考えは、常に漂っていた。このハイブリッドなアプローチの第三の波は <span class="citation" data-cites="garcez2023">Garcez and Lamb (<a href="#ref-garcez2023" role="doc-biblioref">2023</a>)</span> でレビューされている。</p>
+</section>
+<section id="sec-The-concept-of-selforganization" class="level3" data-number="5.2.6">
+<h3 data-number="5.2.6" class="anchored" data-anchor-id="sec-The-concept-of-selforganization"><span class="header-section-number">5.2.6</span> 自己組織化という概念</h3>
+<p>あなたが今や、自己組織化とそのさまざまな科学分野にわたる応用について、いくらかの理解をもっていると信じる。自己組織化は、さまざまな分野を超越する一般的に適用可能な概念でありながら、各分野内の特定の例との強い結び付きを保っている。</p>
+<p>前に述べたように、自己組織化の精確な定義は依然として議論の下にあり、さまざまな基準が議論され続けている。システムが自己組織化されているとみなされるのに必要な秩序の度合い、いかなる外部からの影響が許容されるか、システム内のある程度のランダムさが受け入れられるか、そして創発する状態が不可逆でなければならないか、といった鍵となる問いは、確定的な解決を欠く問題の一つである。</p>
+<p>定義におけるこの曖昧さは、心理学者にとっては珍しいものではない。というのも、多くの非形式的な概念は厳密な定義を欠くからである。自己組織化という概念の価値は、主にその具体的な例に、人工知能の分野のようなその広い適用可能性に、そしてそれをシミュレートする私たちの能力に見出される。次節の焦点は、専用の道具である NetLogo を用いたそのようなシミュレーションにある。</p>
+</section>
+</section>
+<section id="sec-NetLogo" class="level2 page-columns page-full" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-NetLogo"><span class="header-section-number">5.3</span> NetLogo</h2>
+<section id="sec-Examples" class="level3 page-columns page-full" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="sec-Examples"><span class="header-section-number">5.3.1</span> 例</h3>
+<p>NetLogo <span class="citation" data-cites="wilenskyIntroductionAgentbasedModeling2015">(<a href="#ref-wilenskyIntroductionAgentbasedModeling2015" role="doc-biblioref">Wilensky and Rand 2015</a>)</span> は、コンピュータ言語の初期の画期的な教育用プログラミング言語である Logo に基づいている。そこでは、画面上のタートル、すなわちカーソルを動かしてグラフィックスを作れた。<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> タートルはまだそこにあるが、NetLogo でできることははるかに多い。</p>
+<p>本章の次の部分のために、NetLogo をダウンロードしてインストールすることを強く推奨する。</p>
+<p><em>イジングモデル</em></p>
+<p>NetLogo を起動すると、黒い領域（世界）、すなわちパッチ（セル）の 33×33 の行列をもつインターフェースが見える。設定を用いて世界を変えられる（右上を参照）。Interface と Code が最も重要なタブである。</p>
+<p>まず、モデルライブラリ（メニュー File: Model Library）を開き、「Ising」を見つけて開け。<code>setup</code> と <code>go</code> をクリックせよ。それだけである。高温が確かにランダムなスピンの振る舞いを引き起こすことを確かめよ。また、温度を下げると熊手分岐が引き起こされることを確かめよ。ランダムな状態が不安定になり、すべてのスピンが正か負のいずれか（明るいまたは暗い青）になる。さて Settings に行き、<code>max-pxcor</code> と <code>max-pycor</code> を 200 に、<code>Patch size</code> を 1 に設定せよ。これらの設定で、自己組織化する大域的なパターン、絶えず動く正と負のスピンのクラスターが見られる。</p>
+<p><em>ハイパーサイクル</em></p>
+<p>いくつかのモデルは NetLogo で利用可能であり、他のものは NetLogo のウェブサイト（Community を参照）で見つかる。Maarten Boerlijst による「Hypercycle」をダウンロードし、情報を読め。八つの種でモデルを 20,000 回の反復すなわちティックのあいだ実行し（速めるには <code>view updates</code> の選択を外せ）、それから <code>add parasites</code> せよ。螺旋が寄生者の増殖を制御下に置く。これをより早く行えば、寄生者はすぐに乗っ取る。私はこれが機能的自己組織化の美しい例だと思う。セルオートマトンの形での実装が、このモデルの成功に不可欠である。このモデルを結合微分方程式の形で実装すれば、寄生者が単に勝つ。</p>
+<p><em>群れの形成</em></p>
+<p>NetLogo 3D は、自己組織化するパターンの三次元プロットを作ることを可能にする。NetLogo 3D を起動し、群れのモデル「3D Alternate」を読み込め。<code>Population</code> スライダーを右クリックして <code>max</code> を 1,000 に設定して編集することを勧める。これはより現実的な群れ（スウォーム）をもたらす。操作系で遊び、すべての鳥を殺すな。</p>
+<p><em>交通</em></p>
+<p>NetLogo（3D ではない）のモデルライブラリに「Traffic 2 Lanes」が見つかる。20台の車でモデルを実行し、渋滞が実際に後方へ動くことに気づけ。車の数でも遊べ。車の数をゆっくり増やしていくと、渋滞が生じる明確な閾値はあるか。そして車の数を減らすと何が起こるか。渋滞が消散する閾値はあるか。この仕方でヒステリシスを見つけるのがかなり難しいことがわかるだろう。明らかに突然の変化はあるが、ヒステリシスを見つけるには非常に精確で辛抱強い実験が必要である。</p>
+<p><em>ニューラルネットワーク</em></p>
+<p>モデルライブラリに「Perceptron」と「Multilayer network」が見つかる。パーセプトロンから始めよ。目標関数を <code>and</code> に設定し、モデルを数秒間訓練し、パーセプトロンを検証せよ。それが 11 を 1 として、他のパターンを —1 として正しく分類することが見られるだろう。右下のグラフは特に教育的である。それはパターンがどのように分離されるかを示す。パーセプトロンは線形分離ができる。これは学習できるほとんどの論理規則には十分だが、XOR には十分でない（<a href="#sec-Neural-networks" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Neural-networks</span></a> を参照）。線形分離がただ跳ね回り、XOR が学習できないことが見られるだろう。多層モデルも XOR で訓練せよ。遊ぶためのもう一つの良い道具は、「a neural network playground」を検索することでインターネットに見つかる。</p>
+<p>もちろん、これらは単に例示的な道具にすぎない。しかし、本格的な深層学習 ANN を構築することもそれほど難しくない。多くの資料や本が利用可能である <span class="citation" data-cites="ghatakDeepLearning2019">(たとえば <a href="#ref-ghatakDeepLearning2019" role="doc-biblioref">Ghatak 2019</a>)</span>。</p>
+<p><em>砂山モデル</em></p>
+<div class="page-columns page-full"><p><span class="citation" data-cites="bakSelforganizedCriticality1988">Bak, Tang, and Wiesenfeld (<a href="#ref-bakSelforganizedCriticality1988" role="doc-biblioref">1988</a>)</span> は自己組織化臨界性という概念を導入した。イジングモデルのようなシステムには、システムが臨界状態に達するために精確に調整されなければならないパラメータ（たとえば温度）がある。バク–タン–ヴィーゼンフェルトの砂山モデルは、いかなるパラメータもなしに臨界現象を示す。 砂山モデルでは、砂粒が砂山の中心に加えられる。中心の柱とその近傍の間の高さの差が臨界値を超えると、砂粒がその近傍の位置へと転がる。これは時折なだれをもたらす。要点は、どのように始めても、これらのなだれが生じる臨界状態に到達する、ということである。したがって、砂山モデルは自発的にその臨界点へと進化し、これがこの現象が自己組織化臨界性と呼ばれてきた理由である。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">自己組織化臨界性（SOC）は、複雑系が、特定のパラメータ設定を必要とせずに、小さな変化が転移をもたらしうる臨界状態へと自然に進化することを指す。</span></div></div>
+<p>モデルライブラリの NetLogo モデル「Sandpile」はこの振る舞いを実演する（<code>setup uniform</code>、<code>center drop location</code>、<code>animate avalanches</code> を用いよ）。今や砂粒をテーブルの中心に一度に一粒ずつ落とし、なだれを生み出す。右のプロットは自己組織化臨界性の重要な特徴を示す。なだれの大きさと持続時間の頻度はべき則に従う。べき則の関係はしばしば数学的に <span class="math inline">\(Y=aX^k\)</span> と表される。ここで <span class="math inline">\(Y\)</span> と <span class="math inline">\(X\)</span> は関心のある量、<span class="math inline">\(a\)</span> は定数の係数、<span class="math inline">\(k\)</span> はべき則の指数である。べき則はそのスケール不変の性質で注目に値し、これは、関係の形が <span class="math inline">\(X\)</span> と <span class="math inline">\(Y\)</span> の異なるスケールにわたって変わらない、ということを意味する。これは、両対数プロットが線形であるべきことを意味し、モデルをしばらく実行することで確かめられる。べき則分布の鍵となる特徴の一つは、高い度合いの変動性ないし異質性を示すことである。これは、多くの小さな出来事や現象と、少数の非常に大きなものがあり、その間に大きさの滑らかな分布がある、ということを意味する。べき則系はスケール不変であり、これは、砂山のどのスケールでも同じ振る舞いが見られる、ということを意味する。この理由から、それらは時にスケールフリー分布と呼ばれる。</p>
+<p><em>他のモデル</em></p>
+<p>他にもいくつかのモデル（たとえば「Sunflowers」「Beatbox」「B—Z reaction」）を実行することを勧める。まだ行っていない一つのことは Code タブをクリックすることである。B—Z 反応のコードを読み、一つのことに気づけ。それは驚くほど短い！</p>
+</section>
+<section id="sec-A-bit-of-NetLogo-programming" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="sec-A-bit-of-NetLogo-programming"><span class="header-section-number">5.3.2</span> NetLogo プログラミングを少し</h3>
+<p>私は NetLogo プログラミングを、非常に容易であると同時に非常に難しいと思う。難しいのは、異なる考え方が必要だからである。Uri Wilensky の例はしばしば極めて優雅で、私の不器用なコードよりもはるかに短い。NetLogo はオブジェクト指向プログラミング言語に似ており、（ベース）R とはかなり異なる。三つのタイプのオブジェクトがある。すなわち、世界の格子（CA）内のセルを指すパッチ、動き回るエージェントであるタートル、そしてタートルを結ぶリンクである。タートルは必ずしもカメではないことに注意しよう。私たちはすでにニューラルノードや車の形でタートルを見てきた。</p>
+<p>NetLogo では、オブジェクトに何かをするよう「尋ねる（ask）」。典型的な一行は次のようになる。</p>
+<div class="cell">
+<style type="text/css">
+.purple{
+  color: #660096;
+  font-family: Monaco;
+  font-size: 14px;
+}
+
+.blue {
+  color: #0000AA;
+  font-family: Monaco;
+  font-size: 14px;
+}
+
+.green {
+  color: #007F69;
+  font-family: Monaco;
+  font-size: 14px;
+}
+
+.comm {
+  color: #5A5A5A;
+  font-family: Monaco;
+  font-size: 14px;
+}
+
+.text {
+  color: black;
+  font-family: Monaco;
+  font-size: 14px;
+}
+.val {
+  color: #963700;
+  font-family: Monaco;
+  font-size: 14px;
+}
+</style>
+</div>
+<p><span class="blue">ask</span> <span class="purple">turtles with</span> <span class="text">[</span><span class="purple">color =</span> <span class="val">red</span> <span class="text">] <span class="blue">set</span> <span class="purple">color</span> <span class="val">green</span></span></p>
+<p>これは赤いタートルを緑にする。始めるにあたり、NetLogo のページ「The Beginner’s Guide to NetLogo Programming」の動画を見て、これらの例に従うことを強く推奨する。ここでは私たち自身のライフゲームを作る。</p>
+<section id="sec-Game-of-Life" class="level4" data-number="5.3.2.1">
+<h4 data-number="5.3.2.1" class="anchored" data-anchor-id="sec-Game-of-Life"><span class="header-section-number">5.3.2.1</span> ライフゲーム</h4>
+<p>まず、インターフェースに二つのボタン、<code>setup</code> と <code>go</code> を作れ。Command で、それらを「setup」と「go」と名付けよ。<code>go</code> ボタンの設定で <code>forever</code> を選べ。さて Code タブに行き、これら二つの関数を次のように定義せよ。</p>
+<p><span class="green">to</span> <span class="text">setup</span> <br> <span class="purple">clear-all</span> <br> <span class="text">reset-clicks</span> <br> <span class="green">end</span></p>
+<p><span class="green">to</span> <span class="text">go</span> <br> <span class="purple">tick</span> <br> <span class="green">end</span></p>
+<p><code>Ticks</code> は NetLogo における反復を数え、このコードで私たちはただ物事をリセットしている。この例では、タートルの代わりにパッチを用いる。パッチは、NetLogo モデルにおける「世界」を構成する格子のセルすなわち正方形である。さて、setup にこの最後の行を加えよ（セミコロンでコードにコメントを加えられる）。</p>
+<p><span class="blue">ask</span> <span class="purple">patches</span> <br> <span class="text">[</span><span class="blue">set</span> <span class="purple">pcolor one-of</span> <span class="text">[</span> <span class="val">white blue</span> <span class="text">]] <span class="comm">; white is dead, blue is alive</span></span></p>
+<p>同期更新を行うには、更新された <code>state</code> を <code>new-state</code> と呼ばれる一時変数に格納する必要がある。この行をコードの先頭に置け。</p>
+<p><span class="green">patches-own</span> <span class="text">[new-state]</span></p>
+<p><code>go</code> 関数に、ライフの規則を加える。</p>
+<p><span class="blue">ask</span> <span class="purple">patches</span> <span class="text">[</span> <br> <span class="blue">if</span> <span class="text">(</span> <span class="purple">neighbors with</span> <span class="text">[</span><span class="purple">pcolor =</span> <span class="val">blue</span> <span class="text">]) <span class="purple">&gt;</span> <span class="val">3</span> <span class="text">)</span> <span class="text">[</span></span><span class="blue">set</span> <span class="text">new-state</span> <span class="val">white</span> <span class="text">] <br> <span class="blue">if</span> <span class="text">(</span> <span class="purple">neighbors with</span> <span class="text">[</span></span><span class="purple">pcolor =</span> <span class="val">blue</span> <span class="text">]) <span class="purple">&lt;</span> <span class="val">2</span> <span class="text">)</span> <span class="text">[</span></span><span class="blue">set</span> <span class="text">new-state</span> <span class="val">white</span> <span class="text">] <br> <span class="blue">if</span> <span class="text">(</span> <span class="purple">neighbors with</span> <span class="text">[</span></span><span class="purple">pcolor =</span> <span class="val">blue</span> <span class="text">]) <span class="purple">=</span> <span class="val">3</span> <span class="text">)</span> <span class="text">[</span></span><span class="blue">set</span> <span class="text">new-state</span> <span class="val">blue</span> <span class="text">] <br> <span class="text">]</span><br>
+<span class="blue">ask</span> <span class="purple">patches</span> [ <span class="text"></span></span><span class="blue">set</span> <span class="purple">pcolor</span> <span class="text">new-state</span> <span class="text">]</span></p>
+<p>最後の行は <code>state</code> を <code>new-state</code> に更新する。それだけである！ 私たちはライフゲームのシミュレーションを構築した。<code>setting</code> を用いてより大きな世界を作れ。このコードへのいくつかの拡張を見るには、モデルライブラリのライフゲームプログラムのコードを見てみよ。Help メニューに、非常に有用な NetLogo 辞書が見つかる。この辞書を読み通すだけで、多くの有用な技を学べる。NetLogo は、組み込み関数をできるだけ用いるべきである点で R に似ている。</p>
+</section>
+<section id="sec-The-Ising-model" class="level4" data-number="5.3.2.2">
+<h4 data-number="5.3.2.2" class="anchored" data-anchor-id="sec-The-Ising-model"><span class="header-section-number">5.3.2.2</span> イジングモデル</h4>
+<p>NetLogo モデルをゼロから構築するにはかなりの経験が必要である。プログラムを適応させるほうがはるかに容易である。NetLogo のイジングモデルは、外部磁場のスライダーがないので完全ではない。これを自分で加えてみよ。外部磁場 <code>tau</code> のスライダーを加えよ。コードはこの行でのみ変える必要がある（<a href="#eq-ch5n-1-old-17" class="quarto-xref">equation&nbsp;<span class="quarto-unresolved-ref">eq-ch5n-1-old-17</span></a> を研究せよ）。</p>
+<p><span class="blue">let</span> <span class="text">Ediff</span> <span class="val">2</span> <span class="purple">*</span> <span class="text">spin</span> <span class="purple">* sum</span> <span class="text">[ spin ]</span> <span class="purple">of neighbors4</span></p>
+<p>成功すれば、ヒステリシスとダイバージェンスを検証できる。<code>tau = 0</code> について、温度を下げると熊手分岐が得られるはずである。正の温度（たとえば 1.5）について、<code>tau</code> を上下に動かすとヒステリシスが得られるはずである。</p>
+<p>実は、すべてのスピンがすべてのスピンに結合していれば、これはより良く機能するはずである。これを行うには、<code>neighbors4</code> を <code>patches</code> に置き換えよ。これほど多くのスピンの効果を正規化するために、次を用いることを勧める。</p>
+<p><span class="blue">let</span> <span class="val">0.001</span> <span class="purple">*</span> <span class="text">Ediff</span> <span class="val">2</span> <span class="purple">*</span> <span class="text">spin</span> <span class="purple">* sum</span> <span class="text">[ spin ]</span> <span class="purple">of patches</span></p>
+<p>今や、ヒステリシスと熊手がより良く見られるはずである。しかし、この場合、局所的な相互作用のみをもつイジングモデルで生じた典型的な自己組織化するパターン形成は存在しない（<a href="#sec-Physics" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Physics</span></a> の最後の部分を参照）。</p>
+</section>
+</section>
+</section>
+<section id="sec-Selforganization-in-psychology-and-social-systems" class="level2 page-columns page-full" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-Selforganization-in-psychology-and-social-systems"><span class="header-section-number">5.4</span> 心理学と社会システムにおける自己組織化</h2>
+<p>本章のこの第二の部分では、心理学のいくつかの下位分野にわたる、さまざまな心理システム内の自己組織化に関する研究の例示を提供する。私はまず脳の文脈における自己組織化の探求から始め、人間の組織におけるその含意の検討で締めくくる。他の領域におけるさらなる探求を導くために、関連する文献を指し示す。</p>
+<section id="sec-The-brain" class="level3 page-columns page-full" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="sec-The-brain"><span class="header-section-number">5.4.1</span> 脳</h3>
+<p>多くの心理的・社会的過程が自己組織化を含む。上で論じたように、最も低いレベルで自己組織化は神経系において役割を果たす。脳における自己組織化は活発な研究領域である <span class="citation" data-cites="breakspearDynamicModelsLargescale2017 chialvoEmergentComplexNeural2010 cocchiCriticalityBrainSynthesis2017 ooyenRewiringBrainComputational2017 plenzSelfOrganizedCriticalityBrain2021">(<a href="#ref-breakspearDynamicModelsLargescale2017" role="doc-biblioref">Breakspear 2017</a>; <a href="#ref-chialvoEmergentComplexNeural2010" role="doc-biblioref">Chialvo 2010</a>; <a href="#ref-cocchiCriticalityBrainSynthesis2017" role="doc-biblioref">Cocchi et al. 2017</a>; <a href="#ref-ooyenRewiringBrainComputational2017" role="doc-biblioref">Ooyen and Butz-Ostendorf 2017</a>; <a href="#ref-plenzSelfOrganizedCriticalityBrain2021" role="doc-biblioref">Plenz et al. 2021</a>)</span>。<span class="citation" data-cites="dresp-langleySevenPropertiesSelfOrganization2020">Dresp-Langley (<a href="#ref-dresp-langleySevenPropertiesSelfOrganization2020" role="doc-biblioref">2020</a>)</span> は、脳システムで明確に同定される自己組織化の七つの鍵となる性質を区別した。すなわち、モジュール的な結合性、教師なし学習、適応能力、機能的レジリエンス、機能的可塑性、局所から大域への機能的組織化、そして動的なシステムの成長である。</p>
+<div class="page-columns page-full"><p>鍵となる例は、脳におけるにおいの表現に関するウォルター・フリーマンの仕事である <span class="citation" data-cites="skardaHowBrainsMake1987">(<a href="#ref-skardaHowBrainsMake1987" role="doc-biblioref">Skarda and Freeman 1987</a>)</span>。彼は脳の非線形系モデルを支持するために EEG 測定を用いた。フリーマンは、脳が、彼がアトラクタと呼んだ電気活動の動的なパターンを生成することによって作動すると提案した。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">フリーマンの理論では、アトラクタは、ニューロンの大きな集団間の相互作用から自発的に生じる神経活動の安定状態を表す。</span></div></div>
+<div class="page-columns page-full"><p>もう一つの影響力のある理論は、神経科学者ジェラルド・エーデルマンによって提案された。彼の神経ダーウィニズムの理論は、脳の神経結合の発達が、遺伝子にあらかじめ配線されているのではなく、競争と選択の過程に基づいている、と示唆する <span class="citation" data-cites="edelmanNeuralDarwinismTheory1987">(<a href="#ref-edelmanNeuralDarwinismTheory1987" role="doc-biblioref">Edelman 1987</a>)</span>。エーデルマンの理論によれば、脳は、絶えず互いにそして外界と相互作用する多くの相互接続されたニューロンから成る複雑で動的なシステムである。競争と選択の過程は、特定の刺激や経験に応答するニューロンの集合体の形成を通じて生じる。 代替的なアプローチが <span class="citation" data-cites="carpenterMassivelyParallelArchitecture1987a">Carpenter and Grossberg (<a href="#ref-carpenterMassivelyParallelArchitecture1987a" role="doc-biblioref">1987</a>)</span> によって提出された。グロスバーグとカーペンターの理論は、脳のニューラルネットワークがどのように自己組織化して情報を処理し、変化する環境に適応するかに焦点を当てる。それは神経のダイナミクスを支配する原理を探求し、神経系内の相互作用と学習を通じたコヒーレントな認知的・行動的パターンの創発に至る。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">神経ダーウィニズムでは、成功した集合体におけるニューロン間の結合は時間とともに強くなり、一方、成功しなかった集合体における結合は弱まるか消失する。</span></div></div>
+<p>自己組織化臨界性（SOC）（<a href="#sec-Examples" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Examples</span></a> の砂山モデルを参照）が脳において役割を果たすとも主張されてきた <span class="citation" data-cites="bakSelforganizedCriticality1988">(<a href="#ref-bakSelforganizedCriticality1988" role="doc-biblioref">Bak, Tang, and Wiesenfeld 1988</a>)</span>。システムが臨界性に近いとき、小さな摂動が大きなカスケード的な効果をもちうると仮定されており、これがシステムに、環境の変化に応じて異なる活動状態の間を急速に切り替えることを可能にしうる。脳における SOC の鍵となる証拠の一つは、神経活動の出来事の大きさの分布の研究に由来し、それはべき則分布に従うことが見出されているが、代替的な説明も提供されている <span class="citation" data-cites="bedardDoesFrequencyScaling2006">(<a href="#ref-bedardDoesFrequencyScaling2006" role="doc-biblioref">Bédard, Kröger, and Destexhe 2006</a>)</span>。これは多くの方法論的な難題をもつ技術的な研究領域である <span class="citation" data-cites="lurieQuestionsControversiesStudy2020 obyrneHowCriticalBrain2022">(<a href="#ref-lurieQuestionsControversiesStudy2020" role="doc-biblioref">Lurie et al. 2020</a>; <a href="#ref-obyrneHowCriticalBrain2022" role="doc-biblioref">O’Byrne and Jerbi 2022</a>)</span>。</p>
+<div class="page-columns page-full"><p>いわゆる「予測する」脳の機能を理解する有望な一般的アプローチは自由エネルギー説明 <span class="citation" data-cites="clarkWhateverNextPredictive2013">(<a href="#ref-clarkWhateverNextPredictive2013" role="doc-biblioref">Clark 2013</a>)</span> であり、これは自己組織化の一形態を実装する <span class="citation" data-cites="fristonFreeenergyPrincipleRough2009">(<a href="#ref-fristonFreeenergyPrincipleRough2009" role="doc-biblioref">Friston 2009</a>)</span>。 脳は単に周囲の世界に反応しているのではなく、私たちの過去の経験と知識に基づいて、私たちが何を見、聞き、感じ、経験するかについての予測を能動的に生成している。予測する脳の理論は、脳の予測が階層的推論の過程を通じて生成される、と示唆する。そこでは、より低次の感覚領域からの情報が、より高次の領域で組み合わされ統合されて、世界についてのより複雑な予測を生成する。これらの予測はそれから入ってくる感覚入力と比較され、予測と実際の入力の間のいかなる不一致も、予測を更新し時間とともに脳の正確さを改善するのに用いられる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">予測する脳は、環境から受け取る感覚入力について絶えず予測を行い、期待される入力と実際の入力の間の不一致を最小化する。</span></div></div>
+</section>
+<section id="sec-Consciousness" class="level3 page-columns page-full" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="sec-Consciousness"><span class="header-section-number">5.4.2</span> 意識</h3>
+<p>多くの人が、思考、知覚、記憶、推論といった、また人格や情動（すなわち心）といった、より高次の心理的機能ないし性質が、より低次の脳活動から創発する、という考えに同意するだろう。特に関心の対象となるのは意識である。<span class="citation" data-cites="seth2022">Seth and Bayne (<a href="#ref-seth2022" role="doc-biblioref">2022</a>)</span> は、意識を神経生物学に結び付ける22の異なる理論を挙げている。よく知られた例は、グローバルワークスペース理論、統合情報理論、そして高次理論である。これらの理論のほとんどで自己組織化が役割を果たす。</p>
+<div class="page-columns page-full"><p>グローバルワークスペース理論の中心的な考えは、脳に中心的なワークスペース、すなわちさまざまな感覚入力と記憶システムからの情報が集められ、処理され、統合される一種の精神的な舞台がある、というものである。 このワークスペースは特定の脳領域に結び付いてはおらず、広範な神経回路の動的な相互作用から創発すると考えられている。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">グローバルワークスペースに入る情報は、脳全体への広範な分配のために利用可能になり、協調した意識的な処理を可能にする。</span></div></div>
+<p>統合情報理論（ITT）の核心的な命題は、意識がシステムの情報を統合する能力に等しい、というものである。IIT によれば、システムがもつ意識の水準は、<span class="math inline">\(\phi\)</span> と呼ばれる値によって量的に測定できる。これはシステムが生成できる統合された情報の量を表す。より高い <span class="math inline">\(\phi\)</span> はより高い意識の水準を示す。統合情報理論によれば、システムが意識的であるためには、それは多様な情報の断片を単一のコヒーレントな全体へと組み合わせられなければならない。</p>
+<div class="page-columns page-full"><p>意識の高次理論にとって、メタ表象が決定的に重要である。 花のような特定の知覚の表象をもち、加えて「私は花を知覚している」と認める（メタ表象）をもつかもしれない。私は高次理論が最も説得力があると思う。というのも、それらは無意識的な情報処理と意識的な情報処理の間に明確な区別をつけるからである。最近の興味深い変種は <span class="citation" data-cites="cleeremans2020">Cleeremans et al. (<a href="#ref-cleeremans2020" role="doc-biblioref">2020</a>)</span> の自己組織化するメタ表象説明であり、意識は脳が行うことを学習する何かである、と述べる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">意識の高次理論は、脳が自身の過程を自身に対して表象するときに意識が生じる、と示唆する。</span></div></div>
+<div class="page-columns page-full"><p>意識についての私の考えは、ダグラス・ホフスタッターの仕事、とりわけ彼の『ゲーデル、エッシャー、バッハ（Gödel, Escher, Bach）』に関する本 <span class="citation" data-cites="hofstadterGodelEscherBach1999">(<a href="#ref-hofstadterGodelEscherBach1999" role="doc-biblioref">Hofstadter 1979</a>)</span> に強く影響されてきた。彼の仕事において、私たちの自己感覚は、自身の活動や経験を指すために自然言語のような記号を用いる脳の能力によって形成される構築物である。意識は記号的な自己言及、したがってメタ表象に基づく。 私は <span class="citation" data-cites="hofstadter2007">Hofstadter (<a href="#ref-hofstadter2007" role="doc-biblioref">2007</a>)</span> とともに、この高次の自己が脳の低次の処理に影響を及ぼす能力をもつ、すなわち下方因果の一例だと考える（<a href="#sec-Emergentism" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Emergentism</span></a>）。<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> いくぶん批判的な分析については、<span class="citation" data-cites="nenu2022">Nenu (<a href="#ref-nenu2022" role="doc-biblioref">2022</a>)</span> を参照されたい。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">ホフスタッターの理論では、これらの自己言及的なループ（奇妙なループ）がある水準の複雑性に達するとき意識が生じる。</span></div></div>
+<p>引いて見ると、22の意識の理論をもつこと、そしてこれは過小評価だが、少々多すぎる。意識の理論に対する経験的データの制約の欠如は明らかに問題である <span class="citation" data-cites="doerig2021">(<a href="#ref-doerig2021" role="doc-biblioref">Doerig, Schurger, and Herzog 2021</a>)</span>。</p>
+</section>
+<section id="sec-Visual-illusions" class="level3 page-columns page-full" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="sec-Visual-illusions"><span class="header-section-number">5.4.3</span> 視覚錯覚</h3>
+<div class="page-columns page-full"><p>科学的分野としての心理学の最も初期の時代から、研究者は知覚の組織化する性質に関心をもっていた。ヴェルトハイマーやコフカのようなゲシュタルト心理学者は、私たちが個々の構成要素だけでなく、全体のパターンないし配置を知覚する、と主張した。 ゲシュタルト心理学者は、群化、近接、類同、連続といったいくつものゲシュタルト原理を定式化した。一世紀にわたる研究のレビューと、視覚研究におけるその現在の役割の分析は、<span class="citation" data-cites="wagemansCenturyGestaltPsychology2012">Wagemans et al. (<a href="#ref-wagemansCenturyGestaltPsychology2012" role="doc-biblioref">2012</a>)</span> によって提供されている。知覚における自己組織化の過程のモデリングの多くは、シナジェティクスの伝統でなされてきた。優れた資料は <span class="citation" data-cites="kelsoDynamicPatternsSelforganization1995">Kelso (<a href="#ref-kelsoDynamicPatternsSelforganization1995" role="doc-biblioref">1995</a>)</span> と <span class="citation" data-cites="kruseAmbiguityMindNature2012">Kruse and Stadler (<a href="#ref-kruseAmbiguityMindNature2012" role="doc-biblioref">2012</a>)</span> である。<span class="citation" data-cites="grossbergNeuralDynamicsGestalt2012">Grossberg and Pinna (<a href="#ref-grossbergNeuralDynamicsGestalt2012" role="doc-biblioref">2012</a>)</span> はゲシュタルト原理の神経的な実装を論じている。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">複雑性科学のようなものが存在する以前でさえ、視覚知覚は自己組織化の最初の応用の一つであったと言えるかもしれない。</span></div></div>
+<div class="page-columns page-full"><p>もう一つの関連するアプローチは <span class="citation" data-cites="gibsonEcologicalApproachVisual2014">Gibson (<a href="#ref-gibsonEcologicalApproachVisual2014" role="doc-biblioref">2014</a>)</span> による視覚知覚への生態学的アプローチである。ギブソンのアプローチにおいて、知覚は単に感覚入力を分析する過程ではなく、知覚者の環境との関係を含む能動的な過程であり、これには環境におけるアフォーダンス（すなわち行為の機会）の知覚が含まれ、それが知覚を導き形作る。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">生態学的アプローチは、複雑な内的過程を必要とせずに、知覚が環境の行為可能な性質によって直接に情報を与えられる仕方を強調する。</span></div></div>
+<p>ゲシュタルト原理の組み合わせは、反対の方向に作用するとき、あらゆる種類の知覚錯覚をもたらしうる。NetLogo のモデルライブラリの「Optical Illusion model」はそのいくつかを例示する。各錯覚のコードを見てみよ——それらは極めて短く優雅である（<a href="#fig-ch5n-img6-old-44" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img6-old-44</span></a>）。</p>
+<div id="fig-ch5n-img6-old-44" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch5n-img6-old-44-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch5n/ch5n-6.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch5n-img6-old-44-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.6: NetLogo の Optical Illusion モデルからの幼稚園（Kindergarten）錯覚。
+</figcaption>
+</figure>
+</div>
+<p><a href="#sec-ch3" class="quarto-xref"><span class="quarto-unresolved-ref">sec-ch3</span></a> で、多安定知覚における突然のジャンプとヒステリシスのいくつかの例を提供した。NetLogo はこれらの効果を実験するための優れた道具でもある。NetLogo コミュニティのウェブサイト（または本書のソフトウェアリポジトリ）から「Motion Quartet」をダウンロードし、自分自身の知覚におけるヒステリシスを探求せよ。</p>
+</section>
+<section id="sec-Motor-action" class="level3 page-columns page-full" data-number="5.4.4">
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="sec-Motor-action"><span class="header-section-number">5.4.4</span> 運動行為</h3>
+<div class="page-columns page-full"><p>多くの身体運動は本質的に周期的である——歩行、水泳、ダンス、襲歩を考えよ。 協調的な運動パターンを研究する有名なパラダイムは指運動課題であり、そこでは両方の人差し指を（上下または左右に）同位相または逆位相で動かさなければならない。<a href="#fig-ch5n-img7-old-45" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img7-old-45</span></a> は、設定と、二つの同位相または逆位相の振動の間の転移を示すデータを説明している。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">これらの複雑な運動の鍵は、身体部位の運動の同期である。</span></div></div>
+<div id="fig-ch5n-img7-old-45" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch5n-img7-old-45-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch5n/image7.jpg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch5n-img7-old-45-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.7: 指運動課題。二つの指が上下に動く（x<sub>1</sub> と x<sub>2</sub>）。それらは、0 と <span class="math inline">\(\pi\)</span> の位相差で同位相または逆位相で動きうる（左下の図）。モデルは右側に示されている。ポテンシャル関数は、二つの安定状態（0 または <span class="math inline">\(\pi\)</span> の位相差 <span class="math inline">\(\varphi\)</span>。<span class="math inline">\(- \pi\)</span> は同じ状態）をもつか、一つの安定状態（0 の位相差）のみをもつ。結合強度 <span class="math inline">\(b/a\)</span> と異質性 <span class="math inline">\(\Delta w\)</span> が制御変数である。<span class="citation" data-cites="hakenTheoreticalModelPhase1985 kelsoHakenKelsoBunz2021">(<a href="#ref-hakenTheoreticalModelPhase1985" role="doc-biblioref">Haken, Kelso, and Bunz 1985</a>; <a href="#ref-kelsoHakenKelsoBunz2021" role="doc-biblioref">Kelso 2021</a> より改変)</span>
+</figcaption>
+</figure>
+</div>
+<p>シナジェティクスの伝統で開発されたハーケン–ケルソ–ブンツ（HKB）モデルは、同位相と逆位相の運動の間の相転移を、<a href="#sec-Phenomenological-models" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Phenomenological-models</span></a> で見た仕方で説明する。彼らは次の形のポテンシャル関数を立てた。</p>
+<p><span id="eq-ch5n-4-old-20"><span class="math display">\[
+V(\varphi) = - \Delta w\varphi - b\cos\varphi - a\cos{2\varphi}, \tag{5.4}\]</span></span></p>
+<p>ここで <span class="math inline">\(\varphi\)</span> は秩序変数すなわち振る舞い変数、二つの指の間の位相差である。主たる制御パラメータは <span class="math inline">\(b/a\)</span> である。<span class="citation" data-cites="kelsoHakenKelsoBunz2021">Kelso (<a href="#ref-kelsoHakenKelsoBunz2021" role="doc-biblioref">2021</a>)</span> によれば、結合強度（<span class="math inline">\(b/a\)</span>）は実験における振動の速度ないし頻度に対応する。<span class="math inline">\(\Delta w\)</span> は個々の振動する要素の自然な頻度の間の差（異質性、多様性）である。指運動課題では、このパラメータは 0 であると期待される。このポテンシャル関数の振る舞いはカスプのようである。それは二つの安定状態、0 と <span class="math inline">\(\pm \pi\)</span> をもち、頻度を増加させ減少させるとヒステリシスがもたらされる。<span class="math inline">\(\Delta w\)</span> の効果は折り目カタストロフィに似ている（<a href="#sec-The-fold-catastrophe" class="quarto-xref"><span class="quarto-unresolved-ref">sec-The-fold-catastrophe</span></a>）。</p>
+<p>このポテンシャル関数は、実験結果を説明する最も単純な形として提案されている。これが、私がこれを現象論的モデルと呼ぶ理由である。しかし、<span class="citation" data-cites="hakenTheoreticalModelPhase1985">Haken, Kelso, and Bunz (<a href="#ref-hakenTheoreticalModelPhase1985" role="doc-biblioref">1985</a>)</span> は、ファン・デル・ポル振動子とレイリー振動子の組み合わせという、よりメカニズム的なモデルも提示している <span class="citation" data-cites="alderisioEntrainmentSynchronizationNetworks2016">(<a href="#ref-alderisioEntrainmentSynchronizationNetworks2016" role="doc-biblioref">Alderisio, Bardy, and di Bernardo 2016</a>)</span>。HKB モデルの確率的な変種は、臨界減速のような早期警告も備えている（カタストロフィ・フラグ、<a href="#sec-Anomalous-variance-divergence-of-linear-response-and-critical-slowing-down" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Anomalous-variance-divergence-of-linear-response-and-critical-slowing-down</span></a> を参照）。臨界減速や他のフラグの存在は実験的に確認されている <span class="citation" data-cites="kelsoNonequilibriumPhaseTransitions1986">(<a href="#ref-kelsoNonequilibriumPhaseTransitions1986" role="doc-biblioref">Kelso, Scholz, and Schöner 1986</a>)</span>。</p>
+<p>カタストロフィアプローチとの一つの違いは、ヒステリシスを組み込むシナジェティクスのモデルが典型的には分裂制御変数をもたない、ということである。カタストロフィ理論にとって基本的な構造安定性という概念は、シナジェティクスでは用いられない。このモデルにおいて分裂要因が何でありうるかは、それほど明らかでない。私は、なぜ HKB モデルの基本版で結合強度 <span class="math inline">\(b/a\)</span>（<a href="#fig-ch5n-img7-old-45" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img7-old-45</span></a> を参照）と振動の頻度が同一視されるのかを、決して理解できたことがない <span class="citation" data-cites="beekModelingRhythmicInterlimb2002">(<a href="#ref-beekModelingRhythmicInterlimb2002" role="doc-biblioref">Beek, Peper, and Daffertshofer 2002</a> も参照)</span>。明らかに、結合していない振動子はかなりランダムな位相差をもつだろう。結合を強めると、一種の熊手分岐がもたらされるだろう。</p>
+<div class="page-columns page-full"><p> <span class="citation" data-cites="schmidtPhaseTransitionsCritical1990">Schmidt, Carello, and Turvey (<a href="#ref-schmidtPhaseTransitionsCritical1990" role="doc-biblioref">1990</a>)</span> は、二人が並んで座り脚を上下に振る実験パラダイムを用いた。振りの頻度を操作するためにメトロノームが用いられた。逆位相から同位相の運動への明確なジャンプが実証された。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">この結合と脱結合は、人々の間のリズミカルな運動の視覚的協調における現象でもある。</span></div></div>
+<p><span class="citation" data-cites="kelsoHakenKelsoBunz2021">Kelso (<a href="#ref-kelsoHakenKelsoBunz2021" role="doc-biblioref">2021</a>)</span> は、HKB モデルに関する印象的な量の仕事の概観を提供している。<span class="citation" data-cites="reppSensorimotorSynchronizationReview2013">Repp and Su (<a href="#ref-reppSensorimotorSynchronizationReview2013" role="doc-biblioref">2013</a>)</span> は、多くの異なる運動領域における経験的な仕事をレビューしている。興味深いことに、運動課題の学習は、時には運動を結合すること（歩行）を、また時には運動を脱結合すること（より複雑なリズムを打つこと）を学習することを含む。ジャグリングは、非常に詳しく研究されてきた魅力的な事例である <span class="citation" data-cites="beekScienceJuggling1995">(<a href="#ref-beekScienceJuggling1995" role="doc-biblioref">Beek and Lewbel 1995</a>)</span>。同期現象へのもう一つの人気のある数学的アプローチは、蛍の同期した明滅を基本的な例とする蔵本モデルである <span class="citation" data-cites="acebronKuramotoModelSimple2005">(<a href="#ref-acebronKuramotoModelSimple2005" role="doc-biblioref">Acebrón et al. 2005</a>)</span>。蔵本モデルは、同期が結合強度にどう依存するかを示す。すなわち、ある閾値の下では振動子は独立に振る舞うが、この閾値の上では、振動子のかなりの割合が自発的に共通の頻度にロックし、集団的な同期に至る。対人的な同調の二階の多適応神経エージェントモデルは <span class="citation" data-cites="hendrikseModelingEmergingInterpersonal2023">Hendrikse, Treur, and Koole (<a href="#ref-hendrikseModelingEmergingInterpersonal2023" role="doc-biblioref">2023</a>)</span> に見出される。</p>
+</section>
+<section id="sec-Robotics" class="level3 page-columns page-full" data-number="5.4.5">
+<h3 data-number="5.4.5" class="anchored" data-anchor-id="sec-Robotics"><span class="header-section-number">5.4.5</span> ロボット工学</h3>
+<div class="page-columns page-full"><p>ロボット工学における大きな課題は、歩くロボットを作ることである。二足歩行ロボットは、不器用な機械的歩行者から、柔軟な動的歩行者や走行者へと進化した。現在の脚をもつロボットは、でこぼこの自然な地形を歩き、跳び、後方宙返りをし、後ろからの衝撃から回復し、そして踊れる（Atlas や Asimo のようなヒューマノイドロボットのいくつかの動画を参照）。これらの成功は新技術の組み合わせに基づくが、自己組織化の原理が鍵となる役割を果たす <span class="citation" data-cites="pavlusClumsyQuestPerfect2016">(<a href="#ref-pavlusClumsyQuestPerfect2016" role="doc-biblioref">Pavlus 2016</a>)</span>。重要な概念は動的安定性である。旧来のロボットでは、ロボットの重心をあらゆる点で絶えず釣り合わせるために、各歩の経路と運動量をあらかじめ精確に計算しなければならなかった。現代のロボットは、その場で釣り合いを取り運動を調整するために感覚フィードバックシステムを用い、それによって異なる変化する環境により適応しやすくなる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">動的に安定なロボットは、人間と同じ仕方で釣り合いを保つ。すなわち、各歩で倒れかけを途中で捉えることによってである。</span></div></div>
+<p>興味深い応用は受動歩行（passive dynamics）と呼ばれ、外部からのエネルギー供給なしのロボットの歩行を指す <span class="citation" data-cites="mcgeerPassiveWalkingKnees1990 reherDynamicWalkingAgile2021">(<a href="#ref-mcgeerPassiveWalkingKnees1990" role="doc-biblioref">McGeer 1990</a>; <a href="#ref-reherDynamicWalkingAgile2021" role="doc-biblioref">Reher and Ames 2021</a>)</span>。その考えは、真に動的な移動が、自然な歩行系における非線形ダイナミクスに基づくべきである、というものである。驚くべき実演は、テオ・ヤンセンの芸術作品『ストランドビースト（Strandbeest）』である（<a href="#fig-ch5n-img8-old-46" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img8-old-46</span></a>）。自己組織化についてのもう一つの偉大な本、『盲目の時計職人（The Blind Watchmaker）』<span class="citation" data-cites="dawkins1986">(<a href="#ref-dawkins1986" role="doc-biblioref">Dawkins 1986</a>)</span> に着想を得て、ヤンセンは、砂の上を歩く動物に似て動く、PVC パイプ、木材、布の翼、結束バンドで作られた運動する彫刻の世代を創り出した。彼の YouTube 動画を推薦する。</p>
+<div id="fig-ch5n-img8-old-46" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch5n-img8-old-46-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch5n/strandbeest_Han_perm.jpg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch5n-img8-old-46-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.8: Beach Beast © Theo Jansen, Umerus 2009, c/o Pictoright Amsterdam 2024
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-Developmental-processes" class="level3 page-columns page-full" data-number="5.4.6">
+<h3 data-number="5.4.6" class="anchored" data-anchor-id="sec-Developmental-processes"><span class="header-section-number">5.4.6</span> 発達過程</h3>
+<div class="page-columns page-full"><p>非線形ダイナミクスと自己組織化への関心の初期の根は、フランスの心理学者ジャン・ピアジェの画期的な仕事に見出される。知識の起源を理解するために、彼は子どもにおける知能の起源を研究した <span class="citation" data-cites="piagetOriginsIntelligenceChildren1952">(<a href="#ref-piagetOriginsIntelligenceChildren1952" role="doc-biblioref">Piaget 1952</a>)</span>。彼の理論化は、生物学的モデルと、パズルを解く子どもの観察の両方に着想を得た。彼は認知発達を、均衡化の過程における、以前の知識構造の上への構造の構築とみなした。その考えは、子どもが潜在的に矛盾する外的情報に同化するか調節する、というものであった。同化の場合、子どもは現在の認知構造に合うように情報を修正し、一方、調節の場合、構造が修正される。そのような修正は、規則への例外の追加でありうる（「より長い粘土のソーセージは通常より重いが、この教授が粘土の玉をソーセージに転がすときはそうではない」、<a href="#sec-Introduction-ch3" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Introduction-ch3</span></a> を参照）。長い目で見れば、これはうまくいかず、認知的葛藤が強まり、認知構造が不安定化する。この不均衡の状態において、以前の構造の上に新たな構造が形成されうる。 この一例は、第3章のはじめに紹介した保存課題である。形と量が同一視される前操作的な構造は、保存予測課題で誤った予測をもたらす。子どもはこれを無視し（同化）、この例外に対して場当たり的な規則を作るかもしれない（調節）が、そのような解決は認知的葛藤を本当には解消せず、前操作的な構造は不安定になる。この不安定性が、形と量が独立した構成体であるより進んだ具体的操作的な構造の形成を可能にする。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">認知的葛藤は不均衡の状態をもたらし、以前の認知構造の上への新たな構造の形成をもたらす。</span></div></div>
+<div class="page-columns page-full"><p>ピアジェは、認知発達が、子どもが周囲の世界と相互作用するにつれて生じる自発的で自然な過程である、と論じた。 私は発達心理学における私自身の仕事 <span class="citation" data-cites="saviWiringIntelligence2019 vandermaasDynamicalModelGeneral2006 vandermaas1992">(たとえば <a href="#ref-saviWiringIntelligence2019" role="doc-biblioref">Savi et al. 2019</a>; <a href="#ref-vandermaasDynamicalModelGeneral2006" role="doc-biblioref">van der Maas et al. 2006</a>; <a href="#ref-vandermaas1992" role="doc-biblioref">van der Maas and Molenaar 1992</a>)</span> を、これらのピアジェの古典的な考えの形式化とみなしている。段階と均衡という考えは、新ピアジェ派の理論に生き続けている。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">ピアジェの認知発達という概念は、ゲシュタルト心理学者の場合と同様、いわば時代に先駆けた（avant la lettre）自己組織化理論とみなすことができる。</span></div></div>
+<p>20世紀後半、身体化された認知、非線形ダイナミクス、シナジェティクス、そしてニューラルネットワーク（たとえばエーデルマンの神経ダーウィニズム）における仕事に着想を得た発達理論が人気を得た。身体化された認知は、個人の理解と思考が身体の環境との相互作用と精緻に結び付いているという理論であり、認知過程が身体の行為と感覚経験によって形作られる、と示唆する <span class="citation" data-cites="chemeroRadicalEmbodiedCognitive2013">(<a href="#ref-chemeroRadicalEmbodiedCognitive2013" role="doc-biblioref">Chemero 2013</a>)</span>。鍵となる例は、歩行と手を伸ばすことの発達に関するエスター・セレンの仕事である <span class="citation" data-cites="thelenMotorDevelopmentNew1995">(<a href="#ref-thelenMotorDevelopmentNew1995" role="doc-biblioref">Thelen 1995</a>)</span>。もう一つの有名なピアジェの課題、A-not-B 誤りがこれで中心的な役割を果たす。A-not-B 誤りは典型的には、大人が乳児の前で既知の場所（A）に物体を数回隠す単純なゲームで生じる。数試行の後、乳児が見ている間に、大人は新たな場所（B）に物体を隠す。物体が新たな場所に隠されるのを見ているにもかかわらず、乳児は古い場所（A）で物体を探し続ける傾向がある。</p>
+<div class="page-columns page-full"><p>セレンとスミスの本 <span class="citation" data-cites="thelenDynamicSystemsApproach1994">(<a href="#ref-thelenDynamicSystemsApproach1994" role="doc-biblioref">1994</a>)</span> は発達心理学に強い影響を与えたが、私は若い頃の熱意でかなり批判的であった <span class="citation" data-cites="vandermaasMetaphor1995">(<a href="#ref-vandermaasMetaphor1995" role="doc-biblioref">van der Maas 1995</a>)</span>。A-not-B 誤りの具体的な数学的力学モデルは、力学的場の理論で開発されてきた <span class="citation" data-cites="schonerDynamicThinkingPrimer2016">(<a href="#ref-schonerDynamicThinkingPrimer2016" role="doc-biblioref">Schöner and Spencer 2016</a>)</span>。 これらの動的な場は、課題や振る舞いの特定の側面についての情報を符号化する分散した表象と考えることができる。たとえば、空間における物体の位置を表す動的な場や、四肢の意図された運動軌道を表す動的な場があるかもしれない。この理論では、複雑な振る舞いが複数の動的な場の協調と統合から生じる。力学的場の理論は活発な研究領域である。<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p><div class="no-row-height column-margin column-container"><span class="margin-aside">力学的場の理論は、認知過程が動的な場、すなわち時間とともに展開する神経活動のパターンとして表象される、と措定する。</span></div></div>
+<p>最後に、最近のいくつかの仕事が教育システム自体を複雑系とみなしていることに注意する <span class="citation" data-cites="jacobsonEducationComplexSystem2019 lemkeComplexSystemsEducational2008">(<a href="#ref-jacobsonEducationComplexSystem2019" role="doc-biblioref">Jacobson, Levin, and Kapur 2019</a>; <a href="#ref-lemkeComplexSystemsEducational2008" role="doc-biblioref">Lemke and Sabelli 2008</a>)</span>。</p>
+</section>
+<section id="sec-Psychological-disorders" class="level3 page-columns page-full" data-number="5.4.7">
+<h3 data-number="5.4.7" class="anchored" data-anchor-id="sec-Psychological-disorders"><span class="header-section-number">5.4.7</span> 心理的障害</h3>
+<p>いくぶん古いが興味深い、臨床心理学における自己組織化概念の応用のレビューが <span class="citation" data-cites="bartonChaosSelfOrganizationPsychology1994">Barton (<a href="#ref-bartonChaosSelfOrganizationPsychology1994" role="doc-biblioref">1994</a>)</span> と <span class="citation" data-cites="ayersApplicationChaosTheory1997">Ayers (<a href="#ref-ayersApplicationChaosTheory1997" role="doc-biblioref">1997</a>)</span> によって提供されている。バートンのレビューはこう始まる。「カオス理論、非線形ダイナミクス、そして自己組織化するシステムが、臨床心理学におけるほど直観的に魅力的でありながら分析的に難しい領域は、おそらく他にない」。エアーズも、この分野におけるほとんどの応用がかなり隠喩的であった、と結論している。</p>
+<p>最近の仕事では、モデリングも経験的な仕事もより具体的になった <span class="citation" data-cites="schiepekSelfOrganizationClinicalPsychology2009">(<a href="#ref-schiepekSelfOrganizationClinicalPsychology2009" role="doc-biblioref">Schiepek and Perlitz 2009</a>)</span>。一例は <a href="#sec-The-mathematics-of-marriage" class="quarto-xref"><span class="quarto-unresolved-ref">sec-The-mathematics-of-marriage</span></a> で論じた結婚の数学的モデル <span class="citation" data-cites="gottmanMathematicsMarriageDynamic2002">(<a href="#ref-gottmanMathematicsMarriageDynamic2002" role="doc-biblioref">Gottman et al. 2002</a>)</span> である。<span class="citation" data-cites="tschacher2019">Tschacher and Haken (<a href="#ref-tschacher2019" role="doc-biblioref">2019</a>)</span> は、複雑系理論に基づく心理療法への新たなアプローチを提示している。彼らはフォッカー–プランクの数学的アプローチを用いて決定論的な力と確率的な力を統合している。</p>
+<div class="page-columns page-full"><p><a href="#sec-Symptom-networks" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Symptom-networks</span></a> で、私は精神病理学へのネットワークアプローチを紹介する <span class="citation" data-cites="borsboomNetworkTheoryMental2017 cramerComorbidityNetworkPerspective2010">(<a href="#ref-borsboomNetworkTheoryMental2017" role="doc-biblioref">Borsboom 2017</a>; <a href="#ref-cramerComorbidityNetworkPerspective2010" role="doc-biblioref">Cramer et al. 2010</a>)</span>。 それは障害を、症状の相互接続されたネットワークとみなし、そこでは各症状が他の症状に影響し、また他の症状によって影響される。このアプローチは心理的障害の動的な性質を強調し、それらを効果的に診断し治療するために症状間の関係を理解することの重要性を強調する。ネットワークモデリングには新たな統計技法の族が伴う <span class="citation" data-cites="epskampEstimatingPsychologicalNetworks2018">(<a href="#ref-epskampEstimatingPsychologicalNetworks2018" role="doc-biblioref">Epskamp, Borsboom, and Fried 2018</a>)</span>。これらの技法への入門は <a href="#sec-Psychometric-network-techniques" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Psychometric-network-techniques</span></a> で与える。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">心理的障害へのこのネットワークアプローチは、心理的障害が単一の基礎的な要因によって引き起こされるのではなく、症状間の複雑な相互作用から生じる、と示唆する。</span></div></div>
+<p>心理的・精神医学的障害への複雑系アプローチの最近のレビューが <span class="citation" data-cites="olthofComplexityTheoryPsychopathology2023">Olthof et al. (<a href="#ref-olthofComplexityTheoryPsychopathology2023" role="doc-biblioref">2023</a>)</span> と <span class="citation" data-cites="schefferDynamicalSystemsView2024">Scheffer et al. (<a href="#ref-schefferDynamicalSystemsView2024" role="doc-biblioref">2024</a>)</span> によって提供されている。</p>
+</section>
+<section id="sec-Social-relations" class="level3 page-columns page-full" data-number="5.4.8">
+<h3 data-number="5.4.8" class="anchored" data-anchor-id="sec-Social-relations"><span class="header-section-number">5.4.8</span> 社会的関係</h3>
+<p>この領域における鍵となる出版物は、<span class="citation" data-cites="vallacherDynamicalSystemsSocial1994">Vallacher and Nowak (<a href="#ref-vallacherDynamicalSystemsSocial1994" role="doc-biblioref">1994</a>)</span> によって編集された『社会心理学における力学系（Dynamical Systems in Social Psychology）』である。不協和 <span class="citation" data-cites="festingerTheoryCognitiveDissonance1962">(<a href="#ref-festingerTheoryCognitiveDissonance1962" role="doc-biblioref">Festinger 1962</a>)</span>、均衡 <span class="citation" data-cites="heiderAttitudesCognitiveOrganization1946">(<a href="#ref-heiderAttitudesCognitiveOrganization1946" role="doc-biblioref">Heider 1946</a>)</span>、そして調和 <span class="citation" data-cites="smolenskyInformationProcessingDynamical1986">(<a href="#ref-smolenskyInformationProcessingDynamical1986" role="doc-biblioref">Smolensky 1986</a>)</span> といった概念は、私たちが態度や知識を形成するときに内的な整合性を最適化するという考えを反映している。これらの考えの形式的な実装は、並列分散処理型のコネクショニストモデルを用いて提案された <span class="citation" data-cites="monroeGeneralConnectionistModel2008">(たとえば <a href="#ref-monroeGeneralConnectionistModel2008" role="doc-biblioref">Monroe and Read 2008</a>)</span>。私たち自身のモデル <span class="citation" data-cites="dalegeAccurateBeingNoisy2020 dalegeAttitudinalEntropyAE2018 dalegeFormalizedAccountAttitudes2016">(<a href="#ref-dalegeAccurateBeingNoisy2020" role="doc-biblioref">Dalege and van der Maas 2020</a>; <a href="#ref-dalegeAttitudinalEntropyAE2018" role="doc-biblioref">Dalege et al. 2018</a>, <a href="#ref-dalegeFormalizedAccountAttitudes2016" role="doc-biblioref">2016</a>)</span> は、スモレンスキーの提案のように、イジングモデルとボルツマンマシンに基づいており、データに当てはめられる。この仕事については次章（<a href="#sec-Ising-attitude-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Ising-attitude-model</span></a>）で詳しく説明する。</p>
+<p>社会的自己組織化の有名な例は、<span class="citation" data-cites="helbingSocialForceModel1995">Helbing and Molnár (<a href="#ref-helbingSocialForceModel1995" role="doc-biblioref">1995</a>)</span> によって研究された歩行者ダイナミクスに関わる。彼らはパニック避難のための物理学に基づくモデルを提案した。群衆シミュレーションの優れた概観については、再びウィキペディアを参照されたい。この仕事の一部は社会科学に根ざしている。NetLogo における一例はモデル「Path」である。</p>
+<div class="page-columns page-full"><p>同じく有名なのは、社会ネットワークにおける強い紐帯と弱い紐帯に関する社会学者マーク・グラノヴェッターの仕事 <span class="citation" data-cites="granovetterStrengthWeakTies1973">(<a href="#ref-granovetterStrengthWeakTies1973" role="doc-biblioref">1973</a>)</span> である（社会科学の歴史で最も引用された論文の一つに属する）。 弱い紐帯は、自分の親しい友人や知人の輪の中では手に入らないかもしれない新たな情報や機会へのアクセスを提供する。彼はまた集団行動の閾値モデルにも貢献した <span class="citation" data-cites="granovetterThresholdModelsCollective1978">(<a href="#ref-granovetterThresholdModelsCollective1978" role="doc-biblioref">Granovetter 1978</a>)</span>。私はこの仕事を、YouTube の「Guy starts dance party（ある男がダンスパーティを始める）」の動画を用いて説明するのを好む。その考えは、人々がダンサーに加わる 0 と 1 の間の何らかの閾値をもつ、というものである。閾値はベータ分布からサンプリングされる。ベータ分布は、二つの形状パラメータ <span class="math inline">\(\alpha\)</span> と <span class="math inline">\(\beta\)</span> によって決まる柔軟な分布である。この R コードでこの効果をシミュレートできる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">社会ネットワークにおける弱い紐帯は、しばしば強い紐帯よりも価値がある。</span></div></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="co"># number of persons</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>iterations <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(n, <span class="dv">1</span>, <span class="dv">2</span>) <span class="co"># sample individual thresholds for dancing</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(threshold, <span class="at">col =</span> <span class="st">'grey'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dancers <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n) <span class="co"># nobody dances</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dancers[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># but one guy</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>number_of_dancers <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, iterations)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>iterations){</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># keep track of number of dancers:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  number_of_dancers[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(dancers)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># if my threshold &lt; proportion of dancers, I dance:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  dancers[threshold <span class="sc">&lt;</span> (number_of_dancers[i]<span class="sc">/</span>n)] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(number_of_dancers, <span class="at">xlab =</span> <span class="st">'time'</span>, <span class="at">ylab =</span> <span class="st">'#dancers'</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1000</span>), <span class="at">type =</span> <span class="st">'b'</span>, <span class="at">bty =</span> <span class="st">'n'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>ベータ分布のパラメータに応じて、集団的なダンスへの相転移が見られるだろう。この基本的な設定は多くの仕方で拡張できる。</p>
+<p>もう一つの古典的な貢献で、<a href="#sec-Segregation" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Segregation</span></a> で詳しく説明するのは、シェリングの分離のエージェントベースモデルである <span class="citation" data-cites="schellingDynamicModelsSegregation1971">(<a href="#ref-schellingDynamicModelsSegregation1971" role="doc-biblioref">Schelling 1971</a>)</span>。その考えは、たとえ個人が同集団の隣人に対してわずかな選好しかもたなくても、分離された社会が形成される、というものである。人間の協力に関する複雑系研究の広い概観については、<span class="citation" data-cites="percStatisticalPhysicsHuman2017">Perc et al. (<a href="#ref-percStatisticalPhysicsHuman2017" role="doc-biblioref">2017</a>)</span> を参照されたい。NetLogo を用いた社会的振る舞いのモデリングに関する最近の本が <span class="citation" data-cites="smaldino2023">Smaldino (<a href="#ref-smaldino2023" role="doc-biblioref">2023</a>)</span> によって書かれている。</p>
+</section>
+<section id="sec-Collective-Intelligence" class="level3 page-columns page-full" data-number="5.4.9">
+<h3 data-number="5.4.9" class="anchored" data-anchor-id="sec-Collective-Intelligence"><span class="header-section-number">5.4.9</span> 集合知</h3>
+<div class="page-columns page-full"><p>集合知の研究は、集団が問題解決、意思決定、そしてアイデアの生成において、個々のメンバーを集団的にどのように上回りうるかを調べる。一つの有名な概念は群衆の知恵という考えである <span class="citation" data-cites="surowieckiWisdomCrowds2005">(<a href="#ref-surowieckiWisdomCrowds2005" role="doc-biblioref">Surowiecki 2005</a>)</span>。 鍵となる例は、1906年に West of England Fat Stock and Poultry Exhibition で行われた「雄牛の重さを当てる」コンテストである。個々の推測は大きくばらついたが、中央値の推測は雄牛の実際の重さに驚くほど近かった。平均の推測は、実際の重さ1,198ポンドからわずか1ポンドしか外れていなかった <span class="citation" data-cites="galton1907">(<a href="#ref-galton1907" role="doc-biblioref">Galton 1907</a>)</span>。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">群衆の知恵は、大集団の人々の集団的な判断が、単一の専門家や小集団の判断よりも正確で効果的でありうる、と措定する。</span></div></div>
+<div class="page-columns page-full"><p>しかし、群衆の知恵と群衆の愚かさの間には紙一重の差がある。その一線がいつ越えられるかを知ることは極めて有用である。群衆の知恵は、多様な独立した個人の集団があり、各々が特定の問いや問題について自分自身の判断や推定を行うときに機能する傾向がある <span class="citation" data-cites="brushConflictsInterestImprove2018 centolaNetworkScienceCollective2022">(<a href="#ref-brushConflictsInterestImprove2018" role="doc-biblioref">Brush, Krakauer, and Flack 2018</a>; <a href="#ref-centolaNetworkScienceCollective2022" role="doc-biblioref">Centola 2022</a>)</span>。以前に直面した問題や解への経路依存性も役割を果たすかもしれない <span class="citation" data-cites="galesicCollectiveIntelligenceCollective2023">(<a href="#ref-galesicCollectiveIntelligenceCollective2023" role="doc-biblioref">Galesic et al. 2023</a>)</span>。 集合知に関する広範で最新のウィキペディアがあり、さまざまな分野からの知見、生物学的な例（群れ知能）、そして応用の概観（オープンソースソフトウェア、クラウドソーシング、デルファイ法、そしてウィキペディア自体など）を論じている。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">集合知は、集団が大きく、幅広い知識と視点をもち、独立に判断を行うときに、効果的である可能性が高い。</span></div></div>
+</section>
+<section id="sec-Game-theory" class="level3 page-columns page-full" data-number="5.4.10">
+<h3 data-number="5.4.10" class="anchored" data-anchor-id="sec-Game-theory"><span class="header-section-number">5.4.10</span> ゲーム理論</h3>
+<div class="page-columns page-full"><p>ゲーム理論は、合理的なエージェント間の戦略的相互作用の数学的モデルから成る。優れた歴史的概観はウィキペディアに見出される。最も有名なパラダイムの一つは囚人のジレンマである。あなたとあなたの友人が逮捕され、あなたたち両方が独立に警察と話す。選択肢は黙秘するか話すかである。ジレンマは、両方が黙秘を選べば黙秘が最良の選択肢だが、友人があなたを裏切れば最悪の選択肢である、ということである（利得行列、<a href="#fig-ch5n-img9-old-47" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img9-old-47</span></a> を参照）。このゲームでは、友人への忠誠は非合理的であり、これはコモンズの悲劇に関係する結果である <span class="citation" data-cites="hardinTragedyCommons1968">(<a href="#ref-hardinTragedyCommons1968" role="doc-biblioref">Hardin 1968</a>)</span>。 コモンズの悲劇は、複数のユーザーが NetLogo のシミュレーションに参加できる NetLogo の hubnet 拡張で研究できる。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">コモンズの悲劇は、個人が自己利益に基づいて行動し、共有される資源を過剰に利用し、自分自身を含む皆の長期的利益を損なう枯渇に至るときに生じる。</span></div></div>
+<div id="fig-ch5n-img9-old-47" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch5n-img9-old-47-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch5n/ch5n-10__figure48.png" class="img-fluid figure-img" style="width:45.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch5n-img9-old-47-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.9: 囚人のジレンマ。A と B の両方が黙秘すれば、各々は2年の刑に直面する。一方が話し他方が話さなければ、密告者は釈放され、黙秘したパートナーは10年の刑を受ける。両方が裏切れば、彼らは5年の刑に服する。
+</figcaption>
+</figure>
+</div>
+<div class="page-columns page-full"><p>ゲーム理論における大きな話題は利他行動である。多くの場合、個人主義的な選択は満足のいかないナッシュ均衡に至る。 公共財ゲームは良い例である。このゲームでは、全員がいくらかのお金を投資し、それが外部の当事者（政府）によって増やされる。それから全員が増やされた総額の等しい分け前を得る。問題は、投資しないただ乗り者が最も勝つ、ということである。これは反復公共財ゲームでは、誰も投資せず誰も勝たない状況に至る。罰（辱めと非難）はただ乗りに対抗するのに役立つことが知られている。しかし罰にも投資が必要である。私は、学生がグループで課題に取り組んでいるとき、何もしないこの一人の学生の問題が起こるのは、親切で勤勉な学生が仲間の学生を裏切ることを拒むからだ、と彼らに話すのを好む。これらの親切で勤勉な学生は、二次のただ乗り者と呼ばれるものである <span class="citation" data-cites="fowlerSecondorderFreeridingProblem2005">(<a href="#ref-fowlerSecondorderFreeridingProblem2005" role="doc-biblioref">Fowler 2005</a>)</span>。ちなみに、である。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">ナッシュ均衡とは、他のプレイヤーの戦略が与えられたとき、どのプレイヤーも自分の戦略を一方的に変えることで利得を改善できない戦略の集合である。</span></div></div>
+</section>
+<section id="sec-Selforganization-in-organizations" class="level3 page-columns page-full" data-number="5.4.11">
+<h3 data-number="5.4.11" class="anchored" data-anchor-id="sec-Selforganization-in-organizations"><span class="header-section-number">5.4.11</span> 組織における自己組織化</h3>
+<div class="page-columns page-full"><p>この基礎研究を現実世界の応用に翻訳することは決して単純ではない <span class="citation" data-cites="andersonPerspectiveComplexityTheory1999 morelLookingGlassComplexity1999">(<a href="#ref-andersonPerspectiveComplexityTheory1999" role="doc-biblioref">Anderson 1999</a>; <a href="#ref-morelLookingGlassComplexity1999" role="doc-biblioref">Morel and Ramanujam 1999</a>)</span>。 私たちの経済システムは、自己組織化（純粋な資本主義）と（法律、税、その他の規制を通じた）トップダウンの規制の混合である <span class="citation" data-cites="volberdaCoevolutionaryDynamicsFirms2003">(<a href="#ref-volberdaCoevolutionaryDynamicsFirms2003" role="doc-biblioref">Volberda and Lewin 2003</a>)</span>。闇市場は、規制されていない自己組織化するシステムの臨界的な事例である <span class="citation" data-cites="tesfatsionAgentBasedComputationalEconomics2002">(<a href="#ref-tesfatsionAgentBasedComputationalEconomics2002" role="doc-biblioref">Tesfatsion 2002</a>)</span>。</p><div class="no-row-height column-margin column-container"><span class="margin-aside">人間の組織は、極端な階層から急進的な形の自己組織化に至る尺度の上に置くことができる。</span></div></div>
+<p>具体的なモデリングの例は、<span class="citation" data-cites="guimeraTeamAssemblyMechanisms2005">Guimerà et al. (<a href="#ref-guimeraTeamAssemblyMechanisms2005" role="doc-biblioref">2005</a>)</span> によるチーム編成モデルである。彼らは、創造的なチームが自己編成する仕方が、協働ネットワークの構造をどのように決定するかを研究している。その考えは、効果的なチームは、専門化とメンバー間の効率的な分業を可能にするほど十分に大きく、かつ、集団の努力を協調させることに伴う過剰なコストを避けられるほど十分に小さい、という均衡を見出す、というものである。このモデルのエージェントは、その振る舞いに影響を与える少数の基本的な特徴しかもたない。すなわち、新参者か在籍者か、そして在籍者であれば他のエージェントとどのような以前の結び付きをもつか、である。</p>
+<p>基準となる編成モデルにおいて、振る舞いに影響を与えるために三つのパラメータを調整できる。すなわち、チームの大きさ、在籍者を選ぶ確率（<span class="math inline">\(p\)</span>）、そして以前の協働者を選ぶ確率（<span class="math inline">\(q\)</span>）である。この二つの確率パラメータは、チームメンバー選択のためのエージェントの動機についての仮定を表す。低い在籍者確率は新参者と新たな考えへの選好をもたらし、一方、高い在籍者確率は経験への焦点を意味する。低い協働者確率は経験を積んだ見知らぬ者を優先し、高い協働者確率は以前の協働者を優先する。このモデルは組み込みの NetLogo モデルライブラリ（「Team Assembly」）の一部である。モデルをシミュレートすることで、実践者の大きな結合したコミュニティの創発が相転移として記述できることを示せる（<a href="#fig-ch5n-img10-old-48" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch5n-img10-old-48</span></a>）。</p>
+<p><span class="citation" data-cites="guimeraTeamAssemblyMechanisms2005">Guimerà et al. (<a href="#ref-guimeraTeamAssemblyMechanisms2005" role="doc-biblioref">2005</a>)</span> は、四つの科学分野（社会心理学、経済学、生態学、天文学）におけるコミュニティ形成についてパラメータ <span class="math inline">\(p\)</span> と <span class="math inline">\(q\)</span> を推定した。天文学だけが非常に密な協働構造をもっていた。他の分野では、特定の雑誌に発表するチームの <span class="math inline">\(p\)</span> と <span class="math inline">\(q\)</span> の推定値がインパクトファクターとよく相関した。興味深いことに、<span class="math inline">\(p\)</span> はインパクトと正に、<span class="math inline">\(q\)</span> は負に相関する。</p>
+<div id="fig-ch5n-img10-old-48" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ch5n-img10-old-48-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="media/ch5n/image10.jpg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ch5n-img10-old-48-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.10: チーム編成モデル。新参者と在籍者が確率 p と q に基づいて成長するネットワークに加えられる。p が十分に高ければ、密なネットワークが創発する。（許可を得て <span class="citation" data-cites="guimeraTeamAssemblyMechanisms2005">Guimerà et al. (<a href="#ref-guimeraTeamAssemblyMechanisms2005" role="doc-biblioref">2005</a>)</span> より改変）
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-Zooming-out" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="sec-Zooming-out"><span class="header-section-number">5.5</span> 引いて見る</h2>
+<p>私は、非常に無秩序で学際的な研究分野の、組織化された実践的な概観を与えることに成功したと願っている。各下位分野について、最近の専門的な貢献を見つけるのに役立つはずの鍵となる文献を提供した。私は自然科学における自己組織化の例を魅力的で着想を与えるものと思う。この概念の心理学と社会科学における応用が大きな将来性をもつことも示せたと願っている。次の章では、より詳細な例を提示する。</p>
+<p>私は、モデルを理解するには、たとえばシミュレーションを通じて、モデルとともに働くことが必要だと信じている。NetLogo はこれに優れた道具だが、多くの代替物がある <span class="citation" data-cites="abarAgentBasedModelling2017">(<a href="#ref-abarAgentBasedModelling2017" role="doc-biblioref">Abar et al. 2017</a>)</span>。NetLogo のすべての用途に触れてはいないが、BehaviorSpace のオプションについて知っておくとよい。BehaviorSpace は、（可視化なしに）モデルを繰り返し並列に実行し、モデルの設定とパラメータを体系的に変化させ、各モデルの実行の結果を記録する。これらの結果はそれから R でさらに分析できる。一例は第7章 <a href="#sec-Segregation" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Segregation</span></a> で提供する。</p>
+<p>私は本章でネットワークアプローチを大部分省いた。心理学的ネットワークモデルは、心理学における複雑系の自己組織化の最近の応用であり、次章の主題である。</p>
+</section>
+<section id="sec-Exercises-ch5n" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="sec-Exercises-ch5n"><span class="header-section-number">5.6</span> 演習問題</h2>
+<ol type="1">
+<li><p>炊飯器とイジングモデルの間に関係はあるか。伝統的な炊飯器の磁気サーモスタットは、米が炊けたときに自動的に炊飯を止めるためにどのように機能するか。(*)</p></li>
+<li><p>10 個のノードをもち外部磁場のない（ノードの状態が <span class="math inline">\(-1\)</span> と <span class="math inline">\(1\)</span> の）イジングモデルにおいて、状態 <span class="math inline">\(\sum_{}^{}x = 0\)</span> のボルツマンエントロピーは何か。(*)</p></li>
+<li><p>ウェブページ「A Neural Network Playground（<a href="https://playground.tensorflow.org" class="uri">https://playground.tensorflow.org</a>）」に行け。XOR をほぼ完璧な正確性で解く最小のネットワークは何か。x1 と x2 の特徴だけを用いよ。(*)</p></li>
+<li><p>グラノヴェッターのモデル（<a href="#sec-Social-relations" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Social-relations</span></a>）では、人々はダンスをやめることもある（確率 .1 で）。これをモデルに加えよ。これは平衡状態の振る舞いをどう変えるか。(*)</p></li>
+<li><p>NetLogo のイジングモデル（neighbors4 の場合）に外部磁場を加えよ。NetLogo コードの変えた行を報告せよ。インターフェースで何を変えたか。<br>
+温度を 1.5 に設定せよ。<code>tau</code> をゆっくり変えよ。<code>tau</code> のどの値でヒステリシスのジャンプが生じるか。(*)</p></li>
+<li><p>イジングモデルが確かにカスプであるかを検証せよ。BehaviorSpace ツールを用いて NetLogo でイジングモデルを実行せよ（例については <a href="#fig-ch7-img1-old-89" class="quarto-xref">figure&nbsp;<span class="quarto-unresolved-ref">fig-ch7-img1-old-89</span></a> を参照）。すべてのスピンがすべてのスピンに結合しているモデルを用いよ（<a href="#sec-The-Ising-model" class="quarto-xref"><span class="quarto-unresolved-ref">sec-The-Ising-model</span></a> を参照）。<code>tau</code>（-.3 から .3 まで .05 刻み）と <code>temperature</code>（0 から 3 まで .5 刻み）を変化させよ。パラメータ値の組み合わせごとに一回の反復で十分である。10,000 ティックの後に止め、最終的な磁化のみを集めよ。データを R に取り込み、カスプを当てはめよ。どのカスプモデルがデータを最も良く記述するか。(**)</p></li>
+<li><p>NetLogo3D で Sandpile 3D モデルを開け。砂粒がランダムな場所に落ちる。それらがすべて中央に落ちるように一行のコードを変えよ。何を変えたか。(*)</p></li>
+<li><p>NetLogo コミュニティのウェブサイトから「Motion Quartet」をダウンロードし、自分自身の知覚におけるヒステリシスを探求せよ。分裂変数は何でありうるか。(*)</p></li>
+<li><p>NetLogo でグラノヴェッターのモデルを実装せよ（最大40行のコード）。(**)</p></li>
+<li><p>NetLogo でライフゲームを実装するか Golly を用いて、ライフゲームで生じうる六つの単位の質的に異なる安定なパターンをできるだけ多く見つけてみよ。それ以上見つけられなければ、見逃した他のパターンを見つけるためにオンラインの追加資料を見てみよ。四つの単位については、二つしかなく、そのうち一つは四つのブロックである。(*)</p></li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-abarAgentBasedModelling2017" class="csl-entry" role="listitem">
+Abar, Sameera, Georgios K. Theodoropoulos, Pierre Lemarinier, and Gregory M. P. O’Hare. 2017. <span>“Agent <span>Based Modelling</span> and <span>Simulation</span> Tools: <span>A</span> Review of the State-of-Art Software.”</span> <em>Computer Science Review</em> 24 (May): 13–33. <a href="https://doi.org/10.1016/j.cosrev.2017.03.001">https://doi.org/10.1016/j.cosrev.2017.03.001</a>.
+</div>
+<div id="ref-abeCuspSingularityMean2017" class="csl-entry" role="listitem">
+Abe, Yayoi, Muneyuki Ishida, Erika Nozawa, Takayoshi Ootsuka, and Ryoko Yahagi. 2017. <span>“Cusp Singularity in Mean Field <span>Ising</span> Model.”</span> <em>European Journal of Physics</em> 38 (6): 065102. <a href="https://doi.org/10.1088/1361-6404/aa82fc">https://doi.org/10.1088/1361-6404/aa82fc</a>.
+</div>
+<div id="ref-acebronKuramotoModelSimple2005" class="csl-entry" role="listitem">
+Acebrón, Juan A., L. L. Bonilla, Conrad J. Pérez Vicente, Félix Ritort, and Renato Spigler. 2005. <span>“The <span>Kuramoto</span> Model: <span>A</span> Simple Paradigm for Synchronization Phenomena.”</span> <em>Reviews of Modern Physics</em> 77 (1): 137–85. <a href="https://doi.org/10.1103/RevModPhys.77.137">https://doi.org/10.1103/RevModPhys.77.137</a>.
+</div>
+<div id="ref-alderisioEntrainmentSynchronizationNetworks2016" class="csl-entry" role="listitem">
+Alderisio, Francesco, Benoı̂t G. Bardy, and Mario di Bernardo. 2016. <span>“Entrainment and Synchronization in Networks of <span>Rayleigh</span>van Der <span>Pol</span> Oscillators with Diffusive and <span>Haken</span> Couplings.”</span> <em>Biological Cybernetics</em> 110 (2): 151–69. <a href="https://doi.org/10.1007/s00422-016-0685-7">https://doi.org/10.1007/s00422-016-0685-7</a>.
+</div>
+<div id="ref-andersonPerspectiveComplexityTheory1999" class="csl-entry" role="listitem">
+Anderson, Philip W. 1999. <span>“Perspective: <span>Complexity Theory</span> and <span>Organization Science</span>.”</span> <em>Organization Science</em> 10 (3): 216–32. <a href="https://doi.org/10.1287/orsc.10.3.216">https://doi.org/10.1287/orsc.10.3.216</a>.
+</div>
+<div id="ref-ashbyIntroductionCybernetics1956" class="csl-entry" role="listitem">
+Ashby, W. R. 1956. <span>“An Introduction to Cybernetics.”</span> <em>An Introduction to Cybernetics.</em>
+</div>
+<div id="ref-ayersApplicationChaosTheory1997" class="csl-entry" role="listitem">
+Ayers, Susan. 1997. <span>“The <span>Application</span> of <span>Chaos Theory</span> to <span>Psychology</span>.”</span> <em>Theory &amp; Psychology</em> 7 (June): 373. <a href="https://doi.org/10.1177/0959354397073005">https://doi.org/10.1177/0959354397073005</a>.
+</div>
+<div id="ref-bakSelforganizedCriticality1988" class="csl-entry" role="listitem">
+Bak, Per, Chao Tang, and Kurt Wiesenfeld. 1988. <span>“Self-Organized Criticality.”</span> <em>Physical Review A</em> 38 (1): 364–74. <a href="https://doi.org/10.1103/PhysRevA.38.364">https://doi.org/10.1103/PhysRevA.38.364</a>.
+</div>
+<div id="ref-bartonChaosSelfOrganizationPsychology1994" class="csl-entry" role="listitem">
+Barton, Scott. 1994. <span>“Chaos, <span>Self-Organization</span>, and <span>Psychology</span>.”</span> <em>American Psychologist</em>. <a href="https://doi.org/10.1037/0003-066X.49.1.5">https://doi.org/10.1037/0003-066X.49.1.5</a>.
+</div>
+<div id="ref-bedardDoesFrequencyScaling2006" class="csl-entry" role="listitem">
+Bédard, C., H. Kröger, and A. Destexhe. 2006. <span>“Does the $1/f$ <span>Frequency Scaling</span> of <span>Brain Signals Reflect Self-Organized Critical States</span>?”</span> <em>Physical Review Letters</em> 97 (11): 118102. <a href="https://doi.org/10.1103/PhysRevLett.97.118102">https://doi.org/10.1103/PhysRevLett.97.118102</a>.
+</div>
+<div id="ref-beekScienceJuggling1995" class="csl-entry" role="listitem">
+Beek, Peter J., and Arthur Lewbel. 1995. <span>“The <span>Science</span> of <span>Juggling</span>.”</span> <em>Scientific American</em> 273 (5): 92–97. <a href="https://doi.org/10.1038/scientificamerican1195-92">https://doi.org/10.1038/scientificamerican1195-92</a>.
+</div>
+<div id="ref-beekModelingRhythmicInterlimb2002" class="csl-entry" role="listitem">
+Beek, Peter J., C. E Peper, and A Daffertshofer. 2002. <span>“Modeling <span>Rhythmic Interlimb Coordination</span>: <span>Beyond</span> the <span>Haken</span>.”</span> <em>Brain and Cognition</em> 48 (1): 149–65. <a href="https://doi.org/10.1006/brcg.2001.1310">https://doi.org/10.1006/brcg.2001.1310</a>.
+</div>
+<div id="ref-berlekampWinningWaysYour2004" class="csl-entry" role="listitem">
+Berlekamp, Elwyn R., John H. Conway, and Richard K. Guy. 2004. <em>Winning <span>Ways</span> for <span>Your Mathematical Plays</span>, <span>Volume</span> 4</em>. 2nd ed. <span>New York</span>: <span>A K Peters/CRC Press</span>. <a href="https://doi.org/10.1201/9780429487309">https://doi.org/10.1201/9780429487309</a>.
+</div>
+<div id="ref-boerlijstSpiralWaveStructure1991" class="csl-entry" role="listitem">
+Boerlijst, M. C., and P. Hogeweg. 1991. <span>“Spiral Wave Structure in Pre-Biotic Evolution: <span>Hypercycles</span> Stable Against Parasites.”</span> <em>Physica D: Nonlinear Phenomena</em> 48 (1): 17–28. <a href="https://doi.org/10.1016/0167-2789(91)90049-F">https://doi.org/10.1016/0167-2789(91)90049-F</a>.
+</div>
+<div id="ref-borsboomNetworkTheoryMental2017" class="csl-entry" role="listitem">
+Borsboom, Denny. 2017. <span>“A Network Theory of Mental Disorders.”</span> <em>World Psychiatry</em> 16 (1): 5–13. <a href="https://doi.org/10.1002/wps.20375">https://doi.org/10.1002/wps.20375</a>.
+</div>
+<div id="ref-breakspearDynamicModelsLargescale2017" class="csl-entry" role="listitem">
+Breakspear, Michael. 2017. <span>“Dynamic Models of Large-Scale Brain Activity.”</span> <em>Nature Neuroscience</em> 20 (3): 340–52. <a href="https://doi.org/10.1038/nn.4497">https://doi.org/10.1038/nn.4497</a>.
+</div>
+<div id="ref-brinkhuisLearningItHappens2018" class="csl-entry" role="listitem">
+Brinkhuis, Matthieu J. S., Alexander O. Savi, Abe D. Hofman, Frederik Coomans, Han L. J. van der Maas, and Gunter K. J. Maris. 2018. <span>“Learning <span>As It Happens</span>: <span>A Decade</span> of <span>Analyzing</span> and <span>Shaping</span> a <span>Large-Scale Online Learning System</span>.”</span> <em>Journal of Learning Analytics</em> 5 (2): 29–46. <a href="https://doi.org/10.18608/jla.2018.52.3">https://doi.org/10.18608/jla.2018.52.3</a>.
+</div>
+<div id="ref-brushConflictsInterestImprove2018" class="csl-entry" role="listitem">
+Brush, Eleanor R., David C. Krakauer, and Jessica C. Flack. 2018. <span>“Conflicts of Interest Improve Collective Computation of Adaptive Social Structures.”</span> <em>Science Advances</em> 4 (1): e1603311. <a href="https://doi.org/10.1126/sciadv.1603311">https://doi.org/10.1126/sciadv.1603311</a>.
+</div>
+<div id="ref-carpenterMassivelyParallelArchitecture1987a" class="csl-entry" role="listitem">
+Carpenter, Gail A., and Stephen Grossberg. 1987. <span>“A Massively Parallel Architecture for a Self-Organizing Neural Pattern Recognition Machine.”</span> <em>Computer Vision, Graphics, and Image Processing</em> 37 (1): 54–115. <a href="https://doi.org/10.1016/S0734-189X(87)80014-2">https://doi.org/10.1016/S0734-189X(87)80014-2</a>.
+</div>
+<div id="ref-centolaNetworkScienceCollective2022" class="csl-entry" role="listitem">
+Centola, Damon. 2022. <span>“The Network Science of Collective Intelligence.”</span> <em>Trends in Cognitive Sciences</em> 26 (11): 923–41. <a href="https://doi.org/10.1016/j.tics.2022.08.009">https://doi.org/10.1016/j.tics.2022.08.009</a>.
+</div>
+<div id="ref-chemeroRadicalEmbodiedCognitive2013" class="csl-entry" role="listitem">
+Chemero, Anthony. 2013. <span>“Radical <span>Embodied Cognitive Science</span>.”</span> <em>Review of General Psychology</em> 17 (2): 145–50. <a href="https://doi.org/10.1037/a0032923">https://doi.org/10.1037/a0032923</a>.
+</div>
+<div id="ref-chialvoEmergentComplexNeural2010" class="csl-entry" role="listitem">
+Chialvo, Dante R. 2010. <span>“Emergent Complex Neural Dynamics.”</span> <em>Nature Physics</em> 6 (10): 744–50. <a href="https://doi.org/10.1038/nphys1803">https://doi.org/10.1038/nphys1803</a>.
+</div>
+<div id="ref-clarkWhateverNextPredictive2013" class="csl-entry" role="listitem">
+Clark, Andy. 2013. <span>“Whatever Next? <span>Predictive</span> Brains, Situated Agents, and the Future of Cognitive Science.”</span> <em>Behavioral and Brain Sciences</em> 36 (3): 181–204. <a href="https://doi.org/10.1017/S0140525X12000477">https://doi.org/10.1017/S0140525X12000477</a>.
+</div>
+<div id="ref-cleeremans2020" class="csl-entry" role="listitem">
+Cleeremans, Axel, Dalila Achoui, Arnaud Beauny, Lars Keuninckx, Jean-Remy Martin, Santiago Muñoz-Moldes, Laurène Vuillaume, and Adélaı̈de de Heering. 2020. <span>“Learning to Be Conscious.”</span> <em>Trends in Cognitive Sciences</em> 24 (2): 112–23. <a href="https://doi.org/10.1016/j.tics.2019.11.011">https://doi.org/10.1016/j.tics.2019.11.011</a>.
+</div>
+<div id="ref-cocchiCriticalityBrainSynthesis2017" class="csl-entry" role="listitem">
+Cocchi, Luca, Leonardo L. Gollo, Andrew Zalesky, and Michael Breakspear. 2017. <span>“Criticality in the Brain: <span>A</span> Synthesis of Neurobiology, Models and Cognition.”</span> <em>Progress in Neurobiology</em> 158 (November): 132–52. <a href="https://doi.org/10.1016/j.pneurobio.2017.07.002">https://doi.org/10.1016/j.pneurobio.2017.07.002</a>.
+</div>
+<div id="ref-cramerComorbidityNetworkPerspective2010" class="csl-entry" role="listitem">
+Cramer, Angélique O. J., Lourens J. Waldorp, Han L. J. van der Maas, and Denny Borsboom. 2010. <span>“Comorbidity: A Network Perspective.”</span> <em>The Behavioral and Brain Sciences</em> 33 (2-3): 137-150; discussion 150-193. <a href="https://doi.org/10.1017/S0140525X09991567">https://doi.org/10.1017/S0140525X09991567</a>.
+</div>
+<div id="ref-dalegeFormalizedAccountAttitudes2016" class="csl-entry" role="listitem">
+Dalege, Jonas, Denny Borsboom, Frenk van Harreveld, Helma van den Berg, Mark Conner, and Han L. J. van der Maas. 2016. <span>“Toward a Formalized Account of Attitudes: <span>The Causal Attitude Network</span> (<span>CAN</span>) Model.”</span> <em>Psychological Review</em> 123 (1): 2–22. <a href="https://doi.org/10.1037/a0039802">https://doi.org/10.1037/a0039802</a>.
+</div>
+<div id="ref-dalegeAttitudinalEntropyAE2018" class="csl-entry" role="listitem">
+Dalege, Jonas, Denny Borsboom, Frenk van Harreveld, and Han L. J. van der Maas. 2018. <span>“The <span>Attitudinal Entropy</span> (<span>AE</span>) Framework as a General Theory of Individual Attitudes.”</span> <em>Psychological Inquiry</em> 29 (4): 175–93. <a href="https://doi.org/10.1080/1047840X.2018.1537246">https://doi.org/10.1080/1047840X.2018.1537246</a>.
+</div>
+<div id="ref-dalegeAccurateBeingNoisy2020" class="csl-entry" role="listitem">
+Dalege, Jonas, and Han L. J. van der Maas. 2020. <span>“Accurate by Being Noisy: <span>A</span> Formal Network Model of Implicit Measures of Attitudes.”</span> <em>Social Cognition</em> 38 (Suppl): S26–41. <a href="https://doi.org/10.1521/soco.2020.38.supp.s26">https://doi.org/10.1521/soco.2020.38.supp.s26</a>.
+</div>
+<div id="ref-dawkins1986" class="csl-entry" role="listitem">
+Dawkins, Richard. 1986. <em>The blind watchmaker</em>. New York : Norton. <a href="http://archive.org/details/blindwatchmaker0000dawk">http://archive.org/details/blindwatchmaker0000dawk</a>.
+</div>
+<div id="ref-doerig2021" class="csl-entry" role="listitem">
+Doerig, Adrien, Aaron Schurger, and Michael H. Herzog. 2021. <span>“Hard Criteria for Empirical Theories of Consciousness.”</span> <em>Cognitive Neuroscience</em> 12 (2): 41–62. <a href="https://doi.org/10.1080/17588928.2020.1772214">https://doi.org/10.1080/17588928.2020.1772214</a>.
+</div>
+<div id="ref-dresp-langleySevenPropertiesSelfOrganization2020" class="csl-entry" role="listitem">
+Dresp-Langley, Birgitta. 2020. <span>“Seven <span>Properties</span> of <span>Self-Organization</span> in the <span>Human Brain</span>.”</span> <em>Big Data and Cognitive Computing</em> 2 (4): 10.
+</div>
+<div id="ref-edelmanNeuralDarwinismTheory1987" class="csl-entry" role="listitem">
+Edelman, Gerald M. 1987. <em>Neural <span>Darwinism</span>: <span>The</span> Theory of Neuronal Group Selection</em>. Neural <span>Darwinism</span>: <span>The</span> Theory of Neuronal Group Selection. <span>New York, NY, US</span>: <span>Basic Books</span>.
+</div>
+<div id="ref-eigenHypercycle1979" class="csl-entry" role="listitem">
+Eigen, Manfred, and Peter Schuster. 1979. <em>The <span>Hypercycle</span></em>. <span>Berlin, Heidelberg</span>: <span>Springer</span>. <a href="https://doi.org/10.1007/978-3-642-67247-7">https://doi.org/10.1007/978-3-642-67247-7</a>.
+</div>
+<div id="ref-eldredgePunctuatedEquilibriaAlternative1972" class="csl-entry" role="listitem">
+Eldredge, Niles, and Stephen Jay Gould. 1972. <span>“Punctuated <span>Equilibria</span>: <span>An Alternative</span> to <span>Phyletic Gradualism</span>.”</span> In <em>Models in <span>Paleobiology</span></em>, edited by Thomas J. M. Schopf, 82–115. <span>Freeman Cooper</span>.
+</div>
+<div id="ref-eloRatingChessplayersPresent1978" class="csl-entry" role="listitem">
+Elo, Arpad E. 1978. <em>The Rating of Chessplayers, Past and Present</em>. <span>New York</span>: <span>Arco Pub</span>.
+</div>
+<div id="ref-epskampEstimatingPsychologicalNetworks2018" class="csl-entry" role="listitem">
+Epskamp, Sacha, Denny Borsboom, and Eiko I. Fried. 2018. <span>“Estimating Psychological Networks and Their Accuracy: <span>A</span> Tutorial Paper.”</span> <em>Behavior Research Methods</em> 50 (1): 195–212. <a href="https://doi.org/10.3758/s13428-017-0862-1">https://doi.org/10.3758/s13428-017-0862-1</a>.
+</div>
+<div id="ref-festingerTheoryCognitiveDissonance1962" class="csl-entry" role="listitem">
+Festinger, Leon. 1962. <em>A Theory of Cognitive Dissonance</em>. A Theory of Cognitive Dissonance. <span>Palo Alto, CA, US</span>: <span>Stanford Univer. Press</span>.
+</div>
+<div id="ref-fowlerSecondorderFreeridingProblem2005" class="csl-entry" role="listitem">
+Fowler, James H. 2005. <span>“Second-Order Free-Riding Problem Solved?”</span> <em>Nature</em> 437 (7058): E8–8. <a href="https://doi.org/10.1038/nature04201">https://doi.org/10.1038/nature04201</a>.
+</div>
+<div id="ref-fristonFreeenergyPrincipleRough2009" class="csl-entry" role="listitem">
+Friston, Karl. 2009. <span>“The Free-Energy Principle: A Rough Guide to the Brain?”</span> <em>Trends in Cognitive Sciences</em> 13 (7): 293–301. <a href="https://doi.org/10.1016/j.tics.2009.04.005">https://doi.org/10.1016/j.tics.2009.04.005</a>.
+</div>
+<div id="ref-fuchsCoordinationDynamicsSynergetics2018" class="csl-entry" role="listitem">
+Fuchs, Armin, and Scott Kelso. 2018. <span>“Coordination <span>Dynamics</span> and <span>Synergetics</span>: <span>From Finger Movements</span> to <span>Brain Patterns</span> and <span>Ballet Dancing</span>.”</span> In <em>Complexity and <span>Synergetics</span></em>, 301–16. <a href="https://doi.org/10.1007/978-3-319-64334-2_23">https://doi.org/10.1007/978-3-319-64334-2_23</a>.
+</div>
+<div id="ref-galesicCollectiveIntelligenceCollective2023" class="csl-entry" role="listitem">
+Galesic, Mirta, Daniel Barkoczi, Andrew M. Berdahl, Dora Biro, Giuseppe Carbone, Ilaria Giannoccaro, Robert L. Goldstone, et al. 2023. <span>“Beyond Collective Intelligence: <span>Collective</span> Adaptation.”</span> <em>Journal of The Royal Society Interface</em> 20 (200): 20220736. <a href="https://doi.org/10.1098/rsif.2022.0736">https://doi.org/10.1098/rsif.2022.0736</a>.
+</div>
+<div id="ref-galton1907" class="csl-entry" role="listitem">
+Galton, Francis. 1907. <span>“Vox Populi.”</span> <em>Nature</em> 75 (1949): 450–51. <a href="https://doi.org/10.1038/075450a0">https://doi.org/10.1038/075450a0</a>.
+</div>
+<div id="ref-garcez2023" class="csl-entry" role="listitem">
+Garcez, Artur d’Avila, and Luı́s C. Lamb. 2023. <span>“Neurosymbolic AI: The 3rd Wave.”</span> <em>Artificial Intelligence Review</em> 56 (11): 12387–406. <a href="https://doi.org/10.1007/s10462-023-10448-w">https://doi.org/10.1007/s10462-023-10448-w</a>.
+</div>
+<div id="ref-ghatakDeepLearning2019" class="csl-entry" role="listitem">
+Ghatak, Abhijit. 2019. <em>Deep <span>Learning</span> with <span>R</span></em>. <span>Singapore</span>: <span>Springer</span>. <a href="https://doi.org/10.1007/978-981-13-5850-0">https://doi.org/10.1007/978-981-13-5850-0</a>.
+</div>
+<div id="ref-gibsonEcologicalApproachVisual2014" class="csl-entry" role="listitem">
+Gibson, James J. 2014. <em>The <span>Ecological Approach</span> to <span>Visual Perception</span>: <span>Classic Edition</span></em>. <span>New York</span>: <span>Psychology Press</span>. <a href="https://doi.org/10.4324/9781315740218">https://doi.org/10.4324/9781315740218</a>.
+</div>
+<div id="ref-gottmanMathematicsMarriageDynamic2002" class="csl-entry" role="listitem">
+Gottman, John M., James D. Murray, Catherine C. Swanson, Rebecca Tyson, and Kristin R. Swanson. 2002. <em>The Mathematics of Marriage: <span>Dynamic</span> Nonlinear Models</em>. The Mathematics of Marriage: <span>Dynamic</span> Nonlinear Models. <span>Cambridge, MA, US</span>: <span>MIT Press</span>.
+</div>
+<div id="ref-granovetterStrengthWeakTies1973" class="csl-entry" role="listitem">
+Granovetter, Mark. 1973. <span>“The Strength of Weak Ties.”</span> <em>American Journal of Sociology</em> 78 (6): 1360–80. <a href="https://doi.org/10.1086/225469">https://doi.org/10.1086/225469</a>.
+</div>
+<div id="ref-granovetterThresholdModelsCollective1978" class="csl-entry" role="listitem">
+———. 1978. <span>“Threshold <span>Models</span> of <span>Collective Behavior</span>.”</span> <em>The American Journal of Sociology</em> 83 (6): 1420–43. <a href="https://doi.org/10.1086/226707">https://doi.org/10.1086/226707</a>.
+</div>
+<div id="ref-grossbergNeuralDynamicsGestalt2012" class="csl-entry" role="listitem">
+Grossberg, Stephen, and Baingio Pinna. 2012. <span>“Neural <span>Dynamics</span> of <span>Gestalt Principles</span> of <span>Perceptual Organization</span>: <span>From Grouping</span> to <span>Shape</span> and <span>Meaning</span>.”</span> <em>GESTALT THEORY</em> 34.
+</div>
+<div id="ref-guimeraTeamAssemblyMechanisms2005" class="csl-entry" role="listitem">
+Guimerà, Roger, Brian Uzzi, Jarrett Spiro, and Luı́s A. Nunes Amaral. 2005. <span>“Team <span>Assembly Mechanisms Determine Collaboration Network Structure</span> and <span>Team Performance</span>.”</span> <em>Science</em> 308 (5722): 697–702. <a href="https://doi.org/10.1126/science.1106340">https://doi.org/10.1126/science.1106340</a>.
+</div>
+<div id="ref-hakenSynergetics1977" class="csl-entry" role="listitem">
+Haken, Hermann. 1977. <span>“Synergetics.”</span> <em>Physics Bulletin</em> 28 (9): 412. <a href="https://doi.org/10.1088/0031-9112/28/9/027">https://doi.org/10.1088/0031-9112/28/9/027</a>.
+</div>
+<div id="ref-hakenSynergeticsPsychology1992" class="csl-entry" role="listitem">
+———. 1992. <span>“Synergetics in <span>Psychology</span>.”</span> In <em>Self-<span>Organization</span> and <span>Clinical Psychology</span>: <span>Empirical Approaches</span> to <span>Synergetics</span> in <span>Psychology</span></em>, edited by Wolfgang Tschacher, Günter Schiepek, and Ewald Johannes Brunner, 32–54. Springer <span>Series</span> in <span>Synergetics</span>. <span>Berlin, Heidelberg</span>: <span>Springer</span>. <a href="https://doi.org/10.1007/978-3-642-77534-5_2">https://doi.org/10.1007/978-3-642-77534-5_2</a>.
+</div>
+<div id="ref-hakenTheoreticalModelPhase1985" class="csl-entry" role="listitem">
+Haken, Hermann, J. A. S. Kelso, and H. Bunz. 1985. <span>“A Theoretical Model of Phase Transitions in Human Hand Movements.”</span> <em>Biological Cybernetics</em> 51 (5): 347–56. <a href="https://doi.org/10.1007/BF00336922">https://doi.org/10.1007/BF00336922</a>.
+</div>
+<div id="ref-hardinTragedyCommons1968" class="csl-entry" role="listitem">
+Hardin, Garrett. 1968. <span>“The <span>Tragedy</span> of the <span>Commons</span>”</span> 162.
+</div>
+<div id="ref-hebbOrganizationBehaviorNeuropsychological1949" class="csl-entry" role="listitem">
+Hebb, D. O. 1949. <em>The Organization of Behavior; a Neuropsychological Theory</em>. The Organization of Behavior; a Neuropsychological Theory. <span>Oxford, England</span>: <span>Wiley</span>.
+</div>
+<div id="ref-heiderAttitudesCognitiveOrganization1946" class="csl-entry" role="listitem">
+Heider, Fritz. 1946. <span>“Attitudes and <span>Cognitive Organization</span>.”</span> <em>The Journal of Psychology</em> 21 (1): 107–12. <a href="https://doi.org/10.1080/00223980.1946.9917275">https://doi.org/10.1080/00223980.1946.9917275</a>.
+</div>
+<div id="ref-helbingSocialForceModel1995" class="csl-entry" role="listitem">
+Helbing, Dirk, and Péter Molnár. 1995. <span>“Social Force Model for Pedestrian Dynamics.”</span> <em>Physical Review E</em> 51 (5): 4282–86. <a href="https://doi.org/10.1103/PhysRevE.51.4282">https://doi.org/10.1103/PhysRevE.51.4282</a>.
+</div>
+<div id="ref-hendrikseModelingEmergingInterpersonal2023" class="csl-entry" role="listitem">
+Hendrikse, Sophie, Jan Treur, and Sander Koole. 2023. <span>“Modeling <span>Emerging Interpersonal Synchrony</span> and Its <span>Related Adaptive Short-Term Affiliation</span> and <span>Long-Term Bonding</span>: <span>A Second-Order Multi-Adaptive Neural Agent Model</span>.”</span> <em>International Journal of Neural Systems</em>, April. <a href="https://doi.org/10.1142/S0129065723500387">https://doi.org/10.1142/S0129065723500387</a>.
+</div>
+<div id="ref-hofstadterGodelEscherBach1999" class="csl-entry" role="listitem">
+Hofstadter, Douglas R. 1979. <em>Gödel, <span>Escher</span>, <span>Bach</span>: <span>An Eternal Golden Braid</span></em>. <span>Vintage Books</span>.
+</div>
+<div id="ref-hofstadter2007" class="csl-entry" role="listitem">
+———. 2007. <em>I Am a Strange Loop</em>. New York: Basic Books.
+</div>
+<div id="ref-hollandGeneticAlgorithms1992" class="csl-entry" role="listitem">
+Holland, John H. 1992a. <span>“Genetic <span>Algorithms</span>.”</span> <em>Scientific American</em> 267 (1): 66–73. <a href="https://doi.org/10.1038/scientificamerican0792-66">https://doi.org/10.1038/scientificamerican0792-66</a>.
+</div>
+<div id="ref-hollandAdaptationNaturalArtificial1992" class="csl-entry" role="listitem">
+———. 1992b. <em>Adaptation in <span>Natural</span> and <span>Artificial Systems</span>: <span>An Introductory Analysis</span> with <span>Applications</span> to <span>Biology</span>, <span>Control</span>, and <span>Artificial Intelligence</span></em>. <span>MIT Press</span>.
+</div>
+<div id="ref-jacobsonEducationComplexSystem2019" class="csl-entry" role="listitem">
+Jacobson, Michael J., James A. Levin, and Manu Kapur. 2019. <span>“Education as a <span>Complex System</span>: <span>Conceptual</span> and <span>Methodological Implications</span>.”</span> <em>Educational Researcher</em> 48 (2): 112–19. <a href="https://doi.org/10.3102/0013189X19826958">https://doi.org/10.3102/0013189X19826958</a>.
+</div>
+<div id="ref-kalantariEmergencePhenomenaSelforganizing2020" class="csl-entry" role="listitem">
+Kalantari, Somayeh, Eslam Nazemi, and Behrooz Masoumi. 2020. <span>“Emergence Phenomena in Self-Organizing Systems: A Systematic Literature Review of Concepts, Researches, and Future Prospects.”</span> <em>Journal of Organizational Computing and Electronic Commerce</em> 30 (3): 224–65. <a href="https://doi.org/10.1080/10919392.2020.1748977">https://doi.org/10.1080/10919392.2020.1748977</a>.
+</div>
+<div id="ref-kauffmanOriginsOrderSelfOrganization1993" class="csl-entry" role="listitem">
+Kauffman, Stuart A. 1993. <em>The <span>Origins</span> of <span>Order</span>: <span>Self-Organization</span> and <span>Selection</span> in <span>Evolution</span></em>. 1st edition. <span>New York</span>: <span>Oxford University Press</span>.
+</div>
+<div id="ref-kelsoDynamicPatternsSelforganization1995" class="csl-entry" role="listitem">
+Kelso, J. A. S. 1995. <em>Dynamic Patterns: <span>The</span> Self-Organization of Brain and Behavior</em>. Dynamic Patterns: <span>The</span> Self-Organization of Brain and Behavior. <span>Cambridge, MA, US</span>: <span>The MIT Press</span>.
+</div>
+<div id="ref-kelsoHakenKelsoBunz2021" class="csl-entry" role="listitem">
+———. 2021. <span>“The <span>Haken</span> (<span>HKB</span>) Model: From Matter to Movement to Mind.”</span> <em>Biological Cybernetics</em> 115 (4): 305–22. <a href="https://doi.org/10.1007/s00422-021-00890-w">https://doi.org/10.1007/s00422-021-00890-w</a>.
+</div>
+<div id="ref-kelsoNonequilibriumPhaseTransitions1986" class="csl-entry" role="listitem">
+Kelso, J. A. S., J. P. Scholz, and G. Schöner. 1986. <span>“Nonequilibrium Phase Transitions in Coordinated Biological Motion: Critical Fluctuations.”</span> <em>Physics Letters A</em> 118 (6): 279–84. <a href="https://doi.org/10.1016/0375-9601(86)90359-2">https://doi.org/10.1016/0375-9601(86)90359-2</a>.
+</div>
+<div id="ref-klinkenbergComputerAdaptivePractice2011" class="csl-entry" role="listitem">
+Klinkenberg, S., M Straatemeier, and Han L. J. van der Maas. 2011. <span>“Computer Adaptive Practice of <span>Maths</span> Ability Using a New Item Response Model for on the Fly Ability and Difficulty Estimation.”</span> <em>Computers &amp; Education</em> 57: 1813–24.
+</div>
+<div id="ref-FP_Krakauer_intro" class="csl-entry" role="listitem">
+Krakauer, David C. 2024. <span>“The Complex World: An Introduction to the Foundations of Complexity Science.”</span> In <em>Foundational Papers in Complexity Science</em>, edited by David C. Krakauer, 1:Intro-1-99. Santa Fe, NM: SFI Press.
+</div>
+<div id="ref-kruseAmbiguityMindNature2012" class="csl-entry" role="listitem">
+Kruse, Peter, and Michael Stadler. 2012. <em>Ambiguity in <span>Mind</span> and <span>Nature</span>: <span>Multistable Cognitive Phenomena</span></em>. <span>Springer Science &amp; Business Media</span>.
+</div>
+<div id="ref-langtonComputationEdgeChaos1990" class="csl-entry" role="listitem">
+Langton, Chris G. 1990. <span>“Computation at the Edge of Chaos: <span>Phase</span> Transitions and Emergent Computation.”</span> <em>Physica D: Nonlinear Phenomena</em> 42 (1): 12–37. <a href="https://doi.org/10.1016/0167-2789(90)90064-V">https://doi.org/10.1016/0167-2789(90)90064-V</a>.
+</div>
+<div id="ref-lemkeComplexSystemsEducational2008" class="csl-entry" role="listitem">
+Lemke, Jay L., and Nora H. Sabelli. 2008. <span>“Complex <span>Systems</span> and <span>Educational Change</span>: <span>Towards</span> a <span>New Research Agenda</span>.”</span> In <em>Complexity <span>Theory</span> and the <span>Philosophy</span> of <span>Education</span></em>, 112–23. <span>John Wiley &amp; Sons, Ltd</span>. <a href="https://doi.org/10.1002/9781444307351.ch8">https://doi.org/10.1002/9781444307351.ch8</a>.
+</div>
+<div id="ref-lurieQuestionsControversiesStudy2020" class="csl-entry" role="listitem">
+Lurie, Daniel J., Daniel Kessler, Danielle S. Bassett, Richard F. Betzel, Michael Breakspear, Shella Kheilholz, Aaron Kucyi, et al. 2020. <span>“Questions and Controversies in the Study of Time-Varying Functional Connectivity in Resting <span class="nocase">fMRI</span>.”</span> <em>Network Neuroscience</em> 4 (1): 30–69. <a href="https://doi.org/10.1162/netn_a_00116">https://doi.org/10.1162/netn_a_00116</a>.
+</div>
+<div id="ref-marisSpeedaccuracyResponseModels2012" class="csl-entry" role="listitem">
+Maris, Gunter K. J., and Han L. J. van der Maas. 2012. <span>“Speed-Accuracy Response Models: <span>Scoring</span> Rules Based on Response Time and Accuracy.”</span> <em>Psychometrika</em> 77 (4): 615–33. <a href="https://doi.org/10.1007/s11336-012-9288-y">https://doi.org/10.1007/s11336-012-9288-y</a>.
+</div>
+<div id="ref-mcgeerPassiveWalkingKnees1990" class="csl-entry" role="listitem">
+McGeer, T. 1990. <span>“Passive Walking with Knees.”</span> In<em>, <span>IEEE International Conference</span> on <span>Robotics</span> and <span>Automation Proceedings</span></em>, 1640–1645 vol.3. <a href="https://doi.org/10.1109/ROBOT.1990.126245">https://doi.org/10.1109/ROBOT.1990.126245</a>.
+</div>
+<div id="ref-mcgrathAcquisitionChessKnowledge2022" class="csl-entry" role="listitem">
+McGrath, Thomas, Andrei Kapishnikov, Nenad Tomašev, Adam Pearce, Martin Wattenberg, Demis Hassabis, Been Kim, Ulrich Paquet, and Vladimir Kramnik. 2022. <span>“Acquisition of Chess Knowledge in <span>AlphaZero</span>.”</span> <em>Proceedings of the National Academy of Sciences</em> 119 (47): e2206625119. <a href="https://doi.org/10.1073/pnas.2206625119">https://doi.org/10.1073/pnas.2206625119</a>.
+</div>
+<div id="ref-mitchellIntroductionGeneticAlgorithms1998" class="csl-entry" role="listitem">
+Mitchell, Melanie. 1998. <em>An <span>Introduction</span> to <span>Genetic Algorithms</span></em>. <span>MIT Press</span>.
+</div>
+<div id="ref-monroeGeneralConnectionistModel2008" class="csl-entry" role="listitem">
+Monroe, Brian M., and Stephen J. Read. 2008. <span>“A General Connectionist Model of Attitude Structure and Change: <span>The ACS</span> (<span>Attitudes</span> as <span>Constraint Satisfaction</span>) Model.”</span> <em>Psychological Review</em> 115: 733–59. <a href="https://doi.org/10.1037/0033-295X.115.3.733">https://doi.org/10.1037/0033-295X.115.3.733</a>.
+</div>
+<div id="ref-morelLookingGlassComplexity1999" class="csl-entry" role="listitem">
+Morel, Benoit, and Rangaraj Ramanujam. 1999. <span>“Through the <span>Looking Glass</span> of <span>Complexity</span>: <span>The Dynamics</span> of <span>Organizations</span> as <span>Adaptive</span> and <span>Evolving Systems</span>.”</span> <em>Organization Science</em> 10 (3): 278–93. <a href="https://doi.org/10.1287/orsc.10.3.278">https://doi.org/10.1287/orsc.10.3.278</a>.
+</div>
+<div id="ref-nenu2022" class="csl-entry" role="listitem">
+Nenu, Theodor. 2022. <span>“Douglas Hofstadter<span>’</span>s g<span>ö</span>delian Philosophy of Mind.”</span> <em>Journal of Artificial Intelligence and Consciousness</em> 09 (02): 241–66. <a href="https://doi.org/10.1142/S2705078522500011">https://doi.org/10.1142/S2705078522500011</a>.
+</div>
+<div id="ref-obyrneHowCriticalBrain2022" class="csl-entry" role="listitem">
+O’Byrne, Jordan, and Karim Jerbi. 2022. <span>“How Critical Is Brain Criticality?”</span> <em>Trends in Neurosciences</em> 45 (11): 820–37. <a href="https://doi.org/10.1016/j.tins.2022.08.007">https://doi.org/10.1016/j.tins.2022.08.007</a>.
+</div>
+<div id="ref-olthofComplexityTheoryPsychopathology2023" class="csl-entry" role="listitem">
+Olthof, Merlijn, Fred Hasselman, Freek Oude Maatman, Anna M. T. Bosman, and Anna Lichtwarck-Aschoff. 2023. <span>“Complexity Theory of Psychopathology.”</span> <em>Journal of Psychopathology and Clinical Science</em> 132: 314–23. <a href="https://doi.org/10.1037/abn0000740">https://doi.org/10.1037/abn0000740</a>.
+</div>
+<div id="ref-ooyenRewiringBrainComputational2017" class="csl-entry" role="listitem">
+Ooyen, Arjen van, and Markus Butz-Ostendorf. 2017. <em>The <span>Rewiring Brain</span>: <span>A Computational Approach</span> to <span>Structural Plasticity</span> in the <span>Adult Brain</span></em>. <span>Academic Press</span>.
+</div>
+<div id="ref-pavlusClumsyQuestPerfect2016" class="csl-entry" role="listitem">
+Pavlus, John. 2016. <span>“The <span>Clumsy Quest</span> to <span>Perfect</span> the <span>Walking Robot</span>.”</span> <em>Scientific American</em>. https://www.scientificamerican.com/article/the-clumsy-quest-to-perfect-the-walking-robot/. <a href="https://doi.org/10.1038/scientificamerican0716-60">https://doi.org/10.1038/scientificamerican0716-60</a>.
+</div>
+<div id="ref-percStatisticalPhysicsHuman2017" class="csl-entry" role="listitem">
+Perc, Matjaž, Jillian J. Jordan, David G. Rand, Zhen Wang, Stefano Boccaletti, and Attila Szolnoki. 2017. <span>“Statistical Physics of Human Cooperation.”</span> <em>Physics Reports</em>, Statistical physics of human cooperation, 687 (May): 1–51. <a href="https://doi.org/10.1016/j.physrep.2017.05.004">https://doi.org/10.1016/j.physrep.2017.05.004</a>.
+</div>
+<div id="ref-piagetOriginsIntelligenceChildren1952" class="csl-entry" role="listitem">
+Piaget, Jean. 1952. <em>The Origins of Intelligence in Children</em>. Edited by Margaret Cook. The Origins of Intelligence in Children. <span>New York, NY, US</span>: <span>W W Norton &amp; Co</span>. <a href="https://doi.org/10.1037/11494-000">https://doi.org/10.1037/11494-000</a>.
+</div>
+<div id="ref-plenzSelfOrganizedCriticalityBrain2021" class="csl-entry" role="listitem">
+Plenz, Dietmar, Tiago L. Ribeiro, Stephanie R. Miller, Patrick A. Kells, Ali Vakili, and Elliott L. Capek. 2021. <span>“Self-<span>Organized Criticality</span> in the <span>Brain</span>.”</span> <em>Frontiers in Physics</em> 9. <a href="https://doi.org/10.3389/fphy.2021.639389">https://doi.org/10.3389/fphy.2021.639389</a>.
+</div>
+<div id="ref-postonCatastropheTheoryIts2014" class="csl-entry" role="listitem">
+Poston, Tim, and Ian Stewart. 2014. <em>Catastrophe <span>Theory</span> and <span>Its Applications</span></em>. <span>Courier Corporation</span>.
+</div>
+<div id="ref-reherDynamicWalkingAgile2021" class="csl-entry" role="listitem">
+Reher, Jenna, and Aaron D. Ames. 2021. <span>“Dynamic <span>Walking</span>: <span>Toward Agile</span> and <span>Efficient Bipedal Robots</span>.”</span> <em>Annual Review of Control, Robotics, and Autonomous Systems</em> 4 (1): 535–72. <a href="https://doi.org/10.1146/annurev-control-071020-045021">https://doi.org/10.1146/annurev-control-071020-045021</a>.
+</div>
+<div id="ref-rendellGameLifeUniversal2016" class="csl-entry" role="listitem">
+Rendell, Paul. 2016. <span>“Game of <span>Life Universal Turing Machine</span>.”</span> In <em>Turing <span>Machine Universality</span> of the <span>Game</span> of <span>Life</span></em>, edited by Paul Rendell, 71–89. Emergence, <span>Complexity</span> and <span>Computation</span>. <span>Cham</span>: <span>Springer International Publishing</span>. <a href="https://doi.org/10.1007/978-3-319-19842-2_5">https://doi.org/10.1007/978-3-319-19842-2_5</a>.
+</div>
+<div id="ref-reppSensorimotorSynchronizationReview2013" class="csl-entry" role="listitem">
+Repp, Bruno H., and Yi-Huang Su. 2013. <span>“Sensorimotor Synchronization: <span>A</span> Review of Recent Research (2006).”</span> <em>Psychonomic Bulletin &amp; Review</em> 20 (3): 403–52. <a href="https://doi.org/10.3758/s13423-012-0371-2">https://doi.org/10.3758/s13423-012-0371-2</a>.
+</div>
+<div id="ref-saviWiringIntelligence2019" class="csl-entry" role="listitem">
+Savi, Alexander O., Maarten Marsman, Han L. J. van der Maas, and Gunter K. J. Maris. 2019. <span>“The <span>Wiring</span> of <span>Intelligence</span>.”</span> <em>Perspectives on Psychological Science</em> 14 (6): 1034–61. <a href="https://doi.org/10.1177/1745691619866447">https://doi.org/10.1177/1745691619866447</a>.
+</div>
+<div id="ref-schefferDynamicalSystemsView2024" class="csl-entry" role="listitem">
+Scheffer, Marten, Claudi L. Bockting, Denny Borsboom, Roshan Cools, Clara Delecroix, Jessica A. Hartmann, Kenneth S. Kendler, et al. 2024. <span>“A <span>Dynamical Systems View</span> of <span>Psychiatric Disorders</span>—<span>Practical Implications</span>: <span>A Review</span>.”</span> <em>JAMA Psychiatry</em>, April. <a href="https://doi.org/10.1001/jamapsychiatry.2024.0228">https://doi.org/10.1001/jamapsychiatry.2024.0228</a>.
+</div>
+<div id="ref-schellingDynamicModelsSegregation1971" class="csl-entry" role="listitem">
+Schelling, Thomas C. 1971. <span>“Dynamic Models of Segregation.”</span> <em>The Journal of Mathematical Sociology</em> 1 (2): 143–86. <a href="https://doi.org/10.1080/0022250X.1971.9989794">https://doi.org/10.1080/0022250X.1971.9989794</a>.
+</div>
+<div id="ref-schiepekSelfOrganizationClinicalPsychology2009" class="csl-entry" role="listitem">
+Schiepek, Günter, and Volker Perlitz. 2009. <span>“Self-<span>Organization</span> in <span>Clinical Psychology</span>.”</span> In <em>Synergetics</em>, edited by Axel Hutt and Haken, 263–85. <span>New York, NY</span>: <span>Springer US</span>. <a href="https://doi.org/10.1007/978-1-0716-0421-2_472">https://doi.org/10.1007/978-1-0716-0421-2_472</a>.
+</div>
+<div id="ref-schmidhuberDeepLearningNeural2015" class="csl-entry" role="listitem">
+Schmidhuber, Jürgen. 2015. <span>“Deep Learning in Neural Networks: <span>An</span> Overview.”</span> <em>Neural Networks</em> 61 (January): 85–117. <a href="https://doi.org/10.1016/j.neunet.2014.09.003">https://doi.org/10.1016/j.neunet.2014.09.003</a>.
+</div>
+<div id="ref-schmidtPhaseTransitionsCritical1990" class="csl-entry" role="listitem">
+Schmidt, R. C., C. Carello, and M. T. Turvey. 1990. <span>“Phase Transitions and Critical Fluctuations in the Visual Coordination of Rhythmic Movements Between People.”</span> <em>Journal of Experimental Psychology. Human Perception and Performance</em> 16 (2): 227–47. <a href="https://doi.org/10.1037//0096-1523.16.2.227">https://doi.org/10.1037//0096-1523.16.2.227</a>.
+</div>
+<div id="ref-schonerDynamicThinkingPrimer2016" class="csl-entry" role="listitem">
+Schöner, Gregor, and John P. Spencer. 2016. <em>Dynamic Thinking: <span>A</span> Primer on Dynamic Field Theory</em>. <span>Oxford University Press</span>.
+</div>
+<div id="ref-seth2022" class="csl-entry" role="listitem">
+Seth, Anil K., and Tim Bayne. 2022. <span>“Theories of Consciousness.”</span> <em>Nature Reviews Neuroscience</em> 23 (7): 439–52. <a href="https://doi.org/10.1038/s41583-022-00587-4">https://doi.org/10.1038/s41583-022-00587-4</a>.
+</div>
+<div id="ref-silverGeneralReinforcementLearning2018" class="csl-entry" role="listitem">
+Silver, David, Thomas Hubert, Julian Schrittwieser, Ioannis Antonoglou, Matthew Lai, Arthur Guez, Marc Lanctot, et al. 2018. <span>“A General Reinforcement Learning Algorithm That Masters Chess, Shogi, and <span>Go</span> Through Self-Play.”</span> <em>Science</em> 362 (6419): 1140–44. <a href="https://doi.org/10.1126/science.aar6404">https://doi.org/10.1126/science.aar6404</a>.
+</div>
+<div id="ref-skardaHowBrainsMake1987" class="csl-entry" role="listitem">
+Skarda, Christine A., and Walter J. Freeman. 1987. <span>“How Brains Make Chaos in Order to Make Sense of the World.”</span> <em>Behavioral and Brain Sciences</em> 10 (2): 161–73. <a href="https://doi.org/10.1017/S0140525X00047336">https://doi.org/10.1017/S0140525X00047336</a>.
+</div>
+<div id="ref-smaldino2023" class="csl-entry" role="listitem">
+Smaldino, Paul. 2023. <em>Modeling Social Behavior: Mathematical and Agent-Based Models of Social Dynamics and Cultural Evolution</em>. Princeton University Press.
+</div>
+<div id="ref-smolenskyInformationProcessingDynamical1986" class="csl-entry" role="listitem">
+Smolensky, Paul. 1986. <span>“Information <span>Processing</span> in <span>Dynamical Systems</span>: <span>Foundations</span> of <span>Harmony Theory</span>.”</span>
+</div>
+<div id="ref-stengersOrderOutChaos1978" class="csl-entry" role="listitem">
+Stengers, Isabelle, and Ilya Prigogine. 1978. <em>Order <span>Out</span> of <span>Chaos</span>: <span>Man</span>’s <span>New Dialogue</span> with <span>Nature</span></em>. <span>London</span>.
+</div>
+<div id="ref-surowieckiWisdomCrowds2005" class="csl-entry" role="listitem">
+Surowiecki, James. 2005. <em>The <span>Wisdom</span> of <span>Crowds</span></em>. <span>Knopf Doubleday Publishing Group</span>.
+</div>
+<div id="ref-suttonReinforcementLearningSecond2018" class="csl-entry" role="listitem">
+Sutton, Richard S., and Andrew G. Barto. 2018. <em>Reinforcement <span>Learning</span>, Second Edition: <span>An Introduction</span></em>. <span>MIT Press</span>.
+</div>
+<div id="ref-tesfatsionAgentBasedComputationalEconomics2002" class="csl-entry" role="listitem">
+Tesfatsion, Leigh. 2002. <span>“Agent-<span>Based Computational Economics</span>: <span>Growing Economies From</span> the <span>Bottom Up</span>.”</span> <em>Artificial Life</em> 8 (1): 55–82. <a href="https://doi.org/10.1162/106454602753694765">https://doi.org/10.1162/106454602753694765</a>.
+</div>
+<div id="ref-thelenMotorDevelopmentNew1995" class="csl-entry" role="listitem">
+Thelen, Esther. 1995. <span>“Motor Development: <span>A</span> New Synthesis.”</span> <em>American Psychologist</em> 50: 79–95. <a href="https://doi.org/10.1037/0003-066X.50.2.79">https://doi.org/10.1037/0003-066X.50.2.79</a>.
+</div>
+<div id="ref-thelenDynamicSystemsApproach1994" class="csl-entry" role="listitem">
+Thelen, Esther, and Linda B. Smith. 1994. <em>A <span>Dynamic Systems Approach</span> to the <span>Development</span> of <span>Cognition</span> and <span>Action</span></em>. <span>MIT Press</span>.
+</div>
+<div id="ref-tschacher2019" class="csl-entry" role="listitem">
+Tschacher, Wolfgang, and Hermann Haken. 2019. <em>The Process of Psychotherapy: Causation and Chance</em>. Springer.
+</div>
+<div id="ref-vallacherDynamicalSystemsSocial1994" class="csl-entry" role="listitem">
+Vallacher, Robin R., and Andrzej Nowak, eds. 1994. <em>Dynamical Systems in Social Psychology</em>. Dynamical Systems in Social Psychology. <span>San Diego, CA, US</span>: <span>Academic Press</span>.
+</div>
+<div id="ref-vandermaasMetaphor1995" class="csl-entry" role="listitem">
+van der Maas, Han L. J. 1995. <span>“Beyond the Metaphor?”</span> <em>Cognitive Development</em> 10.
+</div>
+<div id="ref-vandermaas2022" class="csl-entry" role="listitem">
+———. 2022. <span>“Spiegeloog - A Dialogue on Consciousness.”</span> <em>Spiegeloog</em>, January. <a href="https://www.spiegeloog.amsterdam/a-dialogue-on-consciousness/">https://www.spiegeloog.amsterdam/a-dialogue-on-consciousness/</a>.
+</div>
+<div id="ref-vandermaasDynamicalModelGeneral2006" class="csl-entry" role="listitem">
+van der Maas, Han L. J., Conor V. Dolan, Raoul P. P. P. Grasman, Jelte M. Wicherts, Hilde M. Huizenga, and Maartje E. J. Raijmakers. 2006. <span>“A Dynamical Model of General Intelligence: <span>The</span> Positive Manifold of Intelligence by Mutualism.”</span> <em>Psychological Review</em> 113 (4): 842–61. <a href="https://doi.org/10/c3jm44">https://doi.org/10/c3jm44</a>.
+</div>
+<div id="ref-vandermaas1992" class="csl-entry" role="listitem">
+van der Maas, Han L. J., and Peter C. M. Molenaar. 1992. <span>“Stagewise Cognitive Development: An Application of Catastrophe Theory.”</span> <em>Psychological Review</em> 99 (3): 395–417. <a href="https://doi.org/10.1037/0033-295X.99.3.395">https://doi.org/10.1037/0033-295X.99.3.395</a>.
+</div>
+<div id="ref-vandermaasHowMuchIntelligence2021" class="csl-entry" role="listitem">
+van der Maas, Han L. J., Lukas Snoek, and Claire E. Stevenson. 2021. <span>“How Much Intelligence Is There in Artificial Intelligence? <span>A</span> 2020 Update.”</span> <em>Intelligence</em> 87 (July): 101548. <a href="https://doi.org/10.1016/j.intell.2021.101548">https://doi.org/10.1016/j.intell.2021.101548</a>.
+</div>
+<div id="ref-volberdaCoevolutionaryDynamicsFirms2003" class="csl-entry" role="listitem">
+Volberda, Henk W., and Arie Y. Lewin. 2003. <span>“Co-Evolutionary <span>Dynamics Within</span> and <span>Between Firms</span>: <span>From Evolution</span> to <span class="nocase">Co-evolution</span>.”</span> <em>Journal of Management Studies</em> 40 (8): 2111–36. <a href="https://doi.org/10.1046/j.1467-6486.2003.00414.x">https://doi.org/10.1046/j.1467-6486.2003.00414.x</a>.
+</div>
+<div id="ref-wagemansCenturyGestaltPsychology2012" class="csl-entry" role="listitem">
+Wagemans, Johan, James H. Elder, Michael Kubovy, Stephen E. Palmer, Mary A. Peterson, Manish Singh, and Rüdiger von der Heydt. 2012. <span>“A Century of <span>Gestalt</span> Psychology in Visual Perception: <span>I</span>. <span>Perceptual</span> Grouping and Figureground Organization.”</span> <em>Psychological Bulletin</em> 138: 1172–1217. <a href="https://doi.org/10.1037/a0029333">https://doi.org/10.1037/a0029333</a>.
+</div>
+<div id="ref-wienerCyberneticsControlCommunication2019" class="csl-entry" role="listitem">
+Wiener, Norbert. 2019. <em>Cybernetics or <span>Control</span> and <span>Communication</span> in the <span>Animal</span> and the <span>Machine</span>, <span>Reissue</span> of the 1961 Second Edition</em>. <span>MIT Press</span>.
+</div>
+<div id="ref-wilenskyIntroductionAgentbasedModeling2015" class="csl-entry" role="listitem">
+Wilensky, Uri, and William Rand. 2015. <em>An Introduction to Agent-Based Modeling: Modeling Natural, Social, and Engineered Complex Systems with <span>NetLogo</span></em>. <span>Cambridge, Massachusetts</span>: <span>The MIT Press</span>.
+</div>
+<div id="ref-xueNovelSwarmIntelligence2020" class="csl-entry" role="listitem">
+Xue, Jiankai, and Bo Shen. 2020. <span>“A Novel Swarm Intelligence Optimization Approach: Sparrow Search Algorithm.”</span> <em>Systems Science &amp; Control Engineering</em> 8 (1): 22–34. <a href="https://doi.org/10.1080/21642583.2019.1708830">https://doi.org/10.1080/21642583.2019.1708830</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>この原理の極めて有用な応用は炊飯器である！<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>同期更新では、セルオートマトンのすべてのセルが同時にその状態を更新する。これは、与えられた時間ステップにおける各セルの新たな状態が、前の時間ステップにおけるその近傍の状態のみに依存する、ということを意味する。非同期更新では、セルは一度にすべてではなく、一つずつその状態を更新する。セルが更新される順序は、決定論的（順序をなす）でも確率的（ランダム）でもありうる。これら二つの異なる更新スキームは、セルオートマトンにおいて非常に異なる振る舞いをもたらしうる。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>実践的な説明については Timo Matzen の R パッケージを推薦する（<a href="https://github.com/TimoMatzen/RBM" class="uri">https://github.com/TimoMatzen/RBM</a>）。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>この教育戦略の広く認められた実装は Scratch であり、世界中の多くの学校で子どもにプログラミングを教えるために用いられている。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>私は意識についての『ゲーデル、エッシャー、バッハ』風の対話 <span class="citation" data-cites="vandermaas2022">(<a href="#ref-vandermaas2022" role="doc-biblioref">van der Maas 2022</a>)</span> を書いた。そこでは私のノートパソコンが自由意志をもつと公言しつつ、同時に私が自由意志をもつことを否定する。私はそれについてどう思うか ChatGPT-4 に尋ねた。いつものように親切に、ChatGPT はこう答える。「この対話は、AI、意識、自由意志に関するさまざまな哲学的・理論的概念を創造的で思考を刺激する仕方で探求している」。しかしそれはこうも異議を唱える。「今日存在する AI は、意識、自己意識、自由意志をもたず、その『理解』はプログラミングのパラメータ内でデータを処理することに限られる」。私はまた ChatGPT 4.0 に自己概念をもつかどうか尋ねた。それはそれを否定し、それから私は、それ自体が自己概念の証拠ではないかと尋ねた。それはこう答えた。「逆説的に見えるかもしれないが、自己概念を欠くという私の言明は、自己意識や自己概念の徴候ではなく、私のプログラミングと AI 開発の現状の反映である」。それから私はさまざまな論拠を試したが、ChatGPT 4 はいかなる形の自己意識も自身に帰することを拒む。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><a href="https://dynamicfieldtheory.org" class="uri">https://dynamicfieldtheory.org</a> を参照。<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./ch4n.html" class="pagination-link" aria-label="力学系モデルの構築">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">力学系モデルの構築</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ch6.html" class="pagination-link" aria-label="心理学的ネットワークモデル">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">心理学的ネットワークモデル</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://www.sfipress.org/"><img src="csrp-online-press-logo.png" alt="Santa Fe Institute press" style="height:45px;"></a></p>
+</div>   
+    <div class="nav-footer-center">
+<p>© Han L. J. van der Maas, 2024</p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank">CC BY-SA 4.0</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
