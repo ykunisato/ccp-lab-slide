@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>プレゼン用ライブ字幕</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh; /* heightからmin-heightに変更し、縦に伸びるようにしました */
+      box-sizing: border-box;
+      
+      /* ★変更：はみ出た場合は縦スクロールを許可する */
+      overflow-y: auto; 
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    /* ★追加：スクロールバー自体は隠して見た目をスッキリさせる（Chrome用） */
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    #subtitle {
+      font-size: 35px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.4;
+      width: 100%;
+      cursor: pointer;
+      /* 上下に余白を持たせて、スクロール時に見やすくする */
+      padding: 40px 0; 
+    }
+    
+    .final { color: #ffffff; }
+    .interim { color: #ffffff; }
+
+    #controls {
+      position: fixed; /* absoluteからfixedに変更（スクロールしても右上に追従させるため） */
+      top: 10px;
+      right: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+    }
+
+    body:hover #controls {
+      opacity: 1;
+    }
+
+    button {
+      padding: 8px 12px;
+      background: #333;
+      color: #ccc;
+      border: 1px solid #555;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      background: #555;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <button onclick="downloadTranscript(event)">テキスト保存</button>
+    <button onclick="openMiniWindow(event)">小窓モード</button>
+  </div>
+
+  <div id="subtitle">画面をクリックして話し始めてください...</div>
+
+  <script>
+    let fullTranscript = ""; 
+    let displayFinal = "";   
+
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'ja-JP';
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    recognition.onresult = (event) => {
+      let interim_text = '';
+
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        let text = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          displayFinal += text;
+          fullTranscript += text + "\n"; 
+        } else {
+          interim_text += text;
+        }
+      }
+
+      document.getElementById('subtitle').innerHTML = 
+        '<span class="final">' + displayFinal + '</span>' +
+        '<span class="interim">' + interim_text + '</span>';
+        
+      // ★追加：テキストが更新されるたびに、画面の一番下へなめらかに自動スクロールする
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+    };
+
+    recognition.onend = () => {
+      displayFinal = ""; 
+      recognition.start();
+    };
+    
+    document.body.onclick = () => {
+      if (fullTranscript === "") {
+        document.getElementById('subtitle').innerText = "（認識中...）";
+      }
+      recognition.start();
+    };
+
+    function downloadTranscript(e) {
+      e.stopPropagation(); 
+      
+      if (fullTranscript === "") {
+        alert("まだ文字起こしの履歴がありません。");
+        return;
+      }
+
+      const blob = new Blob([fullTranscript], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      
+      const now = new Date();
+      const timestamp = now.getFullYear() + 
+                        String(now.getMonth() + 1).padStart(2, '0') + 
+                        String(now.getDate()).padStart(2, '0') + "_" + 
+                        String(now.getHours()).padStart(2, '0') + 
+                        String(now.getMinutes()).padStart(2, '0');
+      
+      a.href = url;
+      a.download = `transcript_${timestamp}.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function openMiniWindow(e) {
+      e.stopPropagation(); 
+      window.open(window.location.href, '_blank', 'width=800,height=150,menubar=no,toolbar=no,location=no,status=no');
+    }
+  </script>
+</body>
+</html>
