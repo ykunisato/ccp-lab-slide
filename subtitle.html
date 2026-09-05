@@ -1,0 +1,96 @@
+<style>
+  /* 字幕を画面下部に固定し、最前面に浮かせます */
+  #live-subtitle-container {
+    position: fixed;
+    bottom: 0%; /* 下からの位置調整 */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 99999; /* どのスライド要素よりも上に表示 */
+    pointer-events: none; /* スライドのクリック操作を邪魔しないための魔法のコード */
+  }
+  
+  /* 字幕テキストのデザイン（どんな背景でも読めるように半透明の黒背景をつける） */
+  #live-subtitle-text {
+    display: none; 
+    
+    /* ▼ 変更：背景を完全に透明にする ▼ */
+    background: transparent;
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 24px; /* 少し大きめが見やすいです */
+    
+    /* ▼ 変更：より太いフォントにして視認性を高める ▼ */
+    font-weight: 900; 
+    padding: 10px 25px;
+    max-width: 90%;
+    margin: 0 auto;
+    line-height: 1.4;
+    
+    /* ▼ 追加：どんな背景でも読めるように極太のフチドリと影をつける ▼ */
+    -webkit-text-stroke: 2px #000000; /* 文字の輪郭に黒い線を引く */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* さらに薄い影を落として立体感を出す */
+
+    /* 以前に追加した行数制限（2行分）とスクロール設定 */
+    max-height: 4.2em; 
+    overflow: hidden;  
+  }
+</style>
+
+<div id="live-subtitle-container">
+  <div id="live-subtitle-text"></div>
+</div>
+
+<script>
+  let subtitleActive = false;
+  let slideFinalText = "";
+  const subtitleBox = document.getElementById('live-subtitle-text');
+
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  recognition.lang = 'ja-JP';
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  
+  recognition.onresult = (event) => {
+    let interimText = '';
+    for (let i = event.resultIndex; i < event.results.length; i++) {
+      if (event.results[i].isFinal) {
+        slideFinalText += event.results[i][0].transcript;
+      } else {
+        interimText += event.results[i][0].transcript;
+      }
+    }
+    
+    // 確定テキストと認識中テキストを結合して表示
+    subtitleBox.innerHTML = slideFinalText + '<span style="color: #aaa;">' + interimText + '</span>';
+    
+    // ▼ 追加：テキストが更新されるたびに、常に一番下（最新）にスクロールさせる ▼
+    subtitleBox.scrollTop = subtitleBox.scrollHeight;
+  };
+
+  recognition.onend = () => {
+    // アクティブな状態なら、文脈が切れたタイミングで表示をリセットして再開
+    if (subtitleActive) {
+      slideFinalText = "";
+      recognition.start();
+    }
+  };
+
+  // --- スライド用の起動スイッチ（キーボードの「S」キーでON/OFF） ---
+  document.addEventListener('keydown', (e) => {
+    // 大文字・小文字どちらの「s」でも反応
+    if (e.key === 's' || e.key === 'S') {
+      subtitleActive = !subtitleActive;
+      
+      if (subtitleActive) {
+        subtitleBox.style.display = 'inline-block';
+        subtitleBox.innerText = "（マイク待機中...）";
+        slideFinalText = "";
+        try { recognition.start(); } catch(err) {}
+      } else {
+        subtitleBox.style.display = 'none';
+        recognition.stop();
+      }
+    }
+  });
+</script>
