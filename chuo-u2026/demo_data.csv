@@ -1,0 +1,2489 @@
+"rt","stimulus","response","trial_type","trial_index","plugin_version","time_elapsed","success","value","left_img","right_img","left_right_s1","reward_s1","reward_s2","selected_side","selected_img","reward_given"
+"1921","<p><span style='font-size:20pt;'>研究に参加いただき，ありがとうございます!!!</span></p><p>キーボードのキーをどれか押して，開始してください</p>"," ","html-keyboard-response","0","2.1.0","1923","","","","","","","","","",""
+"861","","","fullscreen","1","2.1.0","3787","true","","","","","","","","",""
+"","","","call-function","2","2.1.0","3787","","","","","","","","","",""
+"7448","
+    <div style=""text-align: center;"">
+      <img src=""probabilistic-reversal-learning/stimuli/rl_instruction.svg"" width=""800px"">
+    </div>","ArrowRight","html-keyboard-response","3","2.1.0","11236","","","","","","","","","",""
+"1206","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","4","2.1.0","12444","","","s1.svg","s2.svg","1","0","1","left","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","5","2.1.0","12946","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","6","2.1.0","13950","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","7","2.1.0","14636","","","","","","","","","",""
+"964","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","8","2.1.0","15602","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","9","2.1.0","16105","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","10","2.1.0","17108","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","11","2.1.0","17778","","","","","","","","","",""
+"436","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","12","2.1.0","18216","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","13","2.1.0","18718","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","14","2.1.0","19722","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","15","2.1.0","20678","","","","","","","","","",""
+"469","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","16","2.1.0","21149","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","17","2.1.0","21651","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","18","2.1.0","22654","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","19","2.1.0","23267","","","","","","","","","",""
+"588","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","20","2.1.0","23857","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","21","2.1.0","24359","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","22","2.1.0","25361","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","23","2.1.0","26270","","","","","","","","","",""
+"468","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","24","2.1.0","26740","","","s2.svg","s1.svg","2","1","0","left","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","25","2.1.0","27242","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","26","2.1.0","28245","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","27","2.1.0","29012","","","","","","","","","",""
+"433","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","28","2.1.0","29446","","","s1.svg","s2.svg","1","0","1","left","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","29","2.1.0","29948","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","30","2.1.0","30951","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","31","2.1.0","31474","","","","","","","","","",""
+"475","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","32","2.1.0","31950","","","s1.svg","s2.svg","1","1","0","right","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","33","2.1.0","32451","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","34","2.1.0","33453","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","35","2.1.0","34317","","","","","","","","","",""
+"435","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","36","2.1.0","34754","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","37","2.1.0","35257","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","38","2.1.0","36260","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","39","2.1.0","36816","","","","","","","","","",""
+"629","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","40","2.1.0","37447","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","41","2.1.0","37948","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","42","2.1.0","38951","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","43","2.1.0","39795","","","","","","","","","",""
+"920","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","44","2.1.0","40716","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","45","2.1.0","41219","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","46","2.1.0","42220","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","47","2.1.0","43157","","","","","","","","","",""
+"663","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","48","2.1.0","43822","","","s2.svg","s1.svg","2","1","0","left","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","49","2.1.0","44324","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","50","2.1.0","45325","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","51","2.1.0","46212","","","","","","","","","",""
+"2278","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","52","2.1.0","48492","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","53","2.1.0","48994","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","54","2.1.0","49998","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","55","2.1.0","50812","","","","","","","","","",""
+"386","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","56","2.1.0","51199","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","57","2.1.0","51701","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","58","2.1.0","52704","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","59","2.1.0","53406","","","","","","","","","",""
+"403","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","60","2.1.0","53811","","","s2.svg","s1.svg","2","1","0","left","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","61","2.1.0","54313","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","62","2.1.0","55316","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","63","2.1.0","56054","","","","","","","","","",""
+"433","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","64","2.1.0","56489","","","s1.svg","s2.svg","1","0","1","left","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","65","2.1.0","56990","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","66","2.1.0","57993","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","67","2.1.0","58886","","","","","","","","","",""
+"406","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","68","2.1.0","59294","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","69","2.1.0","59796","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","70","2.1.0","60798","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","71","2.1.0","61306","","","","","","","","","",""
+"532","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","72","2.1.0","61839","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","73","2.1.0","62342","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","74","2.1.0","63345","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","75","2.1.0","64065","","","","","","","","","",""
+"434","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","76","2.1.0","64501","","","s2.svg","s1.svg","2","0","1","right","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","77","2.1.0","65003","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","78","2.1.0","66006","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","79","2.1.0","66557","","","","","","","","","",""
+"507","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","80","2.1.0","67065","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","81","2.1.0","67566","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","82","2.1.0","68569","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","83","2.1.0","69346","","","","","","","","","",""
+"604","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","84","2.1.0","69951","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","85","2.1.0","70453","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","86","2.1.0","71456","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","87","2.1.0","72197","","","","","","","","","",""
+"445","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","88","2.1.0","72644","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","89","2.1.0","73146","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","90","2.1.0","74149","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","91","2.1.0","74670","","","","","","","","","",""
+"517","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","92","2.1.0","75189","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","93","2.1.0","75692","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","94","2.1.0","76694","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","95","2.1.0","77301","","","","","","","","","",""
+"503","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","96","2.1.0","77806","","","s1.svg","s2.svg","1","1","0","right","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","97","2.1.0","78308","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","98","2.1.0","79310","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","99","2.1.0","79889","","","","","","","","","",""
+"398","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","100","2.1.0","80288","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","101","2.1.0","80790","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","102","2.1.0","81793","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","103","2.1.0","82601","","","","","","","","","",""
+"587","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","104","2.1.0","83190","","","s1.svg","s2.svg","1","1","0","right","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","105","2.1.0","83692","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","106","2.1.0","84696","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","107","2.1.0","85603","","","","","","","","","",""
+"549","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","108","2.1.0","86154","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","109","2.1.0","86655","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","110","2.1.0","87658","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","111","2.1.0","88553","","","","","","","","","",""
+"467","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","112","2.1.0","89020","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","113","2.1.0","89522","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","114","2.1.0","90524","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","115","2.1.0","91093","","","","","","","","","",""
+"494","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","116","2.1.0","91588","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","117","2.1.0","92090","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","118","2.1.0","93093","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","119","2.1.0","94067","","","","","","","","","",""
+"448","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","120","2.1.0","94516","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","121","2.1.0","95017","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","122","2.1.0","96021","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","123","2.1.0","96689","","","","","","","","","",""
+"506","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","124","2.1.0","97197","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","125","2.1.0","97699","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","126","2.1.0","98702","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","127","2.1.0","99564","","","","","","","","","",""
+"498","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","128","2.1.0","100064","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","129","2.1.0","100566","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","130","2.1.0","101568","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","131","2.1.0","102160","","","","","","","","","",""
+"446","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","132","2.1.0","102608","","","s2.svg","s1.svg","2","1","0","left","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","133","2.1.0","103110","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","134","2.1.0","104113","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","135","2.1.0","104932","","","","","","","","","",""
+"576","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","136","2.1.0","105510","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","137","2.1.0","106012","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","138","2.1.0","107014","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","139","2.1.0","107556","","","","","","","","","",""
+"486","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","140","2.1.0","108044","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","141","2.1.0","108546","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","142","2.1.0","109549","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","143","2.1.0","110358","","","","","","","","","",""
+"538","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","144","2.1.0","110897","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","145","2.1.0","111399","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","146","2.1.0","112402","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","147","2.1.0","113201","","","","","","","","","",""
+"530","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","148","2.1.0","113732","","","s1.svg","s2.svg","1","0","1","right","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","149","2.1.0","114234","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","150","2.1.0","115237","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","151","2.1.0","116118","","","","","","","","","",""
+"445","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","152","2.1.0","116564","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","153","2.1.0","117066","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","154","2.1.0","118068","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","155","2.1.0","118643","","","","","","","","","",""
+"551","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","156","2.1.0","119195","","","s2.svg","s1.svg","2","0","1","left","s2.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","157","2.1.0","119697","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","158","2.1.0","120701","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","159","2.1.0","121387","","","","","","","","","",""
+"482","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","160","2.1.0","121871","","","s2.svg","s1.svg","2","1","0","left","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","161","2.1.0","122373","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","162","2.1.0","123376","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","163","2.1.0","124272","","","","","","","","","",""
+"560","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","164","2.1.0","124834","","","s1.svg","s2.svg","1","1","0","right","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","165","2.1.0","125335","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","166","2.1.0","126339","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","167","2.1.0","126860","","","","","","","","","",""
+"566","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","168","2.1.0","127427","","","s1.svg","s2.svg","1","1","0","right","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","169","2.1.0","127929","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","170","2.1.0","128932","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","171","2.1.0","129751","","","","","","","","","",""
+"621","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","172","2.1.0","130373","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","173","2.1.0","130875","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","174","2.1.0","131878","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","175","2.1.0","132490","","","","","","","","","",""
+"562","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","176","2.1.0","133053","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","177","2.1.0","133555","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","178","2.1.0","134558","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","179","2.1.0","135148","","","","","","","","","",""
+"739","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","180","2.1.0","135888","","","s1.svg","s2.svg","1","0","1","left","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","181","2.1.0","136390","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","182","2.1.0","137393","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","183","2.1.0","138089","","","","","","","","","",""
+"441","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","184","2.1.0","138532","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","185","2.1.0","139035","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","186","2.1.0","140038","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","187","2.1.0","140952","","","","","","","","","",""
+"511","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","188","2.1.0","141464","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","189","2.1.0","141966","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","190","2.1.0","142969","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","191","2.1.0","143891","","","","","","","","","",""
+"406","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","192","2.1.0","144299","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","193","2.1.0","144801","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","194","2.1.0","145803","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","195","2.1.0","146682","","","","","","","","","",""
+"611","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","196","2.1.0","147295","","","s2.svg","s1.svg","2","0","1","right","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","197","2.1.0","147798","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","198","2.1.0","148800","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","199","2.1.0","149409","","","","","","","","","",""
+"574","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","200","2.1.0","149985","","","s2.svg","s1.svg","2","1","0","left","s2.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","201","2.1.0","150486","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","202","2.1.0","151489","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","203","2.1.0","152128","","","","","","","","","",""
+"501","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","204","2.1.0","152631","","","s1.svg","s2.svg","1","0","1","left","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","205","2.1.0","153132","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","206","2.1.0","154134","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","207","2.1.0","154810","","","","","","","","","",""
+"515","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","208","2.1.0","155327","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","209","2.1.0","155829","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","210","2.1.0","156832","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","211","2.1.0","157832","","","","","","","","","",""
+"521","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","212","2.1.0","158354","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","213","2.1.0","158857","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","214","2.1.0","159860","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","215","2.1.0","160478","","","","","","","","","",""
+"405","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","216","2.1.0","160884","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","217","2.1.0","161386","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","218","2.1.0","162389","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","219","2.1.0","163126","","","","","","","","","",""
+"439","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","220","2.1.0","163566","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","221","2.1.0","164069","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","222","2.1.0","165071","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","223","2.1.0","165893","","","","","","","","","",""
+"447","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","224","2.1.0","166341","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","225","2.1.0","166844","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","226","2.1.0","167846","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","227","2.1.0","168711","","","","","","","","","",""
+"466","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","228","2.1.0","169178","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","229","2.1.0","169681","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","230","2.1.0","170683","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","231","2.1.0","171410","","","","","","","","","",""
+"523","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","232","2.1.0","171935","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","233","2.1.0","172436","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","234","2.1.0","173439","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","235","2.1.0","174060","","","","","","","","","",""
+"578","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","236","2.1.0","174640","","","s2.svg","s1.svg","2","0","1","right","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","237","2.1.0","175142","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","238","2.1.0","176144","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","239","2.1.0","176738","","","","","","","","","",""
+"487","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","240","2.1.0","177226","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","241","2.1.0","177728","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","242","2.1.0","178731","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","243","2.1.0","179312","","","","","","","","","",""
+"428","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","244","2.1.0","179742","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","245","2.1.0","180244","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","246","2.1.0","181248","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","247","2.1.0","181869","","","","","","","","","",""
+"471","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","248","2.1.0","182341","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","249","2.1.0","182843","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","250","2.1.0","183846","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","251","2.1.0","184622","","","","","","","","","",""
+"491","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","252","2.1.0","185114","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","253","2.1.0","185616","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","254","2.1.0","186618","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","255","2.1.0","187428","","","","","","","","","",""
+"408","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","256","2.1.0","187838","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","257","2.1.0","188340","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","258","2.1.0","189343","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","259","2.1.0","190036","","","","","","","","","",""
+"432","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","260","2.1.0","190469","","","s1.svg","s2.svg","1","0","1","left","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","261","2.1.0","190971","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","262","2.1.0","191973","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","263","2.1.0","192894","","","","","","","","","",""
+"439","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","264","2.1.0","193334","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","265","2.1.0","193836","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","266","2.1.0","194839","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","267","2.1.0","195554","","","","","","","","","",""
+"567","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","268","2.1.0","196123","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","269","2.1.0","196624","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","270","2.1.0","197626","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","271","2.1.0","198586","","","","","","","","","",""
+"404","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","272","2.1.0","198991","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","273","2.1.0","199493","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","274","2.1.0","200496","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","275","2.1.0","201344","","","","","","","","","",""
+"577","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","276","2.1.0","201922","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","277","2.1.0","202424","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","278","2.1.0","203427","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","279","2.1.0","204174","","","","","","","","","",""
+"453","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","280","2.1.0","204628","","","s2.svg","s1.svg","2","0","1","right","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","281","2.1.0","205130","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","282","2.1.0","206133","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","283","2.1.0","207120","","","","","","","","","",""
+"404","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","284","2.1.0","207526","","","s1.svg","s2.svg","1","0","1","left","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","285","2.1.0","208028","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","286","2.1.0","209030","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","287","2.1.0","209973","","","","","","","","","",""
+"452","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","288","2.1.0","210426","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","289","2.1.0","210928","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","290","2.1.0","211932","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","291","2.1.0","212535","","","","","","","","","",""
+"451","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","292","2.1.0","212987","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","293","2.1.0","213488","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","294","2.1.0","214491","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","295","2.1.0","215489","","","","","","","","","",""
+"414","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","296","2.1.0","215905","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","297","2.1.0","216408","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","298","2.1.0","217411","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","299","2.1.0","218264","","","","","","","","","",""
+"392","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","300","2.1.0","218657","","","s1.svg","s2.svg","1","0","1","left","s1.svg","punishment.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","301","2.1.0","219159","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/punishment.svg' width='350px'/>","null","html-keyboard-response","302","2.1.0","220161","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","303","2.1.0","221047","","","","","","","","","",""
+"511","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","304","2.1.0","221559","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","305","2.1.0","222061","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","306","2.1.0","223063","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","307","2.1.0","223709","","","","","","","","","",""
+"558","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","308","2.1.0","224268","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","309","2.1.0","224770","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","310","2.1.0","225773","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","311","2.1.0","226656","","","","","","","","","",""
+"493","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","312","2.1.0","227151","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","313","2.1.0","227653","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","314","2.1.0","228656","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","315","2.1.0","229656","","","","","","","","","",""
+"504","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+    　</div>","ArrowLeft","html-keyboard-response","316","2.1.0","230161","","","s1.svg","s2.svg","1","1","0","left","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","317","2.1.0","230663","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","318","2.1.0","231666","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","319","2.1.0","232507","","","","","","","","","",""
+"407","
+      <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+      <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+      </button>
+      <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+        ＋
+      </div>
+      <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+        <img src='probabilistic-reversal-learning/stimuli/s1.svg' width='300px'/>
+      </button>
+    　</div>","ArrowRight","html-keyboard-response","320","2.1.0","232916","","","s2.svg","s1.svg","2","1","0","right","s1.svg","reward.svg"
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 800px; margin: auto; position: relative;'>
+          <button id='left' style='border: none; background: none; position: absolute; left: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s2.svg' width='300px'/>
+          </button>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+          <button id='right' style='border: none; background: none; position: absolute; right: 0;'>
+          <img src='probabilistic-reversal-learning/stimuli/s1s.svg' width='300px'/>
+          </button>
+    　    </div>","null","html-keyboard-response","321","2.1.0","233418","","","","","","","","","",""
+"null","<img src='probabilistic-reversal-learning/stimuli/reward.svg' width='350px'/>","null","html-keyboard-response","322","2.1.0","234422","","","","","","","","","",""
+"null","
+          <div style='display: flex; justify-content: space-between; align-items: center; width: 600px; margin: auto; position: relative;'>
+          <div style='position: absolute; left: 50%; transform: translateX(-50%); font-size: 32px; font-weight: bold;'>
+          ＋
+          </div>
+    　    </div>","null","html-keyboard-response","323","2.1.0","235419","","","","","","","","","",""
+"3152","<p>あなたの正答率は，<strong>71.25%</strong>でした。</p> <p>キーボードのキーをどれか押すと結果がCSV形式でダウンロードされます。ブラウザを閉じて終了してください。ご参加ありがとうございました。</p>"," ","html-keyboard-response","324","2.1.0","238574","","","","","","","","","",""
