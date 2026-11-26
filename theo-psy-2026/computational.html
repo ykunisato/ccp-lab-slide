@@ -1146,7 +1146,7 @@ margin-right: 0; }
 <section id="強化学習モデルとうつ" class="slide level2">
 <h2>強化学習モデルとうつ</h2>
 <ul>
-<li>抑うつの高い者は、強化学習課題時の行動選択の変動性を表す温度パラメータが高い（逆温度が低い） <span class="citation" data-cites="Kunisato2012-he Chase2010-sy Huys2012-kn">(<a href="#/引用文献" role="doc-biblioref" onclick>Kunisato et al. 2012</a>; <a href="#/引用文献" role="doc-biblioref" onclick>Chase et al. 2010</a>; <a href="#/引用文献" role="doc-biblioref" onclick>Huys et al. 2012</a>)</span></li>
+<li>抑うつの高い者は、強化学習課題時の行動選択の変動性を表す温度パラメータが高い（逆温度が低い） <span class="citation" data-cites="Kunisato2012-he Huys2012-kn">(<a href="#/引用文献" role="doc-biblioref" onclick>Kunisato et al. 2012</a>; <a href="#/引用文献" role="doc-biblioref" onclick>Huys et al. 2012</a>)</span></li>
 <li>気分・不安症の者を対象としたメタ分析 <span class="citation" data-cites="Pike2022-hx">(<a href="#/引用文献" role="doc-biblioref" onclick>Pike and Robinson 2022</a>)</span>でも、逆温度の低下が示された（シミュレーションに基づく分析だと罰に対する学習率が高い結果に）</li>
 </ul>
 <p>→ 推定されたパラメータと精神障害との関連は小さく、実験課題に結果が依存する問題もある</p>
@@ -1164,39 +1164,32 @@ margin-right: 0; }
 </div></div>
 <p>→ <a href="#/ref-@kunisato2026-cbt">心理療法の作用機序の解明へ</a></p>
 </section>
-<section id="当てはまりから予測へ" class="slide level2">
-<h2>当てはまりから予測へ</h2>
+<section id="当てはまりだけでは不十分" class="slide level2">
+<h2>当てはまりだけでは不十分</h2>
 <ul>
 <li>Chalmers <span class="citation" data-cites="Chalmers1996-rock">(<a href="#/引用文献" role="doc-biblioref" onclick>1996</a>)</span> は、実際に生じた状態系列の一致だけでは不十分であり、反事実的な状態遷移を支える因果構造の対応が必要だと論じた</li>
 <li>計算モデルでも、観測済みのデータを再現できるだけでは、条件が変わったときの振る舞いを捉えているとは限らない</li>
 </ul>
 <p>→ 当てはめたデータの再現に加え、未使用のデータや新しい課題条件での行動を予測できるかを検証する</p>
 </section>
-<section id="行動の予測から機序の識別へ" class="slide level2">
-<h2>行動の予測から機序の識別へ</h2>
+<section id="機序の識別不可能性" class="slide level2">
+<h2>機序の識別不可能性</h2>
 <ul>
 <li>同じ行動を、異なる機序を仮定したモデルが予測できることがある</li>
 <li>計算モデルは、機序的説明の一部を与えるにすぎない <span class="citation" data-cites="Piccinini2011-ms">(<a href="#/引用文献" role="doc-biblioref" onclick>Piccinini and Craver 2011</a>)</span>。</li>
 </ul>
 <p>→ 競合する機序を区別するため、予測が分かれる実験操作や、主観的評定・生理指標・神経活動などの追加測定を用いる</p>
 </section>
-<section id="最適性はモデルの前提に依存する" class="slide level2">
-<h2>最適性はモデルの前提に依存する</h2>
+<section id="誰にとって最適か" class="slide level2">
+<h2>誰にとって最適か？</h2>
 <ul>
-<li>何を「最適」とみなすかは、研究者が設定した前提に依存する
+<li>「最適」は、研究者が設定した前提に依存する
 <ul>
-<li>限られた計算資源の下では、合理的といえる行動もある <span class="citation" data-cites="Lieder2020-rr">(<a href="#/引用文献" role="doc-biblioref" onclick>Lieder and Griffiths 2020</a>)</span></li>
+<li>限られた計算資源下では合理的な行動もある <span class="citation" data-cites="Lieder2020-rr">(<a href="#/引用文献" role="doc-biblioref" onclick>Lieder and Griffiths 2020</a>)</span></li>
 </ul></li>
+<li>目標選択は学習や意思決定の方向を定める上位の認知過程<span class="citation" data-cites="Migo2026-goal">(<a href="#/引用文献" role="doc-biblioref" onclick>Migó and Treadway 2026</a>)</span></li>
 </ul>
-<p>→ 規範的なモデルを臨床に適用する際には、何にとっての最適か（目標、時間範囲、環境、資源制約）を明示する必要がある</p>
-</section>
-<section id="誰にとっての最適か" class="slide level2">
-<h2>誰にとっての最適か？</h2>
-<ul>
-<li><span class="citation" data-cites="Migo2026-goal">Migó and Treadway (<a href="#/引用文献" role="doc-biblioref" onclick>2026</a>)</span> は、目標選択を、学習や意思決定の方向を定める上位の認知過程として重視する</li>
-<li>本人の目標が異なると、同じ課題報酬でも主観的な価値が変わりうる。この目標の違いをモデル上で考慮しないと、学習率や逆温度の違いとして現れうる</li>
-</ul>
-<p>→ 抑うつ・不安でパラメータの結果が一貫しない <span class="citation" data-cites="Pike2022-hx">(<a href="#/引用文献" role="doc-biblioref" onclick>Pike and Robinson 2022</a>)</span> のは、目標選択を考慮できてないから？</p>
+<p>→ 本人の目標が異なると、同じ課題報酬でも主観的な価値が変わりうる。精神障害とパラメータとの関連が一貫しないのは、目標選択を考慮できてないから？</p>
 </section>
 <section id="おわりに" class="slide level2 scrollable">
 <h2>おわりに</h2>
@@ -1214,9 +1207,6 @@ Brown, Vanessa M, Lusha Zhu, Alec Solway, John M Wang, Katherine L McCurry, Broo
 </div>
 <div id="ref-Chalmers1996-rock" class="csl-entry" role="listitem">
 Chalmers, David J. 1996. <span>“Does a Rock Implement Every Finite-State Automaton?”</span> <em>Synthese</em> 108 (3): 309–33.
-</div>
-<div id="ref-Chase2010-sy" class="csl-entry" role="listitem">
-Chase, H W, M J Frank, A Michael, E T Bullmore, B J Sahakian, and T W Robbins. 2010. <span>“Approach and Avoidance Learning in Patients with Major Depression and Healthy Controls: Relation to Anhedonia.”</span> <em>Psychological Medicine</em> 40 (3): 433–40.
 </div>
 <div id="ref-Fodor1975-lot" class="csl-entry" role="listitem">
 Fodor, Jerry A. 1975. <em>The Language of Thought</em>. Thomas Y. Crowell.
